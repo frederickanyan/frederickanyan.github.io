@@ -1,0 +1,21 @@
+---
+title: 'Specificity in mediated pathways by anxiety symptoms linking adolescent stress profiles to depressive symptoms: Results of a moderated mediation approach'
+date: 2018-03-01
+categories: [Resilience, Depression, Anxiety]
+---
+**Background**
+We investigated the specificity in mediated pathways that separately link specific stress dimensions through anxiety to depressive symptoms and the protective utility of resilience. Thus, this study goes beyond lumping together potential mediating and moderating processes that can explain the relations between stress and (symptoms of) psychopathology and the buffering effect of resilience.
+
+**Methods**
+Ghanaian adolescents between 13 and 17 years (female = 285; male = 244) completed the Adolescent Stress Questionnaire (ASQ), Spielberger State Anxiety Inventory (STAI), Short Mood Feeling Questionnaire (SMFQ) and the Resilience Scale for Adolescents (READ). Independent samples t-test, multivariate analysis of covariance with follow-up tests and moderated mediation analyses were performed.
+
+**Results**
+Evidences were found for specificity in the associations between dimensions of adolescent stressors and depressive symptoms independent of transient anxiety. Transient anxiety partly accounted for the indirect effects of eight stress dimensions on depressive symptoms. Except stress of school attendance and school/leisure conflict, resilience moderated the indirect effects of specific stress dimensions on depressive symptoms. Results suggested differences in how Ghanaian adolescents view the various stress dimensions, and mediated pathways associated with anxiety and depressive symptoms.
+
+**Limitations**
+Use of cross-sectional data does not show causal process and temporal changes over time.
+
+**Conclusions**
+Findings support and clarify the specificity in the interrelations and mediated pathways among dimensions of adolescent stress, transient anxiety, and depressive symptoms. Conditional process analyses shows that resilience does not only buffer direct, but also indirect psychological adversities. Interventions for good mental health may focus on low resilience subgroups in specific stress dimensions while minimizing transient anxiety.
+
+[Read more](https://doi.org/10.1016/j.jad.2017.12.011)

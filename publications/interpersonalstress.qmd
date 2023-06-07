@@ -1,0 +1,18 @@
+---
+title: 'Interpersonal stress, anxiety and depressive symptoms: Results from a moderated mediation analysis with resilience'
+date: 2020-12-01
+categories: [Stress, Anxiety, Depression]
+---
+**Introduction and objectives**
+Interpersonal stress factors contribute to common mental health problems measured as anxiety and depression. Recently, it is emerging that anxiety precedes depression but not the reverse, and markedly increase in response to stress giving way to depression. As such, anxiety itself could be a predictive risk factor, and mediate the associations between stress and depression. While resilience protects against exposure to stress and common mental health problems, it is unclear to what extent different resilience factors are differentially involved in protection against anxiety and depressive symptoms. This study explored complex theoretical associations between interpersonal stress, anxiety and depressive symptoms and resilience factors.
+
+**Materials and methods**
+Participants (N = 210 adults) completed the Resilience Scale for Adults (RSA), Patient Health Questionnaire (PHQ-9), Generalized Anxiety Disorder Questionnaire (GAD-7) and the Stressful Life Events Questionnaire (SLE) in a cross-sectional survey. Hierarchical linear regressions and moderated-mediation analyses were performed using PROCESS macro.
+
+**Results**
+Interpersonal stress explained more variance in depressive than anxiety symptoms. Support was found for the mediating effect of anxiety symptoms in the relationship between interpersonal stress and depressive symptoms. Resilience factors are differentially involved in protection against anxiety and depressive symptoms.
+
+**Conclusion**
+Exposure to interpersonal stress is not only directly associated with depressive symptoms but also indirectly through high scores on anxiety symptoms. Uneven functioning and differential impact of resilience factors can help us understand the mixed successes in implementing resilience-based interventions for positive mental health and judiciously allocate scarce and finite resources for intervention.
+
+[Read more](https://doi.org/10.1016/j.anyes.2020.07.003)

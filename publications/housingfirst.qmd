@@ -1,0 +1,20 @@
+---
+title: 'Housing first, connection second: the impact of professional helping relationships on the trajectories of housing stability for people facing severe and multiple disadvantage'
+date: 2021-01-30
+categories: [Housing first, Growth mixture modelling, Homelessness]
+---
+
+**Background**
+Despite the accumulating evidence on the role of professional helping relationships for highly disadvantaged populations, methodological shortcomings have made it difficult to establish a robust relationships-outcomes link. This study sought to establish the impact of professional helping relationships on the trajectories over 24 months of housing stability for 2141 people facing severe and multiple disadvantage using data from the Housing First controlled trial in Canada.
+
+**Method**
+The study used a mixed method design. Latent growth curve and growth mixture models assessed the impact of working alliance across the sample as a whole and within subgroups with different patterns of housing stability. Thematic analysis explored the factors that may affect the quality of working alliances within different subgroups.
+
+**Results**
+Three distinct trajectories of housing stability emerged (i.e., Class 1: “sharp rise, sustained, and decline housing”; Class 2: “hardly any time housed”; Class 3: “high rise, sustained, and decline housing”) with professional helping relationships having different effects in each. The analysis revealed structural and individual circumstances that may explain differences among the classes.
+
+**Conclusions**
+The findings underscore the role of professional helping relationships, as distinct from services, in major interventions for highly disadvantaged populations, and draws new attention to the temporal patterns of responses to both the quality of relationship and targeted interventions.
+
+[Read more](https://doi.org/10.1186/s12889-021-10281-2)
+

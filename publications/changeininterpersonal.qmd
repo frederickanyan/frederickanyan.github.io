@@ -1,0 +1,19 @@
+---
+title: 'Change in interpersonal problems and metacognitive beliefs as predictors of improvement in patients with generalized anxiety disorder'
+date: 2023-02-16
+categories: [Metacognitve theory, Metacognitve beliefs, Mental health, Work ability]
+---
+**Introduction**
+Generalized anxiety disorder (GAD) is characterized by persistent worry and anxiety, often with a chronic course. We tested the role of two suggested underlying factors in GAD, interpersonal problems and negative metacognitive beliefs, as predictors of trait-worry and trait-anxiety.
+
+**Methods**
+The sample consisted of 56 patients with a primary diagnosis of GAD from a randomized controlled trial. We first estimated the proportion of variance lying between the higher level of the data structure to account for potential therapists' effects. Two hierarchical regression analyses were conducted testing change in interpersonal problems and negative metacognitive beliefs as predictors of change in trait-worry and trait-anxiety following treatment. Change in depression and anxiety symptoms was controlled.
+
+**Results**
+Change in negative metacognitive beliefs was the strongest predictor of improvement of both trait-worry and trait-anxiety. Change in interpersonal problems was not a unique predictor of change in trait-worry but did make a significant and unique contribution to trait-anxiety.
+
+**Conclusions**
+Negative metacognitive beliefs may be important targets to improve trait-worry and trait-anxiety in GAD. Interpersonal problems may be relevant for trait-anxiety but could also be a surface marker of higher order vulnerability factors. Implications for treatment are discussed.
+
+[Read more](https://doi.org/10.1002/cpp.2841)
+

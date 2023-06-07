@@ -1,0 +1,10 @@
+---
+title: 'Loneliness in social relationships: Mapping the nomological network of loneliness with key conceptual domains and theoretical constructs'
+date: 2021-07-19
+categories: [Loneliness, Social isolation, Resilience, Mental health]
+---
+To expand evidence for the nature and related mechanisms underlying loneliness measured by Social and Emotional Loneliness Scale for Adults (SELSA-S), several hypotheses were developed and tested to map the nomological network of loneliness. Tests included examining the structure of the multidimensional experiences of loneliness, concurrent and prospective relations between loneliness, sociodemographic variables, worry, rumination, metacognition, symptoms of anxiety and depression. This study also sought to determine how resilience is involved in the protection against loneliness and depressive symptoms. Four hundred and eighty-two students with a mean age of 25.84 years (SD = 5.74) participated (N = 482; 59% females). Structural and temporal stability analyses supported the multidimensional experiences of loneliness, including family, romantic and social loneliness. Psychological network analysis identified especially strong connections (i.e., edges) between indicators belonging to loneliness in family and social relationships. At the general level, older participants and those who were single reported more loneliness. Loneliness was concurrently and prospectively associated with worry, rumination and metacognitions and predicted vulnerabilities in levels of anxiety and depressive symptoms. At follow-up, the effect of loneliness on depressive symptoms was lower when scoring high on resilience. Interventions for loneliness may address improving family relationships and metacognitive processes underlying loneliness, which may in turn improve mental health. Interpersonal and intrapersonal protective factors involved in resilience may compensate for deficits in social relationships thereby buffering negative effects of loneliness on common mental health problems.
+
+[Read more](https://doi.org/10.1177/02654075211033035)
+
+

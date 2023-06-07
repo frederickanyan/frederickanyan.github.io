@@ -2,10 +2,11 @@
   {
     "listing": "/publications.html",
     "items": [
-      "/publications/coping.html",
-      "/publications/anx_sym_med.html",
-      "/publications/adolescents.html",
-      "/publications/powershifts.html"
+      "/publications/coping/coping.html",
+      "/publications/anx_sym/anx_sym_med.html",
+      "/publications/stresshome/stresshome.html",
+      "/publications/adolescent/adolescents.html",
+      "/publications/powershifts/powershifts.html"
     ]
   },
   {

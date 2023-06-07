@@ -50,6 +50,7 @@ format:
     code-link: true
     code-fold: show
     highlight-style: github
+    link-external-newwindow: true
     css: styles.css
     toc: true
 

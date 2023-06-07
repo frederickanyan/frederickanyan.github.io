@@ -1,7 +1,7 @@
 ---
 title: 'Adolescent stress and symptoms of anxiety and depression: Resilience explains and differentiates the relationships'
 date: 2016-10-01
-categories: [Resilience, Mental health, Stress, Anxiety]
+
 ---
 
 **Background**

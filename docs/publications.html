@@ -189,7 +189,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(31)</span></div><div class="category" data-category="Anxiety">Anxiety <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Mental health">Mental health <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Resilience">Resilience <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Stress">Stress <span class="quarto-category-count">(1)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(31)</span></div></div></div>
 <!-- main -->
 <main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
 
@@ -840,7 +840,7 @@ Apr 1, 2017
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="29" data-categories="Resilience,Mental health,Stress,Anxiety" data-listing-date-sort="1475272800000" data-listing-file-modified-sort="1686155286000" data-listing-reading-time-sort="1.165">
+<div class="quarto-post image-right" data-index="29" data-listing-date-sort="1475272800000" data-listing-file-modified-sort="1686169742000" data-listing-reading-time-sort="1.165">
 <div class="body">
 <a href="./publications/adolescents.html">
 <h3 class="no-anchor listing-title">
@@ -849,22 +849,6 @@ Adolescent stress and symptoms of anxiety and depression: Resilience explains an
 <div class="listing-subtitle">
 
 </div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Resilience'); return false;">
-Resilience
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Mental health'); return false;">
-Mental health
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Stress'); return false;">
-Stress
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Anxiety'); return false;">
-Anxiety
-</div>
-</div>
-<a href="./publications/adolescents.html">
 <div class="listing-description">
 <strong>Background</strong> Some adolescents exhibit resilience even in the face of high levels of stress exposure. Despite this relationship, studies that investigate explanations for how resilience…
 </div>
@@ -1154,6 +1138,20 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       });
     }
   }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+    var links = window.document.querySelectorAll('a:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+      }
+    }
 });
 </script>
 </div> <!-- /content -->

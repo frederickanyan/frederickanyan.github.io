@@ -72,9 +72,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: [{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-date','listing-title','listing-author','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: [],
+      searchColumns: ["listing-date","listing-title","listing-author","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -169,7 +169,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page">
+    <div class="quarto-title column-page-left">
       <h1 class="title">Publications</h1>
                       </div>
   </div>
@@ -186,11 +186,11 @@ ul.task-list li input[type="checkbox"] {
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    </div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Interview">Interview <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Power asymmetry">Power asymmetry <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Qualitative research">Qualitative research <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Resilience">Resilience <span class="quarto-category-count">(2)</span></div><div class="category" data-category="anxiety">anxiety <span class="quarto-category-count">(1)</span></div><div class="category" data-category="mental health">mental health <span class="quarto-category-count">(2)</span></div><div class="category" data-category="stress">stress <span class="quarto-category-count">(2)</span></div></div></div>
 <!-- main -->
-<main class="content quarto-banner-title-block column-page" id="quarto-document-content">
+<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
 
 
 
@@ -199,9 +199,116 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
-<div class="list grid quarto-listing-cols-3">
+<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-categories="Resilience,mental health,stress,anxiety" data-listing-date-sort="1506808800000" data-listing-file-modified-sort="1686136342000" data-listing-reading-time-sort="1.235">
+<div class="body">
+<a href="./publications/anx_sym_med.html">
+<h3 class="no-anchor listing-title">
+Anxiety symptoms mediate the relationship between exposure to stressful negative life events and depressive symptoms: A conditional process modelling of the protective effects of resilience
+</h3>
+<div class="listing-subtitle">
 
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Resilience'); return false;">
+Resilience
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('mental health'); return false;">
+mental health
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('stress'); return false;">
+stress
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('anxiety'); return false;">
+anxiety
+</div>
+</div>
+<a href="./publications/anx_sym_med.html">
+<div class="listing-description">
+<strong>Background</strong> Resilience has provided a useful framework that elucidates the effects of protective factors to overcome psychological adversities but studies that address the potential…
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./publications/anx_sym_med.html">
+<div class="listing-date">
+Oct 1, 2017
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-categories="Resilience,mental health,stress" data-listing-date-sort="1475272800000" data-listing-file-modified-sort="1686134927000" data-listing-reading-time-sort="1.17">
+<div class="body">
+<a href="./publications/adolescents.html">
+<h3 class="no-anchor listing-title">
+Adolescent stress and symptoms of anxiety and depression: Resilience explains and differentiates the relationships
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Resilience'); return false;">
+Resilience
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('mental health'); return false;">
+mental health
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('stress'); return false;">
+stress
+</div>
+</div>
+<a href="./publications/adolescents.html">
+<div class="listing-description">
+<strong>Background</strong> Some adolescents exhibit resilience even in the face of high levels of stress exposure. Despite this relationship, studies that investigate explanations for how resilience…
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./publications/adolescents.html">
+<div class="listing-date">
+Oct 1, 2016
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="2" data-categories="Qualitative research,Interview,Power asymmetry" data-listing-date-sort="1370383200000" data-listing-file-modified-sort="1686136170000" data-listing-reading-time-sort="0.84">
+<div class="body">
+<a href="./publications/powershifts.html">
+<h3 class="no-anchor listing-title">
+The influence of power shifts in data collection and analysis stages : A focus on qualitative research interview
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Qualitative research'); return false;">
+Qualitative research
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Interview'); return false;">
+Interview
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Power asymmetry'); return false;">
+Power asymmetry
+</div>
+</div>
+<a href="./publications/powershifts.html">
+<div class="listing-description">
+This paper analyzes the power relation between the interviewer and the interviewee in the qualitative research interview methodology. The paper sets out to grapple with the…
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./publications/powershifts.html">
+<div class="listing-date">
+Jun 5, 2013
+</div>
+</a>
+</div>
+</div>
 </div>
 <div class="listing-no-matching d-none">
 No matching items

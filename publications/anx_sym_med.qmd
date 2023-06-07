@@ -1,0 +1,21 @@
+---
+title: 'Anxiety symptoms mediate the relationship between exposure to stressful negative life events and depressive symptoms: A conditional process modelling of the protective effects of resilience'
+date: 2017-10-01
+categories: [Resilience, mental health, stress, anxiety]
+---
+**Background**
+Resilience has provided a useful framework that elucidates the effects of protective factors to overcome psychological adversities but studies that address the potential contingencies of resilience to protect against direct and indirect negative effects are lacking. These obvious gaps have also resulted in oversimplification of complex processes that can be clarified by moderated mediation associations. This study examines a conditional process modelling of the protective effects of resilience against indirect effects.
+
+**Method**
+Two separate samples were recruited in a cross-sectional survey from Australia and Norway to complete the Patient Health Questionnaire −9, Generalized Anxiety Disorder, Stressful Negative Life Events Questionnaire and the Resilience Scale for Adults. The final sample sizes were 206 (females = 114; males = 91; other = 1) and 210 (females = 155; males = 55) for Australia and Norway respectively. Moderated mediation analyses were conducted across the samples.
+
+**Results**
+Anxiety symptoms mediated the relationship between exposure to stressful negative life events and depressive symptoms in both samples. Conditional indirect effects of exposure to stressful negative life events on depressive symptoms mediated by anxiety symptoms showed that high subgroup of resilience was associated with less effect of exposure to stressful negative life events through anxiety symptoms on depressive symptoms than the low subgroup of resilience.
+
+**Limitations**
+As a cross-sectional survey, the present study does not answer questions about causal processes despite the use of a conditional process modelling.
+
+**Conclusions**
+These findings support that, resilience protective resources can protect against both direct and indirect – through other channels – psychological adversities.
+
+[Download paper here](http://frederickanyan.github.io/files/publications/anxiety_symptoms_mediate.pdf)

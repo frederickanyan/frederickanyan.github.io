@@ -1,20 +1,17 @@
 [
   {
+    "listing": "/publications.html",
+    "items": [
+      "/publications/anx_sym_med.html",
+      "/publications/adolescents.html",
+      "/publications/powershifts.html"
+    ]
+  },
+  {
     "listing": "/quantposts.html",
     "items": [
       "/quantposts/null hypothesis testing/index.html",
       "/quantposts/rejecting the null hypothesis/index.html"
     ]
-  },
-  {
-    "listing": "/projects.html",
-    "items": [
-      "/projects/forsvaret/index.html",
-      "/projects/reslon/index.html"
-    ]
-  },
-  {
-    "listing": "/publications.html",
-    "items": []
   }
 ]

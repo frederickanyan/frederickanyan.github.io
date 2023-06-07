@@ -3,8 +3,8 @@ title: "Publications"
 listing: 
   contents: publications
   sort: "date desc"
-  type: grid
-  categories: false
+  type: default
+  categories: true
   sort-ui: false
   filter-ui: false
 page-layout: full

@@ -73,7 +73,8 @@ ul.task-list li input[type="checkbox"] {
 
     const options = {
       valueNames: ['listing-date','listing-title','listing-author','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
+      page: 25,
+    pagination: { item: "<li class='page-item'><a class='page page-link' href='#'></a></li>" },
       searchColumns: ["listing-date","listing-title","listing-author","listing-description","listing-categories"],
     };
 
@@ -188,7 +189,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(5)</span></div><div class="category" data-category="Family cohesion">Family cohesion <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Interview">Interview <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Power asymmetry">Power asymmetry <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Qualitative research">Qualitative research <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Religious beliefs">Religious beliefs <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Resilience">Resilience <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Stress">Stress <span class="quarto-category-count">(1)</span></div><div class="category" data-category="anxiety">anxiety <span class="quarto-category-count">(2)</span></div><div class="category" data-category="mental health">mental health <span class="quarto-category-count">(2)</span></div><div class="category" data-category="stress">stress <span class="quarto-category-count">(2)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(31)</span></div><div class="category" data-category="Anxiety">Anxiety <span class="quarto-category-count">(8)</span></div><div class="category" data-category="COVID">COVID <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Co-creation">Co-creation <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Cognitive Attentional Syndrome">Cognitive Attentional Syndrome <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Cognitive beliefs">Cognitive beliefs <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Depression">Depression <span class="quarto-category-count">(4)</span></div><div class="category" data-category="Family cohesion">Family cohesion <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Growth mixture modelling">Growth mixture modelling <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Homelessness">Homelessness <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Housing first">Housing first <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Interview">Interview <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Loneliness">Loneliness <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Mental health">Mental health <span class="quarto-category-count">(13)</span></div><div class="category" data-category="Metacognitive beliefs">Metacognitive beliefs <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Metacognitive model">Metacognitive model <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Metacognitive theory">Metacognitive theory <span class="quarto-category-count">(4)</span></div><div class="category" data-category="Metacognitve beliefs">Metacognitve beliefs <span class="quarto-category-count">(4)</span></div><div class="category" data-category="Metacognitve theory">Metacognitve theory <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Power asymmetry">Power asymmetry <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Qualitative research">Qualitative research <span class="quarto-category-count">(2)</span></div><div class="category" data-category="READ Scale">READ Scale <span class="quarto-category-count">(1)</span></div><div class="category" data-category="READ scale">READ scale <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RSA Scale">RSA Scale <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RSA scale">RSA scale <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Religious beliefs">Religious beliefs <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Resilience">Resilience <span class="quarto-category-count">(17)</span></div><div class="category" data-category="Return to work">Return to work <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Rumination">Rumination <span class="quarto-category-count">(3)</span></div><div class="category" data-category="S-REF model">S-REF model <span class="quarto-category-count">(2)</span></div><div class="category" data-category="School resilience">School resilience <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Self-beliefs">Self-beliefs <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Sick leave">Sick leave <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Social anxiety">Social anxiety <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Social isolation">Social isolation <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Social phobia">Social phobia <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Stress">Stress <span class="quarto-category-count">(4)</span></div><div class="category" data-category="UPRIGHT">UPRIGHT <span class="quarto-category-count">(6)</span></div><div class="category" data-category="Work ability">Work ability <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Worry">Worry <span class="quarto-category-count">(3)</span></div><div class="category" data-category="stress">stress <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
 
@@ -201,7 +202,953 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="Qualitative research,Religious beliefs,Interview" data-listing-date-sort="1509922800000" data-listing-file-modified-sort="1686150726000" data-listing-reading-time-sort="0.745">
+<div class="quarto-post image-right" data-index="0" data-categories="Anxiety,Metacognitive theory,S-REF model,Metacognitive beliefs,Cognitive Attentional Syndrome,Worry,Rumination" data-listing-date-sort="1682373600000" data-listing-file-modified-sort="1686162144000" data-listing-reading-time-sort="1.245">
+<div class="body">
+<a href="./publications/NetworkMCQCASSymp.html">
+<h3 class="no-anchor listing-title">
+The network structure of dysfunctional metacognitions, CAS strategies, and symptoms
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Anxiety'); return false;">
+Anxiety
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Metacognitive theory'); return false;">
+Metacognitive theory
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('S-REF model'); return false;">
+S-REF model
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Metacognitive beliefs'); return false;">
+Metacognitive beliefs
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Cognitive Attentional Syndrome'); return false;">
+Cognitive Attentional Syndrome
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Worry'); return false;">
+Worry
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Rumination'); return false;">
+Rumination
+</div>
+</div>
+<a href="./publications/NetworkMCQCASSymp.html">
+<div class="listing-description">
+In the metacognitive model of psychological disorders, metacognitive strategies and corresponding underlying metacognitive beliefs intensify and maintain emotional distress…
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./publications/NetworkMCQCASSymp.html">
+<div class="listing-date">
+Apr 25, 2023
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-categories="Resilience,RSA scale" data-listing-date-sort="1679868000000" data-listing-file-modified-sort="1686162165000" data-listing-reading-time-sort="1.04">
+<div class="body">
+<a href="./publications/RSAsicklisted.html">
+<h3 class="no-anchor listing-title">
+Measuring Resilience in Long-term Sick-listed Individuals: Validation of the Resilience Scale for Adults
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Resilience'); return false;">
+Resilience
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('RSA scale'); return false;">
+RSA scale
+</div>
+</div>
+<a href="./publications/RSAsicklisted.html">
+<div class="listing-description">
+Return to work from long-term sick leave is influenced by personal and social factors, which can be measured by resilience, a construct that describe healthy adaptation…
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./publications/RSAsicklisted.html">
+<div class="listing-date">
+Mar 27, 2023
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="2" data-categories="Anxiety,Metacognitive theory,S-REF model,Metacognitive beliefs,Cognitive Attentional Syndrome" data-listing-date-sort="1676588400000" data-listing-file-modified-sort="1686162148000" data-listing-reading-time-sort="1.01">
+<div class="body">
+<a href="./publications/MetacognitionCASAnx.html">
+<h3 class="no-anchor listing-title">
+Prospective Relations Between Dysfunctional Metacognitive Beliefs, Metacognitive Strategies, and Anxiety: Results From a Four-Wave Longitudinal Mediation Model
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Anxiety'); return false;">
+Anxiety
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Metacognitive theory'); return false;">
+Metacognitive theory
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('S-REF model'); return false;">
+S-REF model
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Metacognitive beliefs'); return false;">
+Metacognitive beliefs
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Cognitive Attentional Syndrome'); return false;">
+Cognitive Attentional Syndrome
+</div>
+</div>
+<a href="./publications/MetacognitionCASAnx.html">
+<div class="listing-description">
+The metacognitive model of psychological disorders suggests that emotional disorders are related to maladaptive metacognitive strategies corresponding to underlying…
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./publications/MetacognitionCASAnx.html">
+<div class="listing-date">
+Feb 17, 2023
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="3" data-categories="Metacognitve theory,Metacognitve beliefs,Mental health,Work ability" data-listing-date-sort="1676502000000" data-listing-file-modified-sort="1686162192000" data-listing-reading-time-sort="0.93">
+<div class="body">
+<a href="./publications/changeininterpersonal.html">
+<h3 class="no-anchor listing-title">
+Change in interpersonal problems and metacognitive beliefs as predictors of improvement in patients with generalized anxiety disorder
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Metacognitve theory'); return false;">
+Metacognitve theory
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Metacognitve beliefs'); return false;">
+Metacognitve beliefs
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Mental health'); return false;">
+Mental health
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Work ability'); return false;">
+Work ability
+</div>
+</div>
+<a href="./publications/changeininterpersonal.html">
+<div class="listing-description">
+<strong>Introduction</strong> Generalized anxiety disorder (GAD) is characterized by persistent worry and anxiety, often with a chronic course. We…
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./publications/changeininterpersonal.html">
+<div class="listing-date">
+Feb 16, 2023
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="4" data-categories="UPRIGHT,Mental health" data-listing-date-sort="1674514800000" data-listing-file-modified-sort="1686162141000" data-listing-reading-time-sort="1.22">
+<div class="body">
+<a href="./publications/Incidencemental.html">
+<h3 class="no-anchor listing-title">
+Incidence of mental disorders in the general population aged 1–30 years disaggregated by gender and socioeconomic status
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('UPRIGHT'); return false;">
+UPRIGHT
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Mental health'); return false;">
+Mental health
+</div>
+</div>
+<a href="./publications/Incidencemental.html">
+<div class="listing-description">
+<strong>Purpose</strong> The objective of this study was to estimate the incidence and age of onset of mental disorders…
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./publications/Incidencemental.html">
+<div class="listing-date">
+Jan 24, 2023
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="5" data-categories="Metacognitve theory,Metacognitve beliefs,Mental health,Work ability" data-listing-date-sort="1667516400000" data-listing-file-modified-sort="1686162200000" data-listing-reading-time-sort="1.21">
+<div class="body">
+<a href="./publications/workability.html">
+<h3 class="no-anchor listing-title">
+Testing the longitudinal effect of metacognitive beliefs on the trajectory of work ability
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Metacognitve theory'); return false;">
+Metacognitve theory
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Metacognitve beliefs'); return false;">
+Metacognitve beliefs
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Mental health'); return false;">
+Mental health
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Work ability'); return false;">
+Work ability
+</div>
+</div>
+<a href="./publications/workability.html">
+<div class="listing-description">
+There is increasing need to identify factors that contribute to poor work ability with an aim to prevent work related problems such as sick leave and disability pension. In…
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./publications/workability.html">
+<div class="listing-date">
+Nov 4, 2022
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="6" data-categories="Loneliness,Social isolation,Resilience,Mental health" data-listing-date-sort="1656626400000" data-listing-file-modified-sort="1686162229000" data-listing-reading-time-sort="1.025">
+<div class="body">
+<a href="./publications/networkMCQ.html">
+<h3 class="no-anchor listing-title">
+The network structure of dysfunctional metacognition: Analysis of the MCQ-30
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Loneliness'); return false;">
+Loneliness
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Social isolation'); return false;">
+Social isolation
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Resilience'); return false;">
+Resilience
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Mental health'); return false;">
+Mental health
+</div>
+</div>
+<a href="./publications/networkMCQ.html">
+<div class="listing-description">
+The Metacognitive Control System (MCS) model gives central importance to maladaptive metacognition in psychological vulnerability and disorder. The metacognitions…
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./publications/networkMCQ.html">
+<div class="listing-date">
+Jul 1, 2022
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="7" data-categories="Resilience,Anxiety,Depression" data-listing-date-sort="1656021600000" data-listing-file-modified-sort="1686162215000" data-listing-reading-time-sort="0.755">
+<div class="body">
+<a href="./publications/resiliencepatterns.html">
+<h3 class="no-anchor listing-title">
+Resilience patterns of Swiss adolescents before and during the COVID-19 pandemic: a latent transition analysis
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Resilience'); return false;">
+Resilience
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Anxiety'); return false;">
+Anxiety
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Depression'); return false;">
+Depression
+</div>
+</div>
+<a href="./publications/resiliencepatterns.html">
+<div class="listing-description">
+This study investigated resilience patterns and predictors of these patterns (i.e.&nbsp;gender and migration background) among Swiss early adolescents in times of COVID-19. A…
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./publications/resiliencepatterns.html">
+<div class="listing-date">
+Jun 24, 2022
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="8" data-categories="Metacognitive beliefs,Cognitive beliefs,Self-beliefs,Social anxiety,Social phobia,Metacognitive model" data-listing-date-sort="1646089200000" data-listing-file-modified-sort="1686162272000" data-listing-reading-time-sort="0.975">
+<div class="body">
+<a href="./publications/metacognition_cognition.html">
+<h3 class="no-anchor listing-title">
+Metacognition, Cognition and Social Anxiety: A Test of Temporal and Reciprocal Relationships
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Metacognitive beliefs'); return false;">
+Metacognitive beliefs
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Cognitive beliefs'); return false;">
+Cognitive beliefs
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Self-beliefs'); return false;">
+Self-beliefs
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Social anxiety'); return false;">
+Social anxiety
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Social phobia'); return false;">
+Social phobia
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Metacognitive model'); return false;">
+Metacognitive model
+</div>
+</div>
+<a href="./publications/metacognition_cognition.html">
+<div class="listing-description">
+Cognitive models of social anxiety give prominence to dysfunctional schemas about the social self as the key underlying factors in maladaptive self-processing strategies and…
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./publications/metacognition_cognition.html">
+<div class="listing-date">
+Mar 1, 2022
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="9" data-categories="Resilience,Mental health" data-listing-date-sort="1643238000000" data-listing-file-modified-sort="1686162210000" data-listing-reading-time-sort="0.885">
+<div class="body">
+<a href="./publications/resilienceprofiles.html">
+<h3 class="no-anchor listing-title">
+Resilience profiles across context: A latent profile analysis in a German, Greek, and Swiss sample of adolescents
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Resilience'); return false;">
+Resilience
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Mental health'); return false;">
+Mental health
+</div>
+</div>
+<a href="./publications/resilienceprofiles.html">
+<div class="listing-description">
+The present study investigated resilience profiles (based on levels of symptoms of anxiety and depression and five dimensions of protective factors) of 1,160 students from…
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./publications/resilienceprofiles.html">
+<div class="listing-date">
+Jan 27, 2022
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="10" data-categories="Sick leave,Return to work,Mental health" data-listing-date-sort="1631484000000" data-listing-file-modified-sort="1686162286000" data-listing-reading-time-sort="1.515">
+<div class="body">
+<a href="./publications/sickleave.html">
+<h3 class="no-anchor listing-title">
+Sick leave and return to work for patients with anxiety and depression: A longitudinal study of trajectories before, during and after work-focused treatment
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Sick leave'); return false;">
+Sick leave
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Return to work'); return false;">
+Return to work
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Mental health'); return false;">
+Mental health
+</div>
+</div>
+<a href="./publications/sickleave.html">
+<div class="listing-description">
+<strong>Objectives</strong> Sick leave due to anxiety and depression is a heterogeneous process constituting a pressing public health issue. This longitudinal study aimed to identify sick leave…
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./publications/sickleave.html">
+<div class="listing-date">
+Sep 13, 2021
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="11" data-categories="Mental health,UPRIGHT" data-listing-date-sort="1629496800000" data-listing-file-modified-sort="1686162263000" data-listing-reading-time-sort="1.155">
+<div class="body">
+<a href="./publications/relevanceofwell.html">
+<h3 class="no-anchor listing-title">
+Relevance of well-being, resilience, and health-related quality of life to mental health profiles of European adolescents: results from a cross-sectional analysis of the school-based multinational UPRIGHT project
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Mental health'); return false;">
+Mental health
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('UPRIGHT'); return false;">
+UPRIGHT
+</div>
+</div>
+<a href="./publications/relevanceofwell.html">
+<div class="listing-description">
+<strong>Purpose</strong> The existing evidence suggests that a complete evaluation of mental health should incorporate both psychopathology and mental well-being indicators. However, few studies…
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./publications/relevanceofwell.html">
+<div class="listing-date">
+Aug 21, 2021
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="12" data-categories="Loneliness,Social isolation,Resilience,Mental health" data-listing-date-sort="1626645600000" data-listing-file-modified-sort="1686162235000" data-listing-reading-time-sort="1.17">
+<div class="body">
+<a href="./publications/lonelinessNN.html">
+<h3 class="no-anchor listing-title">
+Loneliness in social relationships: Mapping the nomological network of loneliness with key conceptual domains and theoretical constructs
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Loneliness'); return false;">
+Loneliness
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Social isolation'); return false;">
+Social isolation
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Resilience'); return false;">
+Resilience
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Mental health'); return false;">
+Mental health
+</div>
+</div>
+<a href="./publications/lonelinessNN.html">
+<div class="listing-description">
+To expand evidence for the nature and related mechanisms underlying loneliness measured by Social and Emotional Loneliness Scale for Adults (SELSA-S), several hypotheses…
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./publications/lonelinessNN.html">
+<div class="listing-date">
+Jul 19, 2021
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="13" data-categories="Resilience,Mental health,UPRIGHT,READ Scale" data-listing-date-sort="1613516400000" data-listing-file-modified-sort="1686162250000" data-listing-reading-time-sort="1.05">
+<div class="body">
+<a href="./publications/READ_UPRIGHT.html">
+<h3 class="no-anchor listing-title">
+Measuring Resilience Across Participating Regions in the UPRIGHT EU Horizon 2020 Project: Factor Structure and Psychometric Properties of the Resilience Scale for Adolescents
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Resilience'); return false;">
+Resilience
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Mental health'); return false;">
+Mental health
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('UPRIGHT'); return false;">
+UPRIGHT
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('READ Scale'); return false;">
+READ Scale
+</div>
+</div>
+<a href="./publications/READ_UPRIGHT.html">
+<div class="listing-description">
+Resilience is the process and outcome of healthy adaptation despite significant adversity. Proliferation of research on the resilience construct has led to scientific…
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./publications/READ_UPRIGHT.html">
+<div class="listing-date">
+Feb 17, 2021
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="14" data-categories="Housing first,Growth mixture modelling,Homelessness" data-listing-date-sort="1611961200000" data-listing-file-modified-sort="1686162289000" data-listing-reading-time-sort="1.025">
+<div class="body">
+<a href="./publications/housingfirst.html">
+<h3 class="no-anchor listing-title">
+Housing first, connection second: the impact of professional helping relationships on the trajectories of housing stability for people facing severe and multiple disadvantage
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Housing first'); return false;">
+Housing first
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Growth mixture modelling'); return false;">
+Growth mixture modelling
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Homelessness'); return false;">
+Homelessness
+</div>
+</div>
+<a href="./publications/housingfirst.html">
+<div class="listing-description">
+<strong>Background</strong> Despite the accumulating evidence on the role of professional helping relationships for highly disadvantaged populations, methodological shortcomings have made it difficult…
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./publications/housingfirst.html">
+<div class="listing-date">
+Jan 30, 2021
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="15" data-categories="Resilience,READ scale" data-listing-date-sort="1608764400000" data-listing-file-modified-sort="1686162324000" data-listing-reading-time-sort="1">
+<div class="body">
+<a href="./publications/READGerman.html">
+<h3 class="no-anchor listing-title">
+Psychometric properties of the Resilience Scale for Adolescents (READ) and Measurement Invariance Across Two Different German-Speaking Samples
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Resilience'); return false;">
+Resilience
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('READ scale'); return false;">
+READ scale
+</div>
+</div>
+<a href="./publications/READGerman.html">
+<div class="listing-description">
+The Resilience Scale for Adolescents (READ) is a highly rated scale for measuring protective factors of resilience. Even though the READ has been validated in several…
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./publications/READGerman.html">
+<div class="listing-date">
+Dec 24, 2020
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="16" data-categories="Resilience,COVID,Mental health" data-listing-date-sort="1607986800000" data-listing-file-modified-sort="1686162292000" data-listing-reading-time-sort="1.955">
+<div class="body">
+<a href="./publications/changephysical.html">
+<h3 class="no-anchor listing-title">
+Change in Physical Activity During the Coronavirus Disease 2019 Lockdown in Norway: The Buffering Effect of Resilience on Mental Health
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Resilience'); return false;">
+Resilience
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('COVID'); return false;">
+COVID
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Mental health'); return false;">
+Mental health
+</div>
+</div>
+<a href="./publications/changephysical.html">
+<div class="listing-description">
+Imposition of lockdown restrictions during the coronavirus disease 2019 (COVID-19) pandemic was sudden and unprecedented and dramatically changed the life of many people, as…
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./publications/changephysical.html">
+<div class="listing-date">
+Dec 15, 2020
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="17" data-categories="Resilience,UPRIGHT,School resilience" data-listing-date-sort="1606777200000" data-listing-file-modified-sort="1686162327000" data-listing-reading-time-sort="1.7">
+<div class="body">
+<a href="./publications/SRSdev.html">
+<h3 class="no-anchor listing-title">
+Development and validation of the theory-driven School Resilience Scale for Adults: Preliminary results
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Resilience'); return false;">
+Resilience
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('UPRIGHT'); return false;">
+UPRIGHT
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('School resilience'); return false;">
+School resilience
+</div>
+</div>
+<a href="./publications/SRSdev.html">
+<div class="listing-description">
+Resilience is the ability of an individual or community to adapt to life challenges or adversities while maintaining mental health and well-being. In the multi-systemic…
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./publications/SRSdev.html">
+<div class="listing-date">
+Dec 1, 2020
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="18" data-categories="Stress,Anxiety,Depression" data-listing-date-sort="1606777200000" data-listing-file-modified-sort="1686162304000" data-listing-reading-time-sort="1.205">
+<div class="body">
+<a href="./publications/interpersonalstress.html">
+<h3 class="no-anchor listing-title">
+Interpersonal stress, anxiety and depressive symptoms: Results from a moderated mediation analysis with resilience
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Stress'); return false;">
+Stress
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Anxiety'); return false;">
+Anxiety
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Depression'); return false;">
+Depression
+</div>
+</div>
+<a href="./publications/interpersonalstress.html">
+<div class="listing-description">
+<strong>Introduction and objectives</strong> Interpersonal stress factors contribute to common mental health problems measured as anxiety and depression. Recently, it is emerging that anxiety precedes depression but…
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./publications/interpersonalstress.html">
+<div class="listing-date">
+Dec 1, 2020
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="19" data-categories="Resilience,Co-creation,UPRIGHT" data-listing-date-sort="1603926000000" data-listing-file-modified-sort="1686162331000" data-listing-reading-time-sort="1.01">
+<div class="body">
+<a href="./publications/cocreation.html">
+<h3 class="no-anchor listing-title">
+Co-creation and regional adaptation of a resilience-based universal whole-school program in five European regions
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Resilience'); return false;">
+Resilience
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Co-creation'); return false;">
+Co-creation
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('UPRIGHT'); return false;">
+UPRIGHT
+</div>
+</div>
+<a href="./publications/cocreation.html">
+<div class="listing-description">
+The co-creation of educational services that promote youth resilience and mental health is still scarce. UPRIGHT (Universal Preventive Resilience Intervention Globally…
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./publications/cocreation.html">
+<div class="listing-date">
+Oct 29, 2020
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="20" data-categories="Worry,Rumination,Metacognitive theory,Metacognitve beliefs" data-listing-date-sort="1599775200000" data-listing-file-modified-sort="1686162313000" data-listing-reading-time-sort="1.645">
+<div class="body">
+<a href="./publications/temporalreciprocal.html">
+<h3 class="no-anchor listing-title">
+Temporal and Reciprocal Relations Between Worry and Rumination Among Subgroups of Metacognitive Beliefs
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Worry'); return false;">
+Worry
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Rumination'); return false;">
+Rumination
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Metacognitive theory'); return false;">
+Metacognitive theory
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Metacognitve beliefs'); return false;">
+Metacognitve beliefs
+</div>
+</div>
+<a href="./publications/temporalreciprocal.html">
+<div class="listing-description">
+Metacognitive theory provides strong foundation for hypothesizing relations between worry and rumination among subgroups of metacognitive beliefs. However, empirical…
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./publications/temporalreciprocal.html">
+<div class="listing-date">
+Sep 11, 2020
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="21" data-categories="Worry,Rumination,Metacognitive theory,Metacognitve beliefs" data-listing-date-sort="1599602400000" data-listing-file-modified-sort="1686162309000" data-listing-reading-time-sort="1.025">
+<div class="body">
+<a href="./publications/prospectivelonel.html">
+<h3 class="no-anchor listing-title">
+Prospective relations between loneliness in different relationships, metacognitive beliefs, worry and common mental health problems
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Worry'); return false;">
+Worry
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Rumination'); return false;">
+Rumination
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Metacognitive theory'); return false;">
+Metacognitive theory
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Metacognitve beliefs'); return false;">
+Metacognitve beliefs
+</div>
+</div>
+<a href="./publications/prospectivelonel.html">
+<div class="listing-description">
+<strong>Background</strong> This study investigated prospective relations between loneliness in family, romantic and social relationships and common mental health problems…
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./publications/prospectivelonel.html">
+<div class="listing-date">
+Sep 9, 2020
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="22" data-categories="Resilience,COVID,stress" data-listing-date-sort="1599170400000" data-listing-file-modified-sort="1686162321000" data-listing-reading-time-sort="1.26">
+<div class="body">
+<a href="./publications/ResCovid.html">
+<h3 class="no-anchor listing-title">
+Resilience Moderates Negative Outcome from Stress during the COVID-19 Pandemic: A Moderated-Mediation Approach
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Resilience'); return false;">
+Resilience
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('COVID'); return false;">
+COVID
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('stress'); return false;">
+stress
+</div>
+</div>
+<a href="./publications/ResCovid.html">
+<div class="listing-description">
+Resilience refers to an individual’s healthy coping abilities when encountering adverse life events. The COVID-19 pandemic represents a situation with a high amount of…
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./publications/ResCovid.html">
+<div class="listing-date">
+Sep 4, 2020
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="23" data-categories="Resilience,UPRIGHT,Mental health" data-listing-date-sort="1572303600000" data-listing-file-modified-sort="1686162352000" data-listing-reading-time-sort="1.395">
+<div class="body">
+<a href="./publications/upright_rationale.html">
+<h3 class="no-anchor listing-title">
+UPRIGHT, a resilience-based intervention to promote mental well-being in schools: study rationale and methodology for a European randomized controlled trial
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Resilience'); return false;">
+Resilience
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('UPRIGHT'); return false;">
+UPRIGHT
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Mental health'); return false;">
+Mental health
+</div>
+</div>
+<a href="./publications/upright_rationale.html">
+<div class="listing-description">
+<strong>Background</strong> Adolescence is crucial period for laying the foundations for healthy development and mental well-being. The increasing prevalence of mental disorders amongst adolescents…
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./publications/upright_rationale.html">
+<div class="listing-date">
+Oct 29, 2019
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="24" data-categories="Resilience,Depression,Anxiety,RSA Scale" data-listing-date-sort="1554415200000" data-listing-file-modified-sort="1686162345000" data-listing-reading-time-sort="1.02">
+<div class="body">
+<a href="./publications/rsaAustralia.html">
+<h3 class="no-anchor listing-title">
+Measuring Resilience Across Australia and Norway: Validation and Psychometric Properties of the English Version of the Resilience Scale for Adults
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Resilience'); return false;">
+Resilience
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Depression'); return false;">
+Depression
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Anxiety'); return false;">
+Anxiety
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('RSA Scale'); return false;">
+RSA Scale
+</div>
+</div>
+<a href="./publications/rsaAustralia.html">
+<div class="listing-description">
+Resilience has become increasingly important in clinical and health psychology, but only few scales have received good psychometric ratings for assessing various outcomes of…
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./publications/rsaAustralia.html">
+<div class="listing-date">
+Apr 5, 2019
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="25" data-categories="Resilience,Depression,Anxiety" data-listing-date-sort="1519858800000" data-listing-file-modified-sort="1686155313000" data-listing-reading-time-sort="1.245">
+<div class="body">
+<a href="./publications/specificity.html">
+<h3 class="no-anchor listing-title">
+Specificity in mediated pathways by anxiety symptoms linking adolescent stress profiles to depressive symptoms: Results of a moderated mediation approach
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Resilience'); return false;">
+Resilience
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Depression'); return false;">
+Depression
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Anxiety'); return false;">
+Anxiety
+</div>
+</div>
+<a href="./publications/specificity.html">
+<div class="listing-description">
+<strong>Background</strong> We investigated the specificity in mediated pathways that separately link specific stress dimensions through anxiety to depressive symptoms and the protective utility of…
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./publications/specificity.html">
+<div class="listing-date">
+Mar 1, 2018
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="26" data-categories="Qualitative research,Religious beliefs,Interview" data-listing-date-sort="1509922800000" data-listing-file-modified-sort="1686155292000" data-listing-reading-time-sort="0.75">
 <div class="body">
 <a href="./publications/coping.html">
 <h3 class="no-anchor listing-title">
@@ -236,7 +1183,7 @@ Nov 6, 2017
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="Resilience,mental health,stress,anxiety" data-listing-date-sort="1506808800000" data-listing-file-modified-sort="1686150734000" data-listing-reading-time-sort="1.225">
+<div class="quarto-post image-right" data-index="27" data-categories="Resilience,Mental health,Stress,Anxiety" data-listing-date-sort="1506808800000" data-listing-file-modified-sort="1686155289000" data-listing-reading-time-sort="1.23">
 <div class="body">
 <a href="./publications/anx_sym_med.html">
 <h3 class="no-anchor listing-title">
@@ -250,14 +1197,14 @@ Anxiety symptoms mediate the relationship between exposure to stressful negative
 <div class="listing-category" onclick="window.quartoListingCategory('Resilience'); return false;">
 Resilience
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('mental health'); return false;">
-mental health
+<div class="listing-category" onclick="window.quartoListingCategory('Mental health'); return false;">
+Mental health
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('stress'); return false;">
-stress
+<div class="listing-category" onclick="window.quartoListingCategory('Stress'); return false;">
+Stress
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('anxiety'); return false;">
-anxiety
+<div class="listing-category" onclick="window.quartoListingCategory('Anxiety'); return false;">
+Anxiety
 </div>
 </div>
 <a href="./publications/anx_sym_med.html">
@@ -274,7 +1221,7 @@ Oct 1, 2017
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-categories="Resilience,Stress,Family cohesion" data-listing-date-sort="1490997600000" data-listing-file-modified-sort="1686150736000" data-listing-reading-time-sort="1.005">
+<div class="quarto-post image-right" data-index="28" data-categories="Resilience,Stress,Family cohesion" data-listing-date-sort="1490997600000" data-listing-file-modified-sort="1686155316000" data-listing-reading-time-sort="1.01">
 <div class="body">
 <a href="./publications/stresshome.html">
 <h3 class="no-anchor listing-title">
@@ -309,7 +1256,7 @@ Apr 1, 2017
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="3" data-categories="Resilience,mental health,stress,anxiety" data-listing-date-sort="1475272800000" data-listing-file-modified-sort="1686150730000" data-listing-reading-time-sort="1.16">
+<div class="quarto-post image-right" data-index="29" data-categories="Resilience,Mental health,Stress,Anxiety" data-listing-date-sort="1475272800000" data-listing-file-modified-sort="1686155286000" data-listing-reading-time-sort="1.165">
 <div class="body">
 <a href="./publications/adolescents.html">
 <h3 class="no-anchor listing-title">
@@ -323,14 +1270,14 @@ Adolescent stress and symptoms of anxiety and depression: Resilience explains an
 <div class="listing-category" onclick="window.quartoListingCategory('Resilience'); return false;">
 Resilience
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('mental health'); return false;">
-mental health
+<div class="listing-category" onclick="window.quartoListingCategory('Mental health'); return false;">
+Mental health
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('stress'); return false;">
-stress
+<div class="listing-category" onclick="window.quartoListingCategory('Stress'); return false;">
+Stress
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('anxiety'); return false;">
-anxiety
+<div class="listing-category" onclick="window.quartoListingCategory('Anxiety'); return false;">
+Anxiety
 </div>
 </div>
 <a href="./publications/adolescents.html">
@@ -347,7 +1294,7 @@ Oct 1, 2016
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="4" data-categories="Qualitative research,Interview,Power asymmetry" data-listing-date-sort="1370383200000" data-listing-file-modified-sort="1686152323000" data-listing-reading-time-sort="0.825">
+<div class="quarto-post image-right" data-index="30" data-categories="Qualitative research,Interview,Power asymmetry" data-listing-date-sort="1370383200000" data-listing-file-modified-sort="1686155294000" data-listing-reading-time-sort="0.83">
 <div class="body">
 <a href="./publications/powershifts.html">
 <h3 class="no-anchor listing-title">
@@ -386,6 +1333,9 @@ Jun 5, 2013
 <div class="listing-no-matching d-none">
 No matching items
 </div>
+<nav id="listing-pagination" class="listing-pagination" aria-label="Page Navigation">
+  <ul class="pagination"></ul>
+</nav>
 </div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {

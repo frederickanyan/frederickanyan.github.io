@@ -1,7 +1,7 @@
 ---
 title: 'Change in interpersonal problems and metacognitive beliefs as predictors of improvement in patients with generalized anxiety disorder'
 date: 2023-02-16
-categories: [Metacognitve theory, Metacognitve beliefs, Mental health, Work ability]
+
 ---
 **Introduction**
 Generalized anxiety disorder (GAD) is characterized by persistent worry and anxiety, often with a chronic course. We tested the role of two suggested underlying factors in GAD, interpersonal problems and negative metacognitive beliefs, as predictors of trait-worry and trait-anxiety.

@@ -1,7 +1,7 @@
 ---
 title: 'The network structure of dysfunctional metacognition: Analysis of the MCQ-30'
 date: 2022-07-01
-categories: [Loneliness, Social isolation, Resilience, Mental health]
+
 ---
 
 The Metacognitive Control System (MCS) model gives central importance to maladaptive metacognition in psychological vulnerability and disorder. The metacognitions questionnaire 30 (MCQ-30) is widely used to assess such metacognitions and to establish their effects. Previous studies consistently demonstrate that the MCQ-30 consists of five latent factors, with some factors showing wide-ranging positive associations with symptoms and some demonstrating more specific symptom links. Questions remain concerning relationships between MCQ-items (or domains) and the most central of these outside of the latent-factor model. In the present study we set out to explore the internal structure of the MCQ-30 using network analysis and estimated two graphical Gaussian models, one with items- and one with domains, in an unselected sample (N = 1080). The robustness and stability of the networks, as well as the node predictability were assessed. Among our observations was that the items of the MCQ-30 appeared to cluster in meaningful substructures, corresponding to metacognitive theory. Furthermore, “need for control” was the most centrally placed domain, suggesting it plays an important role in the network and that its activation has a strong influence on other nodes. The theoretical and clinical implications of the current findings are discussed in light of the metacognitive model of psychological disorder.

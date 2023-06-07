@@ -1,7 +1,7 @@
 ---
 title: 'Sick leave and return to work for patients with anxiety and depression: A longitudinal study of trajectories before, during and after work-focused treatment'
 date: 2021-09-13
-categories: [Sick leave, Return to work, Mental health]
+
 ---
 **Objectives**
 Sick leave due to anxiety and depression is a heterogeneous process constituting a pressing public health issue. This longitudinal study aimed to identify sick leave trajectories among patients before, during and after work-focused treatment, in all 29.5 months. We then aimed to determine the background and clinical characteristics of these trajectory groups.

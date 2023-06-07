@@ -1,7 +1,6 @@
 ---
 title: 'UPRIGHT, a resilience-based intervention to promote mental well-being in schools: study rationale and methodology for a European randomized controlled trial'
 date: 2019-10-29
-categories: [Resilience, UPRIGHT, Mental health]
 ---
 **Background**
 Adolescence is crucial period for laying the foundations for healthy development and mental well-being. The increasing prevalence of mental disorders amongst adolescents makes promotion of mental well-being and prevention interventions at schools important. UPRIGHT (Universal Preventive Resilience Intervention Globally implemented in schools to improve and promote mental Health for Teenagers) is designed as a whole school approach (school community, students and families) to promote a culture of mental well-being and prevent mental disorders by enhancing resilience capacities. The present article aims at describing the rationale, conceptual framework, as well as methodology of implementation and evaluation of the UPRIGHT intervention.

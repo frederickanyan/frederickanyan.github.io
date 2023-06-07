@@ -1,7 +1,7 @@
 ---
 title: 'Incidence of mental disorders in the general population aged 1–30 years disaggregated by gender and socioeconomic status'
 date: 2023-01-24
-categories: [UPRIGHT, Mental health]
+
 ---
 **Purpose**
 The objective of this study was to estimate the incidence and age of onset of mental disorders diagnosed by gender and socioeconomic status (SES) in children, adolescents, and young adults up to 30 years of age in the whole population of the Basque Country (Spain).

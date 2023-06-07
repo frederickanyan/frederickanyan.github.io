@@ -1,0 +1,30 @@
+---
+title: "Frederick Anyan, Ph.D"
+image: images/profile.png
+about:
+  template: jolla
+  image-shape: round
+  links: 
+    - icon: envelope
+      text: Contact me
+      href: mailto:frederick.anyan@ntnu.no
+    - icon: googlescholar
+      text: Google Scholar
+      href: https://scholar.google.no/citations?user=e2dUK-EAAAAJ&hl=en
+    - icon: researchgate
+      text: Researchgate
+      href: https://www.researchgate.net/profile/Frederick-Anyan
+    - icon: github
+      text: Github
+      href: https://github.com/frederickanyan
+    - icon: twitter
+      text: Twitter
+      href: https://twitter.com/@anyan4usall
+    - icon: orcid
+      text: Orcid
+      href: https://orcid.org/0000-0002-0339-3263
+---
+
+I am an Associate Professor of Quantitative Methods at the [Norwegian University of Science and Technology, NTNU](https://www.ntnu.no/ansatte/frederick.anyan) 
+
+

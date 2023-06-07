@@ -1,0 +1,10 @@
+---
+title: "Longitudinal analyses of the Mental health, Vulnerability, and Protective factors among Norwegian Afghanistan Veterans"
+author: "Frederick Anyan"
+date: "2023-06-07"
+categories: [veterans, resilience, mental health]
+image: "forsv.jpeg"
+---
+Data from HUNT survey and the Armed Forces' health registry will be combined to investigate relationships between deployment related risk factors and health, profiles of resileince among the general population and Norwegian Afghanistan veterans. 
+
+As both the Armed Forces' health surveys and HUNT include large cohorts, there is a high probability that there is a subgroup included in both health surveys. If one identifies this subgroup and connects data from HUNT with the Armed Forces' health surveys, this will provide a unique opportunity to find links between risk factors (lifestyle or environment) and the development of good or bad health (illness) after international deployments, and also to understand how resilience and constellations of specific robustness factors might differ in a civilian and veteran sample.

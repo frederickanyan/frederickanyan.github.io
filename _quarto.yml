@@ -1,0 +1,57 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Frederick Anyan, Ph.D"
+  
+  page-footer: 
+    center: |
+      [Contact Frederick Anyan](mailto: frederick.anyan@ntnu.no)
+    left: |
+      Made with [Quarto](https://quarto.org)
+    right: |
+     [Github Code Repo](https://github.com/frederickanyan)
+    background: "#2780e3"
+  
+  search: 
+    location: navbar
+    type: textbox
+    
+  navbar:
+    left: 
+      - text: Home
+        href: index.qmd
+      - text: Teaching
+        href: teaching.qmd
+      - text: Publications
+        href: publications.qmd
+      - text: Projects
+        href: projects.qmd
+      - text: Workshops
+        href: workshops.qmd
+      - text: Quant Posts
+        href: quantposts.qmd
+      - text: CV
+        href: cv.qmd
+    
+    right:
+      - about.qmd
+      - icon: github
+        href: https://github.com/frederickanyan
+      - icon: twitter
+        href: https://twitter.com/@anyan4usall
+      
+format:
+  html:
+    theme: 
+      light: cosmo
+      dark: darkly
+    code-link: true
+    code-fold: show
+    highlight-style: github
+    css: styles.css
+    toc: true
+
+
+

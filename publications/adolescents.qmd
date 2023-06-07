@@ -19,4 +19,4 @@ Although the findings in this study are novel, they do not answer questions abou
 **Conclusions**
 Evidence that resilience did not have the same effect across stress, and symptoms of anxiety and depression may support resilience as a dynamic process model. Access to different levels of resilience shows that enhancing resilience while minimizing stress may improve psychiatric health in adolescents' general population.
 
-[Download paper here](https://github.com/frederickanyan/frederickanyan.github.io/tree/main/files/publications/adolescent_stress.pdf)
+[Download paper here](https://github.com/frederickanyan/frederickanyan.github.io/files/publications/adolescent_stress.pdf)

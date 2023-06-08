@@ -21,5 +21,5 @@ Evidence that resilience did not have the same effect across stress, and symptom
 
 [Read more](https://doi.org/10.1016/j.jad.2016.05.031)
 
-[Download paper here]("http://frederickanyan.github.io/files/publications/adolescent_stress.pdf")
+[Download paper here](http://github.com/frederickanyan.github.io/files/publications/adolescent_stress.pdf)
 

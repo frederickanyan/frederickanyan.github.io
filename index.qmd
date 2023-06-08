@@ -25,6 +25,12 @@ about:
       href: https://orcid.org/0000-0002-0339-3263
 ---
 
-I am an Associate Professor of Quantitative Methods at the [Norwegian University of Science and Technology, NTNU](https://www.ntnu.no/ansatte/frederick.anyan) 
+Associate Professor of Quantitative Methods and co-leader of the Quantitative Methods Research Group (QMRG) at the [Norwegian University of Science and Technology, NTNU](https://www.ntnu.no/ansatte/frederick.anyan) 
+
+<ul>
+  <li>Ph.D in Behaviour and Health, NTNU & Australian National University (ANU)</li>
+  <li>MPhil. in Human Development, NTNU</li>
+  <li>BA. in Psychology with Philosophy, University of Ghana (UG)</li>
+</ul>
 
 

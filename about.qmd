@@ -23,14 +23,19 @@ about:
       text: Orcid
       href: https://orcid.org/0000-0002-0339-3263
 ---
-My teaching in undergraduate quantitative method course focuses on understanding and emphasizing statistical concepts and their applications more than mathematics, computational details and theoretical derivatives in the statistical methodology. Occasionally, and depending on context and need, my teaching in advanced and graduate-level quantitative method will add computational and statistical details to understanding concepts and their applications.
+My teaching in undergraduate quantitative method course focuses on understanding and emphasizing statistical concepts and their applications more than mathematics, computational details and theoretical derivatives in the statistical methodology. Occasionally, and depending on context and need, my teaching in advance and graduate-level quantitative method add computational and statistical details to understanding concepts and their applications.
 
 My research focuses on the application and assessment of quantitative methods in the social and behavioural sciences. Specifically, I focus on combining innovative statistical methods and substantive interests into a single program of research that seeks to understand, improve and promote adaptive psychological functioning and resilience in the following areas:
 
-Longitudinal analyses of the mental health, vulnerability and protective factors among Norwegian Afghanistan veterans.
-Investigating what factors contribute to the complex interplay between biological systems, psychological and social-environmental factors in perpetuating the feeling of loneliness and social isolation and the consequences for mental and physical health outcomes.
-Investigating how individuals recruit multiple protective systems (biological, psychological, social-environmental, community, and ecological factors) to respond to adversity.
-Investigating the central mechanisms (beliefs, awareness, strategies, and executive functioning) in the development and maintenance of psychological disorders and important targets in treatments inspired by the [Metacognitive Control System Model](https://www.frontiersin.org/articles/10.3389/fpsyg.2019.02621/full)
+<ul>
+  <li>Longitudinal analyses of the mental health, vulnerability and protective factors among Norwegian Afghanistan veterans.</li>
+
+<li>Investigating what factors contribute to the complex interplay between biological systems, psychological and social-environmental factors in perpetuating the feeling of loneliness and social isolation and the consequences for mental and physical health outcomes.</li>
+
+<li>Investigating how individuals recruit multiple protective systems (biological, psychological, social-environmental, community, and ecological factors) to respond to adversity.</li>
+
+<li>Investigating the central mechanisms (beliefs, awareness, strategies, and executive functioning) in the development and maintenance of psychological disorders and important targets in treatments inspired by the [Metacognitive Control System Model](https://www.frontiersin.org/articles/10.3389/fpsyg.2019.02621/full)</li>
+</ul>
 
 My expertise in applied analysis in panel and intensive longitudinal data, as well as structural equation modelling (SEM) and hierarchical linear modelling (HLM) enables my participation in research to uncover subtle patterns in complex data sets, teasing apart minute details to reveal crucial insights that could inform effective interventions.
 

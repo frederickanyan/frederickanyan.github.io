@@ -98,7 +98,7 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./workshops.qmd">
+    <a class="nav-link" href="./workshops.html">
  <span class="menu-text">Workshops</span></a>
   </li>  
   <li class="nav-item">
@@ -150,7 +150,18 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-title-meta">
   </div>
 </header><main class="content" id="quarto-document-content">
-<p>I am an Associate Professor of Quantitative Methods at the <a href="https://www.ntnu.no/ansatte/frederick.anyan">Norwegian University of Science and Technology, NTNU</a></p>
+<p>Associate Professor of Quantitative Methods and co-leader of the Quantitative Methods Research Group (QMRG) at the <a href="https://www.ntnu.no/ansatte/frederick.anyan">Norwegian University of Science and Technology, NTNU</a></p>
+<ul>
+<li>
+Ph.D in Behaviour and Health NTNU &amp; Australian National University (ANU)
+</li>
+<li>
+MPhil. in Human Development, NTNU
+</li>
+<li>
+BA. in Psychology with Philosophy, University of Ghana (UG)
+</li>
+</ul>
 
 
 </main> 
@@ -434,6 +445,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (!isInternal(link.href)) {
           // target, if specified
           link.setAttribute("target", "_blank");
+          // default icon
+          link.classList.add("external");
       }
     }
 });

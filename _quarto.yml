@@ -5,14 +5,16 @@ project:
 website:
   title: "Frederick Anyan, Ph.D"
   
+  favicon: "images/profile.png"
+  
   page-footer: 
     center: |
       [Contact Frederick Anyan](mailto: frederick.anyan@ntnu.no)
     left: |
-      Made with [Quarto](https://quarto.org)
+      Made with [Posit Quarto](https://quarto.org)
     right: |
-     [Github Code Repo](https://github.com/frederickanyan)
-    background: "#2780e3"
+     [Github Repo](https://github.com/frederickanyan)
+    background: "#004E4F"
   
   search: 
     location: navbar
@@ -45,14 +47,16 @@ website:
 format:
   html:
     theme: 
-      light: cosmo
-      dark: darkly
+      light: [cosmo, theme_light_custom.scss]
+      dark: [cosmo, theme_dark_custom.scss]
     code-link: true
     code-fold: show
+    code-tools: false
+    code-block-border-left: "#004E4F"
     highlight-style: github
     link-external-newwindow: true
     css: styles.css
-    toc: true
+    # toc: true
 
 
 

@@ -19,3 +19,5 @@ Use of cross-sectional data does not show causal process and temporal changes ov
 Findings support and clarify the specificity in the interrelations and mediated pathways among dimensions of adolescent stress, transient anxiety, and depressive symptoms. Conditional process analyses shows that resilience does not only buffer direct, but also indirect psychological adversities. Interventions for good mental health may focus on low resilience subgroups in specific stress dimensions while minimizing transient anxiety.
 
 [Read more](https://doi.org/10.1016/j.jad.2017.12.011)
+
+[Download](specificity_in_mediated_pathways.pdf)

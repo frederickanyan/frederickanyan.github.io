@@ -16,3 +16,5 @@ Interpersonal stress explained more variance in depressive than anxiety symptoms
 Exposure to interpersonal stress is not only directly associated with depressive symptoms but also indirectly through high scores on anxiety symptoms. Uneven functioning and differential impact of resilience factors can help us understand the mixed successes in implementing resilience-based interventions for positive mental health and judiciously allocate scarce and finite resources for intervention.
 
 [Read more](https://doi.org/10.1016/j.anyes.2020.07.003)
+
+[Download](Interpersonal-stress.pdf)

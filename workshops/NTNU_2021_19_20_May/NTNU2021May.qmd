@@ -1,0 +1,15 @@
+---
+title: "Latent Growth Curve Models (LGCM) & Growth Mixture Models (GMM) - Two-day Workshop"
+author: "Frederick Anyan"
+date: "2021-05-19"
+categories: [Latent Growth Curve Models, Growth Mixture Models, Latent Class Growth Models, ]
+image: "lgmm.PNG"
+---
+Research questions examining within-person changes or joint within-person changes and between-person differences in the
+stability and change in individuals’ attributes over time make longitudinal data incredibly useful. Longitudinal data offers many possibilities to describe differences in how and when people change and explain why. Methodological limitations in calculating difference score, taking residualized scores, correlation among repeated measures, and other limitations mean that appropriate growth models must be estimated.
+
+Structural Equation Modelling (SEM) is a family of related analysis techniques – correlations, regression analyses and factor analyses, using both observed and unobserved (latent) variables to offer a flexible framework for analysing longitudinal data (and cross-sectional data too). Analysing growth models in the SEM framework provide a highly convenient and statistically rigorous framework for applied research in the social, behavioural, and educational sciences.
+
+This course is a data analysis course, not a statistics course and will cover basic and advanced longitudinal SEM model using Mplus in a very easy and efficient implementation. Additionally, to make the course more ‘theory- and practice-based’ than ‘equations-based’, the models that will be estimated will be guided by the overarching objectives of longitudinal research described in the seminal work of Baltes and Nasselroade (1979).
+
+[Download](NTNU_Workshop_1_May_2021.pdf)

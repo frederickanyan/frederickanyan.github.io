@@ -17,3 +17,5 @@ We identified three trajectories: The ‘Resilient’ group (47.7%) had low sick
 We found three subgroups with distinctly different trajectories. Female gender and higher age were associated with high sick leave at the start of treatment, while residual depressive symptoms at the end of treatment predicted continued sick leave. The study points to the possibility of improving patient outcomes in the future by stratifying and tailoring treatment to patient characteristics.
 
 [Read here](https://doi.org/10.1136/bmjopen-2020-046336)
+
+[Download](Sick-leave-RTW.pdf)

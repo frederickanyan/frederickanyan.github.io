@@ -4,7 +4,7 @@ image: images/profile.png
 about: 
   template: jolla
   links: 
-    - icon: email
+    - icon: envelope
       text: Email
       href: mailto:frederick.anyan@ntnu.no
     - icon: googlescholar

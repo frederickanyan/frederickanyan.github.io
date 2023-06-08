@@ -1,7 +1,7 @@
 ---
 title: 'Relevance of well-being, resilience, and health-related quality of life to mental health profiles of European adolescents: results from a cross-sectional analysis of the school-based multinational UPRIGHT project'
 date: 2021-08-21
-
+categories: [Mental Health, Resilience Theory]
 ---
 **Purpose**
 The existing evidence suggests that a complete evaluation of mental health should incorporate both psychopathology and mental well-being indicators. However, few studies categorize European adolescents into subgroups based on such complete mental health data. This study used the data on mental well-being and symptoms of mental and behavioral disorders to explore the mental health profiles of adolescents in Europe.

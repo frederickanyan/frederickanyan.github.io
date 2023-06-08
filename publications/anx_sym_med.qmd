@@ -1,7 +1,7 @@
 ---
 title: 'Anxiety symptoms mediate the relationship between exposure to stressful negative life events and depressive symptoms: A conditional process modelling of the protective effects of resilience'
 date: 2017-10-01
-
+categories: [Mental Health, Resilience Theory, Vulnerability-Stress Theory]
 ---
 **Background**
 Resilience has provided a useful framework that elucidates the effects of protective factors to overcome psychological adversities but studies that address the potential contingencies of resilience to protect against direct and indirect negative effects are lacking. These obvious gaps have also resulted in oversimplification of complex processes that can be clarified by moderated mediation associations. This study examines a conditional process modelling of the protective effects of resilience against indirect effects.

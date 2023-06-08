@@ -1,7 +1,7 @@
 ---
 title: 'Metacognition, Cognition and Social Anxiety: A Test of Temporal and Reciprocal Relationships'
 date: 2022-03-01
-
+categories: [Mental Health, Metacognitive Theory, Cognitive Theory]
 ---
 Cognitive models of social anxiety give prominence to dysfunctional schemas about the social self as the key underlying factors in maladaptive self-processing strategies and social anxiety symptoms. In contrast, the metacognitive model argues that beliefs about cognition represent a central belief domain underlying psychopathology and cognitive schemas as products of a thinking style regulated by metacognition. The present study therefore evaluated the temporal and reciprocal relations between metacognitive beliefs, social self-beliefs, and social anxiety symptoms to shed light on possible causal relationships among them. Eight hundred and sixty-eight individuals gathered at convenience participated in a four-wave online survey with each measurement wave 6 weeks apart. Using autoregressive cross-lagged panel models, we found significant temporal and reciprocal relations between metacognition, social self-beliefs (schemas), and social anxiety. Whilst social self-beliefs prospectively predicted social anxiety this relationship was reciprocal. Metacognitive beliefs prospectively predicted both social interaction anxiety and social self-beliefs, but this was not reciprocal. The results are consistent with metacognitive beliefs causing social anxiety and social self-beliefs and imply that negative social self-beliefs might be a product of metacognition. The clinical implications are that metacognitive beliefs should be the central target in treatments of social anxiety.
 

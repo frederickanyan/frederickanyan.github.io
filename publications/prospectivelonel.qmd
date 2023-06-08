@@ -1,7 +1,7 @@
 ---
 title: 'Prospective relations between loneliness in different relationships, metacognitive beliefs, worry and common mental health problems'
 date: 2020-09-09
-
+categories: [Mental Health, Metacognitive Theory, Cognitive Theory, Loneliness]
 ---
 
 **Background**

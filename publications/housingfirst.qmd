@@ -1,7 +1,7 @@
 ---
 title: 'Housing first, connection second: the impact of professional helping relationships on the trajectories of housing stability for people facing severe and multiple disadvantage'
 date: 2021-01-30
-
+categories: [Mental Health, Resilience Theory, Working Alliance]
 ---
 
 **Background**

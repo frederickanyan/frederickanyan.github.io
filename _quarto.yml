@@ -55,7 +55,7 @@ format:
     code-block-border-left: "#004E4F"
     highlight-style: github
     link-external-newwindow: true
-    link-external-icon: true
+    link-external-icon: false
     css: styles.css
     # toc: true
 

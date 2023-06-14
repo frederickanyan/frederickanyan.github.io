@@ -45,8 +45,8 @@
   {
     "listing": "/quantposts.html",
     "items": [
-      "/quantposts/null hypothesis testing/index.html",
-      "/quantposts/rejecting the null hypothesis/index.html"
+      "/quantposts/rejecting the null hypothesis/index.html",
+      "/quantposts/null hypothesis testing/index.html"
     ]
   },
   {
@@ -58,8 +58,8 @@
   {
     "listing": "/teaching.html",
     "items": [
-      "/teaching/before_tenured.html",
-      "/teaching/teaching_tenured.html"
+      "/teaching/teaching_tenured.html",
+      "/teaching/before_tenured.html"
     ]
   }
 ]

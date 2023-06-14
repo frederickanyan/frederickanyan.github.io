@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.475">
+<meta name="generator" content="quarto-1.3.353">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -17,7 +17,7 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
 </style>
@@ -73,10 +73,10 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       page: 25,
     pagination: { item: "<li class='page-item'><a class='page page-link' href='#'></a></li>" },
-      searchColumns: ["listing-date","listing-title","listing-author","listing-description","listing-categories"],
+      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -94,6 +94,7 @@ ul.task-list li input[type="checkbox"] {
   })
   </script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="styles.css">
@@ -110,60 +111,60 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Frederick Anyan, Ph.D</span>
     </a>
   </div>
+            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html">
+    <a class="nav-link" href="./index.html" rel="" target="">
  <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./teaching.qmd">
+    <a class="nav-link" href="./teaching.html" rel="" target="">
  <span class="menu-text">Teaching</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./publications.html" aria-current="page">
+    <a class="nav-link active" href="./publications.html" rel="" target="" aria-current="page">
  <span class="menu-text">Publications</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./projects.html">
+    <a class="nav-link" href="./projects.html" rel="" target="">
  <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./workshops.html">
+    <a class="nav-link" href="./workshops.html" rel="" target="">
  <span class="menu-text">Workshops</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./quantposts.html">
+    <a class="nav-link" href="./quantposts.html" rel="" target="">
  <span class="menu-text">Quant Posts</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./cv.html">
+    <a class="nav-link" href="./cv.html" rel="" target="">
  <span class="menu-text">CV</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html">
+    <a class="nav-link" href="./about.html" rel="" target="">
  <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/frederickanyan"><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/frederickanyan" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com/@anyan4usall"><i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://twitter.com/@anyan4usall" rel="" target=""><i class="bi bi-twitter" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
 </ul>
-              <div class="quarto-toggle-container">
-                  <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
-              </div>
-              <div id="quarto-search" class="" title="Search"></div>
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
@@ -203,7 +204,10 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="Mental Health,Metacognitive Theory,Cognitive Theory" data-listing-date-sort="1682373600000" data-listing-file-modified-sort="1686213053000" data-listing-reading-time-sort="1.245">
+<div class="quarto-post image-right" data-index="0" data-categories="Mental Health,Metacognitive Theory,Cognitive Theory" data-listing-date-sort="1682373600000" data-listing-file-modified-sort="1686213053000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<div class="thumbnail">
+<p><a href="./publications/NetworkMCQCASSymp.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+</div>
 <div class="body">
 <a href="./publications/NetworkMCQCASSymp.html">
 <h3 class="no-anchor listing-title">
@@ -238,7 +242,10 @@ Apr 25, 2023
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="Mental Health,Resilience Theory" data-listing-date-sort="1679868000000" data-listing-file-modified-sort="1686213063000" data-listing-reading-time-sort="1.04">
+<div class="quarto-post image-right" data-index="1" data-categories="Mental Health,Resilience Theory" data-listing-date-sort="1679868000000" data-listing-file-modified-sort="1686213063000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<div class="thumbnail">
+<p><a href="./publications/RSAsicklisted.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+</div>
 <div class="body">
 <a href="./publications/RSAsicklisted.html">
 <h3 class="no-anchor listing-title">
@@ -270,7 +277,10 @@ Mar 27, 2023
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-categories="Mental Health,Metacognitive Theory,Cognitive Theory" data-listing-date-sort="1676588400000" data-listing-file-modified-sort="1686213051000" data-listing-reading-time-sort="1.01">
+<div class="quarto-post image-right" data-index="2" data-categories="Mental Health,Metacognitive Theory,Cognitive Theory" data-listing-date-sort="1676588400000" data-listing-file-modified-sort="1686213051000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<div class="thumbnail">
+<p><a href="./publications/MetacognitionCASAnx.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+</div>
 <div class="body">
 <a href="./publications/MetacognitionCASAnx.html">
 <h3 class="no-anchor listing-title">
@@ -305,7 +315,10 @@ Feb 17, 2023
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="3" data-categories="Mental Health,Metacognitive Theory,Cognitive Theory" data-listing-date-sort="1676502000000" data-listing-file-modified-sort="1686213045000" data-listing-reading-time-sort="0.93">
+<div class="quarto-post image-right" data-index="3" data-categories="Mental Health,Metacognitive Theory,Cognitive Theory" data-listing-date-sort="1676502000000" data-listing-file-modified-sort="1686213045000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="thumbnail">
+<p><a href="./publications/changeininterpersonal.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+</div>
 <div class="body">
 <a href="./publications/changeininterpersonal.html">
 <h3 class="no-anchor listing-title">
@@ -340,7 +353,10 @@ Feb 16, 2023
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="4" data-categories="Mental Health,Resilience Theory" data-listing-date-sort="1674514800000" data-listing-file-modified-sort="1686212125000" data-listing-reading-time-sort="1.22">
+<div class="quarto-post image-right" data-index="4" data-categories="Mental Health,Resilience Theory" data-listing-date-sort="1674514800000" data-listing-file-modified-sort="1686212125000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<div class="thumbnail">
+<p><a href="./publications/Incidencemental.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+</div>
 <div class="body">
 <a href="./publications/Incidencemental.html">
 <h3 class="no-anchor listing-title">
@@ -372,7 +388,10 @@ Jan 24, 2023
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="5" data-categories="Mental Health,Metacognitive Theory,Cognitive Theory" data-listing-date-sort="1667516400000" data-listing-file-modified-sort="1686211876000" data-listing-reading-time-sort="1.21">
+<div class="quarto-post image-right" data-index="5" data-categories="Mental Health,Metacognitive Theory,Cognitive Theory" data-listing-date-sort="1667516400000" data-listing-file-modified-sort="1686211876000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<div class="thumbnail">
+<p><a href="./publications/workability.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+</div>
 <div class="body">
 <a href="./publications/workability.html">
 <h3 class="no-anchor listing-title">
@@ -407,7 +426,10 @@ Nov 4, 2022
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="6" data-categories="Metacognitive Theory,Cognitive Theory" data-listing-date-sort="1656626400000" data-listing-file-modified-sort="1686213052000" data-listing-reading-time-sort="1.025">
+<div class="quarto-post image-right" data-index="6" data-categories="Metacognitive Theory,Cognitive Theory" data-listing-date-sort="1656626400000" data-listing-file-modified-sort="1686213052000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<div class="thumbnail">
+<p><a href="./publications/networkMCQ.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+</div>
 <div class="body">
 <a href="./publications/networkMCQ.html">
 <h3 class="no-anchor listing-title">
@@ -439,7 +461,10 @@ Jul 1, 2022
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="7" data-categories="Mental Health,Resilience Theory" data-listing-date-sort="1656021600000" data-listing-file-modified-sort="1686213060000" data-listing-reading-time-sort="0.755">
+<div class="quarto-post image-right" data-index="7" data-categories="Mental Health,Resilience Theory" data-listing-date-sort="1656021600000" data-listing-file-modified-sort="1686213060000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="thumbnail">
+<p><a href="./publications/resiliencepatterns.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+</div>
 <div class="body">
 <a href="./publications/resiliencepatterns.html">
 <h3 class="no-anchor listing-title">
@@ -471,7 +496,10 @@ Jun 24, 2022
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="8" data-categories="Mental Health,Metacognitive Theory,Cognitive Theory" data-listing-date-sort="1646089200000" data-listing-file-modified-sort="1686213049000" data-listing-reading-time-sort="0.975">
+<div class="quarto-post image-right" data-index="8" data-categories="Mental Health,Metacognitive Theory,Cognitive Theory" data-listing-date-sort="1646089200000" data-listing-file-modified-sort="1686213049000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="thumbnail">
+<p><a href="./publications/metacognition_cognition.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+</div>
 <div class="body">
 <a href="./publications/metacognition_cognition.html">
 <h3 class="no-anchor listing-title">
@@ -506,7 +534,10 @@ Mar 1, 2022
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="9" data-categories="Mental Health,Resilience Theory" data-listing-date-sort="1643238000000" data-listing-file-modified-sort="1686213061000" data-listing-reading-time-sort="0.885">
+<div class="quarto-post image-right" data-index="9" data-categories="Mental Health,Resilience Theory" data-listing-date-sort="1643238000000" data-listing-file-modified-sort="1686213061000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="thumbnail">
+<p><a href="./publications/resilienceprofiles.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+</div>
 <div class="body">
 <a href="./publications/resilienceprofiles.html">
 <h3 class="no-anchor listing-title">
@@ -538,7 +569,10 @@ Jan 27, 2022
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="10" data-categories="Mental Health,Metacognitive Theory,Cognitive Theory" data-listing-date-sort="1631484000000" data-listing-file-modified-sort="1686213064000" data-listing-reading-time-sort="1.515">
+<div class="quarto-post image-right" data-index="10" data-categories="Mental Health,Metacognitive Theory,Cognitive Theory" data-listing-date-sort="1631484000000" data-listing-file-modified-sort="1686213064000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<div class="thumbnail">
+<p><a href="./publications/sickleave.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+</div>
 <div class="body">
 <a href="./publications/sickleave.html">
 <h3 class="no-anchor listing-title">
@@ -573,7 +607,10 @@ Sep 13, 2021
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="11" data-categories="Mental Health,Resilience Theory" data-listing-date-sort="1629496800000" data-listing-file-modified-sort="1686213058000" data-listing-reading-time-sort="1.155">
+<div class="quarto-post image-right" data-index="11" data-categories="Mental Health,Resilience Theory" data-listing-date-sort="1629496800000" data-listing-file-modified-sort="1686213058000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<div class="thumbnail">
+<p><a href="./publications/relevanceofwell.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+</div>
 <div class="body">
 <a href="./publications/relevanceofwell.html">
 <h3 class="no-anchor listing-title">
@@ -605,7 +642,10 @@ Aug 21, 2021
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="12" data-categories="Mental Health,Resilience Theory,Metacognitive Theory,Cognitive Theory,Loneliness" data-listing-date-sort="1626645600000" data-listing-file-modified-sort="1686213048000" data-listing-reading-time-sort="1.17">
+<div class="quarto-post image-right" data-index="12" data-categories="Mental Health,Resilience Theory,Metacognitive Theory,Cognitive Theory,Loneliness" data-listing-date-sort="1626645600000" data-listing-file-modified-sort="1686213048000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<div class="thumbnail">
+<p><a href="./publications/lonelinessNN.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+</div>
 <div class="body">
 <a href="./publications/lonelinessNN.html">
 <h3 class="no-anchor listing-title">
@@ -646,7 +686,10 @@ Jul 19, 2021
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="13" data-categories="Mental Health,Resilience Theory" data-listing-date-sort="1613516400000" data-listing-file-modified-sort="1686213056000" data-listing-reading-time-sort="1.05">
+<div class="quarto-post image-right" data-index="13" data-categories="Mental Health,Resilience Theory" data-listing-date-sort="1613516400000" data-listing-file-modified-sort="1686213056000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<div class="thumbnail">
+<p><a href="./publications/READ_UPRIGHT.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+</div>
 <div class="body">
 <a href="./publications/READ_UPRIGHT.html">
 <h3 class="no-anchor listing-title">
@@ -678,7 +721,10 @@ Feb 17, 2021
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="14" data-categories="Mental Health,Resilience Theory,Working Alliance" data-listing-date-sort="1611961200000" data-listing-file-modified-sort="1686212095000" data-listing-reading-time-sort="1.025">
+<div class="quarto-post image-right" data-index="14" data-categories="Mental Health,Resilience Theory,Working Alliance" data-listing-date-sort="1611961200000" data-listing-file-modified-sort="1686212095000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<div class="thumbnail">
+<p><a href="./publications/housingfirst.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+</div>
 <div class="body">
 <a href="./publications/housingfirst.html">
 <h3 class="no-anchor listing-title">
@@ -713,7 +759,10 @@ Jan 30, 2021
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="15" data-categories="Mental Health,Resilience Theory" data-listing-date-sort="1608764400000" data-listing-file-modified-sort="1686213057000" data-listing-reading-time-sort="1">
+<div class="quarto-post image-right" data-index="15" data-categories="Mental Health,Resilience Theory" data-listing-date-sort="1608764400000" data-listing-file-modified-sort="1686213057000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="thumbnail">
+<p><a href="./publications/READGerman.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+</div>
 <div class="body">
 <a href="./publications/READGerman.html">
 <h3 class="no-anchor listing-title">
@@ -745,7 +794,10 @@ Dec 24, 2020
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="16" data-categories="Mental Health,Resilience Theory,Vulnerability-Stress Theory" data-listing-date-sort="1607986800000" data-listing-file-modified-sort="1686211984000" data-listing-reading-time-sort="1.955">
+<div class="quarto-post image-right" data-index="16" data-categories="Mental Health,Resilience Theory,Vulnerability-Stress Theory" data-listing-date-sort="1607986800000" data-listing-file-modified-sort="1686211984000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<div class="thumbnail">
+<p><a href="./publications/changephysical.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+</div>
 <div class="body">
 <a href="./publications/changephysical.html">
 <h3 class="no-anchor listing-title">
@@ -780,7 +832,10 @@ Dec 15, 2020
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="17" data-categories="Mental Health,Resilience Theory" data-listing-date-sort="1606777200000" data-listing-file-modified-sort="1686213066000" data-listing-reading-time-sort="1.7">
+<div class="quarto-post image-right" data-index="17" data-categories="Mental Health,Resilience Theory" data-listing-date-sort="1606777200000" data-listing-file-modified-sort="1686213066000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<div class="thumbnail">
+<p><a href="./publications/SRSdev.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+</div>
 <div class="body">
 <a href="./publications/SRSdev.html">
 <h3 class="no-anchor listing-title">
@@ -812,7 +867,10 @@ Dec 1, 2020
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="18" data-categories="Mental Health,Resilience Theory,Vulnerability-Stress Theory" data-listing-date-sort="1606777200000" data-listing-file-modified-sort="1686212180000" data-listing-reading-time-sort="1.205">
+<div class="quarto-post image-right" data-index="18" data-categories="Mental Health,Resilience Theory,Vulnerability-Stress Theory" data-listing-date-sort="1606777200000" data-listing-file-modified-sort="1686212180000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<div class="thumbnail">
+<p><a href="./publications/interpersonalstress.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+</div>
 <div class="body">
 <a href="./publications/interpersonalstress.html">
 <h3 class="no-anchor listing-title">
@@ -847,7 +905,10 @@ Dec 1, 2020
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="19" data-categories="Mental Health,Resilience Theory" data-listing-date-sort="1603926000000" data-listing-file-modified-sort="1686212021000" data-listing-reading-time-sort="1.01">
+<div class="quarto-post image-right" data-index="19" data-categories="Mental Health,Resilience Theory" data-listing-date-sort="1603926000000" data-listing-file-modified-sort="1686212021000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<div class="thumbnail">
+<p><a href="./publications/cocreation.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+</div>
 <div class="body">
 <a href="./publications/cocreation.html">
 <h3 class="no-anchor listing-title">
@@ -879,7 +940,10 @@ Oct 29, 2020
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="20" data-categories="Mental Health,Metacognitive Theory,Cognitive Theory" data-listing-date-sort="1599775200000" data-listing-file-modified-sort="1686213069000" data-listing-reading-time-sort="1.645">
+<div class="quarto-post image-right" data-index="20" data-categories="Mental Health,Metacognitive Theory,Cognitive Theory" data-listing-date-sort="1599775200000" data-listing-file-modified-sort="1686213069000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<div class="thumbnail">
+<p><a href="./publications/temporalreciprocal.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+</div>
 <div class="body">
 <a href="./publications/temporalreciprocal.html">
 <h3 class="no-anchor listing-title">
@@ -914,7 +978,10 @@ Sep 11, 2020
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="21" data-categories="Mental Health,Metacognitive Theory,Cognitive Theory,Loneliness" data-listing-date-sort="1599602400000" data-listing-file-modified-sort="1686213055000" data-listing-reading-time-sort="1.025">
+<div class="quarto-post image-right" data-index="21" data-categories="Mental Health,Metacognitive Theory,Cognitive Theory,Loneliness" data-listing-date-sort="1599602400000" data-listing-file-modified-sort="1686213055000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<div class="thumbnail">
+<p><a href="./publications/prospectivelonel.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+</div>
 <div class="body">
 <a href="./publications/prospectivelonel.html">
 <h3 class="no-anchor listing-title">
@@ -952,7 +1019,10 @@ Sep 9, 2020
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="22" data-categories="Mental Health,Resilience Theory" data-listing-date-sort="1599170400000" data-listing-file-modified-sort="1686213059000" data-listing-reading-time-sort="1.26">
+<div class="quarto-post image-right" data-index="22" data-categories="Mental Health,Resilience Theory" data-listing-date-sort="1599170400000" data-listing-file-modified-sort="1686213059000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<div class="thumbnail">
+<p><a href="./publications/ResCovid.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+</div>
 <div class="body">
 <a href="./publications/ResCovid.html">
 <h3 class="no-anchor listing-title">
@@ -984,7 +1054,10 @@ Sep 4, 2020
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="23" data-categories="Mental Health,Resilience Theory" data-listing-date-sort="1572303600000" data-listing-file-modified-sort="1686211812000" data-listing-reading-time-sort="1.395">
+<div class="quarto-post image-right" data-index="23" data-categories="Mental Health,Resilience Theory" data-listing-date-sort="1572303600000" data-listing-file-modified-sort="1686211812000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<div class="thumbnail">
+<p><a href="./publications/upright_rationale.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+</div>
 <div class="body">
 <a href="./publications/upright_rationale.html">
 <h3 class="no-anchor listing-title">
@@ -1016,7 +1089,10 @@ Oct 29, 2019
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="24" data-categories="Mental Health,Resilience Theory" data-listing-date-sort="1554415200000" data-listing-file-modified-sort="1686213062000" data-listing-reading-time-sort="1.02">
+<div class="quarto-post image-right" data-index="24" data-categories="Mental Health,Resilience Theory" data-listing-date-sort="1554415200000" data-listing-file-modified-sort="1686213062000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<div class="thumbnail">
+<p><a href="./publications/rsaAustralia.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+</div>
 <div class="body">
 <a href="./publications/rsaAustralia.html">
 <h3 class="no-anchor listing-title">
@@ -1048,7 +1124,10 @@ Apr 5, 2019
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="25" data-categories="Mental Health,Resilience Theory,Vulnerability-Stress Theory" data-listing-date-sort="1519858800000" data-listing-file-modified-sort="1686213065000" data-listing-reading-time-sort="1.245">
+<div class="quarto-post image-right" data-index="25" data-categories="Mental Health,Resilience Theory,Vulnerability-Stress Theory" data-listing-date-sort="1519858800000" data-listing-file-modified-sort="1686213065000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<div class="thumbnail">
+<p><a href="./publications/specificity.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+</div>
 <div class="body">
 <a href="./publications/specificity.html">
 <h3 class="no-anchor listing-title">
@@ -1083,7 +1162,10 @@ Mar 1, 2018
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="26" data-categories="Mental Health,Resilience Theory,Qualitative Interview Research" data-listing-date-sort="1509922800000" data-listing-file-modified-sort="1686212063000" data-listing-reading-time-sort="0.75">
+<div class="quarto-post image-right" data-index="26" data-categories="Mental Health,Resilience Theory,Qualitative Interview Research" data-listing-date-sort="1509922800000" data-listing-file-modified-sort="1686212063000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="thumbnail">
+<p><a href="./publications/coping.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+</div>
 <div class="body">
 <a href="./publications/coping.html">
 <h3 class="no-anchor listing-title">
@@ -1118,7 +1200,10 @@ Nov 6, 2017
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="27" data-categories="Mental Health,Resilience Theory,Vulnerability-Stress Theory" data-listing-date-sort="1506808800000" data-listing-file-modified-sort="1686211932000" data-listing-reading-time-sort="1.23">
+<div class="quarto-post image-right" data-index="27" data-categories="Mental Health,Resilience Theory,Vulnerability-Stress Theory" data-listing-date-sort="1506808800000" data-listing-file-modified-sort="1686211932000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<div class="thumbnail">
+<p><a href="./publications/anx_sym_med.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+</div>
 <div class="body">
 <a href="./publications/anx_sym_med.html">
 <h3 class="no-anchor listing-title">
@@ -1153,7 +1238,10 @@ Oct 1, 2017
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="28" data-categories="Mental Health,Resilience Theory,Vulnerability-Stress Theory" data-listing-date-sort="1490997600000" data-listing-file-modified-sort="1686213068000" data-listing-reading-time-sort="1.01">
+<div class="quarto-post image-right" data-index="28" data-categories="Mental Health,Resilience Theory,Vulnerability-Stress Theory" data-listing-date-sort="1490997600000" data-listing-file-modified-sort="1686213068000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<div class="thumbnail">
+<p><a href="./publications/stresshome.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+</div>
 <div class="body">
 <a href="./publications/stresshome.html">
 <h3 class="no-anchor listing-title">
@@ -1188,7 +1276,10 @@ Apr 1, 2017
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="29" data-categories="Mental Health,Resilience Theory,Vulnerability-Stress Theory" data-listing-date-sort="1475272800000" data-listing-file-modified-sort="1686211647000" data-listing-reading-time-sort="1.165">
+<div class="quarto-post image-right" data-index="29" data-categories="Mental Health,Resilience Theory,Vulnerability-Stress Theory" data-listing-date-sort="1475272800000" data-listing-file-modified-sort="1686211647000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<div class="thumbnail">
+<p><a href="./publications/adolescents.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+</div>
 <div class="body">
 <a href="./publications/adolescents.html">
 <h3 class="no-anchor listing-title">
@@ -1223,7 +1314,10 @@ Oct 1, 2016
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="30" data-categories="Qualitative Interview Research" data-listing-date-sort="1370383200000" data-listing-file-modified-sort="1686213054000" data-listing-reading-time-sort="0.83">
+<div class="quarto-post image-right" data-index="30" data-categories="Qualitative Interview Research" data-listing-date-sort="1370383200000" data-listing-file-modified-sort="1686213054000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="thumbnail">
+<p><a href="./publications/powershifts.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+</div>
 <div class="body">
 <a href="./publications/powershifts.html">
 <h3 class="no-anchor listing-title">
@@ -1402,9 +1496,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -1469,6 +1577,92 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
@@ -1512,7 +1706,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
-    var links = window.document.querySelectorAll('a:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
@@ -1526,7 +1720,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">Made with <a href="https://quarto.org">Posit Quarto</a></div>   
-      <div class="nav-footer-center"><a href="mailto:%20frederick.anyan@ntnu.no">Contact Frederick Anyan</a></div>
+    <div class="nav-footer-center"><a href="mailto:%20frederick.anyan@ntnu.no">Contact Frederick Anyan</a></div>
     <div class="nav-footer-right"><a href="https://github.com/frederickanyan">Github Repo</a></div>
   </div>
 </footer>

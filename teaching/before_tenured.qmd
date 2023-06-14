@@ -1,12 +1,12 @@
 ---
-title: "Teaching activities during PhD"
+title: "Previous teaching activities"
 date: 2015-02-04
 ---
 
 I was involved in co/teaching various undergraduate courses prior to becoming an Associate Professor 
 
 [Norwegian University of Science and Technology](https://www.ntnu.edu/)
-======
+
 <ul>
     <li>PSY3810: Innovative health promotion strategies in everyday settings </li>
     <li>PSY2900: Research in developmental psychology </li>
@@ -17,20 +17,20 @@ I was involved in co/teaching various undergraduate courses prior to becoming an
  </ul>
 
 [Australian National University](https://www.anu.edu.au/) 
-======
+
 <ul>
     <li>PSYC2001: Social psychology</li>    
 </ul>
 
 [Ashesi University](https://www.ashesi.edu.gh/) 
-======
+
 <ul>
     <li>SOAN229: Social research methods</li>
     <li>BUSA132: Organizational Behaviour</li>
 </ul>
 
 [St. Karol School Of Nursing](https://www.stkarol.com/) 
-======
+
 <ul>
     <li>NURS364: Nursing research methods</li>    
 </ul>

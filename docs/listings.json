@@ -54,5 +54,12 @@
     "items": [
       "/workshops/NTNU_2021_19_20_May/NTNU2021May.html"
     ]
+  },
+  {
+    "listing": "/teaching.html",
+    "items": [
+      "/teaching/before_tenured.html",
+      "/teaching/teaching_tenured.html"
+    ]
   }
 ]

@@ -2,7 +2,7 @@
 title: "Quant Posts"
 listing: 
   contents: quantposts
-  sort: "date"
+  sort: "date desc"
   type: grid
   categories: true
   sort-ui: false

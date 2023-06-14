@@ -2,7 +2,7 @@
 title: "Teaching"
 listing: 
   contents: teaching
-  sort: "date"
+  sort: "date desc"
   type: default
   categories: false
   sort-ui: false

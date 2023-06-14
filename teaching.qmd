@@ -1,0 +1,12 @@
+---
+title: "Teaching"
+listing: 
+  contents: teaching
+  sort: "date"
+  type: default
+  categories: false
+  sort-ui: false
+  filter-ui: false
+page-layout: full
+title-block-banner: true
+---

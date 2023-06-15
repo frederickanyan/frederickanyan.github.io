@@ -50,7 +50,7 @@ format:
       light: [cosmo, theme_light_custom.scss]
       dark: [cosmo, theme_dark_custom.scss]
     code-link: true
-    code-fold: show
+    code-fold: true
     code-tools: false
     code-block-border-left: "#004E4F"
     highlight-style: github

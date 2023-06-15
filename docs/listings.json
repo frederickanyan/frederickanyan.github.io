@@ -45,6 +45,7 @@
   {
     "listing": "/quantposts.html",
     "items": [
+      "/quantposts/chi_square/chi_sqaure.html",
       "/quantposts/rejecting the null hypothesis/index.html",
       "/quantposts/null hypothesis testing/index.html"
     ]

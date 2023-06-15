@@ -1,0 +1,91 @@
+---
+title: 'Two categorical variables'
+author: "Frederick Anyan"
+date: 2023-06-15
+categories: [Categorical variables]
+---
+We can analyse the association between two categorical variables in several ways using bar graphs or pie charts. The most common way is to use contingency tables with rows and columns displaying categories of each variable. The count for each pair of categories are given in a cell. 
+
+In this example, we will answer the research question: is family income associated with happiness? These questions are asked in the General Social Survey (GSS).
+<ul>
+ <li>"Compared to American families in general, would you say that your family income is      below average, average, or above average?".</li> 
+ <li>"Taken all together, would you say that you are very happy, pretty happy, or not too     happy?".</li>
+</ul>
+
+We start with the null hypothesis:
+*Null hypothesis*
+<ul>
+  <li>There is no association between family income and happiness.</li>
+</ul>
+
+To test the null hypothesis, we can use the 'CrossTable' function in the 'gmodels' package. It helps to know the CrossTable function because it can take both raw data and contingency table. 
+
+```{r}
+data <- read.csv("/Volumes/anyan-1/happinesGSS12_long.csv")# Read the data for the analysis 
+```
+
+
+```{r}
+library(gmodels) #Load the packagae to access the function for the analysis
+CrossTable(data$Income, data$Happy) #Get a cross tabulation of variables with cell counts/contingency table
+```
+
+Frequencies are displayed in the first row in each cell. When converted to percentages (N/Row Total), within each category of income, the percentage for the three categories of happiness is displayed. Thus, of the 342 people who reported their family income as above average, 135 reported themselves as very happy, which gives us a proportion of 39.5%, rounded to 40% (or 135/342), . By contrast, 119 (22%) of the 537 people who reported below average income reported they were very happy. 
+
+These percentages are called *conditional percentages* and show the distribution of proportions in one variable, conditional on the other variable. For example, the *conditional distribution* of happiness for those who reported average income are 10%, 58%, and 32%. They can also be interpreted as *conditional probabilities*. Given that an individual reported average family income, the probability of not being happy, or pretty happy, or very happy is 0%, 58%, and 32%, respectively.
+
+Percentages in the row labelled 'Column Total' are called *marginal proportion*, as are those in the Row Total. The marginal proportion of people who reported not being happy, pretty happy, or very happy is 12%, 57% and 31%, respectively. Similarly, the marginal propoertion of people who reported below average income, average income and above average income is 31%, 49% and 20%, respectively. 
+
+To perform a Chi-Square test with the CrossTable function, we can add some arguments to the code we previously used. 
+
+```{r}
+CrossTable(data$Income, data$Happy, 
+           #fisher = TRUE, 
+           chisq = TRUE, #To get both fisher's exact test and pearson chi-sqaure
+           expected = TRUE, #To get the expected cell counts (which should be > 5 in each cell)
+           ) 
+```
+
+```{r}
+chi.test <- chisq.test(data$Income, data$Happy)
+chi.test 
+```
+
+```{r}
+chi.test$expected #To get expected cell counts
+chi.test$residuals #To get residuals after a significant result
+```
+
+```{r}
+chi.test$stdres #Assuming there is a significant result, the residuals/standardized residuals can help us to understand the patterns of association
+```
+
+We can use the 'ggstatsplot' package for this exercise. This package "creates graphics with details from statistical tests included in the plots themselves. It provides an easier syntax to generate information-rich plots for statistical analysis of continuous (violin plots, scatterplots, histograms, dot plots, dot-and-whisker plots) or categorical (pie and bar charts) data". See here [https://cran.r-project.org/web/packages/ggstatsplot/index.html]
+
+```{r}
+library(ggstatsplot) #Load the package to access the functions
+```
+
+```{r}
+ggpiestats(data = data,
+           x = Income,
+          y = Happy,
+          label = "both")
+```
+
+
+```{r}
+ggbarstats(data = data,
+           x = Income,   #The variable to use as the rows in the contingency table
+          y = Happy,     #The variable to use as the columns in the contingency table.
+          label = "both") #You can use "percentage" or "count"
+```
+
+
+
+
+
+
+
+
+

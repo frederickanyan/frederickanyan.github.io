@@ -57,7 +57,7 @@ format:
     link-external-newwindow: true
     link-external-icon: false
     css: styles.css
-    # toc: true
+    toc: true
 
 
 

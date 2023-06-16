@@ -22,6 +22,9 @@ We start with the null hypothesis that:
 
 To test the null hypothesis, we can use the CrossTable() function in the 'gmodels' package. Note that the CrossTable() can take both raw data and contingency table. 
 
+## CrossTable() function
+<ul> Let's see how the CrossTable() function works</ul>
+
 ```{r}
 data <- read.csv("/Volumes/anyan-1/happinesGSS12_long.csv")# Read the data for the analysis 
 ```
@@ -34,7 +37,8 @@ CrossTable(data$Income, data$Happy) #Get a cross tabulation of variables with ce
 
 Frequencies are displayed in each cell. The frequencies or cell counts in each cell can be converted to percentages (N/Row Total). Within each category of income, the percentage for the three categories of happiness is displayed. Thus, of the 342 people who reported their family income as above average, 135 reported themselves as very happy, which gives us a proportion of 39.5%, rounded to 40% (i.e., 135/342). By contrast, 119 (22%) of the 537 people who reported below average family income, reported they were very happy. 
 
-These percentages are called *conditional percentages* and show the distribution of proportions in one variable, conditional on the other variable - hence, also called conditional distributions. For example, the *conditional distribution* of happiness for those who reported average income are 10%, 58%, and 32%. They can also be interpreted as *conditional probabilities*. Given that an individual reported average family income, the probability of not being happy, or pretty happy, or very happy is 10%, 58%, and 32%, respectively. *Marginal proportions* refer to the values in the margins of the contingency table. The marginal proportion of people who reported not happy, pretty happy, or very happy is 12%, 57% and 31%, respectively. 
+## Conditional and marginal proportions
+<ul>These percentages are called *conditional percentages* and show the distribution of proportions in one variable, conditional on the other variable - hence, also called conditional distributions. For example, the *conditional distribution* of happiness for those who reported average income are 10%, 58%, and 32%. They can also be interpreted as *conditional probabilities*. Given that an individual reported average family income, the probability of not being happy, or pretty happy, or very happy is 10%, 58%, and 32%, respectively. *Marginal proportions* refer to the values in the margins of the contingency table. The marginal proportion of people who reported not happy, pretty happy, or very happy is 12%, 57% and 31%, respectively.</ul> 
 
 To perform a Chi-squared test with the CrossTable() function, we can add some arguments to the previous code. 
 ```{r}
@@ -46,9 +50,10 @@ CrossTable(data$Income, data$Happy,
 ```
 Here we have the Chi-squared statistic and corresponding p-value for the test of independence under the null hypothesis that, income and happiness are independent (no association). Since the p-value is very small (< .05), we can reject the null hypothesis in favor of the alternative hypothesis. Thus, there is an association between family income and happiness and that this may not be due to chance or sampling error. Therefore, we can conclude that there is a true association between family income and happiness in the population. 
 
-In other words, the observed association between family income and happiness in the sample data reflects a true association in the population, and it is very unlikely to have occurred by chance if the null hypothesis was true. [Find out why this conclusion could be problematic for statistical inference](../quantposts/null hypothesis testing/index.qmd) 
+In other words, the observed association between family income and happiness in the sample data reflects a true association in the population, and it is very unlikely to have occurred by chance if the null hypothesis was true. [Find out why this conclusion could be misleading](../quantposts/null hypothesis testing/index.qmd) 
 
-We can also use a different function to perform the Chi-squared test. Here, we use the chisq.test() function in the 'stats' package, which also contains many other functions.
+## chisq.test() function
+<ul> We can also use a different function to perform the Chi-squared test. Here, we use the chisq.test() function in the 'stats' package, which also contains many other functions.</ul>
 ```{r}
 chi.test <- chisq.test(data$Income, data$Happy)#Create and object called chi.test and assign the result of the chisq.test function() into this object
 chi.test #Call the object to see its contents
@@ -57,13 +62,14 @@ chi.test #Call the object to see its contents
 ```{r}
 chi.test$expected #To get expected cell counts. 
 ```
-*Using standardized residuals to reveal patterns of associations*
+## Using standardized residuals to reveal patterns of associations
+<ul>The residuals show the difference between the observed counts and what the model predicts (the expected counts/frequencies) in a particular cell computed under the null hypothesis. The standardized residual is similar to the z-score and indicates the number of standard deviations that an observed count falls from its expected count. If the value of the standardized residual lies outside of +/-1.96, then it is significant at p < .05; if it lies outside +/-2.58, then it is significant at p <. 01 and when outside +/-3.29, then it is significant at p < .001.</ul> 
+
 ```{r}
 chi.test$stdres #Assuming there is a significant result, the standardized residuals can help us to understand the patterns of association
 ```
-The residuals show the difference between the observed counts and what the model predicts (the expected counts/frequencies) in a particular cell computed under the null hypothesis. The standardized residual is similar to the z-score and indicates the number of standard errors that an observed count falls from its expected count. If the value of the standardized residual lies outside of +/-1.96, then it is significant at p < .05; if it lies outside +/-2.58, then it is significant at p <. 01 and when outside +/-3.29, then it is significant at p < .001. 
 
-For example, if we take the first cell - (i.e., people who reported above average family income, and not happy). We can say that, the observed count is 2.49 standard deviations (SD) below (because of the negative sign, -2.49) the expected count for this particular cell. The substantive interpretation is that, for people with above average family income, many fewer were not happy than what the model predicted or, in other words, what the assumption of independence between income and happiness would predict. 
+For example, if we take the first cell - (i.e., people who reported above average family income, and not happy). We can say that, the observed count is 2.49 standard deviations below (because of the negative sign, -2.49) the expected count for this particular cell. The substantive interpretation is that, for people with above average family income, many fewer were not happy than what the model predicted or, in other words, what the assumption of independence between income and happiness would predict. 
 
 
 We can interpret positive standardized residuals first, followed by negative standardized residuals.
@@ -77,7 +83,8 @@ We can interpret positive standardized residuals first, followed by negative sta
   
 The Chi-squared test does not tell us where in the cell counts or frequencies the difference from independence lies, that is why the standardized residuals are useful for interpretation and understanding the patterns of association between the variables. 
 
-We can also use the 'ggstatsplot' package for this exercise. This package "creates graphics with details from statistical tests included in the plots themselves. It provides an easier syntax to generate information-rich plots for statistical analysis of continuous (violin plots, scatterplots, histograms, dot plots, dot-and-whisker plots) or categorical (pie and bar charts) data". [See here](https://cran.r-project.org/web/packages/ggstatsplot/index.html)
+## ggpiestats() and ggbarstats() function
+<ul> We can also use the 'ggstatsplot' package for this exercise. This package "creates graphics with details from statistical tests included in the plots themselves. It provides an easier syntax to generate information-rich plots for statistical analysis of continuous (violin plots, scatterplots, histograms, dot plots, dot-and-whisker plots) or categorical (pie and bar charts) data". [See here](https://cran.r-project.org/web/packages/ggstatsplot/index.html)</ul>
 
 ```{r}
 library(ggstatsplot) #Load the package to access the functions

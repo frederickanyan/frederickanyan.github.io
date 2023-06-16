@@ -15,7 +15,7 @@ The researcher uses sample statistics as estimates for the corresponding populat
 
 *So, what does this mean for the researcher´s conclusions?*
 
-If the researcher makes conclusions based on the sample of 750 students, it will not be guaranteed that the conclusion will be observed in the population of all NTNU students as we have seen with sampling error. It could be that the mean of exam anxiety is not even close to any of the sample means and it could also be that the relationship between attending lectures and exam anxiety observed in the sample of 750 students, will not exist and that there will be no relationship between attending lectures and exam anxiety at all in the population, which means that the observed relationship between attending lectures and exam anxiety in the sample of 750 students is just due to sampling error or occurred by chance. 
+If the researcher makes conclusions based on the sample of 750 students, it will not be guaranteed that the conclusion will be observed in the population of all NTNU students as we have seen with sampling error. It could be that the mean of exam anxiety is not even close to any of the sample means and it could also be that the relationship between attending lectures and exam anxiety observed in the sample of 750 students, will not exist and that there will be no relationship between attending lectures and exam anxiety at all in the population. This would mean that the observed relationship between attending lectures and exam anxiety in the sample of 750 students is just due to sampling error or occurred by chance. 
 
 So, null hypothesis testing is a statistical technique used to determine if the results of a study occurred by chance, or if they are a true effect in the population.
 

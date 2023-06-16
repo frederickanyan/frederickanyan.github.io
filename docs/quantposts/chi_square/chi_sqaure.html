@@ -213,8 +213,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<p>We can analyse the association between two categorical variables in several ways using bar graphs or pie charts. The most common way is to use contingency tables with rows and columns displaying categories of each variable. The count or frequency of each pair of categories are given in a cell.</p>
-<p>I will show how you can analyse the association between two categorical variables using different functions in different packages. The CrossTbale() function seems to be very popular as is the chisq.test() function. My preference is the ggbarstats() function in the ‘ggstatsplot’ package. I highly recommend this package as it can produce beautiful plots and charts that are publication-ready with good quality as you can find below. And just by plotting your pie chart or stacked bar graph, the ggpiestats() and the ggbarstats() function also compute the Chi-Square test statistic, with very useful information in addition, including a Bayesian effect size.</p>
+<p>We can analyse the association between two categorical variables in different ways (e.g., using stacked bar graphs or pie charts). The most common way is to use contingency tables with rows and columns displaying categories of each variable. The count or frequency of each pair of categories are given in a cell.</p>
+<p>We will see how to analyse the association between two categorical variables using different functions in different packages in RStudio. The CrossTbale() function seems to be very popular as is the chisq.test() function. My preference is the ggbarstats() function in the ‘ggstatsplot’ package. This package produces beautiful plots and charts that are publication-ready with good quality. And just by plotting your pie chart or stacked bar graph, the ggpiestats() and the ggbarstats() function also compute the Chi-squared test statistic, with very useful information in addition, including a Bayesian effect size.</p>
 In this example, we will answer the research question: is family income associated with happiness? These questions are asked in the General Social Survey (GSS).
 <ul>
 <li>
@@ -237,6 +237,7 @@ There is no association between family income and happiness.
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"/Volumes/anyan-1/happinesGSS12_long.csv"</span>)<span class="co"># Read the data for the analysis </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
+<p>Let’s see how a cross tabulation of the data looks</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
@@ -288,9 +289,8 @@ Column Total |       216 |       986 |       531 |      1733 |
 </div>
 </div>
 <p>Frequencies are displayed in each cell. The frequencies or cell counts in each cell can be converted to percentages (N/Row Total). Within each category of income, the percentage for the three categories of happiness is displayed. Thus, of the 342 people who reported their family income as above average, 135 reported themselves as very happy, which gives us a proportion of 39.5%, rounded to 40% (i.e., 135/342). By contrast, 119 (22%) of the 537 people who reported below average family income, reported they were very happy.</p>
-<p>These percentages are called <em>conditional percentages</em> and show the distribution of proportions in one variable, conditional on the other variable - hence, also called conditional distributions. For example, the <em>conditional distribution</em> of happiness for those who reported average income are 10%, 58%, and 32%. They can also be interpreted as <em>conditional probabilities</em>. Given that an individual reported average family income, the probability of not being happy, or pretty happy, or very happy is 10%, 58%, and 32%, respectively.</p>
-<p>Percentages in the row labelled ‘Column Total’ are called <em>marginal proportion</em>, as are those in the Row Total. The marginal proportion of people who reported not happy, pretty happy, or very happy is 12%, 57% and 31%, respectively. Similarly, the marginal proportion of people who reported below average income, average income and above average income is 31%, 49% and 20%, respectively.</p>
-<p>To perform a Chi-Square test with the CrossTable() function, we can add some arguments to the code we previously used.</p>
+<p>These percentages are called <em>conditional percentages</em> and show the distribution of proportions in one variable, conditional on the other variable - hence, also called conditional distributions. For example, the <em>conditional distribution</em> of happiness for those who reported average income are 10%, 58%, and 32%. They can also be interpreted as <em>conditional probabilities</em>. Given that an individual reported average family income, the probability of not being happy, or pretty happy, or very happy is 10%, 58%, and 32%, respectively. <em>Marginal proportions</em> refer to the values in the margins of the contingency table. The marginal proportion of people who reported not happy, pretty happy, or very happy is 12%, 57% and 31%, respectively.</p>
+<p>To perform a Chi-squared test with the CrossTable() function, we can add some arguments to the previous code.</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
@@ -357,13 +357,14 @@ Chi^2 =  54.04308     d.f. =  4     p =  5.154502e-11
  </code></pre>
 </div>
 </div>
-<p>Here we have the chi-square statistic and corresponding p-value for the test of independence under the null hypothesis that, income and happiness are independent (no association). Since the p-value is very small (&lt; .05), we can reject the null hypothesis in favor of the alternative hypothesis. Thus, there is an association between family income and happiness and that this may not be due to chance or sampling variability. As such, we can conclude that there is an association between family income and happiness in the population. <a href="../quantposts/null hypothesis testing/index.qmd">Find out why this conclusion could be problematic for statistical inference</a></p>
-<p>We can also use a different function to perform the Chi-Square test. Here, we use the chisq.test() function in the ‘stats’ package, which also contains many other functions.</p>
+<p>Here we have the Chi-squared statistic and corresponding p-value for the test of independence under the null hypothesis that, income and happiness are independent (no association). Since the p-value is very small (&lt; .05), we can reject the null hypothesis in favor of the alternative hypothesis. Thus, there is an association between family income and happiness and that this may not be due to chance or sampling error. Therefore, we can conclude that there is a true association between family income and happiness in the population.</p>
+<p>In other words, the observed association between family income and happiness in the sample data reflects a true association in the population, and it is very unlikely to have occurred by chance if the null hypothesis was true. <a href="../quantposts/null hypothesis testing/index.qmd">Find out why this conclusion could be problematic for statistical inference</a></p>
+<p>We can also use a different function to perform the Chi-squared test. Here, we use the chisq.test() function in the ‘stats’ package, which also contains many other functions.</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>chi.test <span class="ot">&lt;-</span> <span class="fu">chisq.test</span>(data<span class="sc">$</span>Income, data<span class="sc">$</span>Happy)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>chi.test </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>chi.test <span class="ot">&lt;-</span> <span class="fu">chisq.test</span>(data<span class="sc">$</span>Income, data<span class="sc">$</span>Happy)<span class="co">#Create and object called chi.test and assign the result of the chisq.test function() into this object</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>chi.test <span class="co">#Call the object to see its contents</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>
@@ -376,7 +377,7 @@ X-squared = 54.043, df = 4, p-value = 5.155e-11</code></pre>
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>chi.test<span class="sc">$</span>expected <span class="co">#To get expected cell counts</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>chi.test<span class="sc">$</span>expected <span class="co">#To get expected cell counts. </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>           data$Happy
@@ -386,10 +387,11 @@ data$Income       not   pretty     very
     below    66.93133 305.5291 164.5395</code></pre>
 </div>
 </div>
+<p><em>Using standardized residuals to reveal patterns of associations</em></p>
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>chi.test<span class="sc">$</span>stdres <span class="co">#Assuming there is a significant result, the residuals/standardized residuals can help us to understand the patterns of association</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>chi.test<span class="sc">$</span>stdres <span class="co">#Assuming there is a significant result, the standardized residuals can help us to understand the patterns of association</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>           data$Happy
@@ -400,21 +402,21 @@ data$Income        not     pretty       very
 </div>
 </div>
 <p>The residuals show the difference between the observed counts and what the model predicts (the expected counts/frequencies) in a particular cell computed under the null hypothesis. The standardized residual is similar to the z-score and indicates the number of standard errors that an observed count falls from its expected count. If the value of the standardized residual lies outside of +/-1.96, then it is significant at p &lt; .05; if it lies outside +/-2.58, then it is significant at p &lt;. 01 and when outside +/-3.29, then it is significant at p &lt; .001.</p>
-<p>For example, if we take the first cell of people who reported above average family income, but not happy, the observed count is -2.49 standard deviations (SD) below the expected count for this particular cell. Alternatively, for people with above average family income, many fewer were not happy than what the model predicted or, in other words, what the assumption of independence between income and happiness would predict.</p>
-We can interpret the positive standardized residuals first, followed by the negative residuals.
+<p>For example, if we take the first cell - (i.e., people who reported above average family income, and not happy). We can say that, the observed count is 2.49 standard deviations (SD) below (because of the negative sign, -2.49) the expected count for this particular cell. The substantive interpretation is that, for people with above average family income, many fewer were not happy than what the model predicted or, in other words, what the assumption of independence between income and happiness would predict.</p>
+We can interpret positive standardized residuals first, followed by negative standardized residuals.
 <ul>
 <li>
-For standardized residuals 5.83 and 3.96, the observed count is much higher than the expected count (&gt; 3 standard deviations). For people who reported below average family income, many more were not happy whereas for people who reported above average family income, many more were very happy.
+For standardized residuals 5.83 and 3.96, the observed count is much higher than the expected count (more than 3 standard deviations higher). For people who reported below average family income, many more were not happy. For people who reported above average family income, many more were very happy.
 </li>
 <li>
-For standardized residuals -3.41, -2.02 and -5.13 the observed count is much lower than the expected count (&lt; 2 standard deviations, if we use p &lt; .05). For people who reported average family income, much fewer were not happy. For people who reported below average family income, much fewer were very happy.
+For standardized residuals -3.41, -2.02 and -5.13, the observed count is much lower than the expected count. For people who reported average family income, much fewer were not happy. For people who reported below average family income, much fewer were very happy.
 </li>
 <li>
 Overall, the association between income and happiness seems to be driven by average to above average family income, and much more so, by above average family income.
 </li>
 </ul>
-<p>The chi-square test does not tell us where in the cell counts or frequencies the difference from independence lies, that is why the standardized residuals are useful for interpretation and understanding the patterns of association between the variables.</p>
-<p>=== We can use the ‘ggstatsplot’ package for this exercise. This package “creates graphics with details from statistical tests included in the plots themselves. It provides an easier syntax to generate information-rich plots for statistical analysis of continuous (violin plots, scatterplots, histograms, dot plots, dot-and-whisker plots) or categorical (pie and bar charts) data”. <a href="https://cran.r-project.org/web/packages/ggstatsplot/index.html">See here</a></p>
+<p>The Chi-squared test does not tell us where in the cell counts or frequencies the difference from independence lies, that is why the standardized residuals are useful for interpretation and understanding the patterns of association between the variables.</p>
+<p>We can also use the ‘ggstatsplot’ package for this exercise. This package “creates graphics with details from statistical tests included in the plots themselves. It provides an easier syntax to generate information-rich plots for statistical analysis of continuous (violin plots, scatterplots, histograms, dot plots, dot-and-whisker plots) or categorical (pie and bar charts) data”. <a href="https://cran.r-project.org/web/packages/ggstatsplot/index.html">See here</a></p>
 <div class="cell">
 <details>
 <summary>Code</summary>
@@ -426,7 +428,7 @@ Overall, the association between income and happiness seems to be driven by aver
      Journal of Open Source Software, 6(61), 3167, doi:10.21105/joss.03167</code></pre>
 </div>
 </div>
-<p>By plotting a pie chart, we also get the results for the Chi-Square test</p>
+<p>By plotting a pie chart, we also get the results for the Chi-squared test</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
@@ -439,11 +441,12 @@ Overall, the association between income and happiness seems to be driven by aver
 <p><img src="chi_sqaure_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>We can also perform and visualize the Chi-Square test of independence using the ggbarstats() function when we call the function to plot a stacked bar graph.</p>
+<p>We can also perform and visualize the Chi-squared test of independence using the ggbarstats() function when we call the function to plot a stacked bar graph.</p>
+<p><em>Just so you know - this is my preferred way to do the Chi-squared test of independence.</em></p>
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggbarstats</span>(<span class="at">data =</span> data,</span>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggbarstats</span>(<span class="at">data =</span> data, <span class="co">#The first argument is the data</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">x =</span> Income,   <span class="co">#The variable to use as the rows in the contingency table</span></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">y =</span> Happy,     <span class="co">#The variable to use as the columns in the contingency table.</span></span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">label =</span> <span class="st">"both"</span>) <span class="co">#You can use "percentage" or "count"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -453,8 +456,8 @@ Overall, the association between income and happiness seems to be driven by aver
 </div>
 </div>
 <p>We can see that the proportion of people who reported below average family income reduced with increasing happiness whereas the proportion of people who reported above average family income increases with increasing happiness. This support the previous conclusion that, the association between income and happiness seems to be driven by above average family income.</p>
-<p>Another measure of effect size is the Cramer’s V with its 95% Confidence Interval next to the p-value. The effect size of .12 is a relatively weak association. This function also provides a corresponding Bayesian effect size, which is much more useful. There is also a Bayes factor, which tests both the null and alternative hypothesis at the same time. A Bayes factor of -16.02 indicates a decisive evidence in favor of the alternative hypothesis that there is an association between family income and happiness.</p>
-<p>Finally, this function shows the proportion test for family income (below average, average and above average) in each category of happiness (not happy, pretty happy, and very happy) under the null hypothesis that the sample proportions are not equal. They show whether the proportions inside each category of happiness differ. Since the p-values are all very small, we can conclude that the sample proportions of family income within each category of happiness differs.</p>
+<p>This function automatically outputs the Cramer’s V with its 95% Confidence Interval next to the p-value. The effect size of .12 is a relatively weak association. It also provides a corresponding Bayesian effect size, which is much more useful. There is also a Bayes factor, which tests both the null and alternative hypothesis at the same time. A Bayes factor of -16.02 shows evidence (i.e., decisive evidence) in favor of the alternative hypothesis that there is an association between family income and happiness.</p>
+<p>Finally, this function shows the proportion test for family income (below average, average and above average) in each category of happiness (not happy, pretty happy, and very happy) under the null hypothesis that the sample proportions are not equal. They show whether the proportions inside each category of happiness differ. Since the p-values are all very small, we can conclude that the sample proportions of family income within each category of happiness differs. This type of Chi-squared test is referred to as the Chi-squared goodness-of-fit statistic, used to test hypothesis involving a single categorical variable from a single sample.</p>
 
 
 

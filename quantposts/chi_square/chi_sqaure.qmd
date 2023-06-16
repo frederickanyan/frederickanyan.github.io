@@ -37,6 +37,12 @@ CrossTable(data$Income, data$Happy) #Get a cross tabulation of variables with ce
 
 Frequencies are displayed in each cell. The frequencies or cell counts in each cell can be converted to percentages (N/Row Total). Within each category of income, the percentage for the three categories of happiness is displayed. Thus, of the 342 people who reported their family income as above average, 135 reported themselves as very happy, which gives us a proportion of 39.5%, rounded to 40% (i.e., 135/342). By contrast, 119 (22%) of the 537 people who reported below average family income, reported they were very happy. 
 
+```{r}
+CrossTable(data$Income, data$Happy, prop.t=FALSE, prop.r=FALSE, prop.c=FALSE) #To hide proportions in the rows and columns
+```
+
+
+
 ## Conditional and marginal proportions
 <ul>These percentages are called *conditional percentages* and show the distribution of proportions in one variable, conditional on the other variable - hence, also called conditional distributions. For example, the *conditional distribution* of happiness for those who reported average income are 10%, 58%, and 32%. They can also be interpreted as *conditional probabilities*. Given that an individual reported average family income, the probability of not being happy, or pretty happy, or very happy is 10%, 58%, and 32%, respectively. *Marginal proportions* refer to the values in the margins of the contingency table. The marginal proportion of people who reported not happy, pretty happy, or very happy is 12%, 57% and 31%, respectively.</ul> 
 
@@ -62,6 +68,7 @@ chi.test #Call the object to see its contents
 ```{r}
 chi.test$expected #To get expected cell counts. 
 ```
+
 ## Using standardized residuals to reveal patterns of associations
 <ul>The residuals show the difference between the observed counts and what the model predicts (the expected counts/frequencies) in a particular cell computed under the null hypothesis. The standardized residual is similar to the z-score and indicates the number of standard deviations that an observed count falls from its expected count. If the value of the standardized residual lies outside of +/-1.96, then it is significant at p < .05; if it lies outside +/-2.58, then it is significant at p <. 01 and when outside +/-3.29, then it is significant at p < .001.</ul> 
 
@@ -112,11 +119,6 @@ We can see that the proportion of people who reported below average family incom
 This function automatically outputs the Cramer's V with its 95% Confidence Interval next to the p-value. The effect size of .12 is a relatively weak association. It also provides a corresponding Bayesian effect size, which is much more useful. There is also a Bayes factor, which tests both the null and alternative hypothesis at the same time. A Bayes factor of -16.02 shows evidence (i.e., decisive evidence) in favor of the alternative hypothesis that there is an association between family income and happiness. 
 
 Finally, this function shows the proportion test for family income (below average, average and above average) in each category of happiness (not happy, pretty happy, and very happy) under the null hypothesis that the sample proportions are not equal. They show whether the proportions inside each category of happiness differ. Since the p-values are all very small, we can conclude that the sample proportions of family income within each category of happiness differs. This type of Chi-squared test is referred to as the Chi-squared goodness-of-fit statistic, used to test hypothesis involving a single categorical variable from a single sample. 
-
-
-
-
-
 
 
 

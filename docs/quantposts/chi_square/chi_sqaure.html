@@ -304,6 +304,42 @@ Column Total |       216 |       986 |       531 |      1733 |
 </div>
 </div>
 <p>Frequencies are displayed in each cell. The frequencies or cell counts in each cell can be converted to percentages (N/Row Total). Within each category of income, the percentage for the three categories of happiness is displayed. Thus, of the 342 people who reported their family income as above average, 135 reported themselves as very happy, which gives us a proportion of 39.5%, rounded to 40% (i.e., 135/342). By contrast, 119 (22%) of the 537 people who reported below average family income, reported they were very happy.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">CrossTable</span>(data<span class="sc">$</span>Income, data<span class="sc">$</span>Happy, <span class="at">prop.t=</span><span class="cn">FALSE</span>, <span class="at">prop.r=</span><span class="cn">FALSE</span>, <span class="at">prop.c=</span><span class="cn">FALSE</span>) <span class="co">#To hide proportions in the rows and columns</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+ 
+   Cell Contents
+|-------------------------|
+|                       N |
+| Chi-square contribution |
+|-------------------------|
+
+ 
+Total Observations in Table:  1733 
+
+ 
+             | data$Happy 
+ data$Income |       not |    pretty |      very | Row Total | 
+-------------|-----------|-----------|-----------|-----------|
+     above   |        29 |       178 |       135 |       342 | 
+             |     4.356 |     1.413 |     8.709 |           | 
+-------------|-----------|-----------|-----------|-----------|
+     average |        83 |       494 |       277 |       854 | 
+             |     5.163 |     0.135 |     0.898 |           | 
+-------------|-----------|-----------|-----------|-----------|
+     below   |       104 |       314 |       119 |       537 | 
+             |    20.530 |     0.235 |    12.604 |           | 
+-------------|-----------|-----------|-----------|-----------|
+Column Total |       216 |       986 |       531 |      1733 | 
+-------------|-----------|-----------|-----------|-----------|
+
+ </code></pre>
+</div>
+</div>
 </section>
 <section id="conditional-and-marginal-proportions" class="level2">
 <h2 class="anchored" data-anchor-id="conditional-and-marginal-proportions">Conditional and marginal proportions</h2>
@@ -314,11 +350,11 @@ These percentages are called <em>conditional percentages</em> and show the distr
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">CrossTable</span>(data<span class="sc">$</span>Income, data<span class="sc">$</span>Happy, </span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>           <span class="co">#fisher = TRUE, #To get fisher's exact test </span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">chisq =</span> <span class="cn">TRUE</span>, <span class="co">#To get pearson chi-square statistic</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">expected =</span> <span class="cn">TRUE</span>, <span class="co">#To get the expected cell counts (which should be &gt; 5 in each cell)</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>           ) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">CrossTable</span>(data<span class="sc">$</span>Income, data<span class="sc">$</span>Happy, </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>           <span class="co">#fisher = TRUE, #To get fisher's exact test </span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">chisq =</span> <span class="cn">TRUE</span>, <span class="co">#To get pearson chi-square statistic</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">expected =</span> <span class="cn">TRUE</span>, <span class="co">#To get the expected cell counts (which should be &gt; 5 in each cell)</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>           ) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>
@@ -388,8 +424,8 @@ We can also use a different function to perform the Chi-squared test. Here, we u
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>chi.test <span class="ot">&lt;-</span> <span class="fu">chisq.test</span>(data<span class="sc">$</span>Income, data<span class="sc">$</span>Happy)<span class="co">#Create and object called chi.test and assign the result of the chisq.test function() into this object</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>chi.test <span class="co">#Call the object to see its contents</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>chi.test <span class="ot">&lt;-</span> <span class="fu">chisq.test</span>(data<span class="sc">$</span>Income, data<span class="sc">$</span>Happy)<span class="co">#Create and object called chi.test and assign the result of the chisq.test function() into this object</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>chi.test <span class="co">#Call the object to see its contents</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>
@@ -402,7 +438,7 @@ X-squared = 54.043, df = 4, p-value = 5.155e-11</code></pre>
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>chi.test<span class="sc">$</span>expected <span class="co">#To get expected cell counts. </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>chi.test<span class="sc">$</span>expected <span class="co">#To get expected cell counts. </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>           data$Happy
@@ -421,7 +457,7 @@ The residuals show the difference between the observed counts and what the model
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>chi.test<span class="sc">$</span>stdres <span class="co">#Assuming there is a significant result, the standardized residuals can help us to understand the patterns of association</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>chi.test<span class="sc">$</span>stdres <span class="co">#Assuming there is a significant result, the standardized residuals can help us to understand the patterns of association</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>           data$Happy
@@ -454,7 +490,7 @@ We can also use the ‘ggstatsplot’ package for this exercise. This package �
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggstatsplot) <span class="co">#Load the package to access the functions</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggstatsplot) <span class="co">#Load the package to access the functions</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stderr">
 <pre><code>You can cite this package as:
@@ -466,13 +502,13 @@ We can also use the ‘ggstatsplot’ package for this exercise. This package �
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggpiestats</span>(<span class="at">data =</span> data,</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">x =</span> Income,</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">y =</span> Happy,</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">label =</span> <span class="st">"both"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggpiestats</span>(<span class="at">data =</span> data,</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">x =</span> Income,</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">y =</span> Happy,</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">label =</span> <span class="st">"both"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="chi_sqaure_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+<p><img src="chi_sqaure_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>We can also perform and visualize the Chi-squared test of independence using the ggbarstats() function when we call the function to plot a stacked bar graph.</p>
@@ -480,13 +516,13 @@ We can also use the ‘ggstatsplot’ package for this exercise. This package �
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggbarstats</span>(<span class="at">data =</span> data, <span class="co">#The first argument is the data</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">x =</span> Income,   <span class="co">#The variable to use as the rows in the contingency table</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">y =</span> Happy,     <span class="co">#The variable to use as the columns in the contingency table.</span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">label =</span> <span class="st">"both"</span>) <span class="co">#You can use "percentage" or "count"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggbarstats</span>(<span class="at">data =</span> data, <span class="co">#The first argument is the data</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">x =</span> Income,   <span class="co">#The variable to use as the rows in the contingency table</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">y =</span> Happy,     <span class="co">#The variable to use as the columns in the contingency table.</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">label =</span> <span class="st">"both"</span>) <span class="co">#You can use "percentage" or "count"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="chi_sqaure_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
+<p><img src="chi_sqaure_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>We can see that the proportion of people who reported below average family income reduced with increasing happiness whereas the proportion of people who reported above average family income increases with increasing happiness. This support the previous conclusion that, the association between income and happiness seems to be driven by above average family income.</p>

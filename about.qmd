@@ -23,8 +23,10 @@ about:
       text: Orcid
       href: https://orcid.org/0000-0002-0339-3263
 ---
+## Teaching
 My teaching in undergraduate quantitative method course focuses on understanding and emphasizing statistical concepts and their applications more than mathematics, computational details and theoretical derivatives in the statistical methodology. Occasionally, and depending on context and need, my teaching in advance and graduate-level quantitative method add computational and statistical details to understanding concepts and their applications.
 
+## Research
 My research focuses on the application and assessment of quantitative methods in the social and behavioural sciences. Specifically, I focus on combining innovative statistical methods and substantive interests into a single program of research that seeks to understand, improve and promote adaptive psychological functioning and resilience in the following areas:
 
 <ul>
@@ -39,4 +41,5 @@ My research focuses on the application and assessment of quantitative methods in
 
 My expertise in applied analysis in panel and intensive longitudinal data, as well as structural equation modelling (SEM) and hierarchical linear modelling (HLM) enables my participation in research to uncover subtle patterns in complex data sets, teasing apart minute details to reveal crucial insights that could inform effective interventions.
 
+## Mentoring
 Beyond research, I am very approachable and a passionate mentor and educator, with a deep commitment to sharing my expertise, taking active role in training graduate students and postdoctoral fellows. With a diverse quantitative and substantive research program that influences both theory and practice, I strive not only to make meaningful contributions to the scientific community through teaching and research, but also, train the next generation of researchers. So, you are welcome to contact me.

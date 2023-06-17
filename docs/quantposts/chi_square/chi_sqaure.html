@@ -224,7 +224,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 <p>We can analyse the association between two categorical variables in different ways (e.g., using stacked bar graphs or pie charts). The most common way is to use contingency tables with rows and columns displaying categories of each variable. The count or frequency of each pair of categories are given in a cell.</p>
-<p>We will see how to analyse the association between two categorical variables using different functions in different packages in RStudio. The CrossTbale() function seems to be very popular as is the chisq.test() function. My preference is the ggbarstats() function in the ‘ggstatsplot’ package. This package produces beautiful plots and charts that are publication-ready with good quality. And just by plotting your pie chart or stacked bar graph, the ggpiestats() and the ggbarstats() function also compute the Chi-squared test statistic, with very useful information in addition, including a Bayesian effect size.</p>
+<p>We will see how to analyse the association between two categorical variables using different functions in different packages in RStudio. The CrossTbale() function seems to be very popular as is the chisq.test() function. Another function is the ggbarstats() in the ‘ggstatsplot’ package. This package produces beautiful plots and charts that are publication-ready with good quality. And just by plotting your pie chart or stacked bar graph, the ggpiestats() and the ggbarstats() function also compute the Chi-squared test statistic, with very useful information in addition, including a Bayesian effect size.</p>
 In this example, we will answer the research question: is family income associated with happiness? These questions are asked in the General Social Survey (GSS).
 <ul>
 <li>
@@ -512,7 +512,6 @@ We can also use the ‘ggstatsplot’ package for this exercise. This package �
 </div>
 </div>
 <p>We can also perform and visualize the Chi-squared test of independence using the ggbarstats() function when we call the function to plot a stacked bar graph.</p>
-<p><em>Just so you know - this is my preferred way to do the Chi-squared test of independence.</em></p>
 <div class="cell">
 <details>
 <summary>Code</summary>
@@ -526,7 +525,7 @@ We can also use the ‘ggstatsplot’ package for this exercise. This package �
 </div>
 </div>
 <p>We can see that the proportion of people who reported below average family income reduced with increasing happiness whereas the proportion of people who reported above average family income increases with increasing happiness. This support the previous conclusion that, the association between income and happiness seems to be driven by above average family income.</p>
-<p>This function automatically outputs the Cramer’s V with its 95% Confidence Interval next to the p-value. The effect size of .12 is a relatively weak association. It also provides a corresponding Bayesian effect size, which is much more useful. There is also a Bayes factor, which tests both the null and alternative hypothesis at the same time. A Bayes factor of -16.02 shows evidence (i.e., decisive evidence) in favor of the alternative hypothesis that there is an association between family income and happiness.</p>
+<p>This function automatically outputs the Cramer’s V with its 95% Confidence Interval next to the p-value. The effect size of .12 is a relatively weak association. It also provides a corresponding Bayesian effect size, which is much more useful. There is also a Bayes factor, which tests both the null and alternative hypothesis at the same time. The designation of ‘01’ returns a Bayes Factor in favor of the null hypothesis whereas ‘10’ returns a Bayes Factor in favor of the alternative hypothesis. A Bayes factor of -16.02 shows that the null hypothesis does not do well or is not supported (16 times worse than the alternative hypothesis). This is evidence (i.e., decisive evidence) in favor of the alternative hypothesis that, there is an association between family income and happiness.</p>
 <p>Finally, this function shows the proportion test for family income (below average, average and above average) in each category of happiness (not happy, pretty happy, and very happy) under the null hypothesis that the sample proportions are not equal. They show whether the proportions inside each category of happiness differ. Since the p-values are all very small, we can conclude that the sample proportions of family income within each category of happiness differs. This type of Chi-squared test is referred to as the Chi-squared goodness-of-fit statistic, used to test hypothesis involving a single categorical variable from a single sample.</p>
 
 

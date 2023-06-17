@@ -3,6 +3,7 @@ title: 'Association Between Two Categorical Variables'
 author: "Frederick Anyan"
 date: 2023-06-15
 categories: [Categorical variables]
+image: "chi.png"
 ---
 We can analyse the association between two categorical variables in different ways (e.g., using stacked bar graphs or pie charts). The most common way is to use contingency tables with rows and columns displaying categories of each variable. The count or frequency of each pair of categories are given in a cell. 
 

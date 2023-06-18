@@ -57,7 +57,7 @@ CrossTable(data$Income, data$Happy,
 ```
 Here we have the Chi-squared statistic and corresponding p-value for the test of independence under the null hypothesis that, income and happiness are independent (no association). Since the p-value is very small (< .05), we can reject the null hypothesis in favor of the alternative hypothesis. Thus, there is an association between family income and happiness and that this may not be due to chance or sampling error. Therefore, we can conclude that there is a true association between family income and happiness in the population. 
 
-In other words, the observed association between family income and happiness in the sample data reflects a true association in the population, and it is very unlikely to have occurred by chance if the null hypothesis was true. [Find out why this conclusion could be misleading](../quantposts/null hypothesis testing/index.qmd) 
+In other words, the observed association between family income and happiness in the sample data reflects a true association in the population, and it is very unlikely to have occurred by chance if the null hypothesis was true. [Find out the problem with this conclusion here](//quantposts/null hypothesis testing/index.qmd) 
 
 ## chisq.test() function
 <ul> We can also use a different function to perform the Chi-squared test. Here, we use the chisq.test() function in the 'stats' package, which also contains many other functions.</ul>

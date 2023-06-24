@@ -2,6 +2,7 @@
 title: 'Visualizing Sets'
 author: "Frederick Anyan"
 date: 2023-06-24
+categories: [Sets, Venn diagram]
 image: "ups.png"
 ---
 Variables or columns are known as sets in upset visualization. Upset plots can be used to visualize the size, and distribution of sets, and the pairwise combinations of sets as well as overlaps or intersections of sets and their aggregates. This facilitates easy-to-understand communication of the size and proportion of set memberships. 

@@ -5,20 +5,22 @@ date: 2023-06-24
 categories: [Sets, Venn diagram]
 image: "ups.png"
 ---
-Variables or columns are known as sets in upset visualization. Upset plots can be used to visualize the size, and distribution of sets, and the pairwise combinations of sets as well as overlaps or intersections of sets and their aggregates. This facilitates easy-to-understand communication of the size and proportion of set memberships. 
+Variables or columns are known as sets in upset visualization. Upset plots can be used to visualize the size and the pairwise combinations or intersections of sets and their aggregates. This facilitates easy-to-understand communication of the size and proportion of set memberships. 
 
 ## Example
-<ul> Let's say you want to know the prevalence of disorders in your sample and co-morbidity across disorders. Upset plots can easily and beautifully visualize the proportion of the sample who meet criteria for PTSD and also have depression and anxiety disorders, or other kinds of combinations of sorts. For example, the proportion of people in the data who meet criteria for depression, but not anxiety disorders and PTSD, or the proportion who meet criteria for PTSD, but not depression and anxiety disorders, and several other combinations. </ul>
+<ul> Let's say you want to know the prevalence of disorders in your sample and co-morbidity across disorders. Upset plots can visualize the proportion of the sample who meet criteria for PTSD, depression and anxiety disorders, or other kinds of combinations of sorts. For example, the proportion of people who meet criteria for depression, but not anxiety disorders and PTSD, or the proportion who meet criteria for PTSD, but not depression and anxiety disorders, and several other combinations. </ul>
 
-Data with multiple variables or their combinations is often displayed in a Venn diagram. In some cases the Euler diagram is used. Both have limitations with increasing number of variables or sets. As precisely captured on the [upset website](https://upset.app), _"The most common set visualization approach – Venn Diagrams – doesn’t scale beyond three or four sets. UpSet, in contrast, is well suited for the quantitative analysis of data with more than three sets"_. Upset plots can be used to visualize the distributions of people for different variables or sets, their overlaps or intersections and their aggregates - for communicating the size and proportion of set memberships. 
+Data with multiple variables or their combinations is often displayed in a Venn diagram. In some cases the Euler diagram is used. Both have limitations with increasing number of variables or sets. Upset plots can be used to visualize the distributions of people for different variables or sets, their overlaps or intersections and their aggregates - for communicating the size and proportion of set memberships. 
 
 In this tutorial post, we will see how to use the upset() function in the 'UpSetR' package to visualize intersecting sets.  
+
+Load data
 ```{r}
-data <- read.csv("/Volumes/anyan-1/upset.csv")#
+data <- read.csv("/Volumes/anyan-1/dataupset.csv")#
 #head(data) #first few rows
 ```
 
-There are 281 columns or variables in the data file. The data comes from the [Adolescent Stress Questionnaire scale](https://doi.org/10.1016/j.adolescence.2006.04.004) which contains 10 sub-scales.
+The data comes from the [Adolescent Stress Questionnaire scale](https://doi.org/10.1016/j.adolescence.2006.04.004) which contains 10 sub-scales, 8 of which will be used in this tutorial. 
 
 The sub-scales are 
 <ul>
@@ -34,82 +36,7 @@ The sub-scales are
  <li>Stress of Financial Pressure - _sfp_.</li> 
 </ul>
 
-Since all 10 sub-scales are already computed (i.e., sum scores), we will drop other columns or variables and retain only the 10 sub-scales needed. 
-```{r}
-data <- data[, 140:149]#Drop all columns except column numbers 140 to 149 which contains the 10 sub-scales
-```
-
-Let's inspect the names of the variables
-```{r}
-colnames(data)
-```
-
-Now, let's change the names of the variables to something simple
-```{r}
-names(data) <- c("ssa", "srr", "spp", "stin", "sfu", "slc", "sear", "shl", "ssp", "sfp")
-```
-
-Let's also get some descriptive statistics of the data
-```{r}
-summary(data)
-```
-From these summary descriptive statistics, we can make a decision as to what it means for a participant to be identified as meeting the criteria for 'stressed' versus 'normal'. Let's say we use the score on the third quartile of each variable as the cut-off point. The third quartile is also the 75th percentile so that the hgihest 25% of the data fall above it. 
-
-We will come back to this decision so don't forget it - 😁
-
-```{r}
-library(tidyverse)#Load tidyverse package - it contains other pakcages too
-```
-
-
-```{r}
-glimpse(data) #Get a glimpse of the data with the glimpse() function
-```
-Let's convert all scores to integer class by looping over the columns (with lapply)
-```{r}
-data[] <- lapply(data, as.integer) #Make scores integers
-```
-
-
-```{r}
-glimpse(data) #Glimpse data again
-```
-Remember the decision to use the third quartile of each variable as the cut-off point?
-Let's do that now.
-
-Using the mutate() function in the 'tidyverse' package will create new dummy-coded variables with 1 indicating stressed and 0 indicating not stressed. To do this, the _if_else_ argument will be supplied with the mutate() function. See explanation in the code.
-
-```{r}
-data <- data %>% #create and object called data by taking data and then (or pipe)...
-  mutate(ssadum = if_else(ssa > 10,1,0))%>% #create a new variable called ssadum. If the score on the ssa variable is greater than 10 give ssadum 1, otherwise give ssadum 0
-  mutate(srrdum = if_else(srr > 15,1,0))%>%
-  mutate(sppdum = if_else(spp > 23,1,0))%>%
-  mutate (stindum = if_else(stin > 22,1,0))%>%
-  mutate(sfudum = if_else(sfu > 11,1,0))%>%
-  mutate(slcdum = if_else(slc > 17,1,0))%>%
-  mutate(seardum = if_else(sear > 10,1,0))%>%
-  mutate(shldum = if_else(shl > 34,1,0))%>%
-  mutate(sspdum = if_else(ssp > 26,1,0))%>%
-  mutate(sfpdum = if_else(sfp > 14,1,0))
-
-#data$ssadum1 <- if_else(data$ssa > 10,1,0) This can also be used for creating new dummy variables
-```
-
-By inspecting the number of columns, we see that there are now 20 variables.
-```{r}
-ncol(data) #number of columns in the data
-```
-
-We do not need all 20 variables, so let's create a dataset for dummy-coded variables which contain information on stressed versus not stressed participants.
-```{r}
-upsetdata <- data %>%
-  select(ssadum, srrdum, sppdum,  stindum, sfudum,  slcdum, seardum, shldum, sspdum, sfpdum)
-```
-
-Let's get the names of the variables
-```{r}
-colnames(upsetdata)
-```
+For this tutorial, median split was used to categorize participants into two groups namely 'stressed' and 'not stressed' - with binary coding as 1 and 0. You can use established cut-off scores for your own data.
 
 ## UpSetR package 
 ```{r}
@@ -118,17 +45,20 @@ library(UpSetR) #Load the UpSetR package to access the upset () function
 
 Now visualize the data using the upset() function. 
 ```{r}
-upset(upsetdata,                      #Name of data file indicating participants meeting criteria versus not meeting criteria - 0, 1 - binary coded
-      nsets = 10,                     #Number of sets to visualize - usually the number of variables in the data file
+upset(data,                      #Name of data file 
+      #nsets = 8,                #To see all 8 sets in the upset plot
       matrix.color = "red", 
-      sets.bar.color = "#377EB8", 
-      order.by = "freq",             #You can order sets by frequencies 
-      empty.intersections = "on")    #Keep this 'on' to see overlaps or intersections that are empty. 
+      sets.bar.color = "blue", 
+      order.by = "freq"            #You can order sets by frequencies 
+      ) 
 ```
-The blue bar charts show the size of the set (i.e., set size). 
 
-The red circles corresponds to possible intersections or overlaps with the filled-in cells showing which set is part of an intersection or which variable overalps with which other variable(s). For example, srrdum and stindum form an intersection or overlap so does srrdum and ssadum. Additionally, srrdum, sfudum and slcdum form an intersection. And so on... 
 
-The black bar charts correspond to the size of possible intersections (i.e., intersection size). For example, srrdum and stindum form an intersection or overlap of size (5 people) so does srrdum and ssadum with a size of 5 people. However, srrdum, sfudum and slcdum for an intersection of size 3 people. And so on... 
+The blue barchart shows the total size of the set (i.e., set size). 
+
+The red filled-in circles corresponds to possible intersections or overlaps showing which set is part of an intersection or which variable overlaps with which other variable(s). For example, sfu and srr form an intersection or overlap, and so does srr and spp. Additionally, sfu, srr, spp and ssa also form an intersection. And so on... 
+
+The black barchart correspond to the size or occurrence of possible intersections (i.e., intersection size).  
+
 
 [Read more about upset plots](https://upset.app/advanced/) 

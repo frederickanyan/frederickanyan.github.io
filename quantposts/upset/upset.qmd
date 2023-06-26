@@ -8,9 +8,9 @@ image: "ups.png"
 Variables or columns are known as sets in upset visualization. Upset plots can be used to visualize the size and the pairwise combinations or intersections of sets and their aggregates. This facilitates easy-to-understand communication of the size and proportion of set memberships. 
 
 ## Example
-<ul> Let's say you want to know the prevalence of disorders in your sample and co-morbidity across disorders. Upset plots can visualize the proportion of the sample who meet criteria for PTSD, depression and anxiety disorders, or other kinds of combinations of sorts. For example, the proportion of people who meet criteria for depression, but not anxiety disorders and PTSD, or the proportion who meet criteria for PTSD, but not depression and anxiety disorders, and several other combinations. </ul>
+<ul> Let's say you want the size or proportion of your sample who meet cut-off for some disorders as well as co-morbidity across disorders. Upset plots can visualize the proportion of the sample who meet criteria for panic, separation anxiety disorder and selective mutism, or other kinds of combinations of sorts. For example, the proportion of people who meet panic disorder, but not separation anxiety disorder and PTSD, or the proportion who meet criteria for PTSD, but not depression and social anxiety disorders, and several other combinations. </ul>
 
-Data with multiple variables or their combinations is often displayed in a Venn diagram. In some cases the Euler diagram is used. Both have limitations with increasing number of variables or sets. Upset plots can be used to visualize the distributions of people for different variables or sets, their overlaps or intersections and their aggregates - for communicating the size and proportion of set memberships. 
+Data with multiple variables or their combinations is often displayed in a Venn diagram. In some cases the Euler diagram is used. Both have limitations with increasing number of variables or sets. Upset plots can be used to visualize the size of different variables or sets, frequencies of their overlaps or intersections and their aggregates - for communicating set memberships. 
 
 In this tutorial post, we will see how to use the upset() function in the 'UpSetR' package to visualize intersecting sets.  
 
@@ -20,23 +20,24 @@ data <- read.csv("/Volumes/anyan-1/dataupset.csv")#
 #head(data) #first few rows
 ```
 
-The data comes from the [Adolescent Stress Questionnaire scale](https://doi.org/10.1016/j.adolescence.2006.04.004) which contains 10 sub-scales, 8 of which will be used in this tutorial. 
-
-The sub-scales are 
+Following are symptoms in the data
 <ul>
- <li>Stress of School Attendance - _ssa_.</li> 
- <li>Stress of Romantic Relationships - _srr_.</li> 
- <li>Stress of Peer Pressure - _spp_.</li> 
- <li>Stress of Teacher Interaction - _stin_.</li> 
- <li>Stress of Future Uncertainty - _sfu_.</li> 
- <li>Stress of School/Leisure Conflict - _slc_.</li> 
- <li>Stress of Emerging Adult Responsibility - _sear_.</li> 
- <li>Stress of Home Life - _shl_.</li> 
- <li>Stress of School Performance - _ssp_.</li> 
- <li>Stress of Financial Pressure - _sfp_.</li> 
+ <li>Separation anxiety disorder - _separation_.</li> 
+ <li>Selective mutism - _mutism_.</li> 
+ <li>Specific phobia - _phobia_.</li> 
+ <li>Social anxiety disorder - _social_.</li> 
+ <li>Panic disorder - _panic_.</li> 
+ <li>Generalized anxiety disorder - _anxiety_.</li> 
+ <li>Depression - _depression_.</li> 
+ <li>Post-traumatic stress disorder - _ptsd_.</li> 
 </ul>
 
-For this tutorial, median split was used to categorize participants into two groups namely 'stressed' and 'not stressed' - with binary coding as 1 and 0. You can use established cut-off scores for your own data.
+Let's change the variable names to the symptom names
+```{r}
+names(data) <- c("separation", "mutism", "phobia", "social", "panic", "anxiety", "depression", "ptsd")
+```
+
+For this tutorial, median split was used to categorize participants into two groups namely 'clinical' and 'non-clinical' - with binary coding as 1 and 0. You can use established cut-off scores for your own data, not the median split.
 
 ## UpSetR package 
 ```{r}
@@ -46,19 +47,18 @@ library(UpSetR) #Load the UpSetR package to access the upset () function
 Now visualize the data using the upset() function. 
 ```{r}
 upset(data,                      #Name of data file 
-      #nsets = 8,                #To see all 8 sets in the upset plot
+      nsets = 8,                #To see all 8 sets in the upset plot
       matrix.color = "red", 
       sets.bar.color = "blue", 
-      order.by = "freq"            #You can order sets by frequencies 
-      ) 
+      order.by = "freq",         #You can order sets by frequencies 
+      set_size.show = TRUE) 
 ```
 
 
-The blue barchart shows the total size of the set (i.e., set size). 
+The blue bar chart shows the total size of the sets (i.e., set size).   
 
-The red filled-in circles corresponds to possible intersections or overlaps showing which set is part of an intersection or which variable overlaps with which other variable(s). For example, sfu and srr form an intersection or overlap, and so does srr and spp. Additionally, sfu, srr, spp and ssa also form an intersection. And so on... 
+The red filled-in circles corresponds to intersections or overlaps showing which set is part of an intersection or which disorder overlaps with which other disorder(s). For example, panic and mutism form an intersection or overlap, and so does panic and phobia. Additionally, panic, mutism, phobia and separation also form an intersection. And so on... 
 
-The black barchart correspond to the size or occurrence of possible intersections (i.e., intersection size).  
-
+The black bar chart shows the occurrence or frequencies for each intersection (i.e., intersection size).  
 
 [Read more about upset plots](https://upset.app/advanced/) 

@@ -225,9 +225,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="example" class="level2">
 <h2 class="anchored" data-anchor-id="example">Example</h2>
 <ul>
-Let’s say you want to know the prevalence of disorders in your sample and co-morbidity across disorders. Upset plots can visualize the proportion of the sample who meet criteria for PTSD, depression and anxiety disorders, or other kinds of combinations of sorts. For example, the proportion of people who meet criteria for depression, but not anxiety disorders and PTSD, or the proportion who meet criteria for PTSD, but not depression and anxiety disorders, and several other combinations.
+Let’s say you want the size or proportion of your sample who meet cut-off for some disorders as well as co-morbidity across disorders. Upset plots can visualize the proportion of the sample who meet criteria for panic, separation anxiety disorder and selective mutism, or other kinds of combinations of sorts. For example, the proportion of people who meet panic disorder, but not separation anxiety disorder and PTSD, or the proportion who meet criteria for PTSD, but not depression and social anxiety disorders, and several other combinations.
 </ul>
-<p>Data with multiple variables or their combinations is often displayed in a Venn diagram. In some cases the Euler diagram is used. Both have limitations with increasing number of variables or sets. Upset plots can be used to visualize the distributions of people for different variables or sets, their overlaps or intersections and their aggregates - for communicating the size and proportion of set memberships.</p>
+<p>Data with multiple variables or their combinations is often displayed in a Venn diagram. In some cases the Euler diagram is used. Both have limitations with increasing number of variables or sets. Upset plots can be used to visualize the size of different variables or sets, frequencies of their overlaps or intersections and their aggregates - for communicating set memberships.</p>
 <p>In this tutorial post, we will see how to use the upset() function in the ‘UpSetR’ package to visualize intersecting sets.</p>
 <p>Load data</p>
 <div class="cell">
@@ -237,68 +237,68 @@ Let’s say you want to know the prevalence of disorders in your sample and co-m
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#head(data) #first few rows</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<p>The data comes from the <a href="https://doi.org/10.1016/j.adolescence.2006.04.004">Adolescent Stress Questionnaire scale</a> which contains 10 sub-scales, 8 of which will be used in this tutorial.</p>
-The sub-scales are
+Following are symptoms in the data
 <ul>
 <li>
-Stress of School Attendance - <em>ssa</em>.
+Separation anxiety disorder - <em>separation</em>.
 </li>
 <li>
-Stress of Romantic Relationships - <em>srr</em>.
+Selective mutism - <em>mutism</em>.
 </li>
 <li>
-Stress of Peer Pressure - <em>spp</em>.
+Specific phobia - <em>phobia</em>.
 </li>
 <li>
-Stress of Teacher Interaction - <em>stin</em>.
+Social anxiety disorder - <em>social</em>.
 </li>
 <li>
-Stress of Future Uncertainty - <em>sfu</em>.
+Panic disorder - <em>panic</em>.
 </li>
 <li>
-Stress of School/Leisure Conflict - <em>slc</em>.
+Generalized anxiety disorder - <em>anxiety</em>.
 </li>
 <li>
-Stress of Emerging Adult Responsibility - <em>sear</em>.
+Depression - <em>depression</em>.
 </li>
 <li>
-Stress of Home Life - <em>shl</em>.
-</li>
-<li>
-Stress of School Performance - <em>ssp</em>.
-</li>
-<li>
-Stress of Financial Pressure - <em>sfp</em>.
+Post-traumatic stress disorder - <em>ptsd</em>.
 </li>
 </ul>
-<p>For this tutorial, median split was used to categorize participants into two groups namely ‘stressed’ and ‘not stressed’ - with binary coding as 1 and 0. You can use established cut-off scores for your own data.</p>
+<p>Let’s change the variable names to the symptom names</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(data) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"separation"</span>, <span class="st">"mutism"</span>, <span class="st">"phobia"</span>, <span class="st">"social"</span>, <span class="st">"panic"</span>, <span class="st">"anxiety"</span>, <span class="st">"depression"</span>, <span class="st">"ptsd"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>For this tutorial, median split was used to categorize participants into two groups namely ‘clinical’ and ‘non-clinical’ - with binary coding as 1 and 0. You can use established cut-off scores for your own data, not the median split.</p>
 </section>
 <section id="upsetr-package" class="level2">
 <h2 class="anchored" data-anchor-id="upsetr-package">UpSetR package</h2>
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(UpSetR) <span class="co">#Load the UpSetR package to access the upset () function</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(UpSetR) <span class="co">#Load the UpSetR package to access the upset () function</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>Now visualize the data using the upset() function.</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">upset</span>(data,                      <span class="co">#Name of data file </span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>      <span class="co">#nsets = 8,                #To see all 8 sets in the upset plot</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">matrix.color =</span> <span class="st">"red"</span>, </span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">sets.bar.color =</span> <span class="st">"blue"</span>, </span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">order.by =</span> <span class="st">"freq"</span>            <span class="co">#You can order sets by frequencies </span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>      ) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">upset</span>(data,                      <span class="co">#Name of data file </span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>      <span class="at">nsets =</span> <span class="dv">8</span>,                <span class="co">#To see all 8 sets in the upset plot</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">matrix.color =</span> <span class="st">"red"</span>, </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">sets.bar.color =</span> <span class="st">"blue"</span>, </span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">order.by =</span> <span class="st">"freq"</span>,         <span class="co">#You can order sets by frequencies </span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">set_size.show =</span> <span class="cn">TRUE</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="upset_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
+<p><img src="upset_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>The blue barchart shows the total size of the set (i.e., set size).</p>
-<p>The red filled-in circles corresponds to possible intersections or overlaps showing which set is part of an intersection or which variable overlaps with which other variable(s). For example, sfu and srr form an intersection or overlap, and so does srr and spp. Additionally, sfu, srr, spp and ssa also form an intersection. And so on…</p>
-<p>The black barchart correspond to the size or occurrence of possible intersections (i.e., intersection size).</p>
+<p>The blue bar chart shows the total size of the sets (i.e., set size).</p>
+<p>The red filled-in circles corresponds to intersections or overlaps showing which set is part of an intersection or which disorder overlaps with which other disorder(s). For example, panic and mutism form an intersection or overlap, and so does panic and phobia. Additionally, panic, mutism, phobia and separation also form an intersection. And so on…</p>
+<p>The black bar chart shows the occurrence or frequencies for each intersection (i.e., intersection size).</p>
 <p><a href="https://upset.app/advanced/">Read more about upset plots</a></p>
 
 

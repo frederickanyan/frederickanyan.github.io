@@ -26,10 +26,23 @@ There are many different ways to make the decision to reject the null hypothesis
   <li>The observed effect or relationship in the sample data reflects a true effect or relationship in the population. Thus, it is very unlikely to have occurred by chance.</li> 
 </ul>
 
-Let's say that a researcher starts with a null hypothesis that there is no relationship between attending lectures and exam anxiety, and collects data from 750 students of NTNU. The researcher must first choose a level of significance (such as 0.05) that represents _the proportion of times (that, if the null hypothesis is true), a researcher will mistakenly reject the null hypothesis, or put simply, the probability of rejecting the null hypothesis in the long run if it is actually true._
+Let's say that a researcher starts with a null hypothesis that there is no relationship between attending lectures and exam anxiety, and collects data from 750 students of NTNU. The researcher must first choose a level of significance (such as 0.05) that represents _the proportion of times (that, if the null hypothesis is true), a researcher will mistakenly reject the null hypothesis, or put simply, the probability of rejecting the null hypothesis in the long run (i.e., over several random samples from the population) if the null hypothesis is actually true._
 
-If the null hypothesis is indeed true (that, there is no relationship between attending lectures and exam anxiety), and a researcher mistakenly rejects it (therefore says that, there is a relationship between attending lectures and exam anxiety), this is called making a Type-1 error. So, the researcher mistakenly concludes that there is something (or there is an effect or relationship) when there is nothing (no effect or no relationship). Thus, the level of significance or alpha can also be understood as the Type-1 error rate.  
-If the p-value is less than the level of significance, the researcher can conclude that there is evidence to reject the null hypothesis. For example, if a correlation test shows a very low p-value, say p < 0.05, this means that it is extremely or very unlikely that the results of the correlation test occurred by chance if the null hypothesis was true. _The p-value is the probability of observing the sample data or one that is more extreme, if the null hypothesis was true._ 
+If the null hypothesis is true (that, there is no relationship between attending lectures and exam anxiety), and a researcher mistakenly rejects it (therefore says that, there is a relationship between attending lectures and exam anxiety), this is called making a Type-1 error. The researcher mistakenly concludes that there is something (or there is an effect or relationship) when there is nothing (no effect or no relationship). Thus, the level of significance or alpha can also be understood as the probability of making a Type-1 error, supposing the null hypothesis is true. This is because the level of significance or alpha is the threshold below which the decision to reject the null hypothesis is made. Consequently, supposing that the null hypothesis is true, the probability of rejecting the null hypothesis, thereby making a Type-1 error is the significance level or alpha that was chosen for the hypothesis test. There is another wrong decision that can be made in hypothesis testing. 
+
+Let's briefly summarize the two types of wrong decisions in significance testing:
+
+Suppose the null hypothesis is true:
+<ul>
+  <li> A Type-1 error occurs when the null hypothesis is rejected.</li>
+</ul>
+
+Suppose the null hypothesis is false:
+<ul>
+  <li> A Type-2 error occurs when the null hypothesis is not rejected.</li> 
+</ul>
+
+So, going back to our example, if the p-value is less than the level of significance, the researcher can conclude that there is evidence to reject the null hypothesis. For example, if a correlation test shows a very low p-value, say p < 0.05, this means that it is extremely or very unlikely that the results of the correlation test occurred by chance if the null hypothesis was true. _The p-value is the probability of observing the sample data or one that is more extreme, if the null hypothesis was true._ 
 
 When the p-value, or the probability of observing the results given the null hypothesis, is less than the significance level, the researcher rejects the null hypothesis in favour of the alternative hypothesis, which states that there is a significant relationship or effect between the variables being tested - that is, the observed relationship in the sample data reflects true effect or relationship in the population. So, there is a significant relationship between attending lectures and exam anxiety in NTNU students.
 

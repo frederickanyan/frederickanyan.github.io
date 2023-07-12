@@ -42,7 +42,7 @@ Suppose the null hypothesis is false:
   <li> A Type-2 error occurs when the null hypothesis is not rejected.</li> 
 </ul>
 
-So, going back to our example, if the p-value is less than the level of significance, the researcher can conclude that there is evidence to reject the null hypothesis. For example, if a correlation test shows a very low p-value, say p < 0.05, this means that it is extremely or very unlikely that the results of the correlation test occurred by chance if the null hypothesis was true.
+So, going back to our example, if the p-value is less than the level of significance, the researcher can conclude that there is evidence to reject the null hypothesis. For example, if a correlation test shows a very low p-value, say p < 0.05, this means that it is extremely or very unlikely that the results of the correlation test occurred by chance if the null hypothesis was true. _The p-value is the probability of observing the sample data or one that is more extreme, if the null hypothesis was true._ 
 
 When the p-value, or the probability of observing the results given the null hypothesis, is less than the significance level, the researcher rejects the null hypothesis in favour of the alternative hypothesis, which states that there is a significant relationship or effect between the variables being tested - that is, the observed relationship in the sample data reflects true effect or relationship in the population. So, there is a significant relationship between attending lectures and exam anxiety in NTNU students.
 

@@ -3,9 +3,9 @@ project:
   output-dir: docs
 
 website:
-  title: "Frederick Anyan, Ph.D"
+  title: "Frederick Anyan, Ph.D."
   
-  favicon: "images/profile.png"
+  favicon: images/profile.png
   
   page-footer: 
     center: |

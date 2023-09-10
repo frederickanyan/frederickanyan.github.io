@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.3.353">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
 <meta name="author" content="Frederick Anyan">
 <meta name="dcterms.date" content="2023-06-15">
-
 <title>Frederick Anyan, Ph.D.&nbsp;- Association Between Two Categorical Variables</title>
 <style>
 code{white-space: pre-wrap;}
@@ -58,7 +55,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 </style>
 
-
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../../site_libs/clipboard/clipboard.min.js"></script>
@@ -77,8 +73,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<script id="quarto-search-options" type="application/json">{
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark"><script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
@@ -96,18 +91,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit"
   }
-}</script>
-
-
-<link rel="stylesheet" href="../../styles.css">
+}</script><link rel="stylesheet" href="../../styles.css">
 </head>
-
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
-      <div class="navbar-container container-fluid">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg navbar-dark "><div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Frederick Anyan, Ph.D.</span>
@@ -119,7 +108,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
+<li class="nav-item">
     <a class="nav-link" href="../../index.html" rel="" target="">
  <span class="menu-text">Home</span></a>
   </li>  
@@ -148,8 +137,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">CV</span></a>
   </li>  
 </ul>
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item">
+<ul class="navbar-nav navbar-nav-scroll ms-auto">
+<li class="nav-item">
     <a class="nav-link" href="../../about.html" rel="" target="">
  <span class="menu-text">About</span></a>
   </li>  
@@ -164,35 +153,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"></span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools">
+<div class="quarto-navbar-tools">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
-    </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+    </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#crosstable-function" id="toc-crosstable-function" class="nav-link active" data-scroll-target="#crosstable-function">CrossTable() function</a></li>
+<li><a href="#crosstable-function" id="toc-crosstable-function" class="nav-link active" data-scroll-target="#crosstable-function">CrossTable() function</a></li>
   <li><a href="#conditional-and-marginal-proportions" id="toc-conditional-and-marginal-proportions" class="nav-link" data-scroll-target="#conditional-and-marginal-proportions">Conditional and marginal proportions</a></li>
   <li><a href="#chisq.test-function" id="toc-chisq.test-function" class="nav-link" data-scroll-target="#chisq.test-function">chisq.test() function</a></li>
   <li><a href="#using-standardized-residuals-to-reveal-patterns-of-associations" id="toc-using-standardized-residuals-to-reveal-patterns-of-associations" class="nav-link" data-scroll-target="#using-standardized-residuals-to-reveal-patterns-of-associations">Using standardized residuals to reveal patterns of associations</a></li>
   <li><a href="#ggpiestats-and-ggbarstats-function" id="toc-ggpiestats-and-ggbarstats-function" class="nav-link" data-scroll-target="#ggpiestats-and-ggbarstats-function">ggpiestats() and ggbarstats() function</a></li>
-  </ul>
-</nav>
+  </ul></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
 <h1 class="title">Association Between Two Categorical Variables</h1>
   <div class="quarto-categories">
     <div class="quarto-category">Categorical variables</div>
@@ -221,11 +202,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
   
 
-</header>
-
-<p>We can analyse the association between two categorical variables in different ways (e.g., using stacked bar graphs or pie charts). The most common way is to use contingency tables with rows and columns displaying categories of each variable. The count or frequency of each pair of categories are given in a cell.</p>
-<p>We will see how to analyse the association between two categorical variables using different functions in different packages in RStudio. The CrossTbale() function seems to be very popular as is the chisq.test() function. Another function is the ggbarstats() in the ‘ggstatsplot’ package. This package produces beautiful plots and charts that are publication-ready with good quality. And just by plotting your pie chart or stacked bar graph, the ggpiestats() and the ggbarstats() function also compute the Chi-squared test statistic, with very useful information in addition, including a Bayesian effect size.</p>
-In this example, we will answer the research question: is family income associated with happiness? These questions are asked in the General Social Survey (GSS).
+</header><p>We can analyse the association between two categorical variables in different ways (e.g., using stacked bar graphs or pie charts). The most common way is to use contingency tables with rows and columns displaying categories of each variable. The count or frequency of each pair of categories are given in a cell.</p>
+<p>We will see how to analyse the association between two categorical variables using different functions in different packages in RStudio. The CrossTbale() function seems to be very popular as is the chisq.test() function. Another function is the ggbarstats() in the ‘ggstatsplot’ package. This package produces beautiful plots and charts that are publication-ready with good quality. By plotting your pie chart or stacked bar graph, the ggpiestats() and the ggbarstats() function also compute the Chi-squared test statistic, with very useful information in addition, including a Bayesian effect size.</p>
+In this example, we will answer the research question: is family income associated with happiness? Following are questions asked in the General Social Survey (GSS).
 <ul>
 <li>
 “Compared to American families in general, would you say that your family income is below average, average, or above average?”.
@@ -241,25 +220,17 @@ There is no association between family income and happiness.
 </li>
 </ul>
 <p>To test the null hypothesis, we can use the CrossTable() function in the ‘gmodels’ package. Note that the CrossTable() can take both raw data and contingency table.</p>
-<section id="crosstable-function" class="level2">
-<h2 class="anchored" data-anchor-id="crosstable-function">CrossTable() function</h2>
-<ul>
-Let’s see how the CrossTable() function works
-</ul>
+<section id="crosstable-function" class="level2"><h2 class="anchored" data-anchor-id="crosstable-function">CrossTable() function</h2>
+<p>Let’s see how the CrossTable() function works</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"/Volumes/anyan-1/happinesGSS12_long.csv"</span>)<span class="co"># Read the data for the analysis </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details><summary>Code</summary><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"/Volumes/anyan-1/happinesGSS12_long.csv"</span><span class="op">)</span><span class="co"># Read the data for the analysis </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>Let’s see how a cross tabulation of the data looks</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gmodels) <span class="co">#Load the packgae to access the CrossTable() function</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">CrossTable</span>(data<span class="sc">$</span>Income, data<span class="sc">$</span>Happy) <span class="co">#Get a cross tabulation of variables with cell counts/contingency table</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
+<details><summary>Code</summary><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">gmodels</span><span class="op">)</span> <span class="co">#Load the packgae to access the CrossTable() function</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/gmodels/man/CrossTable.html">CrossTable</a></span><span class="op">(</span><span class="va">data</span><span class="op">$</span><span class="va">Income</span>, <span class="va">data</span><span class="op">$</span><span class="va">Happy</span><span class="op">)</span> <span class="co">#Get a cross tabulation of variables with cell counts/contingency table</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output cell-output-stdout">
 <pre><code>
  
    Cell Contents
@@ -303,13 +274,11 @@ Column Total |       216 |       986 |       531 |      1733 |
  </code></pre>
 </div>
 </div>
-<p>Frequencies are displayed in each cell. The frequencies or cell counts in each cell can be converted to percentages (N/Row Total). Within each category of income, the percentage for the three categories of happiness is displayed. Thus, of the 342 people who reported their family income as above average, 135 reported themselves as very happy, which gives us a proportion of 39.5%, rounded to 40% (i.e., 135/342). By contrast, 119 (22%) of the 537 people who reported below average family income, reported they were very happy.</p>
+<p>Frequencies are displayed in each cell. The frequencies or cell counts in each cell can be converted to percentages (N/Row Total). Within each category of income, the percentage for the three categories of happiness is displayed. Thus, of the 342 people who reported their family income as above average, 135 reported themselves as very happy (39.5%). By contrast, 119 (22.2%) of the 537 people who reported below average family income, reported they were very happy.</p>
+<p>You can reduce information in each cell by running the code below</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">CrossTable</span>(data<span class="sc">$</span>Income, data<span class="sc">$</span>Happy, <span class="at">prop.t=</span><span class="cn">FALSE</span>, <span class="at">prop.r=</span><span class="cn">FALSE</span>, <span class="at">prop.c=</span><span class="cn">FALSE</span>) <span class="co">#To hide proportions in the rows and columns</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
+<details><summary>Code</summary><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/gmodels/man/CrossTable.html">CrossTable</a></span><span class="op">(</span><span class="va">data</span><span class="op">$</span><span class="va">Income</span>, <span class="va">data</span><span class="op">$</span><span class="va">Happy</span>, prop.t<span class="op">=</span><span class="cn">FALSE</span>, prop.r<span class="op">=</span><span class="cn">FALSE</span>, prop.c<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span> <span class="co">#To hide proportions in the rows and columns</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output cell-output-stdout">
 <pre><code>
  
    Cell Contents
@@ -340,23 +309,17 @@ Column Total |       216 |       986 |       531 |      1733 |
  </code></pre>
 </div>
 </div>
-</section>
-<section id="conditional-and-marginal-proportions" class="level2">
-<h2 class="anchored" data-anchor-id="conditional-and-marginal-proportions">Conditional and marginal proportions</h2>
-<ul>
-These percentages are called <em>conditional percentages</em> and show the distribution of proportions in one variable, conditional on the other variable - hence, also called conditional distributions. For example, the <em>conditional distribution</em> of happiness for those who reported average income are 10%, 58%, and 32%. They can also be interpreted as <em>conditional probabilities</em>. Given that an individual reported average family income, the probability of not being happy, or pretty happy, or very happy is 10%, 58%, and 32%, respectively. <em>Marginal proportions</em> refer to the values in the margins of the contingency table. The marginal proportion of people who reported not happy, pretty happy, or very happy is 12%, 57% and 31%, respectively.
-</ul>
+</section><section id="conditional-and-marginal-proportions" class="level2"><h2 class="anchored" data-anchor-id="conditional-and-marginal-proportions">Conditional and marginal proportions</h2>
+<p><em>Conditional percentages</em> show the distribution of proportions in one variable, conditional on the other variable - hence, also called conditional distributions. For example, the <em>conditional distribution</em> of happiness for those who reported average income are 9.7%, 57.8%, and 32.4%. They can also be interpreted as <em>conditional probabilities</em>. Given that an individual reported average family income, the probability of not being happy, or pretty happy, or very happy is 9.7, 57.8, and 32.4, respectively.</p>
+<p><em>Marginal proportions</em> refer to the values in the margins of the contingency table. The marginal proportion of people who reported not happy, pretty happy, or very happy is 0.125(12.5%), 0.569(56.9%) and 0.306(30.6%), respectively.</p>
 <p>To perform a Chi-squared test with the CrossTable() function, we can add some arguments to the previous code.</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">CrossTable</span>(data<span class="sc">$</span>Income, data<span class="sc">$</span>Happy, </span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>           <span class="co">#fisher = TRUE, #To get fisher's exact test </span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">chisq =</span> <span class="cn">TRUE</span>, <span class="co">#To get pearson chi-square statistic</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">expected =</span> <span class="cn">TRUE</span>, <span class="co">#To get the expected cell counts (which should be &gt; 5 in each cell)</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>           ) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
+<details><summary>Code</summary><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/gmodels/man/CrossTable.html">CrossTable</a></span><span class="op">(</span><span class="va">data</span><span class="op">$</span><span class="va">Income</span>, <span class="va">data</span><span class="op">$</span><span class="va">Happy</span>, </span>
+<span>           <span class="co">#fisher = TRUE, #To get fisher's exact test </span></span>
+<span>           chisq <span class="op">=</span> <span class="cn">TRUE</span>, <span class="co">#To get pearson chi-square statistic</span></span>
+<span>           expected <span class="op">=</span> <span class="cn">TRUE</span>, <span class="co">#To get the expected cell counts (which should be &gt; 5 in each cell)</span></span>
+<span>           <span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output cell-output-stdout">
 <pre><code>
  
    Cell Contents
@@ -413,21 +376,14 @@ Chi^2 =  54.04308     d.f. =  4     p =  5.154502e-11
  </code></pre>
 </div>
 </div>
-<p>Here we have the Chi-squared statistic and corresponding p-value for the test of independence under the null hypothesis that, income and happiness are independent (no association). Since the p-value is very small (&lt; .05), we can reject the null hypothesis in favor of the alternative hypothesis. Thus, there is an association between family income and happiness and that this may not be due to chance or sampling error. Therefore, we can conclude that there is a true association between family income and happiness in the population.</p>
+<p>Following is the Chi-squared statistic and corresponding p-value for the test of independence under the null hypothesis that, income and happiness are independent (no association). Since the p-value is very small (&lt; .05), we can reject the null hypothesis. Thus, there is an association between family income and happiness.</p>
 <p>In other words, the observed association between family income and happiness in the sample data reflects a true association in the population, and it is very unlikely to have occurred by chance if the null hypothesis was true. <a href="../..//quantposts/null hypothesis testing/index.html">Find out the problem with this conclusion here</a></p>
-</section>
-<section id="chisq.test-function" class="level2">
-<h2 class="anchored" data-anchor-id="chisq.test-function">chisq.test() function</h2>
-<ul>
-We can also use a different function to perform the Chi-squared test. Here, we use the chisq.test() function in the ‘stats’ package, which also contains many other functions.
-</ul>
+</section><section id="chisq.test-function" class="level2"><h2 class="anchored" data-anchor-id="chisq.test-function">chisq.test() function</h2>
+<p>We can also use a different function to perform the Chi-squared test. Here, we use the chisq.test() function in the ‘stats’ package, which also contains many other functions.</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>chi.test <span class="ot">&lt;-</span> <span class="fu">chisq.test</span>(data<span class="sc">$</span>Income, data<span class="sc">$</span>Happy)<span class="co">#Create and object called chi.test and assign the result of the chisq.test function() into this object</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>chi.test <span class="co">#Call the object to see its contents</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
+<details><summary>Code</summary><div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">chi.test</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/chisq.test.html">chisq.test</a></span><span class="op">(</span><span class="va">data</span><span class="op">$</span><span class="va">Income</span>, <span class="va">data</span><span class="op">$</span><span class="va">Happy</span><span class="op">)</span><span class="co">#Create and object called chi.test and assign the result of the chisq.test function() into this object</span></span>
+<span><span class="va">chi.test</span> <span class="co">#Call the object to see its contents</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output cell-output-stdout">
 <pre><code>
     Pearson's Chi-squared test
 
@@ -436,11 +392,8 @@ X-squared = 54.043, df = 4, p-value = 5.155e-11</code></pre>
 </div>
 </div>
 <div class="cell">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>chi.test<span class="sc">$</span>expected <span class="co">#To get expected cell counts. </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
+<details><summary>Code</summary><div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">chi.test</span><span class="op">$</span><span class="va">expected</span> <span class="co">#To get expected cell counts. </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output cell-output-stdout">
 <pre><code>           data$Happy
 data$Income       not   pretty     very
     above    42.62666 194.5828 104.7905
@@ -448,18 +401,11 @@ data$Income       not   pretty     very
     below    66.93133 305.5291 164.5395</code></pre>
 </div>
 </div>
-</section>
-<section id="using-standardized-residuals-to-reveal-patterns-of-associations" class="level2">
-<h2 class="anchored" data-anchor-id="using-standardized-residuals-to-reveal-patterns-of-associations">Using standardized residuals to reveal patterns of associations</h2>
-<ul>
-The residuals show the difference between the observed counts and what the model predicts (the expected counts/frequencies) in a particular cell computed under the null hypothesis. The standardized residual is similar to the z-score and indicates the number of standard deviations that an observed count falls from its expected count. If the value of the standardized residual lies outside of +/-1.96, then it is significant at p &lt; .05; if it lies outside +/-2.58, then it is significant at p &lt;. 01 and when outside +/-3.29, then it is significant at p &lt; .001.
-</ul>
+</section><section id="using-standardized-residuals-to-reveal-patterns-of-associations" class="level2"><h2 class="anchored" data-anchor-id="using-standardized-residuals-to-reveal-patterns-of-associations">Using standardized residuals to reveal patterns of associations</h2>
+<p>The residuals show the difference between the observed counts and what the model predicts (the expected counts/frequencies) in a particular cell computed under the null hypothesis. The standardized residual is similar to the z-score and indicates the number of standard deviations that an observed count falls from its expected count. If the value of the standardized residual lies outside of +/-1.96, then it is significant at p &lt; .05; if it lies outside +/-2.58, then it is significant at p &lt;. 01 and when outside +/-3.29, then it is significant at p &lt; .001.</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>chi.test<span class="sc">$</span>stdres <span class="co">#Assuming there is a significant result, the standardized residuals can help us to understand the patterns of association</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
+<details><summary>Code</summary><div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">chi.test</span><span class="op">$</span><span class="va">stdres</span> <span class="co">#Assuming there is a significant result, the standardized residuals can help us to understand the patterns of association</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output cell-output-stdout">
 <pre><code>           data$Happy
 data$Income        not     pretty       very
     above   -2.4899518 -2.0210658  3.9551662
@@ -481,18 +427,11 @@ Overall, the association between income and happiness seems to be driven by aver
 </li>
 </ul>
 <p>The Chi-squared test does not tell us where in the cell counts or frequencies the difference from independence lies, that is why the standardized residuals are useful for interpretation and understanding the patterns of association between the variables.</p>
-</section>
-<section id="ggpiestats-and-ggbarstats-function" class="level2">
-<h2 class="anchored" data-anchor-id="ggpiestats-and-ggbarstats-function">ggpiestats() and ggbarstats() function</h2>
-<ul>
-We can also use the ‘ggstatsplot’ package for this exercise. This package “creates graphics with details from statistical tests included in the plots themselves. It provides an easier syntax to generate information-rich plots for statistical analysis of continuous (violin plots, scatterplots, histograms, dot plots, dot-and-whisker plots) or categorical (pie and bar charts) data”. <a href="https://cran.r-project.org/web/packages/ggstatsplot/index.html">See here</a>
-</ul>
+</section><section id="ggpiestats-and-ggbarstats-function" class="level2"><h2 class="anchored" data-anchor-id="ggpiestats-and-ggbarstats-function">ggpiestats() and ggbarstats() function</h2>
+<p>We can also use the ‘ggstatsplot’ package for this exercise. This package “creates graphics with details from statistical tests included in the plots themselves. It provides an easier syntax to generate information-rich plots for statistical analysis of continuous (violin plots, scatterplots, histograms, dot plots, dot-and-whisker plots) or categorical (pie and bar charts) data”. <a href="https://cran.r-project.org/web/packages/ggstatsplot/index.html">See here</a></p>
 <div class="cell">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggstatsplot) <span class="co">#Load the package to access the functions</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stderr">
+<details><summary>Code</summary><div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://indrajeetpatil.github.io/ggstatsplot/">ggstatsplot</a></span><span class="op">)</span> <span class="co">#Load the package to access the functions</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output cell-output-stderr">
 <pre><code>You can cite this package as:
      Patil, I. (2021). Visualizations with statistical details: The 'ggstatsplot' approach.
      Journal of Open Source Software, 6(61), 3167, doi:10.21105/joss.03167</code></pre>
@@ -500,39 +439,30 @@ We can also use the ‘ggstatsplot’ package for this exercise. This package �
 </div>
 <p>By plotting a pie chart, we also get the results for the Chi-squared test</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggpiestats</span>(<span class="at">data =</span> data,</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">x =</span> Income,</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">y =</span> Happy,</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">label =</span> <span class="st">"both"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output-display">
+<details><summary>Code</summary><div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://indrajeetpatil.github.io/ggstatsplot/reference/ggpiestats.html">ggpiestats</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">data</span>,</span>
+<span>           x <span class="op">=</span> <span class="va">Income</span>,</span>
+<span>          y <span class="op">=</span> <span class="va">Happy</span>,</span>
+<span>          label <span class="op">=</span> <span class="st">"both"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output-display">
 <p><img src="chi_sqaure_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>We can also perform and visualize the Chi-squared test of independence using the ggbarstats() function when we call the function to plot a stacked bar graph.</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggbarstats</span>(<span class="at">data =</span> data, <span class="co">#The first argument is the data</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">x =</span> Income,   <span class="co">#The variable to use as the rows in the contingency table</span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">y =</span> Happy,     <span class="co">#The variable to use as the columns in the contingency table.</span></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">label =</span> <span class="st">"both"</span>) <span class="co">#You can use "percentage" or "count"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output-display">
+<details><summary>Code</summary><div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://indrajeetpatil.github.io/ggstatsplot/reference/ggbarstats.html">ggbarstats</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">data</span>, <span class="co">#The first argument is the data</span></span>
+<span>           x <span class="op">=</span> <span class="va">Income</span>,   <span class="co">#The variable to use as the rows in the contingency table</span></span>
+<span>          y <span class="op">=</span> <span class="va">Happy</span>,     <span class="co">#The variable to use as the columns in the contingency table.</span></span>
+<span>          label <span class="op">=</span> <span class="st">"both"</span><span class="op">)</span> <span class="co">#You can use "percentage" or "count"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output-display">
 <p><img src="chi_sqaure_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>We can see that the proportion of people who reported below average family income reduced with increasing happiness whereas the proportion of people who reported above average family income increases with increasing happiness. This support the previous conclusion that, the association between income and happiness seems to be driven by above average family income.</p>
+<p>As can be seen, the proportion of people who reported below average family income reduced with increasing happiness whereas the proportion of people who reported above average family income increases with increasing happiness. This support the previous conclusion that, the association between income and happiness seems to be driven by above average family income.</p>
 <p>This function automatically outputs the Cramer’s V with its 95% Confidence Interval next to the p-value. The effect size of .12 is a relatively weak association. It also provides a corresponding Bayesian effect size, which is much more useful. There is also a Bayes factor, which tests both the null and alternative hypothesis at the same time. The designation of ‘01’ returns a Bayes Factor in favor of the null hypothesis whereas ‘10’ returns a Bayes Factor in favor of the alternative hypothesis. The Bayes factor shows that the null hypothesis does not do well compared to the alternative hypothesis. This is evidence in favor of the alternative hypothesis that, there is an association between family income and happiness.</p>
 <p>Finally, this function shows the proportion test for family income (below average, average and above average) in each category of happiness (not happy, pretty happy, and very happy) under the null hypothesis that the sample proportions are not equal. They show whether the proportions inside each category of happiness differ. Since the p-values are all very small, we can conclude that the sample proportions of family income within each category of happiness differs. This type of Chi-squared test is referred to as the Chi-squared goodness-of-fit statistic, used to test hypothesis involving a single categorical variable from a single sample.</p>
 
 
-</section>
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -895,14 +825,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
+<footer class="footer"><div class="nav-footer">
     <div class="nav-footer-left">Made with <a href="https://quarto.org">Posit Quarto</a></div>   
     <div class="nav-footer-center"><a href="mailto:%20frederick.anyan@ntnu.no">Contact Frederick Anyan</a></div>
     <div class="nav-footer-right"><a href="https://github.com/frederickanyan">Github Repo</a></div>
   </div>
 </footer>
-
 
 
 </body></html>

@@ -45,6 +45,7 @@
   {
     "listing": "/quantposts.html",
     "items": [
+      "/quantposts/calculator/calculator.html",
       "/quantposts/upset/upset.html",
       "/quantposts/chi_square/chi_sqaure.html",
       "/quantposts/rejecting the null hypothesis/index.html",
@@ -54,7 +55,9 @@
   {
     "listing": "/workshops.html",
     "items": [
-      "/workshops/NTNU_2021_19_20_May/NTNU2021May.html"
+      "/workshops/NTNU_2021_19_20_May/NTNU2021May.html",
+      "/workshops/NTNU_2023_Nov_Mplus/LGCM_Mplus.html",
+      "/workshops/NTNU_2023_Nov_R/LGCM_R.html"
     ]
   },
   {

@@ -166,6 +166,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
 <li><a href="#practical-preliminaries" id="toc-practical-preliminaries" class="nav-link active" data-scroll-target="#practical-preliminaries">Practical preliminaries</a></li>
+  <li><a href="#load-packages" id="toc-load-packages" class="nav-link" data-scroll-target="#load-packages">Load packages</a></li>
+  <li><a href="#read-data" id="toc-read-data" class="nav-link" data-scroll-target="#read-data">Read data</a></li>
+  <li><a href="#examine-univariate-and-bivariate-statistics" id="toc-examine-univariate-and-bivariate-statistics" class="nav-link" data-scroll-target="#examine-univariate-and-bivariate-statistics">Examine univariate and bivariate statistics</a></li>
+  <li><a href="#longitudinal-plots" id="toc-longitudinal-plots" class="nav-link" data-scroll-target="#longitudinal-plots">Longitudinal plots</a></li>
   </ul></nav>
     </div>
 <!-- main -->
@@ -200,28 +204,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
   
 
-</header><p>Different analysis techniques allow researchers to examine change in outcome variable(s) across time, including regression methods, mean comparisons and repeated measures ANOVA - although with some limitations. A common practice in developmental research is to assess growth trajectory to understand developmental change - how and when it happens, interindividual differences in how and when it happens, and why it happens. Structural Equation Modelling (SEM) is a family of related analysis techniques – correlations, regression analyses and factor analyses, using both observed and unobserved (latent) variables to offer a flexible framework for analysing developmental change in a highly convenient and statistically rigorous framework for applied research in the social, behavioural, and educational sciences.</p>
-<p>This workshop will cover basic and advanced longitudinal SEM models using R in a very easy and efficient implementation. To make the workshop more ‘theory- and practice-based’ than ‘equations-based’, the models that will be estimated will be guided by the overarching objectives of longitudinal research (see Baltes &amp; Nesselroade, 1979; McArdle, 2012).</p>
-<div class="callout callout-style-simple callout-tip">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>Throughout this workshop, we will use only one function from the lavaan package. So, feel at ease even if it is your first time working in R. We will do several chi-square difference tests to select best fitting models during the workshop.</p>
-</div>
-</div>
-</div>
+</header><p>TBC</p>
 <section id="practical-preliminaries" class="level2"><h2 class="anchored" data-anchor-id="practical-preliminaries">Practical preliminaries</h2>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist">
-<li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Load packages</a></li>
-<li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Read data</a></li>
-<li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Examine univariate and bivariate statistics</a></li>
-<li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false">Longitudinal plots</a></li>
-</ul>
-<div class="tab-content">
-<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+</section><section id="load-packages" class="level2"><h2 class="anchored" data-anchor-id="load-packages">Load packages</h2>
 <div class="cell">
 <details><summary>Code</summary><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://haven.tidyverse.org">haven</a></span><span class="op">)</span> <span class="co">#To read dataset into R. </span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://personality-project.org/r/psych/">psych</a></span><span class="op">)</span>  <span class="co">#For practical preliminaries: univariate and bivariate descriptive stats</span></span>
@@ -263,8 +248,7 @@ Attaching package: 'ggplot2'</code></pre>
     %+%, alpha</code></pre>
 </div>
 </div>
-</div>
-<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+</section><section id="read-data" class="level2"><h2 class="anchored" data-anchor-id="read-data">Read data</h2>
 <div class="cell">
 <details><summary>Code</summary><div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://haven.tidyverse.org/reference/read_spss.html">read_sav</a></span><span class="op">(</span><span class="st">"/Volumes/anyan/Quant_Resources/0000 Workshops/000_01_Dec_2023_NTNU/data.sav"</span><span class="op">)</span></span>
 <span><span class="co">#Create new data set with only your main outcome variables</span></span>
@@ -273,8 +257,7 @@ Attaching package: 'ggplot2'</code></pre>
 <span><span class="va">lonelytrajectory</span> <span class="op">&lt;-</span> <span class="va">data</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"personid"</span>, <span class="st">"lone3"</span>, <span class="st">"lone5"</span><span class="op">)</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-</div>
-<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+</section><section id="examine-univariate-and-bivariate-statistics" class="level2"><h2 class="anchored" data-anchor-id="examine-univariate-and-bivariate-statistics">Examine univariate and bivariate statistics</h2>
 <div class="cell">
 <details><summary>Code</summary><div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#Examine descriptive statistics.</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/psych/man/describe.html">describe</a></span><span class="op">(</span><span class="va">lonely</span><span class="op">)</span> <span class="co">#univariate descriptives </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -302,8 +285,7 @@ lone5 0.4240808 1.0000000</code></pre>
 <p><img src="two_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-</div>
-<div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
+</section><section id="longitudinal-plots" class="level2"><h2 class="anchored" data-anchor-id="longitudinal-plots">Longitudinal plots</h2>
 <div class="cell">
 <details><summary>Code</summary><div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://milanwiedemann.github.io/lcsm/reference/plot_trajectories.html">plot_trajectories</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">lonelytrajectory</span>,</span>
 <span>                  id_var <span class="op">=</span> <span class="st">"personid"</span>, </span>
@@ -342,327 +324,21 @@ lone5 0.4240808 1.0000000</code></pre>
 <p><img src="two_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-</div>
-</div>
-</div>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist">
-<li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Difference Score Model</a></li>
-<li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Autoregression Model</a></li>
-<li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false">Latent Change Score Model</a></li>
+<li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Difference Score Model</a></li>
+<li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Autoregression Model</a></li>
+<li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Latent Change Score Model</a></li>
 </ul>
 <div class="tab-content">
-<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
-<div class="cell">
-<details><summary>Code</summary><div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 001_No growth curve model</span></span>
-<span><span class="va">nogrowth</span> <span class="op">&lt;-</span> <span class="st">' i =~ 1*lone1 + 1*lone2 + 1*lone3 + 1*lone4 + 1*lone5'</span></span>
-<span><span class="va">fit_nogrowth</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lavaan/man/growth.html">growth</a></span><span class="op">(</span><span class="va">nogrowth</span>, data <span class="op">=</span> <span class="va">data</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">fit_nogrowth</span>, fit.measures <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output cell-output-stdout">
-<pre><code>lavaan 0.6.15 ended normally after 37 iterations
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 
-  Estimator                                         ML
-  Optimization method                           NLMINB
-  Number of model parameters                         7
-
-                                                  Used       Total
-  Number of observations                           321         442
-
-Model Test User Model:
-                                                      
-  Test statistic                               186.433
-  Degrees of freedom                                13
-  P-value (Chi-square)                           0.000
-
-Model Test Baseline Model:
-
-  Test statistic                               451.170
-  Degrees of freedom                                10
-  P-value                                        0.000
-
-User Model versus Baseline Model:
-
-  Comparative Fit Index (CFI)                    0.607
-  Tucker-Lewis Index (TLI)                       0.698
-
-Loglikelihood and Information Criteria:
-
-  Loglikelihood user model (H0)               -814.634
-  Loglikelihood unrestricted model (H1)       -721.418
-                                                      
-  Akaike (AIC)                                1643.269
-  Bayesian (BIC)                              1669.669
-  Sample-size adjusted Bayesian (SABIC)       1647.466
-
-Root Mean Square Error of Approximation:
-
-  RMSEA                                          0.204
-  90 Percent confidence interval - lower         0.179
-  90 Percent confidence interval - upper         0.230
-  P-value H_0: RMSEA &lt;= 0.050                    0.000
-  P-value H_0: RMSEA &gt;= 0.080                    1.000
-
-Standardized Root Mean Square Residual:
-
-  SRMR                                           0.172
-
-Parameter Estimates:
-
-  Standard errors                             Standard
-  Information                                 Expected
-  Information saturated (h1) model          Structured
-
-Latent Variables:
-                   Estimate  Std.Err  z-value  P(&gt;|z|)
-  i =~                                                
-    lone1             1.000                           
-    lone2             1.000                           
-    lone3             1.000                           
-    lone4             1.000                           
-    lone5             1.000                           
-
-Intercepts:
-                   Estimate  Std.Err  z-value  P(&gt;|z|)
-   .lone1             0.000                           
-   .lone2             0.000                           
-   .lone3             0.000                           
-   .lone4             0.000                           
-   .lone5             0.000                           
-    i                 1.398    0.018   79.816    0.000
-
-Variances:
-                   Estimate  Std.Err  z-value  P(&gt;|z|)
-   .lone1             0.109    0.010   10.537    0.000
-   .lone2             0.142    0.013   11.035    0.000
-   .lone3             0.167    0.015   11.279    0.000
-   .lone4             0.112    0.011   10.587    0.000
-   .lone5             0.092    0.009   10.119    0.000
-    i                 0.075    0.008    9.531    0.000</code></pre>
 </div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+
 </div>
-</div>
-<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
-<div class="cell">
-<details><summary>Code</summary><div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 002_Linear growth curve model</span></span>
-<span><span class="va">linear</span> <span class="op">&lt;-</span> <span class="st">' i =~ 1*lone1 + 1*lone2 + 1*lone3 + 1*lone4 + 1*lone5</span></span>
-<span><span class="st">           s =~ 0*lone1 + 1*lone2 + 3*lone3 + 4*lone4 + 6*lone5'</span></span>
-<span><span class="va">fit_linear</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lavaan/man/growth.html">growth</a></span><span class="op">(</span><span class="va">linear</span>, data <span class="op">=</span> <span class="va">data</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">fit_linear</span>, fit.measures <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output cell-output-stdout">
-<pre><code>lavaan 0.6.15 ended normally after 49 iterations
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
 
-  Estimator                                         ML
-  Optimization method                           NLMINB
-  Number of model parameters                        10
-
-                                                  Used       Total
-  Number of observations                           321         442
-
-Model Test User Model:
-                                                      
-  Test statistic                                75.244
-  Degrees of freedom                                10
-  P-value (Chi-square)                           0.000
-
-Model Test Baseline Model:
-
-  Test statistic                               451.170
-  Degrees of freedom                                10
-  P-value                                        0.000
-
-User Model versus Baseline Model:
-
-  Comparative Fit Index (CFI)                    0.852
-  Tucker-Lewis Index (TLI)                       0.852
-
-Loglikelihood and Information Criteria:
-
-  Loglikelihood user model (H0)               -759.040
-  Loglikelihood unrestricted model (H1)       -721.418
-                                                      
-  Akaike (AIC)                                1538.080
-  Bayesian (BIC)                              1575.795
-  Sample-size adjusted Bayesian (SABIC)       1544.076
-
-Root Mean Square Error of Approximation:
-
-  RMSEA                                          0.143
-  90 Percent confidence interval - lower         0.113
-  90 Percent confidence interval - upper         0.174
-  P-value H_0: RMSEA &lt;= 0.050                    0.000
-  P-value H_0: RMSEA &gt;= 0.080                    1.000
-
-Standardized Root Mean Square Residual:
-
-  SRMR                                           0.097
-
-Parameter Estimates:
-
-  Standard errors                             Standard
-  Information                                 Expected
-  Information saturated (h1) model          Structured
-
-Latent Variables:
-                   Estimate  Std.Err  z-value  P(&gt;|z|)
-  i =~                                                
-    lone1             1.000                           
-    lone2             1.000                           
-    lone3             1.000                           
-    lone4             1.000                           
-    lone5             1.000                           
-  s =~                                                
-    lone1             0.000                           
-    lone2             1.000                           
-    lone3             3.000                           
-    lone4             4.000                           
-    lone5             6.000                           
-
-Covariances:
-                   Estimate  Std.Err  z-value  P(&gt;|z|)
-  i ~~                                                
-    s                -0.015    0.002   -6.246    0.000
-
-Intercepts:
-                   Estimate  Std.Err  z-value  P(&gt;|z|)
-   .lone1             0.000                           
-   .lone2             0.000                           
-   .lone3             0.000                           
-   .lone4             0.000                           
-   .lone5             0.000                           
-    i                 1.466    0.024   62.031    0.000
-    s                -0.025    0.004   -5.784    0.000
-
-Variances:
-                   Estimate  Std.Err  z-value  P(&gt;|z|)
-   .lone1             0.059    0.010    5.761    0.000
-   .lone2             0.114    0.011   10.114    0.000
-   .lone3             0.172    0.015   11.659    0.000
-   .lone4             0.114    0.010   11.066    0.000
-   .lone5             0.047    0.010    4.929    0.000
-    i                 0.139    0.015    9.310    0.000
-    s                 0.003    0.001    5.839    0.000</code></pre>
-</div>
-</div>
-</div>
-<div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
-<div class="cell">
-<details><summary>Code</summary><div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 003_Quadratic growth curve model</span></span>
-<span><span class="va">quadratic</span> <span class="op">&lt;-</span> <span class="st">' i =~ 1*lone1 + 1*lone2 + 1*lone3 + 1*lone4 + 1*lone5</span></span>
-<span><span class="st">           s =~ 0*lone1 + 1*lone2 + 3*lone3 + 4*lone4 + 6*lone5</span></span>
-<span><span class="st">           q =~ 0*lone1 + 1*lone2 + 9*lone3 + 16*lone4 + 36*lone5'</span></span>
-<span><span class="va">fit_quadratic</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lavaan/man/growth.html">growth</a></span><span class="op">(</span><span class="va">quadratic</span>, data <span class="op">=</span> <span class="va">data</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output cell-output-stderr">
-<pre><code>Warning in lav_object_post_check(object): lavaan WARNING: covariance matrix of latent variables
-                is not positive definite;
-                use lavInspect(fit, "cov.lv") to investigate.</code></pre>
-</div>
-<details><summary>Code</summary><div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">fit_quadratic</span>, fit.measures <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output cell-output-stdout">
-<pre><code>lavaan 0.6.15 ended normally after 76 iterations
-
-  Estimator                                         ML
-  Optimization method                           NLMINB
-  Number of model parameters                        14
-
-                                                  Used       Total
-  Number of observations                           321         442
-
-Model Test User Model:
-                                                      
-  Test statistic                                46.671
-  Degrees of freedom                                 6
-  P-value (Chi-square)                           0.000
-
-Model Test Baseline Model:
-
-  Test statistic                               451.170
-  Degrees of freedom                                10
-  P-value                                        0.000
-
-User Model versus Baseline Model:
-
-  Comparative Fit Index (CFI)                    0.908
-  Tucker-Lewis Index (TLI)                       0.846
-
-Loglikelihood and Information Criteria:
-
-  Loglikelihood user model (H0)               -744.754
-  Loglikelihood unrestricted model (H1)       -721.418
-                                                      
-  Akaike (AIC)                                1517.507
-  Bayesian (BIC)                              1570.308
-  Sample-size adjusted Bayesian (SABIC)       1525.902
-
-Root Mean Square Error of Approximation:
-
-  RMSEA                                          0.145
-  90 Percent confidence interval - lower         0.108
-  90 Percent confidence interval - upper         0.185
-  P-value H_0: RMSEA &lt;= 0.050                    0.000
-  P-value H_0: RMSEA &gt;= 0.080                    0.998
-
-Standardized Root Mean Square Residual:
-
-  SRMR                                           0.074
-
-Parameter Estimates:
-
-  Standard errors                             Standard
-  Information                                 Expected
-  Information saturated (h1) model          Structured
-
-Latent Variables:
-                   Estimate  Std.Err  z-value  P(&gt;|z|)
-  i =~                                                
-    lone1             1.000                           
-    lone2             1.000                           
-    lone3             1.000                           
-    lone4             1.000                           
-    lone5             1.000                           
-  s =~                                                
-    lone1             0.000                           
-    lone2             1.000                           
-    lone3             3.000                           
-    lone4             4.000                           
-    lone5             6.000                           
-  q =~                                                
-    lone1             0.000                           
-    lone2             1.000                           
-    lone3             9.000                           
-    lone4            16.000                           
-    lone5            36.000                           
-
-Covariances:
-                   Estimate  Std.Err  z-value  P(&gt;|z|)
-  i ~~                                                
-    s                -0.020    0.009   -2.179    0.029
-    q                 0.000    0.001    0.265    0.791
-  s ~~                                                
-    q                -0.002    0.001   -1.792    0.073
-
-Intercepts:
-                   Estimate  Std.Err  z-value  P(&gt;|z|)
-   .lone1             0.000                           
-   .lone2             0.000                           
-   .lone3             0.000                           
-   .lone4             0.000                           
-   .lone5             0.000                           
-    i                 1.446    0.024   60.828    0.000
-    s                 0.017    0.014    1.284    0.199
-    q                -0.007    0.002   -3.384    0.001
-
-Variances:
-                   Estimate  Std.Err  z-value  P(&gt;|z|)
-   .lone1             0.037    0.014    2.584    0.010
-   .lone2             0.118    0.012    9.942    0.000
-   .lone3             0.144    0.014   10.115    0.000
-   .lone4             0.099    0.011    8.672    0.000
-   .lone5             0.099    0.027    3.684    0.000
-    i                 0.148    0.019    7.974    0.000
-    s                 0.018    0.007    2.697    0.007
-    q                 0.000    0.000    0.959    0.337</code></pre>
-</div>
-</div>
 </div>
 </div>
 </div>

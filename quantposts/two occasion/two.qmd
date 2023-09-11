@@ -1,0 +1,92 @@
+---
+title: "Analysing Two Occasion Data"
+author: "Frederick Anyan"
+date: "2023-10-01"
+categories: [Change, Difference Score, Auto regression]
+---
+
+TBC
+
+
+
+
+## Practical preliminaries
+
+
+
+## Load packages
+
+```{r, warning=FALSE}
+library(haven) #To read dataset into R. 
+library(psych)  #For practical preliminaries: univariate and bivariate descriptive stats
+library(lcsm)   #For plotting longitudinal trajectories from wide data set
+library(lavaan) #For calling sem/cfa/growth functions. We will use the growth() function in the lavaan pacakage, which also has other functions. [See here](https://lavaan.ugent.be)
+library(ggplot2)
+```
+
+## Read data 
+```{r}
+data <- read_sav("/Volumes/anyan/Quant_Resources/0000 Workshops/000_01_Dec_2023_NTNU/data.sav")
+#Create new data set with only your main outcome variables
+lonely <- data[, c("lone3", "lone5")]
+#To plot longitudinal trajectories, create a new data set of only your outcome variables with id included
+lonelytrajectory <- data[, c("personid", "lone3", "lone5")]
+```
+
+## Examine univariate and bivariate statistics
+```{r}
+#Examine descriptive statistics.
+describe(lonely) #univariate descriptives 
+
+#bivariate descriptives
+cov(lonely, use='pairwise.complete.obs') #covariance matrix
+cor(lonely, use='pairwise.complete.obs') #correlation matrix
+
+#bivariate scatter plots below the diagonal, histograms on the diagonal, and the Pearson correlation above the diagonal.
+pairs.panels(lonely, lm = TRUE) #lm = TRUE to fit a regression line
+```
+
+## Longitudinal plots
+```{r}
+plot_trajectories(data = lonelytrajectory,
+                  id_var = "personid", 
+                  var_list = c("lone3", "lone5"),
+                  xlab = "Year", ylab = "Loneliness",
+                  connect_missing = FALSE,   #Want to plot only complete observations
+                  random_sample_frac = 0.05, #You can select more or less than 5% of the data by adjusting this
+                  title_n = TRUE)
+```
+
+You can plot separate individual trajectories
+```{r}
+plot_trajectories(data = lonelytrajectory,
+                  id_var = "personid", 
+                  var_list = c("lone3", "lone5"),
+                  xlab = "Year", ylab = "Loneliness",
+                  connect_missing = FALSE,   #Want to plot only complete observations
+                  random_sample_frac = 0.025, #You can select more or less than 5% of the data by adjusting this
+                  title_n = TRUE) +
+ facet_wrap(~personid)
+```
+
+
+
+::: panel-tabset
+
+## Difference Score Model
+```{r}
+
+```
+
+## Autoregression Model
+```{r}
+
+```
+
+## Latent Change Score Model
+```{r}
+
+```
+
+:::
+

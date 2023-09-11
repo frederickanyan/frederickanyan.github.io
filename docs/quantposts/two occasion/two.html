@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.353">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta name="author" content="Frederick Anyan">
+<meta name="dcterms.date" content="2023-10-01">
+<title>Frederick Anyan, Ph.D.&nbsp;- Analysing Two Occasion Data</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../images/profile.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark"><script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script><link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg navbar-dark "><div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Frederick Anyan, Ph.D.</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+<li class="nav-item">
+    <a class="nav-link" href="../../index.html" rel="" target="">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../teaching.html" rel="" target="">
+ <span class="menu-text">Teaching</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../publications.html" rel="" target="">
+ <span class="menu-text">Publications</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../projects.html" rel="" target="">
+ <span class="menu-text">Projects</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../workshops.html" rel="" target="">
+ <span class="menu-text">Workshops</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../quantposts.html" rel="" target="">
+ <span class="menu-text">Quant Posts</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../cv.html" rel="" target="">
+ <span class="menu-text">CV</span></a>
+  </li>  
+</ul>
+<ul class="navbar-nav navbar-nav-scroll ms-auto">
+<li class="nav-item">
+    <a class="nav-link" href="../../about.html" rel="" target="">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/frederickanyan" rel="" target=""><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/@anyan4usall" rel="" target=""><i class="bi bi-twitter" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+<div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
+   
+  <ul>
+<li><a href="#practical-preliminaries" id="toc-practical-preliminaries" class="nav-link active" data-scroll-target="#practical-preliminaries">Practical preliminaries</a></li>
+  </ul></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<h1 class="title">Analysing Two Occasion Data</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Change</div>
+    <div class="quarto-category">Difference Score</div>
+    <div class="quarto-category">Auto regression</div>
+  </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Frederick Anyan </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">October 1, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header><p>Different analysis techniques allow researchers to examine change in outcome variable(s) across time, including regression methods, mean comparisons and repeated measures ANOVA - although with some limitations. A common practice in developmental research is to assess growth trajectory to understand developmental change - how and when it happens, interindividual differences in how and when it happens, and why it happens. Structural Equation Modelling (SEM) is a family of related analysis techniques – correlations, regression analyses and factor analyses, using both observed and unobserved (latent) variables to offer a flexible framework for analysing developmental change in a highly convenient and statistically rigorous framework for applied research in the social, behavioural, and educational sciences.</p>
+<p>This workshop will cover basic and advanced longitudinal SEM models using R in a very easy and efficient implementation. To make the workshop more ‘theory- and practice-based’ than ‘equations-based’, the models that will be estimated will be guided by the overarching objectives of longitudinal research (see Baltes &amp; Nesselroade, 1979; McArdle, 2012).</p>
+<div class="callout callout-style-simple callout-tip">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Throughout this workshop, we will use only one function from the lavaan package. So, feel at ease even if it is your first time working in R. We will do several chi-square difference tests to select best fitting models during the workshop.</p>
+</div>
+</div>
+</div>
+<section id="practical-preliminaries" class="level2"><h2 class="anchored" data-anchor-id="practical-preliminaries">Practical preliminaries</h2>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist">
+<li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Load packages</a></li>
+<li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Read data</a></li>
+<li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Examine univariate and bivariate statistics</a></li>
+<li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false">Longitudinal plots</a></li>
+</ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<div class="cell">
+<details><summary>Code</summary><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://haven.tidyverse.org">haven</a></span><span class="op">)</span> <span class="co">#To read dataset into R. </span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://personality-project.org/r/psych/">psych</a></span><span class="op">)</span>  <span class="co">#For practical preliminaries: univariate and bivariate descriptive stats</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://milanwiedemann.github.io/lcsm/">lcsm</a></span><span class="op">)</span>   <span class="co">#For plotting longitudinal trajectories from wide data set</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output cell-output-stderr">
+<pre><code>This is lcsm 0.3.2</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Please report any issues or ideas at:</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>https://github.com/milanwiedemann/lcsm/issues</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code></code></pre>
+</div>
+<details><summary>Code</summary><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://lavaan.ugent.be">lavaan</a></span><span class="op">)</span> <span class="co">#For calling sem/cfa/growth functions. We will use the growth() function in the lavaan pacakage, which also has other functions. [See here](https://lavaan.ugent.be)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output cell-output-stderr">
+<pre><code>This is lavaan 0.6-15
+lavaan is FREE software! Please report any bugs.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'lavaan'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:psych':
+
+    cor2cov</code></pre>
+</div>
+<details><summary>Code</summary><div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'ggplot2'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:psych':
+
+    %+%, alpha</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="cell">
+<details><summary>Code</summary><div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://haven.tidyverse.org/reference/read_spss.html">read_sav</a></span><span class="op">(</span><span class="st">"/Volumes/anyan/Quant_Resources/0000 Workshops/000_01_Dec_2023_NTNU/data.sav"</span><span class="op">)</span></span>
+<span><span class="co">#Create new data set with only your main outcome variables</span></span>
+<span><span class="va">lonely</span> <span class="op">&lt;-</span> <span class="va">data</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"lone3"</span>, <span class="st">"lone5"</span><span class="op">)</span><span class="op">]</span></span>
+<span><span class="co">#To plot longitudinal trajectories, create a new data set of only your outcome variables with id included</span></span>
+<span><span class="va">lonelytrajectory</span> <span class="op">&lt;-</span> <span class="va">data</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"personid"</span>, <span class="st">"lone3"</span>, <span class="st">"lone5"</span><span class="op">)</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<div class="cell">
+<details><summary>Code</summary><div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#Examine descriptive statistics.</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/psych/man/describe.html">describe</a></span><span class="op">(</span><span class="va">lonely</span><span class="op">)</span> <span class="co">#univariate descriptives </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output cell-output-stdout">
+<pre><code>      vars   n mean   sd median trimmed  mad min  max range skew kurtosis   se
+lone3    1 390 1.53 0.52   1.36    1.44 0.37   1 3.78  2.78 1.52     2.27 0.03
+lone5    2 409 1.32 0.39   1.20    1.24 0.25   1 3.43  2.43 2.45     7.22 0.02</code></pre>
+</div>
+<details><summary>Code</summary><div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#bivariate descriptives</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/cor.html">cov</a></span><span class="op">(</span><span class="va">lonely</span>, use<span class="op">=</span><span class="st">'pairwise.complete.obs'</span><span class="op">)</span> <span class="co">#covariance matrix</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output cell-output-stdout">
+<pre><code>           lone3      lone5
+lone3 0.27223396 0.08475463
+lone5 0.08475463 0.15471723</code></pre>
+</div>
+<details><summary>Code</summary><div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/cor.html">cor</a></span><span class="op">(</span><span class="va">lonely</span>, use<span class="op">=</span><span class="st">'pairwise.complete.obs'</span><span class="op">)</span> <span class="co">#correlation matrix</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output cell-output-stdout">
+<pre><code>          lone3     lone5
+lone3 1.0000000 0.4240808
+lone5 0.4240808 1.0000000</code></pre>
+</div>
+<details><summary>Code</summary><div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#bivariate scatter plots below the diagonal, histograms on the diagonal, and the Pearson correlation above the diagonal.</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/psych/man/pairs.panels.html">pairs.panels</a></span><span class="op">(</span><span class="va">lonely</span>, lm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="co">#lm = TRUE to fit a regression line</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output-display">
+<p><img src="two_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+<div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
+<div class="cell">
+<details><summary>Code</summary><div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://milanwiedemann.github.io/lcsm/reference/plot_trajectories.html">plot_trajectories</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">lonelytrajectory</span>,</span>
+<span>                  id_var <span class="op">=</span> <span class="st">"personid"</span>, </span>
+<span>                  var_list <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"lone3"</span>, <span class="st">"lone5"</span><span class="op">)</span>,</span>
+<span>                  xlab <span class="op">=</span> <span class="st">"Year"</span>, ylab <span class="op">=</span> <span class="st">"Loneliness"</span>,</span>
+<span>                  connect_missing <span class="op">=</span> <span class="cn">FALSE</span>,   <span class="co">#Want to plot only complete observations</span></span>
+<span>                  random_sample_frac <span class="op">=</span> <span class="fl">0.05</span>, <span class="co">#You can select more or less than 5% of the data by adjusting this</span></span>
+<span>                  title_n <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 3 rows containing missing values (`geom_line()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 3 rows containing missing values (`geom_point()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="two_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>You can plot separate individual trajectories</p>
+<div class="cell">
+<details><summary>Code</summary><div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://milanwiedemann.github.io/lcsm/reference/plot_trajectories.html">plot_trajectories</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">lonelytrajectory</span>,</span>
+<span>                  id_var <span class="op">=</span> <span class="st">"personid"</span>, </span>
+<span>                  var_list <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"lone3"</span>, <span class="st">"lone5"</span><span class="op">)</span>,</span>
+<span>                  xlab <span class="op">=</span> <span class="st">"Year"</span>, ylab <span class="op">=</span> <span class="st">"Loneliness"</span>,</span>
+<span>                  connect_missing <span class="op">=</span> <span class="cn">FALSE</span>,   <span class="co">#Want to plot only complete observations</span></span>
+<span>                  random_sample_frac <span class="op">=</span> <span class="fl">0.025</span>, <span class="co">#You can select more or less than 5% of the data by adjusting this</span></span>
+<span>                  title_n <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">+</span></span>
+<span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span><span class="op">(</span><span class="op">~</span><span class="va">personid</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 2 rows containing missing values (`geom_line()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 2 rows containing missing values (`geom_point()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="two_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist">
+<li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Difference Score Model</a></li>
+<li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Autoregression Model</a></li>
+<li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false">Latent Change Score Model</a></li>
+</ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<div class="cell">
+<details><summary>Code</summary><div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 001_No growth curve model</span></span>
+<span><span class="va">nogrowth</span> <span class="op">&lt;-</span> <span class="st">' i =~ 1*lone1 + 1*lone2 + 1*lone3 + 1*lone4 + 1*lone5'</span></span>
+<span><span class="va">fit_nogrowth</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lavaan/man/growth.html">growth</a></span><span class="op">(</span><span class="va">nogrowth</span>, data <span class="op">=</span> <span class="va">data</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">fit_nogrowth</span>, fit.measures <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output cell-output-stdout">
+<pre><code>lavaan 0.6.15 ended normally after 37 iterations
+
+  Estimator                                         ML
+  Optimization method                           NLMINB
+  Number of model parameters                         7
+
+                                                  Used       Total
+  Number of observations                           321         442
+
+Model Test User Model:
+                                                      
+  Test statistic                               186.433
+  Degrees of freedom                                13
+  P-value (Chi-square)                           0.000
+
+Model Test Baseline Model:
+
+  Test statistic                               451.170
+  Degrees of freedom                                10
+  P-value                                        0.000
+
+User Model versus Baseline Model:
+
+  Comparative Fit Index (CFI)                    0.607
+  Tucker-Lewis Index (TLI)                       0.698
+
+Loglikelihood and Information Criteria:
+
+  Loglikelihood user model (H0)               -814.634
+  Loglikelihood unrestricted model (H1)       -721.418
+                                                      
+  Akaike (AIC)                                1643.269
+  Bayesian (BIC)                              1669.669
+  Sample-size adjusted Bayesian (SABIC)       1647.466
+
+Root Mean Square Error of Approximation:
+
+  RMSEA                                          0.204
+  90 Percent confidence interval - lower         0.179
+  90 Percent confidence interval - upper         0.230
+  P-value H_0: RMSEA &lt;= 0.050                    0.000
+  P-value H_0: RMSEA &gt;= 0.080                    1.000
+
+Standardized Root Mean Square Residual:
+
+  SRMR                                           0.172
+
+Parameter Estimates:
+
+  Standard errors                             Standard
+  Information                                 Expected
+  Information saturated (h1) model          Structured
+
+Latent Variables:
+                   Estimate  Std.Err  z-value  P(&gt;|z|)
+  i =~                                                
+    lone1             1.000                           
+    lone2             1.000                           
+    lone3             1.000                           
+    lone4             1.000                           
+    lone5             1.000                           
+
+Intercepts:
+                   Estimate  Std.Err  z-value  P(&gt;|z|)
+   .lone1             0.000                           
+   .lone2             0.000                           
+   .lone3             0.000                           
+   .lone4             0.000                           
+   .lone5             0.000                           
+    i                 1.398    0.018   79.816    0.000
+
+Variances:
+                   Estimate  Std.Err  z-value  P(&gt;|z|)
+   .lone1             0.109    0.010   10.537    0.000
+   .lone2             0.142    0.013   11.035    0.000
+   .lone3             0.167    0.015   11.279    0.000
+   .lone4             0.112    0.011   10.587    0.000
+   .lone5             0.092    0.009   10.119    0.000
+    i                 0.075    0.008    9.531    0.000</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<div class="cell">
+<details><summary>Code</summary><div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 002_Linear growth curve model</span></span>
+<span><span class="va">linear</span> <span class="op">&lt;-</span> <span class="st">' i =~ 1*lone1 + 1*lone2 + 1*lone3 + 1*lone4 + 1*lone5</span></span>
+<span><span class="st">           s =~ 0*lone1 + 1*lone2 + 3*lone3 + 4*lone4 + 6*lone5'</span></span>
+<span><span class="va">fit_linear</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lavaan/man/growth.html">growth</a></span><span class="op">(</span><span class="va">linear</span>, data <span class="op">=</span> <span class="va">data</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">fit_linear</span>, fit.measures <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output cell-output-stdout">
+<pre><code>lavaan 0.6.15 ended normally after 49 iterations
+
+  Estimator                                         ML
+  Optimization method                           NLMINB
+  Number of model parameters                        10
+
+                                                  Used       Total
+  Number of observations                           321         442
+
+Model Test User Model:
+                                                      
+  Test statistic                                75.244
+  Degrees of freedom                                10
+  P-value (Chi-square)                           0.000
+
+Model Test Baseline Model:
+
+  Test statistic                               451.170
+  Degrees of freedom                                10
+  P-value                                        0.000
+
+User Model versus Baseline Model:
+
+  Comparative Fit Index (CFI)                    0.852
+  Tucker-Lewis Index (TLI)                       0.852
+
+Loglikelihood and Information Criteria:
+
+  Loglikelihood user model (H0)               -759.040
+  Loglikelihood unrestricted model (H1)       -721.418
+                                                      
+  Akaike (AIC)                                1538.080
+  Bayesian (BIC)                              1575.795
+  Sample-size adjusted Bayesian (SABIC)       1544.076
+
+Root Mean Square Error of Approximation:
+
+  RMSEA                                          0.143
+  90 Percent confidence interval - lower         0.113
+  90 Percent confidence interval - upper         0.174
+  P-value H_0: RMSEA &lt;= 0.050                    0.000
+  P-value H_0: RMSEA &gt;= 0.080                    1.000
+
+Standardized Root Mean Square Residual:
+
+  SRMR                                           0.097
+
+Parameter Estimates:
+
+  Standard errors                             Standard
+  Information                                 Expected
+  Information saturated (h1) model          Structured
+
+Latent Variables:
+                   Estimate  Std.Err  z-value  P(&gt;|z|)
+  i =~                                                
+    lone1             1.000                           
+    lone2             1.000                           
+    lone3             1.000                           
+    lone4             1.000                           
+    lone5             1.000                           
+  s =~                                                
+    lone1             0.000                           
+    lone2             1.000                           
+    lone3             3.000                           
+    lone4             4.000                           
+    lone5             6.000                           
+
+Covariances:
+                   Estimate  Std.Err  z-value  P(&gt;|z|)
+  i ~~                                                
+    s                -0.015    0.002   -6.246    0.000
+
+Intercepts:
+                   Estimate  Std.Err  z-value  P(&gt;|z|)
+   .lone1             0.000                           
+   .lone2             0.000                           
+   .lone3             0.000                           
+   .lone4             0.000                           
+   .lone5             0.000                           
+    i                 1.466    0.024   62.031    0.000
+    s                -0.025    0.004   -5.784    0.000
+
+Variances:
+                   Estimate  Std.Err  z-value  P(&gt;|z|)
+   .lone1             0.059    0.010    5.761    0.000
+   .lone2             0.114    0.011   10.114    0.000
+   .lone3             0.172    0.015   11.659    0.000
+   .lone4             0.114    0.010   11.066    0.000
+   .lone5             0.047    0.010    4.929    0.000
+    i                 0.139    0.015    9.310    0.000
+    s                 0.003    0.001    5.839    0.000</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
+<div class="cell">
+<details><summary>Code</summary><div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 003_Quadratic growth curve model</span></span>
+<span><span class="va">quadratic</span> <span class="op">&lt;-</span> <span class="st">' i =~ 1*lone1 + 1*lone2 + 1*lone3 + 1*lone4 + 1*lone5</span></span>
+<span><span class="st">           s =~ 0*lone1 + 1*lone2 + 3*lone3 + 4*lone4 + 6*lone5</span></span>
+<span><span class="st">           q =~ 0*lone1 + 1*lone2 + 9*lone3 + 16*lone4 + 36*lone5'</span></span>
+<span><span class="va">fit_quadratic</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lavaan/man/growth.html">growth</a></span><span class="op">(</span><span class="va">quadratic</span>, data <span class="op">=</span> <span class="va">data</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output cell-output-stderr">
+<pre><code>Warning in lav_object_post_check(object): lavaan WARNING: covariance matrix of latent variables
+                is not positive definite;
+                use lavInspect(fit, "cov.lv") to investigate.</code></pre>
+</div>
+<details><summary>Code</summary><div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">fit_quadratic</span>, fit.measures <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output cell-output-stdout">
+<pre><code>lavaan 0.6.15 ended normally after 76 iterations
+
+  Estimator                                         ML
+  Optimization method                           NLMINB
+  Number of model parameters                        14
+
+                                                  Used       Total
+  Number of observations                           321         442
+
+Model Test User Model:
+                                                      
+  Test statistic                                46.671
+  Degrees of freedom                                 6
+  P-value (Chi-square)                           0.000
+
+Model Test Baseline Model:
+
+  Test statistic                               451.170
+  Degrees of freedom                                10
+  P-value                                        0.000
+
+User Model versus Baseline Model:
+
+  Comparative Fit Index (CFI)                    0.908
+  Tucker-Lewis Index (TLI)                       0.846
+
+Loglikelihood and Information Criteria:
+
+  Loglikelihood user model (H0)               -744.754
+  Loglikelihood unrestricted model (H1)       -721.418
+                                                      
+  Akaike (AIC)                                1517.507
+  Bayesian (BIC)                              1570.308
+  Sample-size adjusted Bayesian (SABIC)       1525.902
+
+Root Mean Square Error of Approximation:
+
+  RMSEA                                          0.145
+  90 Percent confidence interval - lower         0.108
+  90 Percent confidence interval - upper         0.185
+  P-value H_0: RMSEA &lt;= 0.050                    0.000
+  P-value H_0: RMSEA &gt;= 0.080                    0.998
+
+Standardized Root Mean Square Residual:
+
+  SRMR                                           0.074
+
+Parameter Estimates:
+
+  Standard errors                             Standard
+  Information                                 Expected
+  Information saturated (h1) model          Structured
+
+Latent Variables:
+                   Estimate  Std.Err  z-value  P(&gt;|z|)
+  i =~                                                
+    lone1             1.000                           
+    lone2             1.000                           
+    lone3             1.000                           
+    lone4             1.000                           
+    lone5             1.000                           
+  s =~                                                
+    lone1             0.000                           
+    lone2             1.000                           
+    lone3             3.000                           
+    lone4             4.000                           
+    lone5             6.000                           
+  q =~                                                
+    lone1             0.000                           
+    lone2             1.000                           
+    lone3             9.000                           
+    lone4            16.000                           
+    lone5            36.000                           
+
+Covariances:
+                   Estimate  Std.Err  z-value  P(&gt;|z|)
+  i ~~                                                
+    s                -0.020    0.009   -2.179    0.029
+    q                 0.000    0.001    0.265    0.791
+  s ~~                                                
+    q                -0.002    0.001   -1.792    0.073
+
+Intercepts:
+                   Estimate  Std.Err  z-value  P(&gt;|z|)
+   .lone1             0.000                           
+   .lone2             0.000                           
+   .lone3             0.000                           
+   .lone4             0.000                           
+   .lone5             0.000                           
+    i                 1.446    0.024   60.828    0.000
+    s                 0.017    0.014    1.284    0.199
+    q                -0.007    0.002   -3.384    0.001
+
+Variances:
+                   Estimate  Std.Err  z-value  P(&gt;|z|)
+   .lone1             0.037    0.014    2.584    0.010
+   .lone2             0.118    0.012    9.942    0.000
+   .lone3             0.144    0.014   10.115    0.000
+   .lone4             0.099    0.011    8.672    0.000
+   .lone5             0.099    0.027    3.684    0.000
+    i                 0.148    0.019    7.974    0.000
+    s                 0.018    0.007    2.697    0.007
+    q                 0.000    0.000    0.959    0.337</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+      }
+    }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer"><div class="nav-footer">
+    <div class="nav-footer-left">Made with <a href="https://quarto.org">Posit Quarto</a></div>   
+    <div class="nav-footer-center"><a href="mailto:%20frederick.anyan@ntnu.no">Contact Frederick Anyan</a></div>
+    <div class="nav-footer-right"><a href="https://github.com/frederickanyan">Github Repo</a></div>
+  </div>
+</footer>
+
+
+</body></html>

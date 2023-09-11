@@ -3,6 +3,7 @@ title: 'Null Hypothesis Testing'
 author: "Frederick Anyan"
 date: 2023-05-01
 categories: [Null hypothesis, Sample statistics, Population parameters]
+image: "null.jpeg"
 ---
 
 Researchers start their research by creating a null hypothesis, which is the assumption that there is no relationship between the variables being tested. They then collect data and use statistical tests to determine if the data is consistent with the null hypothesis, or if there is enough evidence to reject the null hypothesis. 

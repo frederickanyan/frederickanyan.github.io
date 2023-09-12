@@ -1,0 +1,148 @@
+---
+title: "Preliminaries for Longitudinal Analysis"
+author: "Frederick Anyan"
+date: "2023-09-13"
+#categories: []
+---
+
+# Load packages
+```{r}
+library(haven) #To read dataset into R. 
+library(psych)  #For practical preliminaries: univariate and bivariate descriptive stats
+library(lcsm)   #For plotting longitudinal trajectories from wide data set
+library(ggplot2) #For plotting longitudinal trajectories from long data set
+library(tidyr) #For reshaping data
+```
+
+Some practical preliminary steps are useful for performing longitudinal data analyses. Some preliminary steps might even already show whether the data will support your hypothesized growth function or to fit a different growth function. Here, I go through some of the practical preliminaries required for performing longitudinal data analyses when using wide data set or long data set. I will use the loneliness data set including 442 observations recorded across five time points. 
+
+::: panel-tabset
+
+## WIDE DATASET
+```{r}
+## Read data 
+data <- read.csv("/Volumes/anyan/Quant_Resources/0000 Workshops/000_01_Dec_2023_NTNU/data.csv", header = TRUE)
+#Create new data set with only your main outcome variables
+lonely <- data[, c("personid", "lone1", "lone2", "lone3", "lone4", "lone5")]
+```
+
+# 1. Examine univariate and bivariate statistics
+```{r}
+#Examine descriptive statistics.
+describe(lonely[, 2:6])#univariate descriptives
+```
+First thing to notice from the descriptive statistics is the number and pattern of missing data. It can also be noticed that, the means and standard deviations show a simple pattern with increases in the feeling of loneliness from T1 through to T3, and begins to decline afterwards though to T5 coupled with increases in variation and then a decline after T3. 
+
+It can be noticed already from the means that a linear growth function might not accurately characterize the trajectory in the data.
+
+# 2. Describe covariance and correlation matrices 
+```{r}
+#bivariate descriptives
+cov(lonely[, 2:6], use='pairwise.complete.obs') #covariance matrix
+```
+
+
+```{r}
+cor(lonely[, 2:6], use='pairwise.complete.obs') #correlation matrix
+```
+The correlations over time provide unique information for longitudinal analysis. Here, most of the correlations show modest associations, indicating that the level of stability of individual differences across time is modest to high. 
+
+# 3. Supplement main analysis with bivariate scatter plots and correlations
+```{r}
+#bivariate scatter plots below the diagonal, histograms on the diagonal, and the Pearson correlation above the diagonal.
+pairs.panels(lonely[, 2:6], lm = TRUE) #lm = TRUE to fit a regression line
+```
+
+Bivariate scatter plots and correlations along with histograms can be supplemented to the main analysis. 
+
+# 4. Examine longitudinal plots
+```{r}
+plot_trajectories(data = lonely,
+                  id_var = "personid", 
+                  var_list = c("lone1", "lone2", "lone3", "lone4", "lone5"),
+                  xlab = "Year", ylab = "Loneliness",
+                  connect_missing = FALSE,   #Want to plot only complete observations
+                  random_sample_frac = 0.05, #You can select more or less than 5% of the data by adjusting this
+                  title_n = TRUE)
+```
+
+Make longitudinal plots to show participant's scores of loneliness indexed on the y-axis and time of observation on the x-axis. Here, you can make one longitudinal plot that visualizes the overall trajectory for all participants and one that visualizes the trajectory for a subset of the participants. 
+
+# 5. Examine separate individual longitudinal plots
+```{r}
+plot_trajectories(data = lonely,
+                  id_var = "personid", 
+                  var_list = c("lone1", "lone2", "lone3", "lone4", "lone5"),
+                  xlab = "Year", ylab = "Loneliness",
+                  connect_missing = FALSE,   #Want to plot only complete observations
+                  random_sample_frac = 0.025, #You can select more or less than 5% of the data by adjusting this
+                  title_n = TRUE) +
+ facet_wrap(~personid)
+```
+
+My personal choice has been to show separate individual longitudinal plots, but you can decide to show both or whichever works for you. 
+
+
+## LONG DATASET
+```{r}
+## Reshape from wide to long using tidyr
+lonelylong <- lonely %>%
+              pivot_longer(cols = 2:6,
+                           names_to = "year",
+                           values_to = "lone")
+```
+
+# 1. Examine univariate and bivariate statistics
+```{r}
+#Examine descriptive statistics using the wide data set.
+describe(lonely[, 2:6]) #univariate descriptives
+```
+First thing to notice from the descriptive statistics is the number and pattern of missing data. It can also be noticed that, the means and standard deviations show a simple pattern with increases in the feeling of loneliness from T1 through to T3, and begins to decline afterwards though to T5 coupled with increases in variation and then a decline after T3. 
+
+It can be noticed already from the means that a linear growth function might not accurately characterize the trajectory in the data.
+
+# 2. Describe covariance and correlation matrices 
+```{r}
+#bivariate descriptives
+cov(lonely[, 2:6], use='pairwise.complete.obs') #covariance matrix
+```
+```{r}
+cor(lonely[, 2:6], use='pairwise.complete.obs') #correlation matrix
+```
+The correlations over time provide unique information for longitudinal analysis. Here, most of the correlations show modest associations, indicating that the level of stability of individual differences across time is modest to high. 
+
+# 3. Supplement main analysis with bivariate scatter plots and correlations
+```{r}
+#bivariate scatter plots below the diagonal, histograms on the diagonal, and the Pearson correlation above the diagonal.
+pairs.panels(lonely[, 2:6], lm = TRUE) #lm = TRUE to fits regression line
+```
+
+Bivariate scatter plots and correlations along with histograms can be supplemented to the main analysis. 
+
+
+# 4. Examine longitudinal plots
+```{r}
+#Longitudinal plots with the long data set
+ggplot(data = lonelylong[which(lonelylong$personid < 26),], 
+       aes(x = year, y = lone, group = personid)) +
+       geom_smooth(method = lm, se = FALSE, size = 1) +
+       xlab("Time of observation") +
+       ylab("Loneliness")
+```
+
+Make longitudinal plots to show participant's scores of loneliness indexed on the y-axis and time of observation on the x-axis. Here, you can make one longitudinal plot that visualizes the overall trajectory for all participants and one that visualizes the trajectory for a subset of the participants. 
+
+# 5. Include separate individual trajectories
+```{r}
+#Longitudinal plots with the long data set
+ggplot(data = lonelylong[which(lonelylong$personid < 6),], 
+       aes(x = year, y = lone, group = personid)) +
+       geom_smooth(method = lm, se = FALSE, size = 1) +
+       xlab("Time of observation") +
+       ylab("Loneliness")+
+facet_wrap(~personid)
+```
+My personal choice has been to show separate individual longitudinal plots, but you can decide to show both or whichever works for you. 
+
+:::
+

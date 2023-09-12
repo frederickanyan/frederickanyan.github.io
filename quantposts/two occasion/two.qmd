@@ -1,17 +1,47 @@
 ---
-title: "Analysing Two Occasion Data"
+title: "Analyses of Two Occasion Data"
 author: "Frederick Anyan"
 date: "2023-10-01"
 categories: [Change, Difference Score, Auto regression]
 ---
 
+Different models of change are compared in this tutorial when presented with data collected at two time points - which could be pre-test and post test data or some other form of observational data. 
+
+**1**
+
+The *Raw Change Model* also called the *Difference Score Model* is probably the most obvious and common. In this, a researcher assess change between two time points by subtracting T1 scores from T2 scores (T2 - T1). Resulting from this subtraction whether greater or lesser is the change that has occurred between two time points. The *Difference Score Model* examine between-person differences in change that has occurred between two time points. Common in this model of change is to use the computed (resulting) change or difference (D), that is, T2 - T1 = D, as an outcome in subsequent analysis - which is why it is often called the *Difference Score Model* 
+
+This approach is, however, heavily criticized and has a rather bad reputation even until today. It started with (Cronbach & Furby, 1970)[https://psycnet.apa.org/doi/10.1037/h0029382]
+
+<ul>
+  <li> “Raw change” or “raw gain” scores formed by subtracting pretest scores from posttest scores lead to fallacious conclusions, primarily because such scores are systematically related to any random error of measurement. Although the unsuitability of such scores has long been discussed, they are still employed, even by some otherwise sophisticated investigators. (Cronbach & Furby, 1970, p. 68)[https://psycnet.apa.org/doi/10.1037/h0029382] </li>
+</ul>
+
+The Difference Score Model is badly reputed mainly for the following:
+<ul>
+  <li> High correlation between T1 scores and the computed D scores. With very high T1 scores, the D tends to be highly negatively correlated. </li>
+  <li> Measurement error contained in T1 and T2 scores become attenuated in the computed D scores, greatly limiting the reliability of the computed D scores./li>
+<ul>
+
+Some authors have suggested ways to mitigate the problems of the *Difference Score Model* including, to account for the confounding effects of T1 when using the computed D scores in subsequent analysis. See (Rogosa & Willett, 1983[https://www.jstor.org/stable/1434950]; Gottman & Rushe, 1993[https://psycnet.apa.org/doi/10.1037/0022-006X.61.6.907])
+
+
+**2**
+
+The *Auto-Regressive Models of Change*  focuses on the end state by using T2 as the DV and T1 as the predictor. This model that are used to examine “Change in Interindividual Differences”; Here T2 is regressed on T1. This has had some appeal since the 70s (Cronbach and Furby, 1970)
+Thus, the autoregressive effect residualizes the outcome leaving only variability that is unex- plained by RSn1, which can be construed as the variability due to change.
+
+
+**3**
+*Latent Difference Score* also called the *Latent Change Score Model* rescues the problems associated with modeling the difference score when using observed variables. With the advances in SEM, the specification of latent difference scores to capture and model measurement error has become possible (McArdle & Nesselroade, 1994[https://psycnet.apa.org/record/1994-97263-010]; McArdle, 2001)
+
 TBC
 
+TBC
 
+TBC
 
-
-## Practical preliminaries
-
+TBC
 
 
 ## Load packages
@@ -31,42 +61,6 @@ data <- read_sav("/Volumes/anyan/Quant_Resources/0000 Workshops/000_01_Dec_2023_
 lonely <- data[, c("lone3", "lone5")]
 #To plot longitudinal trajectories, create a new data set of only your outcome variables with id included
 lonelytrajectory <- data[, c("personid", "lone3", "lone5")]
-```
-
-## Examine univariate and bivariate statistics
-```{r}
-#Examine descriptive statistics.
-describe(lonely) #univariate descriptives 
-
-#bivariate descriptives
-cov(lonely, use='pairwise.complete.obs') #covariance matrix
-cor(lonely, use='pairwise.complete.obs') #correlation matrix
-
-#bivariate scatter plots below the diagonal, histograms on the diagonal, and the Pearson correlation above the diagonal.
-pairs.panels(lonely, lm = TRUE) #lm = TRUE to fit a regression line
-```
-
-## Longitudinal plots
-```{r}
-plot_trajectories(data = lonelytrajectory,
-                  id_var = "personid", 
-                  var_list = c("lone3", "lone5"),
-                  xlab = "Year", ylab = "Loneliness",
-                  connect_missing = FALSE,   #Want to plot only complete observations
-                  random_sample_frac = 0.05, #You can select more or less than 5% of the data by adjusting this
-                  title_n = TRUE)
-```
-
-You can plot separate individual trajectories
-```{r}
-plot_trajectories(data = lonelytrajectory,
-                  id_var = "personid", 
-                  var_list = c("lone3", "lone5"),
-                  xlab = "Year", ylab = "Loneliness",
-                  connect_missing = FALSE,   #Want to plot only complete observations
-                  random_sample_frac = 0.025, #You can select more or less than 5% of the data by adjusting this
-                  title_n = TRUE) +
- facet_wrap(~personid)
 ```
 
 

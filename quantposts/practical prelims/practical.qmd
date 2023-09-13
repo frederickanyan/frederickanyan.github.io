@@ -5,16 +5,19 @@ date: "2023-09-13"
 #categories: []
 ---
 
-# Load packages
+Some practical preliminary steps are useful for performing longitudinal data analyses. Some preliminary steps might even already show whether the data will support your hypothesized growth function or to fit a different growth function. Here, I go through some of the practical preliminaries required for performing longitudinal data analyses when using wide data set or long data set. I will use the loneliness data set including 442 observations recorded across five time points. 
+
+Load packages
 ```{r}
+suppressPackageStartupMessages({
 library(haven) #To read dataset into R. 
 library(psych)  #For practical preliminaries: univariate and bivariate descriptive stats
-library(lcsm)   #For plotting longitudinal trajectories from wide data set
-library(ggplot2) #For plotting longitudinal trajectories from long data set
 library(tidyr) #For reshaping data
-```
+library(lcsm)   #For plotting longitudinal trajectories in a wide data set
+library(ggplot2) #For plotting longitudinal trajectories in long data set
+})
 
-Some practical preliminary steps are useful for performing longitudinal data analyses. Some preliminary steps might even already show whether the data will support your hypothesized growth function or to fit a different growth function. Here, I go through some of the practical preliminaries required for performing longitudinal data analyses when using wide data set or long data set. I will use the loneliness data set including 442 observations recorded across five time points. 
+```
 
 ::: panel-tabset
 
@@ -41,6 +44,7 @@ It can be noticed already from the means that a linear growth function might not
 cov(lonely[, 2:6], use='pairwise.complete.obs') #covariance matrix
 ```
 
+The feasibility of estimating a growth model can also be already determined by examining the covariance matrix. If the covariances between two adjacent time points (T1 and T2; T2 and T3; T3 and T4; T4 and T5) are higher than non-adjacent time points, this could likely indicate non-negative slope variance. For example, in our covariance matrix the observed covariances between two adjacent time points are 0.15, 0.14, 0.11 and 0.08. These covariances are sometimes higher but also smaller than non-adjacent time points and thus, does not easily determine that there would be no negative slope variance.  
 
 ```{r}
 cor(lonely[, 2:6], use='pairwise.complete.obs') #correlation matrix
@@ -80,7 +84,7 @@ plot_trajectories(data = lonely,
  facet_wrap(~personid)
 ```
 
-My personal choice has been to show separate individual longitudinal plots, but you can decide to show both or whichever works for you. 
+My personal choice has been to show separate individual longitudinal plots, but you can decide to show whichever one works for you. 
 
 
 ## LONG DATASET
@@ -106,9 +110,13 @@ It can be noticed already from the means that a linear growth function might not
 #bivariate descriptives
 cov(lonely[, 2:6], use='pairwise.complete.obs') #covariance matrix
 ```
+
+The feasibility of estimating a growth model can also be already determined by examining the covariance matrix. If the covariances between two adjacent time points (T1 and T2; T2 and T3; T3 and T4; T4 and T5) are higher than non-adjacent time points, this could likely indicate non-negative slope variance. For example, in our covariance matrix the observed covariances between two adjacent time points are 0.15, 0.14, 0.11 and 0.08. These covariances are sometimes higher but also smaller than non-adjacent time points and thus, does not easily determine that there would be no negative slope variance.  
+
 ```{r}
 cor(lonely[, 2:6], use='pairwise.complete.obs') #correlation matrix
 ```
+
 The correlations over time provide unique information for longitudinal analysis. Here, most of the correlations show modest associations, indicating that the level of stability of individual differences across time is modest to high. 
 
 # 3. Supplement main analysis with bivariate scatter plots and correlations
@@ -123,9 +131,10 @@ Bivariate scatter plots and correlations along with histograms can be supplement
 # 4. Examine longitudinal plots
 ```{r}
 #Longitudinal plots with the long data set
-ggplot(data = lonelylong[which(lonelylong$personid < 26),], 
+ggplot(data = lonelylong[which(lonelylong$personid < 26),], #Select the first 25 participants to show
        aes(x = year, y = lone, group = personid)) +
-       geom_smooth(method = lm, se = FALSE, size = 1) +
+       geom_line() +
+       #geom_smooth(method = lm, se = FALSE, size = 1) +
        xlab("Time of observation") +
        ylab("Loneliness")
 ```
@@ -135,14 +144,15 @@ Make longitudinal plots to show participant's scores of loneliness indexed on th
 # 5. Include separate individual trajectories
 ```{r}
 #Longitudinal plots with the long data set
-ggplot(data = lonelylong[which(lonelylong$personid < 6),], 
+ggplot(data = lonelylong[which(lonelylong$personid < 6),], #Select only five participants 
        aes(x = year, y = lone, group = personid)) +
-       geom_smooth(method = lm, se = FALSE, size = 1) +
+       geom_line() +     
+       #geom_smooth(method = lm, se = FALSE, size = 1) +
        xlab("Time of observation") +
        ylab("Loneliness")+
 facet_wrap(~personid)
 ```
-My personal choice has been to show separate individual longitudinal plots, but you can decide to show both or whichever works for you. 
+My personal choice has been to show separate individual longitudinal plots, but you can decide to show whichever one works for you. 
 
 :::
 

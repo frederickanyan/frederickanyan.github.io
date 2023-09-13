@@ -165,10 +165,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
    
   <ul>
-<li><a href="#load-packages" id="toc-load-packages" class="nav-link active" data-scroll-target="#load-packages">Load packages</a></li>
+<li><a href="#difference-score-model-of-change" id="toc-difference-score-model-of-change" class="nav-link active" data-scroll-target="#difference-score-model-of-change">1. Difference Score Model of Change</a></li>
+  <li><a href="#auto-regressive-models-of-change" id="toc-auto-regressive-models-of-change" class="nav-link" data-scroll-target="#auto-regressive-models-of-change">2. Auto-Regressive Models of Change</a></li>
+  <li>
+<a href="#latent-difference-score" id="toc-latent-difference-score" class="nav-link" data-scroll-target="#latent-difference-score">3. Latent Difference Score</a>
+  <ul class="collapse">
+<li><a href="#load-packages" id="toc-load-packages" class="nav-link" data-scroll-target="#load-packages">Load packages</a></li>
   <li><a href="#read-data" id="toc-read-data" class="nav-link" data-scroll-target="#read-data">Read data</a></li>
-  <li><a href="#examine-univariate-and-bivariate-statistics" id="toc-examine-univariate-and-bivariate-statistics" class="nav-link" data-scroll-target="#examine-univariate-and-bivariate-statistics">Examine univariate and bivariate statistics</a></li>
-  <li><a href="#longitudinal-plots" id="toc-longitudinal-plots" class="nav-link" data-scroll-target="#longitudinal-plots">Longitudinal plots</a></li>
+  </ul>
+</li>
   </ul></nav>
     </div>
 <!-- main -->
@@ -203,13 +208,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
   
 
-</header><p>Different models of change are compared in this tutorial when presented with data collected at two time points - which could be pre-test and post test data or some other form of observational data.</p>
-<p><strong>1</strong></p>
+</header><p>This tutorial compares different models of change when presented with data collected at two time points - which could be pre-test and post test data or some other form of observational data.</p>
+<section id="difference-score-model-of-change" class="level1"><h1>1. Difference Score Model of Change</h1>
 <p>The <em>Raw Change Model</em> also called the <em>Difference Score Model</em> is probably the most obvious and common. In this, a researcher assess change between two time points by subtracting T1 scores from T2 scores (T2 - T1). Resulting from this subtraction whether greater or lesser is the change that has occurred between two time points. The <em>Difference Score Model</em> examine between-person differences in change that has occurred between two time points. Common in this model of change is to use the computed (resulting) change or difference (D), that is, T2 - T1 = D, as an outcome in subsequent analysis - which is why it is often called the <em>Difference Score Model</em></p>
-<p>This approach is, however, heavily criticized and has a rather bad reputation even until today. It started with (Cronbach &amp; Furby, 1970)[https://psycnet.apa.org/doi/10.1037/h0029382]</p>
+<p>This approach is, however, heavily criticized and has a rather bad reputation even until today. It started with <a href="[https://psycnet.apa.org/doi/10.1037/h0029382">Cronbach &amp; Furby, 1970, p.&nbsp;68</a></p>
 <ul>
 <li>
-“Raw change” or “raw gain” scores formed by subtracting pretest scores from posttest scores lead to fallacious conclusions, primarily because such scores are systematically related to any random error of measurement. Although the unsuitability of such scores has long been discussed, they are still employed, even by some otherwise sophisticated investigators. (Cronbach &amp; Furby, 1970, p.&nbsp;68)[https://psycnet.apa.org/doi/10.1037/h0029382]
+<em>“Raw change” or “raw gain” scores formed by subtracting pretest scores from posttest scores lead to fallacious conclusions, primarily because such scores are systematically related to any random error of measurement. Although the unsuitability of such scores has long been discussed, they are still employed, even by some otherwise sophisticated investigators. <a href="[https://psycnet.apa.org/doi/10.1037/h0029382">Cronbach &amp; Furby, 1970, p.&nbsp;68</a></em>
 </li>
 </ul>
 The Difference Score Model is badly reputed mainly for the following:
@@ -218,133 +223,37 @@ The Difference Score Model is badly reputed mainly for the following:
 High correlation between T1 scores and the computed D scores. With very high T1 scores, the D tends to be highly negatively correlated.
 </li>
 <li>
-Measurement error contained in T1 and T2 scores become attenuated in the computed D scores, greatly limiting the reliability of the computed D scores./li&gt;
-<ul>
-<p>Some authors have suggested ways to mitigate the problems of the <em>Difference Score Model</em> including, to account for the confounding effects of T1 when using the computed D scores in subsequent analysis. See (Rogosa &amp; Willett, 1983[https://www.jstor.org/stable/1434950]; Gottman &amp; Rushe, 1993[https://psycnet.apa.org/doi/10.1037/0022-006X.61.6.907])</p>
-<p><strong>2</strong></p>
+Measurement error contained in T1 and T2 scores become attenuated in the computed D scores, greatly limiting the reliability of the computed D scores.
+</li>
+</ul>
+<p>Some authors have suggested ways to mitigate the problems of the <em>Difference Score Model</em> including, to account for the confounding effects of T1 when using the computed D scores in subsequent analysis. See <a href="https://www.jstor.org/stable/1434950">Rogosa &amp; Willett, 1983</a>; <a href="https://psycnet.apa.org/doi/10.1037/0022-006X.61.6.907">Gottman &amp; Rushe, 1993</a></p>
+</section><section id="auto-regressive-models-of-change" class="level1"><h1>2. Auto-Regressive Models of Change</h1>
 <p>The <em>Auto-Regressive Models of Change</em> focuses on the end state by using T2 as the DV and T1 as the predictor. This model that are used to examine “Change in Interindividual Differences”; Here T2 is regressed on T1. This has had some appeal since the 70s (Cronbach and Furby, 1970) Thus, the autoregressive effect residualizes the outcome leaving only variability that is unex- plained by RSn1, which can be construed as the variability due to change.</p>
-<p><strong>3</strong> <em>Latent Difference Score</em> also called the <em>Latent Change Score Model</em> rescues the problems associated with modeling the difference score when using observed variables. With the advances in SEM, the specification of latent difference scores to capture and model measurement error has become possible (McArdle &amp; Nesselroade, 1994[https://psycnet.apa.org/record/1994-97263-010]; McArdle, 2001)</p>
+</section><section id="latent-difference-score" class="level1"><h1>3. Latent Difference Score</h1>
+<p><em>Latent Difference Score</em> also called the <em>Latent Change Score Model</em> rescues the problems associated with modeling the difference score when using observed variables. With the advances in SEM, the specification of latent difference scores to capture and model measurement error has become possible <a href="https://psycnet.apa.org/record/1994-97263-010">McArdle &amp; Nesselroade, 1994</a></p>
 <p>TBC</p>
 <p>TBC</p>
 <p>TBC</p>
 <p>TBC</p>
 <section id="load-packages" class="level2"><h2 class="anchored" data-anchor-id="load-packages">Load packages</h2>
 <div class="cell">
-<details><summary>Code</summary><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://haven.tidyverse.org">haven</a></span><span class="op">)</span> <span class="co">#To read dataset into R. </span></span>
+<details><summary>Code</summary><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/message.html">suppressPackageStartupMessages</a></span><span class="op">(</span><span class="op">{</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://haven.tidyverse.org">haven</a></span><span class="op">)</span> <span class="co">#To read dataset into R. </span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://personality-project.org/r/psych/">psych</a></span><span class="op">)</span>  <span class="co">#For practical preliminaries: univariate and bivariate descriptive stats</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://milanwiedemann.github.io/lcsm/">lcsm</a></span><span class="op">)</span>   <span class="co">#For plotting longitudinal trajectories from wide data set</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output cell-output-stderr">
-<pre><code>This is lcsm 0.3.2</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Please report any issues or ideas at:</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>https://github.com/milanwiedemann/lcsm/issues</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code></code></pre>
-</div>
-<details><summary>Code</summary><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://lavaan.ugent.be">lavaan</a></span><span class="op">)</span> <span class="co">#For calling sem/cfa/growth functions. We will use the growth() function in the lavaan pacakage, which also has other functions. [See here](https://lavaan.ugent.be)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output cell-output-stderr">
-<pre><code>This is lavaan 0.6-15
-lavaan is FREE software! Please report any bugs.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'lavaan'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following object is masked from 'package:psych':
-
-    cor2cov</code></pre>
-</div>
-<details><summary>Code</summary><div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'ggplot2'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following objects are masked from 'package:psych':
-
-    %+%, alpha</code></pre>
-</div>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://milanwiedemann.github.io/lcsm/">lcsm</a></span><span class="op">)</span>   <span class="co">#For plotting longitudinal trajectories from wide data set</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://lavaan.ugent.be">lavaan</a></span><span class="op">)</span> <span class="co">#For calling sem/cfa/growth functions. We will use the growth() function in the lavaan pacakage, which also has other functions. [See here](https://lavaan.ugent.be)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></span>
+<span><span class="op">}</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 </section><section id="read-data" class="level2"><h2 class="anchored" data-anchor-id="read-data">Read data</h2>
 <div class="cell">
-<details><summary>Code</summary><div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://haven.tidyverse.org/reference/read_spss.html">read_sav</a></span><span class="op">(</span><span class="st">"/Volumes/anyan/Quant_Resources/0000 Workshops/000_01_Dec_2023_NTNU/data.sav"</span><span class="op">)</span></span>
+<details><summary>Code</summary><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://haven.tidyverse.org/reference/read_spss.html">read_sav</a></span><span class="op">(</span><span class="st">"/Volumes/anyan/Quant_Resources/0000 Workshops/000_01_Dec_2023_NTNU/data.sav"</span><span class="op">)</span></span>
 <span><span class="co">#Create new data set with only your main outcome variables</span></span>
 <span><span class="va">lonely</span> <span class="op">&lt;-</span> <span class="va">data</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"lone3"</span>, <span class="st">"lone5"</span><span class="op">)</span><span class="op">]</span></span>
 <span><span class="co">#To plot longitudinal trajectories, create a new data set of only your outcome variables with id included</span></span>
 <span><span class="va">lonelytrajectory</span> <span class="op">&lt;-</span> <span class="va">data</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"personid"</span>, <span class="st">"lone3"</span>, <span class="st">"lone5"</span><span class="op">)</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-</div>
-</section><section id="examine-univariate-and-bivariate-statistics" class="level2"><h2 class="anchored" data-anchor-id="examine-univariate-and-bivariate-statistics">Examine univariate and bivariate statistics</h2>
-<div class="cell">
-<details><summary>Code</summary><div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#Examine descriptive statistics.</span></span>
-<span><span class="fu"><a href="https://rdrr.io/pkg/psych/man/describe.html">describe</a></span><span class="op">(</span><span class="va">lonely</span><span class="op">)</span> <span class="co">#univariate descriptives </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output cell-output-stdout">
-<pre><code>      vars   n mean   sd median trimmed  mad min  max range skew kurtosis   se
-lone3    1 390 1.53 0.52   1.36    1.44 0.37   1 3.78  2.78 1.52     2.27 0.03
-lone5    2 409 1.32 0.39   1.20    1.24 0.25   1 3.43  2.43 2.45     7.22 0.02</code></pre>
-</div>
-<details><summary>Code</summary><div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#bivariate descriptives</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/stats/cor.html">cov</a></span><span class="op">(</span><span class="va">lonely</span>, use<span class="op">=</span><span class="st">'pairwise.complete.obs'</span><span class="op">)</span> <span class="co">#covariance matrix</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output cell-output-stdout">
-<pre><code>           lone3      lone5
-lone3 0.27223396 0.08475463
-lone5 0.08475463 0.15471723</code></pre>
-</div>
-<details><summary>Code</summary><div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/cor.html">cor</a></span><span class="op">(</span><span class="va">lonely</span>, use<span class="op">=</span><span class="st">'pairwise.complete.obs'</span><span class="op">)</span> <span class="co">#correlation matrix</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output cell-output-stdout">
-<pre><code>          lone3     lone5
-lone3 1.0000000 0.4240808
-lone5 0.4240808 1.0000000</code></pre>
-</div>
-<details><summary>Code</summary><div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#bivariate scatter plots below the diagonal, histograms on the diagonal, and the Pearson correlation above the diagonal.</span></span>
-<span><span class="fu"><a href="https://rdrr.io/pkg/psych/man/pairs.panels.html">pairs.panels</a></span><span class="op">(</span><span class="va">lonely</span>, lm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="co">#lm = TRUE to fit a regression line</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-display">
-<p><img src="two_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-</section><section id="longitudinal-plots" class="level2"><h2 class="anchored" data-anchor-id="longitudinal-plots">Longitudinal plots</h2>
-<div class="cell">
-<details><summary>Code</summary><div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://milanwiedemann.github.io/lcsm/reference/plot_trajectories.html">plot_trajectories</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">lonelytrajectory</span>,</span>
-<span>                  id_var <span class="op">=</span> <span class="st">"personid"</span>, </span>
-<span>                  var_list <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"lone3"</span>, <span class="st">"lone5"</span><span class="op">)</span>,</span>
-<span>                  xlab <span class="op">=</span> <span class="st">"Year"</span>, ylab <span class="op">=</span> <span class="st">"Loneliness"</span>,</span>
-<span>                  connect_missing <span class="op">=</span> <span class="cn">FALSE</span>,   <span class="co">#Want to plot only complete observations</span></span>
-<span>                  random_sample_frac <span class="op">=</span> <span class="fl">0.05</span>, <span class="co">#You can select more or less than 5% of the data by adjusting this</span></span>
-<span>                  title_n <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 3 rows containing missing values (`geom_line()`).</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 3 rows containing missing values (`geom_point()`).</code></pre>
-</div>
-<div class="cell-output-display">
-<p><img src="two_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-<p>You can plot separate individual trajectories</p>
-<div class="cell">
-<details><summary>Code</summary><div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://milanwiedemann.github.io/lcsm/reference/plot_trajectories.html">plot_trajectories</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">lonelytrajectory</span>,</span>
-<span>                  id_var <span class="op">=</span> <span class="st">"personid"</span>, </span>
-<span>                  var_list <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"lone3"</span>, <span class="st">"lone5"</span><span class="op">)</span>,</span>
-<span>                  xlab <span class="op">=</span> <span class="st">"Year"</span>, ylab <span class="op">=</span> <span class="st">"Loneliness"</span>,</span>
-<span>                  connect_missing <span class="op">=</span> <span class="cn">FALSE</span>,   <span class="co">#Want to plot only complete observations</span></span>
-<span>                  random_sample_frac <span class="op">=</span> <span class="fl">0.025</span>, <span class="co">#You can select more or less than 5% of the data by adjusting this</span></span>
-<span>                  title_n <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">+</span></span>
-<span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span><span class="op">(</span><span class="op">~</span><span class="va">personid</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 2 rows containing missing values (`geom_line()`).</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 2 rows containing missing values (`geom_point()`).</code></pre>
-</div>
-<div class="cell-output-display">
-<p><img src="two_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
-</div>
 </div>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist">
@@ -366,10 +275,7 @@ lone5 0.4240808 1.0000000</code></pre>
 </div>
 
 
-</section>
-</ul>
-</li>
-</ul></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");

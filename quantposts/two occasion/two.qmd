@@ -5,35 +5,44 @@ date: "2023-10-01"
 categories: [Change, Difference Score, Auto regression]
 ---
 
-Different models of change are compared in this tutorial when presented with data collected at two time points - which could be pre-test and post test data or some other form of observational data. 
+This tutorial compares different models of change when presented with data collected at two time points - which could be pre-test and post test data or some other form of observational data. 
 
-**1**
+# 1. Difference Score Model of Change 
 
 The *Raw Change Model* also called the *Difference Score Model* is probably the most obvious and common. In this, a researcher assess change between two time points by subtracting T1 scores from T2 scores (T2 - T1). Resulting from this subtraction whether greater or lesser is the change that has occurred between two time points. The *Difference Score Model* examine between-person differences in change that has occurred between two time points. Common in this model of change is to use the computed (resulting) change or difference (D), that is, T2 - T1 = D, as an outcome in subsequent analysis - which is why it is often called the *Difference Score Model* 
 
-This approach is, however, heavily criticized and has a rather bad reputation even until today. It started with (Cronbach & Furby, 1970)[https://psycnet.apa.org/doi/10.1037/h0029382]
+This approach is, however, heavily criticized and has a rather bad reputation even until today. It started with [Cronbach & Furby, 1970, p. 68]([https://psycnet.apa.org/doi/10.1037/h0029382)
 
 <ul>
-  <li> “Raw change” or “raw gain” scores formed by subtracting pretest scores from posttest scores lead to fallacious conclusions, primarily because such scores are systematically related to any random error of measurement. Although the unsuitability of such scores has long been discussed, they are still employed, even by some otherwise sophisticated investigators. (Cronbach & Furby, 1970, p. 68)[https://psycnet.apa.org/doi/10.1037/h0029382] </li>
+  <li> *“Raw change” or “raw gain” scores formed by subtracting pretest scores from posttest scores lead to fallacious conclusions, primarily because such scores are systematically related to any random error of measurement. Although the unsuitability of such scores has long been discussed, they are still employed, even by some otherwise sophisticated investigators. [Cronbach & Furby, 1970, p. 68]([https://psycnet.apa.org/doi/10.1037/h0029382)* </li>
 </ul>
 
 The Difference Score Model is badly reputed mainly for the following:
 <ul>
   <li> High correlation between T1 scores and the computed D scores. With very high T1 scores, the D tends to be highly negatively correlated. </li>
-  <li> Measurement error contained in T1 and T2 scores become attenuated in the computed D scores, greatly limiting the reliability of the computed D scores./li>
-<ul>
+  <li> Measurement error contained in T1 and T2 scores become attenuated in the computed D scores, greatly limiting the reliability of the computed D scores.</li>
+</ul>
 
-Some authors have suggested ways to mitigate the problems of the *Difference Score Model* including, to account for the confounding effects of T1 when using the computed D scores in subsequent analysis. See (Rogosa & Willett, 1983[https://www.jstor.org/stable/1434950]; Gottman & Rushe, 1993[https://psycnet.apa.org/doi/10.1037/0022-006X.61.6.907])
+Some authors have suggested ways to mitigate the problems of the *Difference Score Model* including, to account for the confounding effects of T1 when using the computed D scores in subsequent analysis. See [Rogosa & Willett, 1983](https://www.jstor.org/stable/1434950); [Gottman & Rushe, 1993](https://psycnet.apa.org/doi/10.1037/0022-006X.61.6.907)
 
 
-**2**
+# 2. Auto-Regressive Model of Change
 
 The *Auto-Regressive Models of Change*  focuses on the end state by using T2 as the DV and T1 as the predictor. This model that are used to examine “Change in Interindividual Differences”; Here T2 is regressed on T1. This has had some appeal since the 70s (Cronbach and Furby, 1970)
 Thus, the autoregressive effect residualizes the outcome leaving only variability that is unex- plained by RSn1, which can be construed as the variability due to change.
 
+TBC
 
-**3**
-*Latent Difference Score* also called the *Latent Change Score Model* rescues the problems associated with modeling the difference score when using observed variables. With the advances in SEM, the specification of latent difference scores to capture and model measurement error has become possible (McArdle & Nesselroade, 1994[https://psycnet.apa.org/record/1994-97263-010]; McArdle, 2001)
+TBC
+
+TBC
+
+TBC
+
+
+# 3. Latent Difference Score Model of Change
+
+*Latent Difference Score* also called the *Latent Change Score Model* rescues the problems associated with modeling the difference score when using observed variables. With the advances in SEM, the specification of latent difference scores to capture and model measurement error has become possible [McArdle & Nesselroade, 1994](https://psycnet.apa.org/record/1994-97263-010)
 
 TBC
 
@@ -46,12 +55,14 @@ TBC
 
 ## Load packages
 
-```{r, warning=FALSE}
+```{r}
+suppressPackageStartupMessages({
 library(haven) #To read dataset into R. 
 library(psych)  #For practical preliminaries: univariate and bivariate descriptive stats
 library(lcsm)   #For plotting longitudinal trajectories from wide data set
 library(lavaan) #For calling sem/cfa/growth functions. We will use the growth() function in the lavaan pacakage, which also has other functions. [See here](https://lavaan.ugent.be)
 library(ggplot2)
+})
 ```
 
 ## Read data 

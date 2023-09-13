@@ -162,11 +162,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
-   
-  <ul>
-<li><a href="#load-packages" id="toc-load-packages" class="nav-link active" data-scroll-target="#load-packages">Load packages</a></li>
-  </ul></nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
@@ -195,37 +191,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
   
 
-</header><section id="load-packages" class="level1"><h1>Load packages</h1>
+</header><p>Some practical preliminary steps are useful for performing longitudinal data analyses. Some preliminary steps might even already show whether the data will support your hypothesized growth function or to fit a different growth function. Here, I go through some of the practical preliminaries required for performing longitudinal data analyses when using wide data set or long data set. I will use the loneliness data set including 442 observations recorded across five time points.</p>
+<p>Load packages</p>
 <div class="cell">
-<details><summary>Code</summary><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://haven.tidyverse.org">haven</a></span><span class="op">)</span> <span class="co">#To read dataset into R. </span></span>
+<details><summary>Code</summary><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/message.html">suppressPackageStartupMessages</a></span><span class="op">(</span><span class="op">{</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://haven.tidyverse.org">haven</a></span><span class="op">)</span> <span class="co">#To read dataset into R. </span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://personality-project.org/r/psych/">psych</a></span><span class="op">)</span>  <span class="co">#For practical preliminaries: univariate and bivariate descriptive stats</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://milanwiedemann.github.io/lcsm/">lcsm</a></span><span class="op">)</span>   <span class="co">#For plotting longitudinal trajectories from wide data set</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output cell-output-stderr">
-<pre><code>This is lcsm 0.3.2</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Please report any issues or ideas at:</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>https://github.com/milanwiedemann/lcsm/issues</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code></code></pre>
-</div>
-<details><summary>Code</summary><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span> <span class="co">#For plotting longitudinal trajectories from long data set</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'ggplot2'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following objects are masked from 'package:psych':
-
-    %+%, alpha</code></pre>
-</div>
-<details><summary>Code</summary><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyr.tidyverse.org">tidyr</a></span><span class="op">)</span> <span class="co">#For reshaping data</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyr.tidyverse.org">tidyr</a></span><span class="op">)</span> <span class="co">#For reshaping data</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://milanwiedemann.github.io/lcsm/">lcsm</a></span><span class="op">)</span>   <span class="co">#For plotting longitudinal trajectories in a wide data set</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span> <span class="co">#For plotting longitudinal trajectories in long data set</span></span>
+<span><span class="op">}</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<p>Some practical preliminary steps are useful for performing longitudinal data analyses. Some preliminary steps might even already show whether the data will support your hypothesized growth function or to fit a different growth function. Here, I go through some of the practical preliminaries required for performing longitudinal data analyses when using wide data set or long data set. I will use the loneliness data set including 442 observations recorded across five time points.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist">
 <li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">WIDE DATASET</a></li>
@@ -234,7 +211,7 @@ Attaching package: 'ggplot2'</code></pre>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <div class="cell">
-<details><summary>Code</summary><div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">## Read data </span></span>
+<details><summary>Code</summary><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">## Read data </span></span>
 <span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"/Volumes/anyan/Quant_Resources/0000 Workshops/000_01_Dec_2023_NTNU/data.csv"</span>, header <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="co">#Create new data set with only your main outcome variables</span></span>
 <span><span class="va">lonely</span> <span class="op">&lt;-</span> <span class="va">data</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"personid"</span>, <span class="st">"lone1"</span>, <span class="st">"lone2"</span>, <span class="st">"lone3"</span>, <span class="st">"lone4"</span>, <span class="st">"lone5"</span><span class="op">)</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -242,7 +219,7 @@ Attaching package: 'ggplot2'</code></pre>
 </div>
 <section id="examine-univariate-and-bivariate-statistics" class="level1"><h1>1. Examine univariate and bivariate statistics</h1>
 <div class="cell">
-<details><summary>Code</summary><div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#Examine descriptive statistics.</span></span>
+<details><summary>Code</summary><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#Examine descriptive statistics.</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/psych/man/describe.html">describe</a></span><span class="op">(</span><span class="va">lonely</span><span class="op">[</span>, <span class="fl">2</span><span class="op">:</span><span class="fl">6</span><span class="op">]</span><span class="op">)</span><span class="co">#univariate descriptives</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output cell-output-stdout">
 <pre><code>      vars   n mean   sd median trimmed  mad min  max range skew kurtosis   se
@@ -257,7 +234,7 @@ lone5    5 409 1.32 0.39   1.20    1.24 0.25   1 3.43  2.43 2.45     7.22 0.02</
 <p>It can be noticed already from the means that a linear growth function might not accurately characterize the trajectory in the data.</p>
 </section><section id="describe-covariance-and-correlation-matrices" class="level1"><h1>2. Describe covariance and correlation matrices</h1>
 <div class="cell">
-<details><summary>Code</summary><div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#bivariate descriptives</span></span>
+<details><summary>Code</summary><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#bivariate descriptives</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/cor.html">cov</a></span><span class="op">(</span><span class="va">lonely</span><span class="op">[</span>, <span class="fl">2</span><span class="op">:</span><span class="fl">6</span><span class="op">]</span>, use<span class="op">=</span><span class="st">'pairwise.complete.obs'</span><span class="op">)</span> <span class="co">#covariance matrix</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output cell-output-stdout">
 <pre><code>           lone1      lone2      lone3      lone4      lone5
@@ -268,8 +245,9 @@ lone4 0.08198277 0.10077467 0.10690494 0.21720685 0.07542655
 lone5 0.05209327 0.06904941 0.08475463 0.07542655 0.15471723</code></pre>
 </div>
 </div>
+<p>The feasibility of estimating a growth model can also be already determined by examining the covariance matrix. If the covariances between two adjacent time points (T1 and T2; T2 and T3; T3 and T4; T4 and T5) are higher than non-adjacent time points, this could likely indicate non-negative slope variance. For example, in our covariance matrix the observed covariances between two adjacent time points are 0.15, 0.14, 0.11 and 0.08. These covariances are sometimes higher but also smaller than non-adjacent time points and thus, does not easily determine that there would be no negative slope variance.</p>
 <div class="cell">
-<details><summary>Code</summary><div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/cor.html">cor</a></span><span class="op">(</span><span class="va">lonely</span><span class="op">[</span>, <span class="fl">2</span><span class="op">:</span><span class="fl">6</span><span class="op">]</span>, use<span class="op">=</span><span class="st">'pairwise.complete.obs'</span><span class="op">)</span> <span class="co">#correlation matrix</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details><summary>Code</summary><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/cor.html">cor</a></span><span class="op">(</span><span class="va">lonely</span><span class="op">[</span>, <span class="fl">2</span><span class="op">:</span><span class="fl">6</span><span class="op">]</span>, use<span class="op">=</span><span class="st">'pairwise.complete.obs'</span><span class="op">)</span> <span class="co">#correlation matrix</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output cell-output-stdout">
 <pre><code>          lone1     lone2     lone3     lone4     lone5
 lone1 1.0000000 0.6153198 0.4666493 0.3902312 0.3027420
@@ -282,7 +260,7 @@ lone5 0.3027420 0.3557064 0.4240808 0.4342628 1.0000000</code></pre>
 <p>The correlations over time provide unique information for longitudinal analysis. Here, most of the correlations show modest associations, indicating that the level of stability of individual differences across time is modest to high.</p>
 </section><section id="supplement-main-analysis-with-bivariate-scatter-plots-and-correlations" class="level1"><h1>3. Supplement main analysis with bivariate scatter plots and correlations</h1>
 <div class="cell">
-<details><summary>Code</summary><div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#bivariate scatter plots below the diagonal, histograms on the diagonal, and the Pearson correlation above the diagonal.</span></span>
+<details><summary>Code</summary><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#bivariate scatter plots below the diagonal, histograms on the diagonal, and the Pearson correlation above the diagonal.</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/psych/man/pairs.panels.html">pairs.panels</a></span><span class="op">(</span><span class="va">lonely</span><span class="op">[</span>, <span class="fl">2</span><span class="op">:</span><span class="fl">6</span><span class="op">]</span>, lm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="co">#lm = TRUE to fit a regression line</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output-display">
 <p><img src="practical_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
@@ -291,7 +269,7 @@ lone5 0.3027420 0.3557064 0.4240808 0.4342628 1.0000000</code></pre>
 <p>Bivariate scatter plots and correlations along with histograms can be supplemented to the main analysis.</p>
 </section><section id="examine-longitudinal-plots" class="level1"><h1>4. Examine longitudinal plots</h1>
 <div class="cell">
-<details><summary>Code</summary><div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://milanwiedemann.github.io/lcsm/reference/plot_trajectories.html">plot_trajectories</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">lonely</span>,</span>
+<details><summary>Code</summary><div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://milanwiedemann.github.io/lcsm/reference/plot_trajectories.html">plot_trajectories</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">lonely</span>,</span>
 <span>                  id_var <span class="op">=</span> <span class="st">"personid"</span>, </span>
 <span>                  var_list <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"lone1"</span>, <span class="st">"lone2"</span>, <span class="st">"lone3"</span>, <span class="st">"lone4"</span>, <span class="st">"lone5"</span><span class="op">)</span>,</span>
 <span>                  xlab <span class="op">=</span> <span class="st">"Year"</span>, ylab <span class="op">=</span> <span class="st">"Loneliness"</span>,</span>
@@ -311,7 +289,7 @@ lone5 0.3027420 0.3557064 0.4240808 0.4342628 1.0000000</code></pre>
 <p>Make longitudinal plots to show participant’s scores of loneliness indexed on the y-axis and time of observation on the x-axis. Here, you can make one longitudinal plot that visualizes the overall trajectory for all participants and one that visualizes the trajectory for a subset of the participants.</p>
 </section><section id="examine-separate-individual-longitudinal-plots" class="level1"><h1>5. Examine separate individual longitudinal plots</h1>
 <div class="cell">
-<details><summary>Code</summary><div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://milanwiedemann.github.io/lcsm/reference/plot_trajectories.html">plot_trajectories</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">lonely</span>,</span>
+<details><summary>Code</summary><div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://milanwiedemann.github.io/lcsm/reference/plot_trajectories.html">plot_trajectories</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">lonely</span>,</span>
 <span>                  id_var <span class="op">=</span> <span class="st">"personid"</span>, </span>
 <span>                  var_list <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"lone1"</span>, <span class="st">"lone2"</span>, <span class="st">"lone3"</span>, <span class="st">"lone4"</span>, <span class="st">"lone5"</span><span class="op">)</span>,</span>
 <span>                  xlab <span class="op">=</span> <span class="st">"Year"</span>, ylab <span class="op">=</span> <span class="st">"Loneliness"</span>,</span>
@@ -329,12 +307,12 @@ lone5 0.3027420 0.3557064 0.4240808 0.4342628 1.0000000</code></pre>
 <p><img src="practical_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>My personal choice has been to show separate individual longitudinal plots, but you can decide to show both or whichever works for you.</p>
+<p>My personal choice has been to show separate individual longitudinal plots, but you can decide to show whichever one works for you.</p>
 </section>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <div class="cell">
-<details><summary>Code</summary><div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">## Reshape from wide to long using tidyr</span></span>
+<details><summary>Code</summary><div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">## Reshape from wide to long using tidyr</span></span>
 <span><span class="va">lonelylong</span> <span class="op">&lt;-</span> <span class="va">lonely</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>              <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer</a></span><span class="op">(</span>cols <span class="op">=</span> <span class="fl">2</span><span class="op">:</span><span class="fl">6</span>,</span>
 <span>                           names_to <span class="op">=</span> <span class="st">"year"</span>,</span>
@@ -343,7 +321,7 @@ lone5 0.3027420 0.3557064 0.4240808 0.4342628 1.0000000</code></pre>
 </div>
 <section id="examine-univariate-and-bivariate-statistics-1" class="level1"><h1>1. Examine univariate and bivariate statistics</h1>
 <div class="cell">
-<details><summary>Code</summary><div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#Examine descriptive statistics using the wide data set.</span></span>
+<details><summary>Code</summary><div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#Examine descriptive statistics using the wide data set.</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/psych/man/describe.html">describe</a></span><span class="op">(</span><span class="va">lonely</span><span class="op">[</span>, <span class="fl">2</span><span class="op">:</span><span class="fl">6</span><span class="op">]</span><span class="op">)</span> <span class="co">#univariate descriptives</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output cell-output-stdout">
 <pre><code>      vars   n mean   sd median trimmed  mad min  max range skew kurtosis   se
@@ -358,7 +336,7 @@ lone5    5 409 1.32 0.39   1.20    1.24 0.25   1 3.43  2.43 2.45     7.22 0.02</
 <p>It can be noticed already from the means that a linear growth function might not accurately characterize the trajectory in the data.</p>
 </section><section id="describe-covariance-and-correlation-matrices-1" class="level1"><h1>2. Describe covariance and correlation matrices</h1>
 <div class="cell">
-<details><summary>Code</summary><div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#bivariate descriptives</span></span>
+<details><summary>Code</summary><div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#bivariate descriptives</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/cor.html">cov</a></span><span class="op">(</span><span class="va">lonely</span><span class="op">[</span>, <span class="fl">2</span><span class="op">:</span><span class="fl">6</span><span class="op">]</span>, use<span class="op">=</span><span class="st">'pairwise.complete.obs'</span><span class="op">)</span> <span class="co">#covariance matrix</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output cell-output-stdout">
 <pre><code>           lone1      lone2      lone3      lone4      lone5
@@ -369,8 +347,9 @@ lone4 0.08198277 0.10077467 0.10690494 0.21720685 0.07542655
 lone5 0.05209327 0.06904941 0.08475463 0.07542655 0.15471723</code></pre>
 </div>
 </div>
+<p>The feasibility of estimating a growth model can also be already determined by examining the covariance matrix. If the covariances between two adjacent time points (T1 and T2; T2 and T3; T3 and T4; T4 and T5) are higher than non-adjacent time points, this could likely indicate non-negative slope variance. For example, in our covariance matrix the observed covariances between two adjacent time points are 0.15, 0.14, 0.11 and 0.08. These covariances are sometimes higher but also smaller than non-adjacent time points and thus, does not easily determine that there would be no negative slope variance.</p>
 <div class="cell">
-<details><summary>Code</summary><div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/cor.html">cor</a></span><span class="op">(</span><span class="va">lonely</span><span class="op">[</span>, <span class="fl">2</span><span class="op">:</span><span class="fl">6</span><span class="op">]</span>, use<span class="op">=</span><span class="st">'pairwise.complete.obs'</span><span class="op">)</span> <span class="co">#correlation matrix</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details><summary>Code</summary><div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/cor.html">cor</a></span><span class="op">(</span><span class="va">lonely</span><span class="op">[</span>, <span class="fl">2</span><span class="op">:</span><span class="fl">6</span><span class="op">]</span>, use<span class="op">=</span><span class="st">'pairwise.complete.obs'</span><span class="op">)</span> <span class="co">#correlation matrix</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output cell-output-stdout">
 <pre><code>          lone1     lone2     lone3     lone4     lone5
 lone1 1.0000000 0.6153198 0.4666493 0.3902312 0.3027420
@@ -383,8 +362,8 @@ lone5 0.3027420 0.3557064 0.4240808 0.4342628 1.0000000</code></pre>
 <p>The correlations over time provide unique information for longitudinal analysis. Here, most of the correlations show modest associations, indicating that the level of stability of individual differences across time is modest to high.</p>
 </section><section id="supplement-main-analysis-with-bivariate-scatter-plots-and-correlations-1" class="level1"><h1>3. Supplement main analysis with bivariate scatter plots and correlations</h1>
 <div class="cell">
-<details><summary>Code</summary><div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#bivariate scatter plots below the diagonal, histograms on the diagonal, and the Pearson correlation above the diagonal.</span></span>
-<span><span class="fu"><a href="https://rdrr.io/pkg/psych/man/pairs.panels.html">pairs.panels</a></span><span class="op">(</span><span class="va">lonely</span><span class="op">[</span>, <span class="fl">2</span><span class="op">:</span><span class="fl">6</span><span class="op">]</span>, lm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="co">#lm = TRUE to fit a regression line</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details><summary>Code</summary><div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#bivariate scatter plots below the diagonal, histograms on the diagonal, and the Pearson correlation above the diagonal.</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/psych/man/pairs.panels.html">pairs.panels</a></span><span class="op">(</span><span class="va">lonely</span><span class="op">[</span>, <span class="fl">2</span><span class="op">:</span><span class="fl">6</span><span class="op">]</span>, lm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="co">#lm = TRUE to fits regression line</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output-display">
 <p><img src="practical_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -392,21 +371,15 @@ lone5 0.3027420 0.3557064 0.4240808 0.4342628 1.0000000</code></pre>
 <p>Bivariate scatter plots and correlations along with histograms can be supplemented to the main analysis.</p>
 </section><section id="examine-longitudinal-plots-1" class="level1"><h1>4. Examine longitudinal plots</h1>
 <div class="cell">
-<details><summary>Code</summary><div class="sourceCode" id="cb32"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#Longitudinal plots with the long data set</span></span>
-<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">lonelylong</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="va">lonelylong</span><span class="op">$</span><span class="va">personid</span> <span class="op">&lt;</span> <span class="fl">26</span><span class="op">)</span>,<span class="op">]</span>, </span>
+<details><summary>Code</summary><div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#Longitudinal plots with the long data set</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">lonelylong</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="va">lonelylong</span><span class="op">$</span><span class="va">personid</span> <span class="op">&lt;</span> <span class="fl">26</span><span class="op">)</span>,<span class="op">]</span>, <span class="co">#Select the first 25 participants to show</span></span>
 <span>       <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">year</span>, y <span class="op">=</span> <span class="va">lone</span>, group <span class="op">=</span> <span class="va">personid</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>       <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span><span class="op">(</span>method <span class="op">=</span> <span class="va">lm</span>, se <span class="op">=</span> <span class="cn">FALSE</span>, size <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op">+</span></span>
+<span>       <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>       <span class="co">#geom_smooth(method = lm, se = FALSE, size = 1) +</span></span>
 <span>       <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span><span class="op">(</span><span class="st">"Time of observation"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>       <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span><span class="op">(</span><span class="st">"Loneliness"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output cell-output-stderr">
-<pre><code>Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
-ℹ Please use `linewidth` instead.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 18 rows containing non-finite values (`stat_smooth()`).</code></pre>
+<pre><code>Warning: Removed 17 rows containing missing values (`geom_line()`).</code></pre>
 </div>
 <div class="cell-output-display">
 <p><img src="practical_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="672"></p>
@@ -415,31 +388,30 @@ lone5 0.3027420 0.3557064 0.4240808 0.4342628 1.0000000</code></pre>
 <p>Make longitudinal plots to show participant’s scores of loneliness indexed on the y-axis and time of observation on the x-axis. Here, you can make one longitudinal plot that visualizes the overall trajectory for all participants and one that visualizes the trajectory for a subset of the participants.</p>
 </section><section id="include-separate-individual-trajectories" class="level1"><h1>5. Include separate individual trajectories</h1>
 <div class="cell">
-<details><summary>Code</summary><div class="sourceCode" id="cb36"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#Longitudinal plots with the long data set</span></span>
-<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">lonelylong</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="va">lonelylong</span><span class="op">$</span><span class="va">personid</span> <span class="op">&lt;</span> <span class="fl">26</span><span class="op">)</span>,<span class="op">]</span>, </span>
+<details><summary>Code</summary><div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#Longitudinal plots with the long data set</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">lonelylong</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="va">lonelylong</span><span class="op">$</span><span class="va">personid</span> <span class="op">&lt;</span> <span class="fl">6</span><span class="op">)</span>,<span class="op">]</span>, <span class="co">#Select only five participants </span></span>
 <span>       <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">year</span>, y <span class="op">=</span> <span class="va">lone</span>, group <span class="op">=</span> <span class="va">personid</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>       <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span><span class="op">(</span>method <span class="op">=</span> <span class="va">lm</span>, se <span class="op">=</span> <span class="cn">FALSE</span>, size <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op">+</span></span>
+<span>       <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>     </span>
+<span>       <span class="co">#geom_smooth(method = lm, se = FALSE, size = 1) +</span></span>
 <span>       <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span><span class="op">(</span><span class="st">"Time of observation"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>       <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span><span class="op">(</span><span class="st">"Loneliness"</span><span class="op">)</span><span class="op">+</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span><span class="op">(</span><span class="op">~</span><span class="va">personid</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output cell-output-stderr">
-<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 18 rows containing non-finite values (`stat_smooth()`).</code></pre>
+<pre><code>Warning: Removed 1 row containing missing values (`geom_line()`).</code></pre>
 </div>
 <div class="cell-output-display">
 <p><img src="practical_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>My personal choice has been to show separate individual longitudinal plots, but you can decide to show both or whichever works for you.</p>
+<p>My personal choice has been to show separate individual longitudinal plots, but you can decide to show whichever one works for you.</p>
 </section>
 </div>
 </div>
 </div>
 
 
-</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+
+</main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");

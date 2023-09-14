@@ -5,7 +5,7 @@
 <meta name="generator" content="quarto-1.3.353">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Frederick Anyan">
-<meta name="dcterms.date" content="2023-10-01">
+<meta name="dcterms.date" content="2023-09-15">
 <title>Frederick Anyan, Ph.D.&nbsp;- Analyses of Two Occasion Data</title>
 <style>
 code{white-space: pre-wrap;}
@@ -167,13 +167,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
 <li><a href="#difference-score-model-of-change" id="toc-difference-score-model-of-change" class="nav-link active" data-scroll-target="#difference-score-model-of-change">1. Difference Score Model of Change</a></li>
   <li><a href="#autoregressive-model-of-change" id="toc-autoregressive-model-of-change" class="nav-link" data-scroll-target="#autoregressive-model-of-change">2. Autoregressive Model of Change</a></li>
-  <li>
-<a href="#latent-difference-score-model-of-change" id="toc-latent-difference-score-model-of-change" class="nav-link" data-scroll-target="#latent-difference-score-model-of-change">3. Latent Difference Score Model of Change</a>
-  <ul class="collapse">
-<li><a href="#load-packages" id="toc-load-packages" class="nav-link" data-scroll-target="#load-packages">Load packages</a></li>
-  <li><a href="#read-data" id="toc-read-data" class="nav-link" data-scroll-target="#read-data">Read data</a></li>
-  </ul>
-</li>
+  <li><a href="#latent-difference-score-model-of-change" id="toc-latent-difference-score-model-of-change" class="nav-link" data-scroll-target="#latent-difference-score-model-of-change">3. Latent Difference Score Model of Change</a></li>
   </ul></nav>
     </div>
 <!-- main -->
@@ -182,7 +176,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="quarto-categories">
     <div class="quarto-category">Change</div>
     <div class="quarto-category">Difference Score</div>
-    <div class="quarto-category">Auto regression</div>
+    <div class="quarto-category">Autoregressive</div>
   </div>
   </div>
 
@@ -200,7 +194,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">October 1, 2023</p>
+      <p class="date">September 15, 2023</p>
     </div>
   </div>
   
@@ -211,7 +205,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header><p>This tutorial compares different models of change when presented with data collected at two time points - which could be pre-test and post test data or some other form of observational data.</p>
 <section id="difference-score-model-of-change" class="level1"><h1>1. Difference Score Model of Change</h1>
 <p>The <em>Raw Change Model</em> also called the <em>Difference Score Model</em> is probably the most obvious and common. A researcher computes change between two time points by subtracting T1 scores from T2 scores (T2 - T1). Resulting from this subtraction whether greater or lesser is the change that has occurred between two time points. The <em>Difference Score Model</em> examine between-person differences in the change that has occurred within individuals from T1 to T2. Common in this model of change is to use the computed (resulting) change or difference (D), that is, T2 - T1 = D, as an outcome in subsequent analysis - which is why it is often called the <em>Difference Score Model</em></p>
-<p>This approach is, however, heavily criticized and has a rather bad reputation even until today, and started with <a href="[https://psycnet.apa.org/doi/10.1037/h0029382">Cronbach &amp; Furby, 1970, p.&nbsp;68</a></p>
+<p>This approach is, however, heavily criticized and has a rather bad reputation even until today, and started with <a href="[https://psycnet.apa.org/doi/10.1037/h0029382">Cronbach &amp; Furby, 1970</a></p>
 <ul>
 <li>
 <em>“Raw change” or “raw gain” scores formed by subtracting pretest scores from posttest scores lead to fallacious conclusions, primarily because such scores are systematically related to any random error of measurement. Although the unsuitability of such scores has long been discussed, they are still employed, even by some otherwise sophisticated investigators. <a href="[https://psycnet.apa.org/doi/10.1037/h0029382">Cronbach &amp; Furby, 1970, p.&nbsp;68</a></em>
@@ -242,7 +236,7 @@ A smaller autoregressive coefficient means that there has been a larger change i
 </section><section id="latent-difference-score-model-of-change" class="level1"><h1>3. Latent Difference Score Model of Change</h1>
 <p>The <em>Latent Difference Score</em> also called the <em>Latent Change Score Model</em> is seen by some methodologists as a framework on its own for modelling change with the capability for testing within-person change hypotheses and between-person differences in within-person change. Like the <em>Autoregressive Models of Change</em>, this <em>Latent Change Score Model</em> can accommodate bivariate information in which two variables are modeled concurrently with cross-lagged effects. The <em>Latent Change Score Model</em> starts by decomposing an observed variable into a latent true score and a latent residual score. This model incorporates the autoregressive effect into the latent true score such that the true score at T2 is a function of the latent true score at T1, plus the amount of change that has occurred between T1 and T2. The <em>Latent Change Score Model</em> extends over four successive models of change namely, <em>no change, constant change, proportional change and dual change</em>. The <em>dual change</em> combines both constant and proportional change components. In my opinion, the <em>Latent Change Score Model</em> is useful when bivariate information is incorporated thereby responding to questions about the nature and sequence of subsequent changes in x versus y. In other words, which variable between x and y is a leading indicator of subsequent changes in the other variable?</p>
 <p>Researchers must think very carefully of their theories of change when selecting between the different existing models. The <em>Latent Change Score Model</em> while offering greater flexibility in modelling within-person changes and between-person differences in within-person change, it emphasizes time-dependent associations when bivariate or multivariate information is incorporated, and this must be carefully considered to benefit from this modelling framework.</p>
-<section id="load-packages" class="level2"><h2 class="anchored" data-anchor-id="load-packages">Load packages</h2>
+<p>Load packages</p>
 <div class="cell">
 <details><summary>Code</summary><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/message.html">suppressPackageStartupMessages</a></span><span class="op">(</span><span class="op">{</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://milanwiedemann.github.io/lcsm/">lcsm</a></span><span class="op">)</span>   <span class="co">#For analyzing the latent change score model</span></span>
@@ -250,7 +244,7 @@ A smaller autoregressive coefficient means that there has been a larger change i
 <span><span class="op">}</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-</section><section id="read-data" class="level2"><h2 class="anchored" data-anchor-id="read-data">Read data</h2>
+<p>Read data</p>
 <div class="cell">
 <details><summary>Code</summary><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"/Volumes/anyan/Quant_Resources/0000 Workshops/000_01_Dec_2023_NTNU/data.csv"</span>, header <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="va">data</span> <span class="op">&lt;-</span> <span class="va">data</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"personid"</span>, <span class="st">"lone3"</span>, <span class="st">"lone5"</span><span class="op">)</span><span class="op">]</span> <span class="co">#Create new data set with only your main outcome variables</span></span>
@@ -260,7 +254,7 @@ A smaller autoregressive coefficient means that there has been a larger change i
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist">
 <li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Difference Score Model</a></li>
-<li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Autoregression Model</a></li>
+<li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Autoregressive Model</a></li>
 <li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Latent Change Score Model</a></li>
 </ul>
 <div class="tab-content">
@@ -376,7 +370,7 @@ F-statistic: 80.48 on 1 and 367 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 
 
-</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");

@@ -2,7 +2,7 @@
 title: "Analyses of Two Occasion Data"
 author: "Frederick Anyan"
 date: "2023-09-15"
-categories: [Change, Difference Score, Auto regression]
+categories: [Change, Difference Score, Autoregressive]
 ---
 
 This tutorial compares different models of change when presented with data collected at two time points - which could be pre-test and post test data or some other form of observational data. 
@@ -11,7 +11,7 @@ This tutorial compares different models of change when presented with data colle
 
 The *Raw Change Model* also called the *Difference Score Model* is probably the most obvious and common. A researcher computes change between two time points by subtracting T1 scores from T2 scores (T2 - T1). Resulting from this subtraction whether greater or lesser is the change that has occurred between two time points. The *Difference Score Model* examine between-person differences in the change that has occurred within individuals from T1 to T2. Common in this model of change is to use the computed (resulting) change or difference (D), that is, T2 - T1 = D, as an outcome in subsequent analysis - which is why it is often called the *Difference Score Model* 
 
-This approach is, however, heavily criticized and has a rather bad reputation even until today, and started with [Cronbach & Furby, 1970, p. 68]([https://psycnet.apa.org/doi/10.1037/h0029382)
+This approach is, however, heavily criticized and has a rather bad reputation even until today, and started with [Cronbach & Furby, 1970]([https://psycnet.apa.org/doi/10.1037/h0029382)
 
 <ul>
   <li> *“Raw change” or “raw gain” scores formed by subtracting pretest scores from posttest scores lead to fallacious conclusions, primarily because such scores are systematically related to any random error of measurement. Although the unsuitability of such scores has long been discussed, they are still employed, even by some otherwise sophisticated investigators. [Cronbach & Furby, 1970, p. 68]([https://psycnet.apa.org/doi/10.1037/h0029382)* </li>
@@ -58,7 +58,7 @@ library(ggplot2) #For visualization
 Read data 
 
 ```{r}
-data <- read.csv("/Volumes/anyan/Quant_Resources/0000 Workshops/000_01_Dec_2023_NTNU/data.csv", header = TRUE)
+data <- read.csv("/Volumes/anyan/Quant_Resources/0000 Workshops/000_01_Dec_2023_NTNU/data.csv")
 data <- data[, c("personid", "lone3", "lone5")] #Create new data set with only your main outcome variables
 names(data) <- c("id", "loneT1", "loneT2") #Rename variables to represent T1 and T2
 ```
@@ -96,7 +96,7 @@ ggplot(data = data, aes(x = loneT1, y = lonediff)) +
 ```
 The plot above represents the slope better. 
 
-## Autoregression Model
+## Autoregressive Model
 
 Regress T2 on T1
 ```{r}

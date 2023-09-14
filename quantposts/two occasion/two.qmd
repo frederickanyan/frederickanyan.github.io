@@ -1,7 +1,7 @@
 ---
 title: "Analyses of Two Occasion Data"
 author: "Frederick Anyan"
-date: "2023-10-01"
+date: "2023-09-15"
 categories: [Change, Difference Score, Auto regression]
 ---
 
@@ -9,9 +9,9 @@ This tutorial compares different models of change when presented with data colle
 
 # 1. Difference Score Model of Change 
 
-The *Raw Change Model* also called the *Difference Score Model* is probably the most obvious and common. In this, a researcher assess change between two time points by subtracting T1 scores from T2 scores (T2 - T1). Resulting from this subtraction whether greater or lesser is the change that has occurred between two time points. The *Difference Score Model* examine between-person differences in change that has occurred between two time points. Common in this model of change is to use the computed (resulting) change or difference (D), that is, T2 - T1 = D, as an outcome in subsequent analysis - which is why it is often called the *Difference Score Model* 
+The *Raw Change Model* also called the *Difference Score Model* is probably the most obvious and common. A researcher computes change between two time points by subtracting T1 scores from T2 scores (T2 - T1). Resulting from this subtraction whether greater or lesser is the change that has occurred between two time points. The *Difference Score Model* examine between-person differences in the change that has occurred within individuals from T1 to T2. Common in this model of change is to use the computed (resulting) change or difference (D), that is, T2 - T1 = D, as an outcome in subsequent analysis - which is why it is often called the *Difference Score Model* 
 
-This approach is, however, heavily criticized and has a rather bad reputation even until today. It started with [Cronbach & Furby, 1970, p. 68]([https://psycnet.apa.org/doi/10.1037/h0029382)
+This approach is, however, heavily criticized and has a rather bad reputation even until today, and started with [Cronbach & Furby, 1970, p. 68]([https://psycnet.apa.org/doi/10.1037/h0029382)
 
 <ul>
   <li> *“Raw change” or “raw gain” scores formed by subtracting pretest scores from posttest scores lead to fallacious conclusions, primarily because such scores are systematically related to any random error of measurement. Although the unsuitability of such scores has long been discussed, they are still employed, even by some otherwise sophisticated investigators. [Cronbach & Furby, 1970, p. 68]([https://psycnet.apa.org/doi/10.1037/h0029382)* </li>
@@ -26,69 +26,102 @@ The Difference Score Model is badly reputed mainly for the following:
 Some authors have suggested ways to mitigate the problems of the *Difference Score Model* including, to account for the confounding effects of T1 when using the computed D scores in subsequent analysis. See [Rogosa & Willett, 1983](https://www.jstor.org/stable/1434950); [Gottman & Rushe, 1993](https://psycnet.apa.org/doi/10.1037/0022-006X.61.6.907)
 
 
-# 2. Auto-Regressive Model of Change
+# 2. Autoregressive Model of Change
 
-The *Auto-Regressive Models of Change*  focuses on the end state by using T2 as the DV and T1 as the predictor. This model that are used to examine “Change in Interindividual Differences”; Here T2 is regressed on T1. This has had some appeal since the 70s (Cronbach and Furby, 1970)
-Thus, the autoregressive effect residualizes the outcome leaving only variability that is unex- plained by RSn1, which can be construed as the variability due to change.
+The *Autoregressive Model of Change*  focuses on the end state by using T2 as the DV and T1 as the predictor. This model responds to questions about individual differences in change by regressing T2 on T1, and does not answer questions about  intraindividual change same as for many panel models. The regression coefficient resulting from regressing a variable at later time point on itself at an earlier time point is called the autoregressive effect. In this case, the regression of T2 on T1 is the autoregressive effect, which describes the stability of individual differences from T1 to T2. 
+<ul>
+  <li> A larger coefficient means that individual differences have not changed much from T1 to T2 - higher stability.</li>
+  <li> A smaller autoregressive coefficient means that there has been a larger change in individual differences from T1 to T2 - lower stability. </li>
+</ul>
 
-TBC
+The *Autoregressive Model of Change* has had some appeal since the 70s and obviously since the criticisms of the *Difference Score Model* by [Cronbach & Furby, 1970, p. 68]([https://psycnet.apa.org/doi/10.1037/h0029382).The appealing feature of the The *Autoregressive Model of Change* stems from the fact that when T2 is regressed on T1 (autoregressive effect), the remaining variance or the residual variance in T2 can be predicted by other variables in which case, this becomes the prediction of the stable portion of variable T, say our variable is T measured at T1 and T2. This is what cross-lagged effects are most useful for, as for example, T2 can be regressed on both T1 and X1, which means X1 will predict T2 when controlling for prior levels of T at T1. So, X1 effectively predicts the stable portion or the residual variance of T (at T2) - which is why this mode is sometimes called *residual change model*.
 
-TBC
-
-TBC
-
-TBC
+In the Autoregressive Cross-lagged Panel Models, controlling for prior levels of a variable while predicting the residual variance by another variable allows a researcher to rule out the possibility that a cross-lagged effect is confounded by the fact that the predictor (X) and outcome (T) are both correlated at T1. That is, the reason X1 predicts T2 is because X and T are correlated at T1 - this cannot hold when controlling for the prior levels of T. Most *Autoregressive Model of Change* and the *Autoregressive Cross-lagged Panel Models* have appeared in both observed or latent variable modeling.
 
 
 # 3. Latent Difference Score Model of Change
 
-*Latent Difference Score* also called the *Latent Change Score Model* rescues the problems associated with modeling the difference score when using observed variables. With the advances in SEM, the specification of latent difference scores to capture and model measurement error has become possible [McArdle & Nesselroade, 1994](https://psycnet.apa.org/record/1994-97263-010)
+The *Latent Difference Score* also called the *Latent Change Score Model* is seen by some methodologists as a framework on its own for modelling change with the capability for testing within-person change hypotheses and between-person differences in within-person change. Like the *Autoregressive Models of Change*, this *Latent Change Score Model* can accommodate bivariate information in which two variables are modeled concurrently with cross-lagged effects. The *Latent Change Score Model* starts by decomposing an observed variable into a latent true score and a latent residual score. This model incorporates the autoregressive effect into the latent true score such that the true score at T2 is a function of the latent true score at T1, plus the amount of change that has occurred between T1 and T2. The *Latent Change Score Model* extends over four successive models of change namely, *no change, constant change, proportional change and dual change*. The *dual change* combines both constant and proportional change components. In my opinion, the *Latent Change Score Model* is useful when bivariate information is incorporated thereby responding to questions about the nature and sequence of subsequent changes in x versus y. In other words, which variable between x and y is a leading indicator of subsequent changes in the other variable? 
 
-TBC
-
-TBC
-
-TBC
-
-TBC
+Researchers must think very carefully of their theories of change when selecting between the different existing models. The *Latent Change Score Model* while offering greater flexibility in modelling within-person changes and between-person differences in within-person change, it emphasizes time-dependent associations when bivariate or multivariate information is incorporated, and this must be carefully considered to benefit from this modelling framework. 
 
 
-## Load packages
+Load packages
 
 ```{r}
 suppressPackageStartupMessages({
-library(haven) #To read dataset into R. 
-library(psych)  #For practical preliminaries: univariate and bivariate descriptive stats
-library(lcsm)   #For plotting longitudinal trajectories from wide data set
-library(lavaan) #For calling sem/cfa/growth functions. We will use the growth() function in the lavaan pacakage, which also has other functions. [See here](https://lavaan.ugent.be)
-library(ggplot2)
+library(lcsm)   #For analyzing the latent change score model
+library(ggplot2) #For visualization 
 })
 ```
 
-## Read data 
-```{r}
-data <- read_sav("/Volumes/anyan/Quant_Resources/0000 Workshops/000_01_Dec_2023_NTNU/data.sav")
-#Create new data set with only your main outcome variables
-lonely <- data[, c("lone3", "lone5")]
-#To plot longitudinal trajectories, create a new data set of only your outcome variables with id included
-lonelytrajectory <- data[, c("personid", "lone3", "lone5")]
-```
+Read data 
 
+```{r}
+data <- read.csv("/Volumes/anyan/Quant_Resources/0000 Workshops/000_01_Dec_2023_NTNU/data.csv", header = TRUE)
+data <- data[, c("personid", "lone3", "lone5")] #Create new data set with only your main outcome variables
+names(data) <- c("id", "loneT1", "loneT2") #Rename variables to represent T1 and T2
+```
 
 
 ::: panel-tabset
 
 ## Difference Score Model
-```{r}
 
+Determine the difference score (T2-T1 = D) 
+
+```{r}
+data$lonediff <- data$loneT2-data$loneT1 #You can attach the new variable lonediff to the data with $
 ```
+
+Now regress D on T1
+```{r}
+diffM <- lm(formula = lonediff ~ 1 + loneT1,
+             data = data,
+             na.action = na.exclude)
+summary(diffM)
+```
+The Intercept (0.83) is the expected value of the change in loneliness for an individual with a score of 0 = at T1. The slope of loneT1 indicates the expected negative difference in within-person change (-0.68) for a unit change in loneliness at T1.
+
+
+
+```{r}
+ggplot(data = data, aes(x = loneT1, y = lonediff)) +
+  geom_point() + 
+  geom_smooth(method = "lm", formula = y ~ 1 + x, 
+              se = TRUE, fullrange = TRUE, color = "blue", linewidth = 1.5) +
+  xlab("Loneliness T1") + 
+  ylab("Difference in Loneliness T2 and T1") +
+  ggtitle("The Difference score Model")
+```
+The plot above represents the slope better. 
 
 ## Autoregression Model
-```{r}
 
+Regress T2 on T1
+```{r}
+arM <- lm(formula = loneT2 ~ 1 + loneT1,
+            data = data,
+            na.action = na.exclude)
+summary(arM)
 ```
+The Intercept (0.83) is the expected value of loneliness at T2 for an individual with a score of 0 = at T1. The slope of loneT1 (0.31) indicates the stability of between-person differences from T1 to T2, which is relatively stable between the two time points as the autoregressive coefficient is not high. We expect a positive difference of (0.31) in loneliness at T2 for a every unit change in loneliness at T1
+
+```{r}
+ggplot(data = data, aes(x = loneT1, y = loneT2)) +
+  geom_point() + 
+  geom_smooth(method = "lm", formula= y ~ 1 + x, 
+              se = TRUE, fullrange = TRUE, color="blue", linewidth = 1.5) +
+  xlab("Loneliness T1") + 
+  ylab("Loneliness T2") +
+  ggtitle("The Autoregressive Model of Chang")
+```
+The plot represents the expected positive difference in loneliness at T2 for a every unit change in loneliness at T1
 
 ## Latent Change Score Model
+
+TBC
+
 ```{r}
 
 ```

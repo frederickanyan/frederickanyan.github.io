@@ -10,7 +10,6 @@ Some practical preliminary steps are useful for performing longitudinal data ana
 Load packages
 ```{r}
 suppressPackageStartupMessages({
-library(haven) #To read dataset into R. 
 library(psych)  #For practical preliminaries: univariate and bivariate descriptive stats
 library(tidyr) #For reshaping data
 library(lcsm)   #For plotting longitudinal trajectories in a wide data set

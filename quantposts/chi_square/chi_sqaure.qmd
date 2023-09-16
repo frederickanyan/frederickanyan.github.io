@@ -27,7 +27,7 @@ To test the null hypothesis, we can use the CrossTable() function in the 'gmodel
 Let's see how the CrossTable() function works
 
 ```{r}
-data <- read.csv("/Volumes/anyan-1/happinesGSS12_long.csv")# Read the data for the analysis 
+data <- read.csv("/Volumes/anyan-1/quantpost_data/happinesGSS12_long.csv")# Read the data for the analysis 
 ```
 
 Let's see how a cross tabulation of the data looks

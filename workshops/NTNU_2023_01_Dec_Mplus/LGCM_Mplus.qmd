@@ -31,31 +31,30 @@ Following are models shown in the tab groups
  <li>Model 2: The Linear growth curve model.</li> 
  <li>Model 3: The Quadratic growth curve model.</li> 
 
-
 **Tab group 2**
- <li>Model 4: Bilinear/Spline/Piecewise/Multiphase model - M1.</li> 
- <li>Model 5: Bilinear/Spline/Piecewise/Multiphase model - M2.</li> 
- <li>Model 6: Bilinear/Spline/Piecewise/Multiphase model - M3.</li> 
+ <li>Model 4_1: Bilinear/Spline/Piecewise/Multiphase model - M1.</li> 
+ <li>Model 4_2: Bilinear/Spline/Piecewise/Multiphase model - M2.</li> 
+ <li>Model 4_3: Bilinear/Spline/Piecewise/Multiphase model - M3.</li> 
 
 **Tab group 3**
- <li>Model 7: The linear growth curve model with time-varying covariates.</li> 
- <li>Model 8: The linear growth curve model with time invariant covariates.</li> 
- <li>Model 9: The linear growth curve model with time-varying and time invariant covariates.</li> 
- <li>Model 10: The linear growth curve model with growth factors predicting a distal outcome.</li> 
+ <li>Model 5: The linear growth curve model with time-varying covariates.</li> 
+ <li>Model 6: The linear growth curve model with time invariant covariates.</li> 
+ <li>Model 7: The linear growth curve model with time-varying and time invariant covariates.</li> 
+ <li>Model 8: The linear growth curve model with growth factors predicting a distal outcome.</li> 
 
 **Tab group 4**
- <li>Model 11: Multiple-group linear growth curve model - Full Invariance (M1).</li> 
- <li>Model 12: Multiple-group linear growth curve model - Growth factor means freed(M2).</li> 
- <li>Model 13: Multiple-group linear growth curve model - Growth factor means and covariances freed(M3).</li> 
- <li>Model 14: Multiple-group linear growth curve model - Growth factor means, covariances and residual variances freed(M4).</li> 
+ <li>Model 9_1: Multiple-group linear growth curve model - Full Invariance (M1).</li> 
+ <li>Model 9_2: Multiple-group linear growth curve model - Growth factor means freed(M2).</li> 
+ <li>Model 9_3: Multiple-group linear growth curve model - Growth factor means and covariances freed(M3).</li> 
+ <li>Model 9_4: Multiple-group linear growth curve model - Growth factor means, covariances and residual variances freed(M4).</li> 
 
 **Tab group 5**
- <li>Model 15: Multivariate or Parallel growth curve model.</li> 
- <li>Model 16: Multivariate or Parallel growth curve model with autocorrelations.</li> 
- <li>Model 17: Multivariate or Parallel growth curve model with cross domain correlations.</li> 
+ <li>Model 10_1: Multivariate or Parallel growth curve model.</li> 
+ <li>Model 10_2: Multivariate or Parallel growth curve model with autocorrelations.</li> 
+ <li>Model 10_3: Multivariate or Parallel growth curve model with cross domain correlations.</li> 
 
 **Tab group 6**
- <li>Model 18: Sequentially contingent growth curve model.</li> 
+ <li>Model 11: Sequentially contingent growth curve model.</li> 
 
 ## No growth/Linear and Quadratic growth models
 Basic growth models are described here, including the *No growth model or the Intercept only model* - which is a logical starting point for growth modelling. We want to reject the no growth modelling as it predicts no overall rate of change across time. The next model is the *Linear growth curve model* which predicts a linear rate of change across time. The *Quadratic growth curve model* is a non-linear growth curve model that predicts an overall accelerartion or deceleration in the rate of change when controlling for the linear change across time. Although the *Quadratic growth curve model* can be a useful alternative when the *Linear growth curve model* fits poorly or there is some degree of nonlinearity in the observed data, it can present much interpretation difficulty. The *Latent basis growth curve model* allows the data to define the growth function - discussed in the workshop.
@@ -938,5 +937,5 @@ OUTPUT:
 :::
 
 ::: {.callout-warning appearance="simple"}
-Feel free [to contact me](frederick.anyan@ntnu.no) for advise or invitation to present workshops in your own institution.
+Feel free to contact me at frederick.anyan@ntnu.no for advise or invitation to present workshops in your own institution.
 :::

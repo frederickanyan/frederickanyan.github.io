@@ -94,7 +94,7 @@ cov(lonely, use='pairwise.complete.obs') #covariance matrix
 cor(lonely, use='pairwise.complete.obs') #correlation matrix
 
 #bivariate scatter plots below the diagonal, histograms on the diagonal, and the Pearson correlation above the diagonal.
-pairs.panels(lonely, lm = TRUE) #lm = TRUE to fit a regression line
+pairs.panels(lonely, lm = TRUE) #lm = TRUE to fit a regression line if needed
 ```
 Explanatory test or how to intepret and use results from preactical preliminaries can be found [here](https://frederickanyan.github.io/quantposts/practical%20prelims/practical.html)
 

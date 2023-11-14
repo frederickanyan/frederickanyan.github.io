@@ -1,0 +1,942 @@
+---
+title: "Latent Growth Curve Models (LGCM): Applications with Mplus"
+author: "Frederick Anyan"
+date: "2023-12-01"
+categories: [Latent Growth Curve Models, Dynamic Models]
+image: "lgcm_tic_tvc.PNG"
+---
+
+Different analysis techniques allow researchers to examine change in outcome variable(s) across time, including regression methods, mean comparisons and repeated measures ANOVA - although with some limitations. A common practice in developmental research is to assess growth trajectory to understand developmental change - how and when it happens, interindividual differences in how and when it happens, as well as why it happens. Structural Equation Modelling (SEM) is a family of related analysis techniques -- correlations, regression analyses and factor analyses, using both observed and unobserved (latent) variables to offer a flexible framework for analyzing developmental change in a highly convenient and statistically rigorous framework for applied research in the social, behavioral, and educational sciences.
+
+This workshop will cover basic and advanced longitudinal SEM models using Mplus in a very easy and efficient implementation. To make the workshop more 'theory- and practice-based' than 'equations-based', the models that will be estimated will be guided by the overarching objectives of longitudinal research (see Baltes & Nesselroade, 1979; McArdle, 2012).
+
+References
+<ul>
+ <li>Baltes, P. B., & Nesselroade, J. R. (1979). History and rationale of longitudinal research. In J. R. Nasselroade & P. B.      Baltes (Eds.), Longitudinal research in the study of behaviour and development (pp. 1-39). New York: Academic Press.</li>
+ <li>McArdle, J. J. (2012). Foundational issues in the contemporary modeling of longitudinal trajectories. In B. Laursen, T. D.    Little, & N. A. Card (Eds.), Handbook of developmental research methods (pp. 385-410). New York, NY: The Guilford Press.</li>
+</ul>
+
+::: {.callout-tip appearance="simple"}
+Mplus syntax provided here are for those using Mplus, although the syntax can be modified for use in R via Mplus Automation.
+:::
+
+::: {.callout-warning appearance="simple"}
+I have included LISTWISE = ON under the DATA command to match the results from Mplus and R since this workshops was taught using both software. You do not have to use listwise deletion in your own application. FIML is better and the default in Mplus.
+:::
+
+Following are models shown in the tab groups
+
+**Tab group 1**
+ <li>Model 1: The No growth or Intercept only model.</li> 
+ <li>Model 2: The Linear growth curve model.</li> 
+ <li>Model 3: The Quadratic growth curve model.</li> 
+
+
+**Tab group 2**
+ <li>Model 4: Bilinear/Spline/Piecewise/Multiphase model - M1.</li> 
+ <li>Model 5: Bilinear/Spline/Piecewise/Multiphase model - M2.</li> 
+ <li>Model 6: Bilinear/Spline/Piecewise/Multiphase model - M3.</li> 
+
+**Tab group 3**
+ <li>Model 7: The linear growth curve model with time-varying covariates.</li> 
+ <li>Model 8: The linear growth curve model with time invariant covariates.</li> 
+ <li>Model 9: The linear growth curve model with time-varying and time invariant covariates.</li> 
+ <li>Model 10: The linear growth curve model with growth factors predicting a distal outcome.</li> 
+
+**Tab group 4**
+ <li>Model 11: Multiple-group linear growth curve model - Full Invariance (M1).</li> 
+ <li>Model 12: Multiple-group linear growth curve model - Growth factor means freed(M2).</li> 
+ <li>Model 13: Multiple-group linear growth curve model - Growth factor means and covariances freed(M3).</li> 
+ <li>Model 14: Multiple-group linear growth curve model - Growth factor means, covariances and residual variances freed(M4).</li> 
+
+**Tab group 5**
+ <li>Model 15: Multivariate or Parallel growth curve model.</li> 
+ <li>Model 16: Multivariate or Parallel growth curve model with autocorrelations.</li> 
+ <li>Model 17: Multivariate or Parallel growth curve model with cross domain correlations.</li> 
+
+**Tab group 6**
+ <li>Model 18: Sequentially contingent growth curve model.</li> 
+
+## No growth/Linear and Quadratic growth models
+Basic growth models are described here, including the *No growth model or the Intercept only model* - which is a logical starting point for growth modelling. We want to reject the no growth modelling as it predicts no overall rate of change across time. The next model is the *Linear growth curve model* which predicts a linear rate of change across time. The *Quadratic growth curve model* is a non-linear growth curve model that predicts an overall accelerartion or deceleration in the rate of change when controlling for the linear change across time. Although the *Quadratic growth curve model* can be a useful alternative when the *Linear growth curve model* fits poorly or there is some degree of nonlinearity in the observed data, it can present much interpretation difficulty. The *Latent basis growth curve model* allows the data to define the growth function - discussed in the workshop.
+
+::: panel-tabset
+## Model 1
+
+``` default
+TITLE:  001_No_change_No_growth_Intercept_only_model
+
+DATA:
+FILE IS data.dat;
+LISTWISE = ON; 
+
+VARIABLE:
+NAMES ARE
+  id female pdu1 ace1 worry1
+  lone1 lone2 lone3 lone4 lone5
+  anx1 anx2 anx3 anx4 anx5
+  dep1 dep2 dep3 dep4 dep5
+  host1 host2 host3 host4 host5
+  percon5 percon5b subs5 subs5b sleep5 sleep5b;
+
+USEVARIABLES ARE
+  lone1 lone2 lone3 lone4 lone5;
+
+MISSING ARE ALL (-999);
+
+ANALYSIS:
+ESTIMATOR = ML;
+
+MODEL:
+  I|lone1@1 lone2@1 lone3@1 lone4@1 lone5@1;!Fix the loading for the intercept growth factor to 1
+
+OUTPUT:
+  SAMPSTAT;
+```
+
+## Model 2
+
+``` default
+TITLE:  002_Linear_growht_curve_model
+
+DATA:
+FILE IS data.dat;
+LISTWISE = ON;
+
+VARIABLE:
+NAMES ARE
+  id female pdu1 ace1 worry1
+  lone1 lone2 lone3 lone4 lone5
+  anx1 anx2 anx3 anx4 anx5
+  dep1 dep2 dep3 dep4 dep5
+  host1 host2 host3 host4 host5
+  percon5 percon5b subs5 subs5b sleep5 sleep5b;
+
+USEVARIABLES ARE
+  lone1 lone2 lone3 lone4 lone5;
+
+MISSING ARE ALL (-999);
+
+ANALYSIS:
+ESTIMATOR = ML;
+
+MODEL:
+  I S|lone1@0 lone2@1 lone3@3 lone4@4 lone5@6; !Include a slope growth factor and fix to the time scores of observation
+
+OUTPUT:
+  SAMPSTAT;
+
+PLOT:
+  TYPE = PLOT3;
+  SERIES = lone1 - lone5(S); !You can add a plot of the slope growth function 
+```
+
+## Model 3
+
+``` default
+TITLE:  003_Quadratic_growht_curve_model
+
+DATA:
+FILE IS data.dat;
+LISTWISE = ON;
+
+VARIABLE:
+NAMES ARE
+  id female pdu1 ace1 worry1
+  lone1 lone2 lone3 lone4 lone5
+  anx1 anx2 anx3 anx4 anx5
+  dep1 dep2 dep3 dep4 dep5
+  host1 host2 host3 host4 host5
+  percon5 percon5b subs5 subs5b sleep5 sleep5b;
+
+USEVARIABLES ARE
+  lone1 lone2 lone3 lone4 lone5;
+
+MISSING ARE ALL (-999);
+
+ANALYSIS:
+  ESTIMATOR = ML;
+
+MODEL:
+  I S Q|lone1@0 lone2@1 lone3@3 lone4@4 lone5@6; !Include the quadratic growth function, 
+                                                 !but don't include a second-order power term as Mplus will automatically do this for you
+
+OUTPUT:
+  SAMPSTAT;
+
+PLOT:
+  TYPE = PLOT3;
+  SERIES = lone1 - lone5(S);
+```
+:::
+
+## Bilinear/Spline/Piecewise/Multiphase growth models
+The *Quadratic growth curve model* is specified by adding a second-order power of time to the *Linear growth curve model*, which means that there would be a high correlation between the power terms. This can be resolved by centering the intercept growth factor in the middle of the observation, but becomes more difficult when moving to higher-order polynomials. For this reason, it is recommended to examine the data if a *Piecewise growth curve model* could be an alternative solution. The most common type is the *Bilinear growth curve model* which joins two linear growth factors. It also goes by the name *Spline growth model* and *Multiphase growth model*. They can accommodate different linear or nonlinear growth functions by segmenting the period of observation with a knot point often called *transition points* when there are theoretical reasons to separate the observations into discrete phases - hence their name *Multiphase growth model*. For example, they can be used to model developmental changes that occur during pre-school, primary school and high school with transition points at when a child begins primary school and also at when s/he begins high school.
+
+::: panel-tabset
+## Model 4
+
+``` default
+TITLE:  004_Bilinear_spline_growht_curve_model
+
+DATA:
+FILE IS data.dat;
+LISTWISE = ON;
+
+VARIABLE:
+NAMES ARE
+  id female pdu1 ace1 worry1
+  lone1 lone2 lone3 lone4 lone5
+  anx1 anx2 anx3 anx4 anx5
+  dep1 dep2 dep3 dep4 dep5
+  host1 host2 host3 host4 host5
+  percon5 percon5b subs5 subs5b sleep5 sleep5b;
+
+USEVARIABLES ARE
+  lone1 lone2 lone3 lone4 lone5;
+
+MISSING ARE ALL (-999);
+
+ANALYSIS:
+  ESTIMATOR = ML;
+
+MODEL:
+  I S1|lone1@0 lone2@1 lone3@3 lone4@3 lone5@3;!Slope 1
+  I S2|lone1@0 lone2@0 lone3@0 lone4@1 lone5@3;!Slope 2
+
+OUTPUT:
+  SAMPSTAT;
+```
+
+## Model 5
+
+``` default
+TITLE:  002_Bilinear_spline_growht_curve_model
+
+DATA:
+FILE IS data.dat;
+LISTWISE = ON;
+
+VARIABLE:
+NAMES ARE
+  id female pdu1 ace1 worry1
+  lone1 lone2 lone3 lone4 lone5
+  anx1 anx2 anx3 anx4 anx5
+  dep1 dep2 dep3 dep4 dep5
+  host1 host2 host3 host4 host5
+  percon5 percon5b subs5 subs5b sleep5 sleep5b;
+
+USEVARIABLES ARE
+  lone1 lone2 lone3 lone4 lone5;
+
+MISSING ARE ALL (-999);
+
+ANALYSIS:
+  ESTIMATOR = ML;
+
+MODEL:
+  I S1|lone1@-3 lone2@-2 lone3@0 lone4@0 lone5@0;!Slope 1
+  I S2|lone1@0 lone2@0 lone3@0 lone4@1 lone5@3;!Slope 2
+
+OUTPUT:
+  SAMPSTAT;
+```
+
+## Model 6
+
+``` default
+TITLE:  002_Bilinear_spline_growht_curve_model
+
+DATA:
+FILE IS data.dat;
+LISTWISE = ON;
+
+VARIABLE:
+NAMES ARE
+  id female pdu1 ace1 worry1
+  lone1 lone2 lone3 lone4 lone5
+  anx1 anx2 anx3 anx4 anx5
+  dep1 dep2 dep3 dep4 dep5
+  host1 host2 host3 host4 host5
+  percon5 percon5b subs5 subs5b sleep5 sleep5b;
+
+USEVARIABLES ARE
+  lone1 lone2 lone3 lone4 lone5;
+
+MISSING ARE ALL (-999);
+
+ANALYSIS:
+  ESTIMATOR = ML;
+
+MODEL:
+  I S1|lone1@-3 lone2@-3 lone3@-3 lone4@-2 lone5@0;!Slope 1
+  I S2|lone1@-3 lone2@-2 lone3@0 lone4@0 lone5@0;!Slope 2
+
+OUTPUT:
+  SAMPSTAT STAND;
+```
+:::
+
+## Growth models with time- varying and invariant predictors and distal outcomes
+Dynamic predictors that change across time can be incorporated into the growth model to simultaneously estimate the overall rate of change and the change from the time-varying predictors. These dynamic, time-varying predictors account for within-person changes by altering the trajectory of growth in an individual. Between-person differences in the within-person rate of change can be explained by the inclusion of time invariant predictors such as gender or experimental conditions. Growth factors can be hypothesized to predict distal outcomes that are measured after the growth process such as the rate of change in metacognitve therapy predicting recovery status in a 24-month follow up.
+
+::: panel-tabset
+## Model 7
+
+``` default
+TITLE:  005_Linear_growht_curve_model_with_time_varying_covariate
+
+DATA:
+FILE IS data.dat;
+LISTWISE = ON;
+
+VARIABLE:
+NAMES ARE
+  id female pdu1 ace1 worry1
+  lone1 lone2 lone3 lone4 lone5
+  anx1 anx2 anx3 anx4 anx5
+  dep1 dep2 dep3 dep4 dep5
+  host1 host2 host3 host4 host5
+  percon5 percon5b subs5 subs5b sleep5 sleep5b;
+
+USEVARIABLES ARE
+  lone1 lone2 lone3 lone4 lone5
+  host1 host2 host3 host4 host5;
+
+MISSING ARE ALL (-999);
+
+ANALYSIS:
+  ESTIMATOR = ML;
+
+MODEL:
+  I S|lone1@0 lone2@1 lone3@3 lone4@4 lone5@6;!Growth for loneliness
+
+!Regress loneliness on time-varying covariate
+  lone1 ON host1;!By adding labels to the parameter estimates
+  lone2 ON host2;!you can test whether TVC effects are constant over time
+  lone3 ON host3;
+  lone4 ON host4;
+  lone5 ON host5;
+
+  !However, if you already assume constant effect of TVC over time
+  !and do not want to test, you can use this model specification
+  !lone1 ON host1(a);!By adding the same label (a) to the parameter estimates
+  !lone2 ON host2(a);!you constrain the effects to be constant across time
+  !lone3 ON host3(a);
+  !lone4 ON host4(a);
+  !lone5 ON host5(a);
+
+!Fix TVC covariance with intercept and slope to zero
+  I S WITH host1-host5@0;
+
+OUTPUT:
+  SAMPSTAT;
+```
+
+## Model 8
+
+``` default
+TITLE:  006_Linear_growht_curve_model_with_time_invariant_covariates
+
+DATA:
+FILE IS data.dat;
+LISTWISE = ON;
+
+VARIABLE:
+NAMES ARE
+  id female pdu1 ace1 worry1
+  lone1 lone2 lone3 lone4 lone5
+  anx1 anx2 anx3 anx4 anx5
+  dep1 dep2 dep3 dep4 dep5
+  host1 host2 host3 host4 host5
+  percon5 percon5b subs5 subs5b sleep5 sleep5b;
+
+USEVARIABLES ARE
+  lone1 lone2 lone3 lone4 lone5 female;
+
+MISSING ARE ALL (-999);
+
+ANALYSIS:
+  ESTIMATOR = ML;
+
+MODEL:
+  I S|lone1@0 lone2@1 lone3@3 lone4@4 lone5@6;
+
+  I S ON female; !Regress growth factors on the time-invariant covariate
+
+OUTPUT:
+  SAMPSTAT;
+```
+
+## Model 9
+
+``` default
+TITLE:  007_Linear_growht_curve_model_with_time-invariant and time-varying covariates
+
+DATA:
+FILE IS data.dat;
+LISTWISE = ON;
+
+VARIABLE:
+NAMES ARE
+  id female pdu1 ace1 worry1
+  lone1 lone2 lone3 lone4 lone5
+  anx1 anx2 anx3 anx4 anx5
+  dep1 dep2 dep3 dep4 dep5
+  host1 host2 host3 host4 host5
+  percon5 percon5b subs5 subs5b sleep5 sleep5b;
+
+USEVARIABLES ARE
+  lone1 lone2 lone3 lone4 lone5
+  host1 host2 host3 host4 host5
+  female pdu1 ace1;
+
+MISSING ARE ALL (-999);
+
+ANALYSIS:
+  ESTIMATOR = ML;
+
+MODEL:
+  I S|lone1@0 lone2@1 lone3@3 lone4@4 lone5@6;
+
+  I S ON female pdu1 ace1;!Regress growth factors on time-invariant covariates
+
+  lone1 ON host1(a);!Regress loneliness on TVC
+  lone2 ON host2(a);!Constrain TVC effect to be equal across time
+  lone3 ON host3(a);
+  lone4 ON host4(a);
+  lone5 ON host5(a);
+
+  I S WITH host1-host5@0; !Fix TVC covariance with intercept and slope to zero
+
+  female pdu1 ace1 WITH host1-host5; !Estimate the covaraince between covariates
+
+OUTPUT:
+  SAMPSTAT;
+```
+
+## Model 10
+
+``` default
+TITLE:  008_Linear_growht_curve_model_with_growth_factors_predicting_distal_outcome
+
+DATA:
+FILE IS data.dat;
+LISTWISE = ON;
+
+VARIABLE:
+NAMES ARE
+  id female pdu1 ace1 worry1
+  lone1 lone2 lone3 lone4 lone5
+  anx1 anx2 anx3 anx4 anx5
+  dep1 dep2 dep3 dep4 dep5
+  host1 host2 host3 host4 host5
+  percon5 percon5b subs5 subs5b sleep5 sleep5b;
+
+USEVARIABLES ARE
+  lone1 lone2 lone3 lone4 lone5 subs5;
+  
+MISSING ARE ALL (-999);
+
+ANALYSIS:
+  ESTIMATOR = ML;
+
+MODEL:
+  I S|lone1@0 lone2@1 lone3@3 lone4@4 lone5@6;
+    
+  subs5 ON I S; !Regress distal outcome on growth factors and time-invariant predictors
+    
+  !subs5 ON I S female pdu1 ace1;
+
+  !Regress growth factors on time-invariant covariates
+  !I S ON female pdu1 ace1;
+
+  !female pdu1 ace1;
+  ![female pdu1 ace1];
+  !female pdu1 ace1 WITH female pdu1 ace1;
+
+OUTPUT:
+  SAMPSTAT;
+```
+:::
+
+## Multiple group growth models
+A *Multiple-group growth model* approach offers greater flexibility in explaining between-person differences in the within-person rate of change than the *Growth model with time invariant covariate*. For example, the Wald test of differences in growth parameters can be tested within the multiple-group approach to explain whether, on average, the experimental group experience greater overall decline than the control group - thus providing insights into how and why individuals differ in their rate of change and by how much difference. The multiple-group approach can inform about differences in all the growth functions' parameters - including the growth factors means, co/variances and residual variances.
+
+::: panel-tabset
+## Model 11
+
+``` default
+TITLE:  009_Multigroup_LGCM_M1_Invariance_model
+
+DATA:
+FILE IS data.dat;
+LISTWISE = ON;
+
+VARIABLE:
+NAMES ARE
+  id female pdu1 ace1 worry1
+  lone1 lone2 lone3 lone4 lone5
+  anx1 anx2 anx3 anx4 anx5
+  dep1 dep2 dep3 dep4 dep5
+  host1 host2 host3 host4 host5
+  percon5 percon5b subs5 subs5b sleep5 sleep5b;
+
+USEVARIABLES ARE
+  lone1 lone2 lone3 lone4 lone5;
+
+GROUPING = FEMALE (0 = MALES 1 = FEMALES);
+
+MISSING ARE ALL (-999);
+
+ANALYSIS:
+  ESTIMATOR = ML;
+
+MODEL:
+  I S|lone1@0 lone2@1 lone3@3 lone4@4 lone5@6;
+
+  !Estimate means of growth factors and label them
+  [I](INT);
+  [S](SLP);
+
+  !Estimate variances of growth factors
+  I(INT_V);
+  S(SLP_V);
+
+  !Estimate covariance of growth factors
+  I WITH S(IS_COV);
+
+  !Estimate residual variance and constrain them equal
+  lone1-lone5(RES);
+
+  !Sequentially testing models means that specific parameters are of interest
+  !For those parameters, we will begin by constraining them to be equal (identical) across both groups
+  !Those parameters are (MEANS OF GROWTH FACTORS, COVARIANCES AND RESIDUAL VARIANCES)
+  !In subsequent models, we will freely estimate those parameters
+
+MODEL MALES:
+  !Growth factor means for males
+  [I](INT);!The INT label will make the males' intercept growth factor identical to the
+  [S](SLP);!The labelling for all the parameters will make them idenitcal for males and
+
+  !Growth factor variances for males
+  I(INT_V);
+  S(SLP_V);
+
+  !Growth factor covariance for males
+  I WITH S(IS_COV);
+
+  !Residual variances for males
+  lone1-lone5(RES);
+
+MODEL FEMALES:
+  !Gorwth factor means for females
+  [I](INT);!The INT label will make the females' intercept growth factor identical to th
+  [S](SLP);
+
+  !Growth factor variances for females
+  I(INT_V);
+  S(SLP_V);
+
+  !Growth factor covariance for females
+  I WITH S(IS_COV);
+
+  !Residual variances for females
+  lone1-lone5(RES);
+
+OUTPUT:
+  SAMPSTAT;
+```
+
+## Model 12
+
+``` default
+TITLE:  009_Multigroup_LGCM_M2_Growth_factor_means
+
+DATA:
+FILE IS data.dat;
+LISTWISE = ON;
+
+VARIABLE:
+NAMES ARE
+  id female pdu1 ace1 worry1
+  lone1 lone2 lone3 lone4 lone5
+  anx1 anx2 anx3 anx4 anx5
+  dep1 dep2 dep3 dep4 dep5
+  host1 host2 host3 host4 host5
+  percon5 percon5b subs5 subs5b sleep5 sleep5b;
+
+USEVARIABLES ARE
+  lone1 lone2 lone3 lone4 lone5;
+
+GROUPING = FEMALE (0 = MALES 1 = FEMALES);
+
+MISSING ARE ALL (-999);
+
+ANALYSIS:
+  ESTIMATOR = ML;
+
+MODEL:
+  I S|lone1@0 lone2@1 lone3@3 lone4@4 lone5@6;
+
+  [I](INT);
+  [S](SLP);
+
+  I(INT_V);
+  S(SLP_V);
+
+  I WITH S(IS_COV);
+
+  lone1-lone5(RES);
+
+MODEL MALES:
+  [I](INT_M); !Free growth factor means by using different labels or completely removing
+  [S](SLP_M);
+
+  I(INT_V);
+  S(SLP_V);
+
+  I WITH S(IS_COV);
+
+  lone1-lone5(RES);
+
+MODEL FEMALES:
+  [I](INT_F);!Different labels are used to freely estimate the growth factor means
+  [S](SLP_F);
+
+  I(INT_V);
+  S(SLP_V);
+
+  I WITH S(IS_COV);
+
+  lone1-lone5(RES);
+
+!MODEL TEST:
+  !INT_M = INT_F;
+  !0 = INT_M-INT_F;
+
+OUTPUT:
+  SAMPSTAT;
+```
+
+## Model 13
+
+``` default
+TITLE:  009_Multigroup_LGCM_M3_Growth_factor_means_and covariances
+
+DATA:
+FILE IS data.dat;
+LISTWISE = ON;
+
+VARIABLE:
+NAMES ARE
+  id female pdu1 ace1 worry1
+  lone1 lone2 lone3 lone4 lone5
+  anx1 anx2 anx3 anx4 anx5
+  dep1 dep2 dep3 dep4 dep5
+  host1 host2 host3 host4 host5
+  percon5 percon5b subs5 subs5b sleep5 sleep5b;
+
+USEVARIABLES ARE
+  lone1 lone2 lone3 lone4 lone5;
+
+GROUPING = FEMALE (0 = MALES 1 = FEMALES);
+
+MISSING ARE ALL (-999);
+
+ANALYSIS:
+  ESTIMATOR = ML;
+
+MODEL:
+  I S|lone1@0 lone2@1 lone3@3 lone4@4 lone5@6;
+
+  [I](INT);
+  [S](SLP);
+
+  I(INT_V);
+  S(SLP_V);
+
+  I WITH S(IS_COV);
+
+  lone1-lone5(RES);
+
+MODEL MALES:
+  [I S];!First: Growth factor means are freely estimated
+  I S;!Second: Growth factor variances are freely estimated
+
+  I WITH S;!Second: Growth factor covariances are freely estimated
+
+  lone1-lone5(RES);
+
+MODEL FEMALES:
+  [I S];!First: Growth factor means are freely estimated
+  I S;!Second: Growth factor variances are freely estimated
+
+  I WITH S;!Second: Growth factor covariances are freely estimated
+
+  lone1-lone5(RES);
+
+OUTPUT:
+  SAMPSTAT;
+```
+
+## Model 14
+
+``` default
+TITLE:  009_Multigroup_LGCM_M4_Growth_factor_means_and covariances_with_residual_variances
+
+DATA:
+FILE IS data.dat;
+LISTWISE = ON;
+
+VARIABLE:
+NAMES ARE
+  id female pdu1 ace1 worry1
+  lone1 lone2 lone3 lone4 lone5
+  anx1 anx2 anx3 anx4 anx5
+  dep1 dep2 dep3 dep4 dep5
+  host1 host2 host3 host4 host5
+  percon5 percon5b subs5 subs5b sleep5 sleep5b;
+
+USEVARIABLES ARE
+  lone1 lone2 lone3 lone4 lone5;
+
+GROUPING = FEMALE (0 = MALES 1 = FEMALES);
+
+MISSING ARE ALL (-999);
+
+ANALYSIS:
+  ESTIMATOR = ML;
+
+MODEL:
+  I S|lone1@0 lone2@1 lone3@3 lone4@4 lone5@6;
+
+  [I](INT);
+  [S](SLP);
+
+  I(INT_V);
+  S(SLP_V);
+
+  I WITH S(IS_COV);
+
+  lone1-lone5(RES);
+
+MODEL MALES:
+  [I S](INT_M SLP_M);!First: Growth factor means are freely estimated
+  I S;!Second: Growth factor variances are freely estimated
+
+  I WITH S;!Second: Growth factor covariances are freely estimated
+
+  lone1-lone5;!Third, residual variances freely estimated
+
+MODEL FEMALES:
+  [I S](INT_F SLP_F);!First: Growth factor means are freely estimated
+  I S;!Second: Growth factor variances are freely estimated
+
+I WITH S;!Second: Growth factor covariances are freely estimated
+
+  lone1-lone5;!Third: residual variances freely estimated
+
+!MODEL TEST:
+!  0 = INT_M - INT_F;
+
+OUTPUT:
+  SAMPSTAT;
+```
+:::
+
+## Modelling co-development and Multivariate growth models
+Modelling the co-development among different attributes such as the comorbidity of anxiety and depression is becoming more common. *Multivariate growth models* also called *Parallel growth models* can accommodate different growth functions among two or more attributes. Care must be taken and theoretical considerations must be prioritized when choosing between *Multivariate growth curve models* and the *Growth curve models with time-varying covariates*. The two are related but answer different research questions.
+
+::: panel-tabset
+## Model 15
+
+``` default
+TITLE:  010_Parallel_growth_curve_model_anxiety_and_depressive symptoms
+
+DATA:
+FILE IS data.dat;
+LISTWISE = ON;
+
+VARIABLE:
+NAMES ARE
+  id female pdu1 ace1 worry1
+  lone1 lone2 lone3 lone4 lone5
+  anx1 anx2 anx3 anx4 anx5
+  dep1 dep2 dep3 dep4 dep5
+  host1 host2 host3 host4 host5
+  percon5 percon5b subs5 subs5b sleep5 sleep5b;
+
+USEVARIABLES ARE
+  anx1 anx2 anx3 anx4 anx5
+  dep1 dep2 dep3 dep4 dep5;
+
+MISSING ARE ALL (-999);
+
+ANALYSIS:
+  ESTIMATOR = ML;
+  MODEL = NOCOV;!Suppress Mplus default correlations between the growth factors
+  !That way, you have control over what variables you want to correlate or
+  
+MODEL:
+  I_ANX S_ANX|anx1@0 anx2@1 anx3@3 anx4@4 anx5@6;!anxiety symptoms growth
+  I_DEP S_DEP|dep1@0 dep2@1 dep3@3 dep4@4 dep5@6;!depressive symptoms
+
+  !Correlate the growth factors
+  I_ANX WITH S_ANX;
+  I_DEP WITH S_DEP;
+
+  I_ANX WITH I_DEP;
+  S_ANX WITH S_DEP;
+
+OUTPUT:
+  SAMPSTAT;
+```
+
+## Model 16
+
+``` default
+TITLE:  010_Parallel_growth_curve_model_anxiety_and_depressive symptoms_autocorrelations
+
+DATA:
+FILE IS data.dat;
+LISTWISE = ON;
+
+VARIABLE:
+NAMES ARE
+  id female pdu1 ace1 worry1
+  lone1 lone2 lone3 lone4 lone5
+  anx1 anx2 anx3 anx4 anx5
+  dep1 dep2 dep3 dep4 dep5
+  host1 host2 host3 host4 host5
+  percon5 percon5b subs5 subs5b sleep5 sleep5b;
+
+USEVARIABLES ARE
+  anx1 anx2 anx3 anx4 anx5
+  dep1 dep2 dep3 dep4 dep5;
+
+MISSING ARE ALL (-999);
+
+ANALYSIS:
+  ESTIMATOR = ML;
+  MODEL = NOCOV;!Suppress Mplus default correlations between the growth factors
+  !That way, you have control over what variables you want to correlate or
+  
+MODEL:
+  I_ANX S_ANX|anx1@0 anx2@1 anx3@3 anx4@4 anx5@6;!anxiety symptoms growth
+  I_DEP S_DEP|dep1@0 dep2@1 dep3@3 dep4@4 dep5@6;!depressive symptoms
+
+  !Correlate the growth factors
+  I_ANX WITH S_ANX;
+  I_DEP WITH S_DEP;
+
+  I_ANX WITH I_DEP;
+  S_ANX WITH S_DEP;
+
+  !Within subdomain autocorrelations
+  anx1 anx2 anx3 anx4 PWITH anx2 anx3 anx4 anx5; !PWITH means pair with
+  dep1 dep2 dep3 dep4 PWITH dep2 dep3 dep4 dep5;
+
+OUTPUT:
+  SAMPSTAT;
+```
+
+## Model 17
+
+``` default
+TITLE:  010_Parallel_growth_curve_model_anxiety_and_depressive symptoms_cross_domain_corre
+DATA:
+FILE IS data.dat;
+LISTWISE = ON;
+
+VARIABLE:
+NAMES ARE
+  id female pdu1 ace1 worry1
+  lone1 lone2 lone3 lone4 lone5
+  anx1 anx2 anx3 anx4 anx5
+  dep1 dep2 dep3 dep4 dep5
+  host1 host2 host3 host4 host5
+  percon5 percon5b subs5 subs5b sleep5 sleep5b;
+
+USEVARIABLES ARE
+  anx1 anx2 anx3 anx4 anx5
+  dep1 dep2 dep3 dep4 dep5;
+
+MISSING ARE ALL (-999);
+
+ANALYSIS:
+  ESTIMATOR = ML;
+  MODEL = NOCOV;!Suppress Mplus default correlations between the growth factors
+  !That way, you have control over what variables you want to correlate or
+  
+MODEL:
+  I_ANX S_ANX|anx1@0 anx2@1 anx3@3 anx4@4 anx5@6;!anxiety symptoms growth
+  I_DEP S_DEP|dep1@0 dep2@1 dep3@3 dep4@4 dep5@6;!depressive symptoms
+
+  !Correlate the growth factors
+  I_ANX WITH S_ANX;
+  I_DEP WITH S_DEP;
+
+  I_ANX WITH I_DEP;
+  S_ANX WITH S_DEP;
+
+  !Cross subdomain correlations
+  anx1 anx2 anx3 anx4 anx5 PWITH dep1 dep2 dep3 dep4 dep5;
+
+
+OUTPUT:
+  SAMPSTAT;
+```
+:::
+
+## Sequentially contingent growth models
+Growth in one attribute can predict the growth that occur in another attribute later in the developmental process. The rate of change in language development during pre-school may predict the rate of change in language skills during primary school. *Sequentially contingent growth models* offer flexibility in modelling such relations in the developmental process that occur in different stages, but might be contingent on each other.
+
+::: panel-tabset
+## Model 18
+
+``` default
+TITLE:  011_Sequentially_contingent_growth_curve_model_anxiety_T1_T5_predicting_depression
+
+DATA:
+FILE IS data.dat;
+LISTWISE = ON;
+
+VARIABLE:
+NAMES ARE
+  id female pdu1 ace1 worry1
+  lone1 lone2 lone3 lone4 lone5
+  anx1 anx2 anx3 anx4 anx5
+  dep6 dep7 dep8 dep9 dep10!Time of observations modified for pedagogical reasons
+  host1 host2 host3 host4 host5
+  percon5 percon5b subs5 subs5b sleep5 sleep5b;
+
+USEVARIABLES ARE
+  anx1 anx2 anx3 anx4 anx5
+  dep6 dep7 dep8 dep9 dep10;!Time of observations modified for pedagogical reasons
+
+MISSING ARE ALL (-999);
+
+ANALYSIS:
+  ESTIMATOR = ML;
+  MODEL = NOCOV;!Suppress Mplus default correlations between the growth factors
+                    !That way, you have control over what variables you want to correlate or
+MODEL:
+  I_ANX S_ANX|anx1@0 anx2@1 anx3@3 anx4@4 anx5@6;!anxiety symptoms growth
+  I_DEP S_DEP|dep6@0 dep7@1 dep8@2 dep9@3 dep10@4;!Equidistant time scores for depressiv
+
+  !Correlate the growth factors
+  I_ANX WITH S_ANX;
+  I_DEP WITH S_DEP;
+
+  !Add sequqntially contingent growth factors
+  I_DEP S_DEP PON I_ANX S_ANX; !Pair ON
+
+OUTPUT:
+  SAMPSTAT;
+```
+:::
+
+::: {.callout-warning appearance="simple"}
+Feel free [to contact me](frederick.anyan@ntnu.no) for advise or invitation to present workshops in your own institution.
+:::

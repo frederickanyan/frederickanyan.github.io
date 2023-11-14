@@ -58,7 +58,7 @@ library(ggplot2) #For visualization
 Read data 
 
 ```{r}
-data <- read.csv("/Volumes/anyan-1/quantpost_data/data.csv")
+data <- read.csv("/Volumes/anyan-1/frederickanyan.github.io/quantpost_data/data.csv")
 data <- data[, c("personid", "lone3", "lone5")] #Create new data set with only your main outcome variables
 names(data) <- c("id", "loneT1", "loneT2") #Rename variables to represent T1 and T2
 ```
@@ -107,7 +107,9 @@ summary(arM)
 ```
 The Intercept (0.83) is the expected value of loneliness at T2 for an individual with a score of 0 = at T1. The slope of loneT1 (0.31) indicates the stability of between-person differences from T1 to T2. The autoregressive coefficient show that individual differences in loneliness is moderately stable between the two time points as the autoregressive coefficient is about moderate size. 
 
-Remember T1 and T2 were originally (lone3 at T3) and (lone5 at T5), which means that the distance between time points is longer than it would be for adjacent time points (lone3 at T3 and lone4 at T4 versus lone4 at T4 and lone5 at T5). The longer time that elapses between measurement occasions, the higher it is that the autoregressive effect depreciates and thereby resulting in less stability of individual differences from one occasion to the next. Therefore, the time lag between time points is very crucial in panel models since this may have implications for when hypothesized autoregressive or cross-lagged effects may disappear. We expect a positive difference of (0.31) in loneliness at T2 for a every unit change in loneliness at T1
+Remember T1 and T2 were originally (lone3 at T3) and (lone5 at T5), which means that the distance between time points is longer than it would be for adjacent time points (lone3 at T3 and lone4 at T4 versus lone4 at T4 and lone5 at T5). The longer time that elapses between measurement occasions, the higher it is that the autoregressive effect dissipates and thereby resulting in less stability of individual differences from one occasion to the next. Therefore, the time lag between time points is very crucial in panel models since this may have implications for when hypothesized autoregressive or cross-lagged effects may disappear. 
+
+Alternatively, we expect a positive difference of (0.31) in loneliness at T2 for a every unit change in loneliness at T1
 
 ```{r}
 ggplot(data = data, aes(x = loneT1, y = loneT2)) +

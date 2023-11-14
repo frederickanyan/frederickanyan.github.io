@@ -19,7 +19,9 @@ In this tutorial post, we will see how to use the upset() function in the 'UpSet
 Load data
 
 ```{r}
-data <- read.csv("/Volumes/anyan-1/quantpost_data/dataupset.csv")#
+data <- read.csv("/Volumes/anyan-1/frederickanyan.github.io/quantpost_data/dataupset.csv")#
+
+
 #head(data) #first few rows
 ```
 

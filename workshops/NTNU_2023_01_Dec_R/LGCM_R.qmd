@@ -182,6 +182,18 @@ summary(fit_quadratic, fit.measures = TRUE)
 :::
 
 
+## Model Comparisons
+Models 1, 2 and 3 can be compared since 1 and 2 are nested in (i.e., reduced forms of) Model 3. In this way, the best model to data correspondence can be determined through a chi-square difference test. However, a word of caution here is that, you should only compare models whose fit indices are acceptable. Therefore, in a real scenario, we would not compare Models 1 and 2 since they both do not reach acceptable model fit. 
+
+We would instead, nominate Model 3 as the best model representation of the data. The non-linear growth function in Model 3 reproduces the trajectory observed when examining observed means in the univariate descriptives. 
+
+```{r}
+compare_no_linear <- anova(fit_nogrowth, fit_linear)
+compare_no_linear
+```
+The results (x2() = 111.19, p < .001) show significant difference in model fit between Model 1 (no growth mode) and Model 2 (linear growth). Thus, Model 2, in which the linear growth factor is freely estimated (relative to Model 1) has improved data to model correspondence (or fits better) than Model 1. Remember that this is just an example of how to compare nested models, and that you should only compare models whose fit indices are acceptable. 
+
+
 ## Bilinear/Spline/Piecewise/Multiphase growth models
 
 The *Quadratic growth curve model* is specified by adding a second-order power of time to the *Linear growth curve model*, which means that there would be a high correlation between the power terms. This can be resolved by centering the intercept growth factor in the middle of the observation, but becomes more difficult when moving to higher-order polynomials. For this reason, it is recommended to examine the data if a *Piecewise growth curve model* could be an alternative solution. The most common type is the *Bilinear growth curve model* which joins two linear growth factors. It also goes by the name *Spline growth model* and *Multiphase growth model*. They can accommodate different linear or nonlinear growth functions by segmenting the period of observation with a knot point often called *transition points* when there are theoretical reasons to separate the observations into discrete phases - hence their name *Multiphase growth model*. For example, they can be used to model developmental changes that occur during pre-school, primary school and high school with transition points at when a child begins primary school and also at when s/he begins high school.

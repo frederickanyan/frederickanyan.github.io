@@ -74,7 +74,8 @@ Following are models shown in the tab groups
 
 <li>Model 11: Sequentially contingent growth curve model.</li>
 
-*If you are not interested in the practical preliminaries, you can jump to the No growth/Linear and Quadratic growth models by clicking on the options on your right*
+
+*If you are not interested in the practical preliminaries, you can jump to the No growth/Linear and Quadratic growth models by clicking on the options to your right*
 
 ## Practical preliminaries
 
@@ -182,16 +183,27 @@ summary(fit_quadratic, fit.measures = TRUE)
 :::
 
 
-## Model Comparisons
-Models 1, 2 and 3 can be compared since 1 and 2 are nested in (i.e., reduced forms of) Model 3. In this way, the best model to data correspondence can be determined through a chi-square difference test. However, a word of caution here is that, you should only compare models whose fit indices are acceptable. Therefore, in a real scenario, we would not compare Models 1 and 2 since they both do not reach acceptable model fit. 
+## Nested model comparisons
+Models 1, 2 and 3 can be compared since Models 1 and 2 are nested in (i.e., reduced or constrained forms of) Model 3 (i.e., the full or free model). Model 1 is also a reduced form of Model 2. In this way, the best model to data correspondence can be determined through a chi-square ($\chi^2$) difference test or a likelihood ratio test (LRT). If the LRT or the $\chi^2$ difference is significant ($p < .05$), it means that the reduced or constrained model fits significantly worse than the full or free model
 
-We would instead nominate Model 3 as the best model representation of the data (at least, the best fitting model of the three although the RMSEA and TLI are not good enough). The non-linear growth function in Model 3 reproduces the trajectory observed when examining observed means in the univariate descriptives. 
+::: {.callout-warning appearance="simple"}
+A word of caution here is that, you should only compare models whose fit indices are acceptable. Therefore, in a real scenario, we would not compare Models 1 and 2 since they both do not reach acceptable model fit. 
+:::
+
+In the examples here, Model 3 is the best model representation of the data (at least, the best fitting model of the three although the RMSEA and TLI are not good enough). The non-linear growth function in Model 3 reproduces the trajectory observed when examining observed means in the univariate descriptives. 
 
 ```{r}
+#The `anova` function in `lavaan` computes the LRT for nested models.
 compare_no_linear <- anova(fit_nogrowth, fit_linear)
 compare_no_linear
 ```
-The results (x2() = 111.19, p < .001) show significant difference in model fit between Model 1 (no growth mode) and Model 2 (linear growth). Thus, Model 2, in which the linear growth factor is freely estimated (relative to Model 1) has improved data to model correspondence (or fits better) than Model 1. Remember that this is just an example of how to compare nested models, and that you should only compare models whose fit indices are acceptable. 
+The results ($\chi^2$~(3)~ = 111.19, $p < .001$) show significant difference in model fit between Model 1 (no growth mode, or reduced model) and Model 2 (linear growth, full model). Thus, Model 2, in which the linear growth factor is freely estimated (relative to Model 1) has improved data to model correspondence (or fits better) than Model 1. 
+
+::: {.callout-warning appearance="simple"}
+Remember that this is just an example of how to compare nested models, and that you should only compare models whose fit indices are acceptable. 
+:::
+
+If the $\chi^2$ difference test returned a non-significant result ($p > .05$), then both Models 1 and 2 would be assumed to have no significant difference in model fit and thus, equally fit the data well. In this case, Model 1 (ie., the reduced model) which is a more parsimonious model compared to Model 2 should be selected as the best representation for model to data correspondence.  
 
 
 ## Bilinear/Spline/Piecewise/Multiphase growth models
@@ -605,5 +617,5 @@ summary(fit_sequential, fit.measures = TRUE)
 :::
 
 ::: {.callout-warning appearance="simple"}
-Feel free to contact me at frederick.anyan\@ntnu.no for advise or invitation to present workshops in your own institution.
+Feel free to contact me at <frederick.anyan@ntnu.no> for advise or invitation to present workshops in your own institution.
 :::

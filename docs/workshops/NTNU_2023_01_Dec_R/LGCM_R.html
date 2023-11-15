@@ -91,7 +91,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit"
   }
-}</script><link rel="stylesheet" href="../../styles.css">
+}</script><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><link rel="stylesheet" href="../../styles.css">
 </head>
 <body class="nav-fixed">
 
@@ -167,7 +167,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
 <li><a href="#practical-preliminaries" id="toc-practical-preliminaries" class="nav-link active" data-scroll-target="#practical-preliminaries">Practical preliminaries</a></li>
   <li><a href="#no-growthlinear-and-quadratic-growth-models" id="toc-no-growthlinear-and-quadratic-growth-models" class="nav-link" data-scroll-target="#no-growthlinear-and-quadratic-growth-models">No growth/Linear and Quadratic growth models</a></li>
-  <li><a href="#model-comparisons" id="toc-model-comparisons" class="nav-link" data-scroll-target="#model-comparisons">Model Comparisons</a></li>
+  <li><a href="#nested-model-comparisons" id="toc-nested-model-comparisons" class="nav-link" data-scroll-target="#nested-model-comparisons">Nested model comparisons</a></li>
   <li><a href="#bilinearsplinepiecewisemultiphase-growth-models" id="toc-bilinearsplinepiecewisemultiphase-growth-models" class="nav-link" data-scroll-target="#bilinearsplinepiecewisemultiphase-growth-models">Bilinear/Spline/Piecewise/Multiphase growth models</a></li>
   <li><a href="#growth-models-with-time--varying-and-invariant-predictors-and-distal-outcomes" id="toc-growth-models-with-time--varying-and-invariant-predictors-and-distal-outcomes" class="nav-link" data-scroll-target="#growth-models-with-time--varying-and-invariant-predictors-and-distal-outcomes">Growth models with time- varying and invariant predictors and distal outcomes</a></li>
   <li><a href="#multiple-group-growth-models" id="toc-multiple-group-growth-models" class="nav-link" data-scroll-target="#multiple-group-growth-models">Multiple group growth models</a></li>
@@ -289,7 +289,7 @@ Model 10_3: Multivariate or Parallel growth curve model with cross domain correl
 <li>
 Model 11: Sequentially contingent growth curve model.
 </li>
-<p><em>If you are not interested in the practical preliminaries, you can jump to the No growth/Linear and Quadratic growth models by clicking on the options on your right</em></p>
+<p><em>If you are not interested in the practical preliminaries, you can jump to the No growth/Linear and Quadratic growth models by clicking on the options to your right</em></p>
 <section id="practical-preliminaries" class="level2"><h2 class="anchored" data-anchor-id="practical-preliminaries">Practical preliminaries</h2>
 <p>Load packages</p>
 <div class="cell">
@@ -722,11 +722,22 @@ Variances:
 </div>
 </div>
 </div>
-</section><section id="model-comparisons" class="level2"><h2 class="anchored" data-anchor-id="model-comparisons">Model Comparisons</h2>
-<p>Models 1, 2 and 3 can be compared since 1 and 2 are nested in (i.e., reduced forms of) Model 3. In this way, the best model to data correspondence can be determined through a chi-square difference test. However, a word of caution here is that, you should only compare models whose fit indices are acceptable. Therefore, in a real scenario, we would not compare Models 1 and 2 since they both do not reach acceptable model fit.</p>
-<p>We would instead nominate Model 3 as the best model representation of the data (at least, the best fitting model of the three although the RMSEA and TLI are not good enough). The non-linear growth function in Model 3 reproduces the trajectory observed when examining observed means in the univariate descriptives.</p>
+</section><section id="nested-model-comparisons" class="level2"><h2 class="anchored" data-anchor-id="nested-model-comparisons">Nested model comparisons</h2>
+<p>Models 1, 2 and 3 can be compared since Models 1 and 2 are nested in (i.e., reduced or constrained forms of) Model 3 (i.e., the full or free model). Model 1 is also a reduced form of Model 2. In this way, the best model to data correspondence can be determined through a chi-square (<span class="math inline">\(\chi^2\)</span>) difference test or a likelihood ratio test (LRT). If the LRT or the <span class="math inline">\(\chi^2\)</span> difference is significant (<span class="math inline">\(p &lt; .05\)</span>), it means that the reduced or constrained model fits significantly worse than the full or free model</p>
+<div class="callout callout-style-simple callout-warning">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>A word of caution here is that, you should only compare models whose fit indices are acceptable. Therefore, in a real scenario, we would not compare Models 1 and 2 since they both do not reach acceptable model fit.</p>
+</div>
+</div>
+</div>
+<p>In the examples here, Model 3 is the best model representation of the data (at least, the best fitting model of the three although the RMSEA and TLI are not good enough). The non-linear growth function in Model 3 reproduces the trajectory observed when examining observed means in the univariate descriptives.</p>
 <div class="cell">
-<details><summary>Code</summary><div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">compare_no_linear</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/anova.html">anova</a></span><span class="op">(</span><span class="va">fit_nogrowth</span>, <span class="va">fit_linear</span><span class="op">)</span></span>
+<details><summary>Code</summary><div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#The `anova` function in `lavaan` computes the LRT for nested models.</span></span>
+<span><span class="va">compare_no_linear</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/anova.html">anova</a></span><span class="op">(</span><span class="va">fit_nogrowth</span>, <span class="va">fit_linear</span><span class="op">)</span></span>
 <span><span class="va">compare_no_linear</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output cell-output-stdout">
 <pre><code>
@@ -739,7 +750,18 @@ fit_nogrowth 13 1643.3 1669.7 186.433     111.19 0.33518       3  &lt; 2.2e-16 *
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
 </div>
-<p>The results (x2() = 111.19, p &lt; .001) show significant difference in model fit between Model 1 (no growth mode) and Model 2 (linear growth). Thus, Model 2, in which the linear growth factor is freely estimated (relative to Model 1) has improved data to model correspondence (or fits better) than Model 1. Remember that this is just an example of how to compare nested models, and that you should only compare models whose fit indices are acceptable.</p>
+<p>The results (<span class="math inline">\(\chi^2\)</span><sub>(3)</sub> = 111.19, <span class="math inline">\(p &lt; .001\)</span>) show significant difference in model fit between Model 1 (no growth mode, or reduced model) and Model 2 (linear growth, full model). Thus, Model 2, in which the linear growth factor is freely estimated (relative to Model 1) has improved data to model correspondence (or fits better) than Model 1.</p>
+<div class="callout callout-style-simple callout-warning">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Remember that this is just an example of how to compare nested models, and that you should only compare models whose fit indices are acceptable.</p>
+</div>
+</div>
+</div>
+<p>If the <span class="math inline">\(\chi^2\)</span> difference test returned a non-significant result (<span class="math inline">\(p &gt; .05\)</span>), then both Models 1 and 2 would be assumed to have no significant difference in model fit and thus, equally fit the data well. In this case, Model 1 (ie., the reduced model) which is a more parsimonious model compared to Model 2 should be selected as the best representation for model to data correspondence.</p>
 </section><section id="bilinearsplinepiecewisemultiphase-growth-models" class="level2"><h2 class="anchored" data-anchor-id="bilinearsplinepiecewisemultiphase-growth-models">Bilinear/Spline/Piecewise/Multiphase growth models</h2>
 <p>The <em>Quadratic growth curve model</em> is specified by adding a second-order power of time to the <em>Linear growth curve model</em>, which means that there would be a high correlation between the power terms. This can be resolved by centering the intercept growth factor in the middle of the observation, but becomes more difficult when moving to higher-order polynomials. For this reason, it is recommended to examine the data if a <em>Piecewise growth curve model</em> could be an alternative solution. The most common type is the <em>Bilinear growth curve model</em> which joins two linear growth factors. It also goes by the name <em>Spline growth model</em> and <em>Multiphase growth model</em>. They can accommodate different linear or nonlinear growth functions by segmenting the period of observation with a knot point often called <em>transition points</em> when there are theoretical reasons to separate the observations into discrete phases - hence their name <em>Multiphase growth model</em>. For example, they can be used to model developmental changes that occur during pre-school, primary school and high school with transition points at when a child begins primary school and also at when s/he begins high school.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
@@ -3206,7 +3228,7 @@ Variances:
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>Feel free to contact me at frederick.anyan@ntnu.no for advise or invitation to present workshops in your own institution.</p>
+<p>Feel free to contact me at <a href="mailto:frederick.anyan@ntnu.no" class="email">frederick.anyan@ntnu.no</a> for advise or invitation to present workshops in your own institution.</p>
 </div>
 </div>
 </div>

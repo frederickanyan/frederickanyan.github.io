@@ -173,10 +173,10 @@ PLOT:
 The *Quadratic growth curve model* is specified by adding a second-order power of time to the *Linear growth curve model*, which means that there would be a high correlation between the power terms. This can be resolved by centering the intercept growth factor in the middle of the observation, but becomes more difficult when moving to higher-order polynomials. For this reason, it is recommended to examine the data if a *Piecewise growth curve model* could be an alternative solution. The most common type is the *Bilinear growth curve model* which joins two linear growth factors. It also goes by the name *Spline growth model* and *Multiphase growth model*. They can accommodate different linear or nonlinear growth functions by segmenting the period of observation with a knot point often called *transition points* when there are theoretical reasons to separate the observations into discrete phases - hence their name *Multiphase growth model*. For example, they can be used to model developmental changes that occur during pre-school, primary school and high school with transition points at when a child begins primary school and also at when s/he begins high school.
 
 ::: panel-tabset
-## Model 4
+## Model 4_1
 
 ``` default
-TITLE:  004_Bilinear_spline_growht_curve_model
+TITLE:  004_1_Bilinear_spline_growht_curve_model
 
 DATA:
 FILE IS data.dat;
@@ -207,10 +207,10 @@ OUTPUT:
   SAMPSTAT;
 ```
 
-## Model 5
+## Model 4_2
 
 ``` default
-TITLE:  002_Bilinear_spline_growht_curve_model
+TITLE:  004_2_Bilinear_spline_growht_curve_model
 
 DATA:
 FILE IS data.dat;
@@ -241,10 +241,10 @@ OUTPUT:
   SAMPSTAT;
 ```
 
-## Model 6
+## Model 4_3
 
 ``` default
-TITLE:  002_Bilinear_spline_growht_curve_model
+TITLE:  004_3_Bilinear_spline_growht_curve_model
 
 DATA:
 FILE IS data.dat;
@@ -280,7 +280,7 @@ OUTPUT:
 Dynamic predictors that change across time can be incorporated into the growth model to simultaneously estimate the overall rate of change and the change from the time-varying predictors. These dynamic, time-varying predictors account for within-person changes by altering the trajectory of growth in an individual. Between-person differences in the within-person rate of change can be explained by the inclusion of time invariant predictors such as gender or experimental conditions. Growth factors can be hypothesized to predict distal outcomes that are measured after the growth process such as the rate of change in metacognitve therapy predicting recovery status in a 24-month follow up.
 
 ::: panel-tabset
-## Model 7
+## Model 5
 
 ``` default
 TITLE:  005_Linear_growht_curve_model_with_time_varying_covariate
@@ -332,7 +332,7 @@ OUTPUT:
   SAMPSTAT;
 ```
 
-## Model 8
+## Model 6
 
 ``` default
 TITLE:  006_Linear_growht_curve_model_with_time_invariant_covariates
@@ -367,7 +367,7 @@ OUTPUT:
   SAMPSTAT;
 ```
 
-## Model 9
+## Model 7
 
 ``` default
 TITLE:  007_Linear_growht_curve_model_with_time-invariant and time-varying covariates
@@ -414,7 +414,7 @@ OUTPUT:
   SAMPSTAT;
 ```
 
-## Model 10
+## Model 8
 
 ``` default
 TITLE:  008_Linear_growht_curve_model_with_growth_factors_predicting_distal_outcome
@@ -463,10 +463,10 @@ OUTPUT:
 A *Multiple-group growth model* approach offers greater flexibility in explaining between-person differences in the within-person rate of change than the *Growth model with time invariant covariate*. For example, the Wald test of differences in growth parameters can be tested within the multiple-group approach to explain whether, on average, the experimental group experience greater overall decline than the control group - thus providing insights into how and why individuals differ in their rate of change and by how much difference. The multiple-group approach can inform about differences in all the growth functions' parameters - including the growth factors means, co/variances and residual variances.
 
 ::: panel-tabset
-## Model 11
+## Model 9_1
 
 ``` default
-TITLE:  009_Multigroup_LGCM_M1_Invariance_model
+TITLE:  009_1_Multigroup_LGCM_M1_Invariance_model
 
 DATA:
 FILE IS data.dat;
@@ -547,10 +547,10 @@ OUTPUT:
   SAMPSTAT;
 ```
 
-## Model 12
+## Model 009_2
 
 ``` default
-TITLE:  009_Multigroup_LGCM_M2_Growth_factor_means
+TITLE:  009_2_Multigroup_LGCM_M2_Growth_factor_means
 
 DATA:
 FILE IS data.dat;
@@ -618,10 +618,10 @@ OUTPUT:
   SAMPSTAT;
 ```
 
-## Model 13
+## Model 009_3
 
 ``` default
-TITLE:  009_Multigroup_LGCM_M3_Growth_factor_means_and covariances
+TITLE:  009_3_Multigroup_LGCM_M3_Growth_factor_means_and covariances
 
 DATA:
 FILE IS data.dat;
@@ -679,10 +679,10 @@ OUTPUT:
   SAMPSTAT;
 ```
 
-## Model 14
+## Model 9_4
 
 ``` default
-TITLE:  009_Multigroup_LGCM_M4_Growth_factor_means_and covariances_with_residual_variances
+TITLE:  009_4_Multigroup_LGCM_M4_Growth_factor_means_and covariances_with_residual_variances
 
 DATA:
 FILE IS data.dat;
@@ -748,10 +748,10 @@ OUTPUT:
 Modelling the co-development among different attributes such as the comorbidity of anxiety and depression is becoming more common. *Multivariate growth models* also called *Parallel growth models* can accommodate different growth functions among two or more attributes. Care must be taken and theoretical considerations must be prioritized when choosing between *Multivariate growth curve models* and the *Growth curve models with time-varying covariates*. The two are related but answer different research questions.
 
 ::: panel-tabset
-## Model 15
+## Model 10_1
 
 ``` default
-TITLE:  010_Parallel_growth_curve_model_anxiety_and_depressive symptoms
+TITLE:  010_1_Parallel_growth_curve_model_anxiety_and_depressive symptoms
 
 DATA:
 FILE IS data.dat;
@@ -792,10 +792,10 @@ OUTPUT:
   SAMPSTAT;
 ```
 
-## Model 16
+## Model 10_2
 
 ``` default
-TITLE:  010_Parallel_growth_curve_model_anxiety_and_depressive symptoms_autocorrelations
+TITLE:  010_2_Parallel_growth_curve_model_anxiety_and_depressive symptoms_autocorrelations
 
 DATA:
 FILE IS data.dat;
@@ -840,10 +840,10 @@ OUTPUT:
   SAMPSTAT;
 ```
 
-## Model 17
+## Model 10_3
 
 ``` default
-TITLE:  010_Parallel_growth_curve_model_anxiety_and_depressive symptoms_cross_domain_corre
+TITLE:  010_3_Parallel_growth_curve_model_anxiety_and_depressive symptoms_cross_domain_corre
 DATA:
 FILE IS data.dat;
 LISTWISE = ON;
@@ -892,7 +892,7 @@ OUTPUT:
 Growth in one attribute can predict the growth that occur in another attribute later in the developmental process. The rate of change in language development during pre-school may predict the rate of change in language skills during primary school. *Sequentially contingent growth models* offer flexibility in modelling such relations in the developmental process that occur in different stages, but might be contingent on each other.
 
 ::: panel-tabset
-## Model 18
+## Model 11
 
 ``` default
 TITLE:  011_Sequentially_contingent_growth_curve_model_anxiety_T1_T5_predicting_depression
@@ -937,5 +937,5 @@ OUTPUT:
 :::
 
 ::: {.callout-warning appearance="simple"}
-Feel free to contact me at frederick.anyan@ntnu.no for advise or invitation to present workshops in your own institution.
+Feel free to contact me at <frederick.anyan@ntnu.no> for advise or invitation to present workshops in your own institution.
 :::

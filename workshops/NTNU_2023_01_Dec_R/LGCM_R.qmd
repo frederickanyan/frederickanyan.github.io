@@ -185,7 +185,7 @@ summary(fit_quadratic, fit.measures = TRUE)
 ## Model Comparisons
 Models 1, 2 and 3 can be compared since 1 and 2 are nested in (i.e., reduced forms of) Model 3. In this way, the best model to data correspondence can be determined through a chi-square difference test. However, a word of caution here is that, you should only compare models whose fit indices are acceptable. Therefore, in a real scenario, we would not compare Models 1 and 2 since they both do not reach acceptable model fit. 
 
-We would instead, nominate Model 3 as the best model representation of the data. The non-linear growth function in Model 3 reproduces the trajectory observed when examining observed means in the univariate descriptives. 
+We would instead nominate Model 3 as the best model representation of the data (at least, the best fitting model of the three although the RMSEA and TLI are not good enough). The non-linear growth function in Model 3 reproduces the trajectory observed when examining observed means in the univariate descriptives. 
 
 ```{r}
 compare_no_linear <- anova(fit_nogrowth, fit_linear)

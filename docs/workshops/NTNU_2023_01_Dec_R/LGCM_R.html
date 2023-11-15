@@ -724,7 +724,7 @@ Variances:
 </div>
 </section><section id="model-comparisons" class="level2"><h2 class="anchored" data-anchor-id="model-comparisons">Model Comparisons</h2>
 <p>Models 1, 2 and 3 can be compared since 1 and 2 are nested in (i.e., reduced forms of) Model 3. In this way, the best model to data correspondence can be determined through a chi-square difference test. However, a word of caution here is that, you should only compare models whose fit indices are acceptable. Therefore, in a real scenario, we would not compare Models 1 and 2 since they both do not reach acceptable model fit.</p>
-<p>We would instead, nominate Model 3 as the best model representation of the data. The non-linear growth function in Model 3 reproduces the trajectory observed when examining observed means in the univariate descriptives.</p>
+<p>We would instead nominate Model 3 as the best model representation of the data (at least, the best fitting model of the three although the RMSEA and TLI are not good enough). The non-linear growth function in Model 3 reproduces the trajectory observed when examining observed means in the univariate descriptives.</p>
 <div class="cell">
 <details><summary>Code</summary><div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">compare_no_linear</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/anova.html">anova</a></span><span class="op">(</span><span class="va">fit_nogrowth</span>, <span class="va">fit_linear</span><span class="op">)</span></span>
 <span><span class="va">compare_no_linear</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>

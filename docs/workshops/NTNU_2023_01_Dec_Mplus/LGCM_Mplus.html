@@ -429,10 +429,10 @@ Model 11: Sequentially contingent growth curve model.
 <h2 class="anchored" data-anchor-id="bilinearsplinepiecewisemultiphase-growth-models">Bilinear/Spline/Piecewise/Multiphase growth models</h2>
 <p>The <em>Quadratic growth curve model</em> is specified by adding a second-order power of time to the <em>Linear growth curve model</em>, which means that there would be a high correlation between the power terms. This can be resolved by centering the intercept growth factor in the middle of the observation, but becomes more difficult when moving to higher-order polynomials. For this reason, it is recommended to examine the data if a <em>Piecewise growth curve model</em> could be an alternative solution. The most common type is the <em>Bilinear growth curve model</em> which joins two linear growth factors. It also goes by the name <em>Spline growth model</em> and <em>Multiphase growth model</em>. They can accommodate different linear or nonlinear growth functions by segmenting the period of observation with a knot point often called <em>transition points</em> when there are theoretical reasons to separate the observations into discrete phases - hence their name <em>Multiphase growth model</em>. For example, they can be used to model developmental changes that occur during pre-school, primary school and high school with transition points at when a child begins primary school and also at when s/he begins high school.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Model 4</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Model 5</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false">Model 6</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Model 4_1</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Model 4_2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false">Model 4_3</a></li></ul>
 <div class="tab-content">
 <div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
-<div class="sourceCode" id="cb4"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>TITLE:  004_Bilinear_spline_growht_curve_model</span>
+<div class="sourceCode" id="cb4"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>TITLE:  004_1_Bilinear_spline_growht_curve_model</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>DATA:</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>FILE IS data.dat;</span>
@@ -463,7 +463,7 @@ Model 11: Sequentially contingent growth curve model.
 <span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>  SAMPSTAT;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
-<div class="sourceCode" id="cb5"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>TITLE:  002_Bilinear_spline_growht_curve_model</span>
+<div class="sourceCode" id="cb5"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>TITLE:  004_2_Bilinear_spline_growht_curve_model</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>DATA:</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>FILE IS data.dat;</span>
@@ -494,7 +494,7 @@ Model 11: Sequentially contingent growth curve model.
 <span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>  SAMPSTAT;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
-<div class="sourceCode" id="cb6"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>TITLE:  002_Bilinear_spline_growht_curve_model</span>
+<div class="sourceCode" id="cb6"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>TITLE:  004_3_Bilinear_spline_growht_curve_model</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>DATA:</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>FILE IS data.dat;</span>
@@ -531,7 +531,7 @@ Model 11: Sequentially contingent growth curve model.
 <h2 class="anchored" data-anchor-id="growth-models-with-time--varying-and-invariant-predictors-and-distal-outcomes">Growth models with time- varying and invariant predictors and distal outcomes</h2>
 <p>Dynamic predictors that change across time can be incorporated into the growth model to simultaneously estimate the overall rate of change and the change from the time-varying predictors. These dynamic, time-varying predictors account for within-person changes by altering the trajectory of growth in an individual. Between-person differences in the within-person rate of change can be explained by the inclusion of time invariant predictors such as gender or experimental conditions. Growth factors can be hypothesized to predict distal outcomes that are measured after the growth process such as the rate of change in metacognitve therapy predicting recovery status in a 24-month follow up.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">Model 7</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">Model 8</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-3" role="tab" aria-controls="tabset-3-3" aria-selected="false">Model 9</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-4" role="tab" aria-controls="tabset-3-4" aria-selected="false">Model 10</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">Model 5</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">Model 6</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-3" role="tab" aria-controls="tabset-3-3" aria-selected="false">Model 7</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-4" role="tab" aria-controls="tabset-3-4" aria-selected="false">Model 8</a></li></ul>
 <div class="tab-content">
 <div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
 <div class="sourceCode" id="cb7"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>TITLE:  005_Linear_growht_curve_model_with_time_varying_covariate</span>
@@ -706,10 +706,10 @@ Model 11: Sequentially contingent growth curve model.
 <h2 class="anchored" data-anchor-id="multiple-group-growth-models">Multiple group growth models</h2>
 <p>A <em>Multiple-group growth model</em> approach offers greater flexibility in explaining between-person differences in the within-person rate of change than the <em>Growth model with time invariant covariate</em>. For example, the Wald test of differences in growth parameters can be tested within the multiple-group approach to explain whether, on average, the experimental group experience greater overall decline than the control group - thus providing insights into how and why individuals differ in their rate of change and by how much difference. The multiple-group approach can inform about differences in all the growth functions’ parameters - including the growth factors means, co/variances and residual variances.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true">Model 11</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false">Model 12</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-3" role="tab" aria-controls="tabset-4-3" aria-selected="false">Model 13</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-4" role="tab" aria-controls="tabset-4-4" aria-selected="false">Model 14</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true">Model 9_1</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false">Model 009_2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-3" role="tab" aria-controls="tabset-4-3" aria-selected="false">Model 009_3</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-4" role="tab" aria-controls="tabset-4-4" aria-selected="false">Model 9_4</a></li></ul>
 <div class="tab-content">
 <div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
-<div class="sourceCode" id="cb11"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>TITLE:  009_Multigroup_LGCM_M1_Invariance_model</span>
+<div class="sourceCode" id="cb11"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>TITLE:  009_1_Multigroup_LGCM_M1_Invariance_model</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>DATA:</span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>FILE IS data.dat;</span>
@@ -790,7 +790,7 @@ Model 11: Sequentially contingent growth curve model.
 <span id="cb11-79"><a href="#cb11-79" aria-hidden="true" tabindex="-1"></a>  SAMPSTAT;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
-<div class="sourceCode" id="cb12"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>TITLE:  009_Multigroup_LGCM_M2_Growth_factor_means</span>
+<div class="sourceCode" id="cb12"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>TITLE:  009_2_Multigroup_LGCM_M2_Growth_factor_means</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>DATA:</span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>FILE IS data.dat;</span>
@@ -858,7 +858,7 @@ Model 11: Sequentially contingent growth curve model.
 <span id="cb12-66"><a href="#cb12-66" aria-hidden="true" tabindex="-1"></a>  SAMPSTAT;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="tabset-4-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-3-tab">
-<div class="sourceCode" id="cb13"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>TITLE:  009_Multigroup_LGCM_M3_Growth_factor_means_and covariances</span>
+<div class="sourceCode" id="cb13"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>TITLE:  009_3_Multigroup_LGCM_M3_Growth_factor_means_and covariances</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>DATA:</span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>FILE IS data.dat;</span>
@@ -916,7 +916,7 @@ Model 11: Sequentially contingent growth curve model.
 <span id="cb13-56"><a href="#cb13-56" aria-hidden="true" tabindex="-1"></a>  SAMPSTAT;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="tabset-4-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-4-tab">
-<div class="sourceCode" id="cb14"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>TITLE:  009_Multigroup_LGCM_M4_Growth_factor_means_and covariances_with_residual_variances</span>
+<div class="sourceCode" id="cb14"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>TITLE:  009_4_Multigroup_LGCM_M4_Growth_factor_means_and covariances_with_residual_variances</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>DATA:</span>
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>FILE IS data.dat;</span>
@@ -983,10 +983,10 @@ Model 11: Sequentially contingent growth curve model.
 <h2 class="anchored" data-anchor-id="modelling-co-development-and-multivariate-growth-models">Modelling co-development and Multivariate growth models</h2>
 <p>Modelling the co-development among different attributes such as the comorbidity of anxiety and depression is becoming more common. <em>Multivariate growth models</em> also called <em>Parallel growth models</em> can accommodate different growth functions among two or more attributes. Care must be taken and theoretical considerations must be prioritized when choosing between <em>Multivariate growth curve models</em> and the <em>Growth curve models with time-varying covariates</em>. The two are related but answer different research questions.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true">Model 15</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-2" role="tab" aria-controls="tabset-5-2" aria-selected="false">Model 16</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-3" role="tab" aria-controls="tabset-5-3" aria-selected="false">Model 17</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true">Model 10_1</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-2" role="tab" aria-controls="tabset-5-2" aria-selected="false">Model 10_2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-3" role="tab" aria-controls="tabset-5-3" aria-selected="false">Model 10_3</a></li></ul>
 <div class="tab-content">
 <div id="tabset-5-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-5-1-tab">
-<div class="sourceCode" id="cb15"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>TITLE:  010_Parallel_growth_curve_model_anxiety_and_depressive symptoms</span>
+<div class="sourceCode" id="cb15"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>TITLE:  010_1_Parallel_growth_curve_model_anxiety_and_depressive symptoms</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>DATA:</span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>FILE IS data.dat;</span>
@@ -1027,7 +1027,7 @@ Model 11: Sequentially contingent growth curve model.
 <span id="cb15-39"><a href="#cb15-39" aria-hidden="true" tabindex="-1"></a>  SAMPSTAT;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="tabset-5-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-2-tab">
-<div class="sourceCode" id="cb16"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>TITLE:  010_Parallel_growth_curve_model_anxiety_and_depressive symptoms_autocorrelations</span>
+<div class="sourceCode" id="cb16"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>TITLE:  010_2_Parallel_growth_curve_model_anxiety_and_depressive symptoms_autocorrelations</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>DATA:</span>
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>FILE IS data.dat;</span>
@@ -1072,7 +1072,7 @@ Model 11: Sequentially contingent growth curve model.
 <span id="cb16-43"><a href="#cb16-43" aria-hidden="true" tabindex="-1"></a>  SAMPSTAT;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="tabset-5-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-3-tab">
-<div class="sourceCode" id="cb17"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>TITLE:  010_Parallel_growth_curve_model_anxiety_and_depressive symptoms_cross_domain_corre</span>
+<div class="sourceCode" id="cb17"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>TITLE:  010_3_Parallel_growth_curve_model_anxiety_and_depressive symptoms_cross_domain_corre</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>DATA:</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>FILE IS data.dat;</span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>LISTWISE = ON;</span>
@@ -1122,7 +1122,7 @@ Model 11: Sequentially contingent growth curve model.
 <h2 class="anchored" data-anchor-id="sequentially-contingent-growth-models">Sequentially contingent growth models</h2>
 <p>Growth in one attribute can predict the growth that occur in another attribute later in the developmental process. The rate of change in language development during pre-school may predict the rate of change in language skills during primary school. <em>Sequentially contingent growth models</em> offer flexibility in modelling such relations in the developmental process that occur in different stages, but might be contingent on each other.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-6-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-1" role="tab" aria-controls="tabset-6-1" aria-selected="true">Model 18</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-6-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-1" role="tab" aria-controls="tabset-6-1" aria-selected="true">Model 11</a></li></ul>
 <div class="tab-content">
 <div id="tabset-6-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-6-1-tab">
 <div class="sourceCode" id="cb18"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>TITLE:  011_Sequentially_contingent_growth_curve_model_anxiety_T1_T5_predicting_depression</span>
@@ -1172,7 +1172,7 @@ Model 11: Sequentially contingent growth curve model.
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>Feel free to contact me at frederick.anyan@ntnu.no for advise or invitation to present workshops in your own institution.</p>
+<p>Feel free to contact me at <a href="mailto:frederick.anyan@ntnu.no" class="email">frederick.anyan@ntnu.no</a> for advise or invitation to present workshops in your own institution.</p>
 </div>
 </div>
 </div>

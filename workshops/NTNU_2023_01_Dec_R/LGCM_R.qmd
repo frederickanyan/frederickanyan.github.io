@@ -27,55 +27,37 @@ Throughout this workshop, we will use only one function from the lavaan package.
 Following are models shown in the tab groups
 
 **Tab group 1**
-
 <li>Model 1: The No growth or Intercept only model.</li>
-
 <li>Model 2: The Linear growth curve model.</li>
-
 <li>Model 3: The Quadratic growth curve model.</li>
 
 **Tab group 2**
-
 <li>Model 4_1: Bilinear/Spline/Piecewise/Multiphase model - M1.</li>
-
 <li>Model 4_2: Bilinear/Spline/Piecewise/Multiphase model - M2.</li>
-
 <li>Model 4_3: Bilinear/Spline/Piecewise/Multiphase model - M3.</li>
 
 **Tab group 3**
-
 <li>Model 5: The linear growth curve model with time-varying covariates.</li>
-
 <li>Model 6: The linear growth curve model with time invariant covariates.</li>
-
 <li>Model 7: The linear growth curve model with time-varying and time invariant covariates.</li>
-
 <li>Model 8: The linear growth curve model with growth factors predicting a distal outcome.</li>
 
 **Tab group 4**
-
 <li>Model 9_1: Multiple-group linear growth curve model - Full Invariance (M1).</li>
-
 <li>Model 9_2: Multiple-group linear growth curve model - Growth factor means freed(M2).</li>
-
 <li>Model 9_3: Multiple-group linear growth curve model - Growth factor means and covariances freed(M3).</li>
-
 <li>Model 9_4: Multiple-group linear growth curve model - Growth factor means, covariances and residual variances freed(M4).</li>
 
 **Tab group 5**
-
 <li>Model 10_1: Multivariate or Parallel growth curve model.</li>
-
 <li>Model 10_2: Multivariate or Parallel growth curve model with autocorrelations.</li>
-
 <li>Model 10_3: Multivariate or Parallel growth curve model with cross domain correlations.</li>
 
 **Tab group 6**
-
 <li>Model 11: Sequentially contingent growth curve model.</li>
 
 
-*If you are not interested in the practical preliminaries, you can jump to the No growth/Linear and Quadratic growth models by clicking on the options to your right*
+*You can jump to the growth models by clicking on the options to your right*
 
 ## Practical preliminaries
 
@@ -116,7 +98,7 @@ cor(lonely, use='pairwise.complete.obs') #correlation matrix
 pairs.panels(lonely, lm = TRUE) #lm = TRUE to fit a regression line if needed
 ```
 
-Explanatory test or how to intepret and use results from preactical preliminaries can be found [here](https://frederickanyan.github.io/quantposts/practical%20prelims/practical.html)
+Explanatory test or how to interpret and use results from practical preliminaries can be found [here](https://frederickanyan.github.io/quantposts/practical%20prelims/practical.html)
 
 ## Longitudinal plots
 
@@ -184,26 +166,36 @@ summary(fit_quadratic, fit.measures = TRUE)
 
 
 ## Nested model comparisons
-Models 1, 2 and 3 can be compared since Models 1 and 2 are nested in (i.e., reduced or constrained forms of) Model 3 (i.e., the full or free model). Model 1 is also a reduced form of Model 2. In this way, the best model to data correspondence can be determined through a chi-square ($\chi^2$) difference test or a likelihood ratio test (LRT). If the LRT or the $\chi^2$ difference is significant ($p < .05$), it means that the reduced or constrained model fits significantly worse than the full or free model
+Models 1, 2 and 3 can be compared since Models 1 and 2 are nested in (i.e., reduced or constrained forms of) Model 3 (i.e., the full or free model). Model 1 is also a reduced form of Model 2. In this way, the best model to data correspondence can be determined through a Chi squared ($\chi^2$) difference test or a likelihood ratio test (LRT). If the LRT or the $\chi^2$ difference is significant ($p < .05$), it means that the full model fits the data signifcant better than the reduced or constrained model. Therefore, reject the reduced or constrained model in favor of the full model.
 
 ::: {.callout-warning appearance="simple"}
 A word of caution here is that, you should only compare models whose fit indices are acceptable. Therefore, in a real scenario, we would not compare Models 1 and 2 since they both do not reach acceptable model fit. 
 :::
 
-In the examples here, Model 3 is the best model representation of the data (at least, the best fitting model of the three although the RMSEA and TLI are not good enough). The non-linear growth function in Model 3 reproduces the trajectory observed when examining observed means in the univariate descriptives. 
+In the examples here, Model 3 is the best model representation of the data (at least, the best fitting model of the three although the RMSEA and TLI are not good enough). The non-linear growth function in Model 3 reproduces the trajectory observed when examining the mean values in the univariate descriptives. [see here](https://frederickanyan.github.io/quantposts/practical%20prelims/practical.html) 
 
 ```{r}
 #The `anova` function in `lavaan` computes the LRT for nested models.
 compare_no_linear <- anova(fit_nogrowth, fit_linear)
 compare_no_linear
 ```
-The results ($\chi^2$~(3)~ = 111.19, $p < .001$) show significant difference in model fit between Model 1 (no growth mode, or reduced model) and Model 2 (linear growth, full model). Thus, Model 2, in which the linear growth factor is freely estimated (relative to Model 1) has improved data to model correspondence (or fits better) than Model 1. 
+
+The results ($\chi^2$~(3)~ = 111.19, $p < .001$) show significant difference in model fit between Model 1 (no growth mode, or reduced model) and Model 2 (linear growth, full model). Thus, Model 2, in which the linear growth factor is freely estimated (relative to Model 1) has improved data to model correspondence (or fits better) than Model 1. Therefore, Model 1 or the no growth model is rejected in favor of Model 2, the linear growth model.  
+
+All models can also be compared to determine the best fitting of the three models as follows
+
+```{r}
+#The `anova` function in `lavaan` computes the LRT for nested models.
+compare_no_linear_qua <- anova(fit_nogrowth, fit_linear, fit_quadratic)
+compare_no_linear_qua
+```
+
 
 ::: {.callout-warning appearance="simple"}
 Remember that this is just an example of how to compare nested models, and that you should only compare models whose fit indices are acceptable. 
 :::
 
-If the $\chi^2$ difference test returned a non-significant result ($p > .05$), then both Models 1 and 2 would be assumed to have no significant difference in model fit and thus, equally fit the data well. In this case, Model 1 (ie., the reduced model) which is a more parsimonious model compared to Model 2 should be selected as the best representation for model to data correspondence.  
+If the LRT or the $\chi^2$ difference test returned a non-significant result ($p > .05$), then both Models 1 and 2 would be assumed to have no significant difference in model fit and thus, equally fit the data well. In this case, Model 1 (ie., the reduced model) which is a more parsimonious model compared to Model 2 should be selected as the best representation of model to data correspondence.  
 
 
 ## Bilinear/Spline/Piecewise/Multiphase growth models
@@ -484,22 +476,62 @@ summary(fit_multigroupM4, fit.measures = TRUE)
 ```
 :::
 
+## Nested model comparisons in the Multigroup LGCM
+
+Models 9_1, 9_2, 9_3 and 9_4 can be compared since the first three are all nested in Model 9_4(i.e., they are reduced or constrained forms of the full model in Model 9_4), and the first two are nested in Model 9_3 with Model 9_1 also nested in Model 9_2. The same approach for selecting the best-fitting model as in the comparisons of Models 1, 2, and 3 is employed here too. If the LRT or the $\chi^2$ difference is significant ($p < .05$), it means that the full model fits the data significant better than the reduced or constrained model. 
+
+Additionally, and more importantly in the Multigroup framework, the constraints in each of the models have implications for how the results are interpreted. Following are the sequence of testing in the Multigroup LGCM.
+
+<ul>
+<li>M1: Constrain all parameters (growth factor means, growth factor variances and covariances, and residual variances) to be identical across groups</li>
+<li>M2: Freely estimate growth factor means across groups, while keeping constraints on the growth factor variances and covariance, and residual variances</li>
+<li>M3: Freely estimate growth factor means, growth factor variances and covariances, while keeping the constraints on the residual variances</li>
+<li>M4: Freely estimate growth factor means, growth factor variances and covariances, and residual variances across the groups</li>
+</ul>
+
+In the first model (Model 9_1 or M1), it is assumed that both groups have the same growth function and shape, along with the same magnitude of variation in the growth factors and within-person deviations from the growth function. That is to say, both groups have equal initial (starting) level and rate of change in loneliness as well as equal inter-individual differences in the initial level and rate of change as well as equal within-person variability around individual trajectories (or in the time-specific deviations from the rate of change). 
+
+In the second model (Model 9_2 or M2), the growth factors means are freely estimated while keeping all the other constraints or assumptions. Thus, the second model suggests that the groups have unequal initial level and rate of change. In the third mode (Model 9_3 or M3), inter-individual or between-person differences in the initial level, the rate of change, and the correlation between the initial level and rate of change are now also freely estimated - indicating that both groups have different initial level, rate of change and the correlation between them. Finally, Model 9_4 or M4, indicates that in addition to both groups having different initial level, rate of change and the correlation between them, within-person variability around individual trajectories are also different between both groups. 
+
+Specifically, the comparisons tests the following 
+<ul>
+<li>M1 vs. M2: Tests whether the both groups differ in their initial level and average trajectory or rate of change </li>
+<li>M2 vs. M3: Tests the extent of inter-individual or between-person differences in the initial level and rate of change in both groups </li>
+<li>M3 vs. M4: Tests the extent of within-person variability around individual trajectories</li>
+</ul>
+
+If all models fit equally well (i.e., no significant results from the LRT) then choose the model with the smallest number of parameters, M1 – most parsimonious model as it is the most constrained/reduced form
+
+
+```{r}
+#The `anova` function in `lavaan` computes the LRT for nested models.
+compare_groups <- anova(fit_multigroupM1, fit_multigroupM2, fit_multigroupM3, fit_multigroupM4)
+compare_groups
+
+```
+
+The LRT or the $\chi^2$ difference test returned significant results for all three tests, suggesting that the full model (Model 9_4 or M4) is best fitting model in this case. Substantively, this means that both groups (males and females) differ in their average initial level and growth trajectories of loneliness, the extent of between-person differences in those trajectories and the extent of variability around their individual trajectories. 
+
+Using Model 9_4 or M4, we can test whether the differences are significant as follows
+
 ## Test of parameter constraints
 
-First we test whether the intercept growth factors in both groups are significantly different using Model 9_4 since we freely estimated all model parameters in Model 9_4
+First we test whether the intercept growth factors in both groups are significantly different 
 
 ```{r}
 constint = 'intm - intf == 0'
 lavTestWald(fit_multigroupM4, constraints = constint)
 ```
 
-Then we also test whether the slope growth factors in both groups are significantly different using Model 9_4 since we freely estimated all model parameters in Model 9_4
+Then we also test whether the slope growth factors in both groups are significantly different 
 
 ```{r}
 #Then we test whether 
 constslp = 'slpm - slpf ==0'
 lavTestWald(fit_multigroupM4, constraints = constslp)
 ```
+
+All the other growth parameters can be tested for signifcant difference in both groups.
 
 ## Modelling co-development and Multivariate growth models
 

@@ -1,0 +1,11 @@
+---
+title: 'The behavioural regulation in exercise questionnaire (BREQ): psychometric properties and associations with physical activity outcomes in a Norwegian sample of physically active adults'
+date: 2023-09-06
+categories: [Mental Health, Cognitve Theory]
+---
+We investigate the factor structure and psychometric properties of different versions of the Behavioural Regulation in Exercise Questionnaire (BREQ), which measures exercise motivation, and explore the association with physical activity (PA) outcomes, in a Norwegian sample of physically active adults. The sample consisted of N = 1198, 68.9% men, mean age 49.1 (SD = 11.4) using a cross-sectional design. We analysed several BREQ versions with confirmatory factor analysis to retain the one with the best model fit: The 15-item BREQ, 19-item BREQ-2, 19-item BREQ with integrated regulation, 18-item BREQ-3, and 24-item BREQ-3. An 18-item BREQ-2 with five factors (external, introjected, identified, and intrinsic regulation, and amotivation) showed excellent model fit (χ2 = 493.848; df = 125; RMSEA =.050; 90% CI [0.045-0.054]; CFI = .975; TLI = .969; SRMR = .041), with the item “I get restless if I don’t exercise regularly” removed. Configural, metric, scalar, and strict measurement invariance was supported. Intrinsic motivation was associated with the PA index (PA-I), PA frequency, duration, and intensity, and estimated cardiorespiratory fitness (eCRF). Identified regulation was associated with PA-I, PA frequency and eCRF, and introjected regulation with PA-I and intensity. External regulation was negatively related to PA frequency and eCRF, while amotivation was unrelated to all outcomes. The results support the factorial validity of the 18-item BREQ-2. The poor model fit found for other BREQ versions warrants additional studies to investigate the psychometric properties in physically active adult samples. Autonomous motivation factors were most important for PA outcomes.
+
+[Read more](https://www.tandfonline.com/doi/full/10.1080/1612197X.2023.2255207)
+
+[Download](breq.pdf)
+

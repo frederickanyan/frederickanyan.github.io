@@ -2,7 +2,7 @@
 title: "Latent Growth Curve Models (LGCM) & Growth Mixture Models (GMM) - Two-day Workshop"
 author: "Frederick Anyan"
 date: "2021-05-19"
-categories: [Latent Growth Curve Models, Growth Mixture Models, Latent Class Growth Models, ]
+categories: [Latent Growth Curve Models, Growth Mixture Models, Latent Class Growth Models]
 image: "lgmm.PNG"
 ---
 Research questions examining within-person changes or joint within-person changes and between-person differences in the
@@ -12,4 +12,3 @@ Structural Equation Modelling (SEM) is a family of related analysis techniques �
 
 This course is a data analysis course, not a statistics course and will cover basic and advanced longitudinal SEM model using Mplus in a very easy and efficient implementation. Additionally, to make the course more ‘theory- and practice-based’ than ‘equations-based’, the models that will be estimated will be guided by the overarching objectives of longitudinal research described in the seminal work of Baltes and Nasselroade (1979).
 
-[Download](NTNU_Workshop_1_May_2021.pdf)

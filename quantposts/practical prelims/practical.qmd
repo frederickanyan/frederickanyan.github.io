@@ -1,13 +1,32 @@
 ---
-title: "Preliminaries for Longitudinal Analysis"
+title: "Things to do before fitting a growth model"
 author: "Frederick Anyan"
 date: "2023-09-13"
 #categories: []
 ---
 
-Some practical preliminary steps are useful for performing longitudinal data analyses. Some preliminary steps might even already show whether the data will support your hypothesized growth function or to fit a different growth function. Here, I go through some of the practical preliminaries required for performing longitudinal data analyses when using wide data set or long data set. I will use the loneliness data set including 442 observations recorded across five time points. 
+Some practical preliminary steps are useful for performing longitudinal data analyses. Some preliminary steps might even already show whether the data will support your hypothesized growth function or to fit a different growth function. Here, I go through some of the practical things to do before performing longitudinal data analyses (using wide or long dataset).
+
+It is important to consider whether the measured variables meet different measurement assumptions, including
+
+<ul>
+
+<li>Reliability of the measurement instrument over repeated observations since a good indication of reliability over repeated observations suggests longitudinal reliability of the instrument. Cronbach's $α$ at each time point can be calculated to show reliability of the measurement instrument. This, however, does not mean that there is reliable change within individuals over time.</li>
+
+<li>Related to reliability of the measurement instrument is ensuring that the changes observed are true changes in individuals and not changes in the measurement instrument or changes in the meaning of the attribute under study over repeated observation. Measurement invariance testing can be used useful here, but could also be difficult when repeated observations spans over several years (ages) as the meaning of attributes/constructs may differ for people of different ages</li>
+
+</ul>
+
+You can read more about things to do before fitting growth models in the reference below:
+
+<ul>
+
+<li>Grimm, K. J., Ram, N., & Estabrook, R. (2016). Growth modelling: Structural equation and multilevel modelling approaches. Guilford Publications.</li>
+
+</ul>
 
 Load packages
+
 ```{r}
 suppressPackageStartupMessages({
 library(psych)  #For practical preliminaries: univariate and bivariate descriptive stats
@@ -19,8 +38,8 @@ library(ggplot2) #For plotting longitudinal trajectories in long data set
 ```
 
 ::: panel-tabset
-
 ## WIDE DATASET
+
 ```{r}
 ## Read data 
 data <- read.csv("/Volumes/anyan-1/frederickanyan.github.io/quantpost_data/data.csv")
@@ -29,36 +48,42 @@ lonely <- data[, c("personid", "lone1", "lone2", "lone3", "lone4", "lone5")]
 ```
 
 # 1. Examine univariate and bivariate statistics
+
 ```{r}
 #Examine descriptive statistics.
 describe(lonely[, 2:6])#univariate descriptives
 ```
-First thing to notice from the descriptive statistics is the number and pattern of missing data. It can also be noticed that, the means and standard deviations show a simple pattern with increases in the feeling of loneliness from T1 through to T3, and begins to decline afterwards though to T5 coupled with increases in variation and then a decline after T3. 
+
+First thing to notice from the descriptive statistics is the number and pattern of missing data. It can also be noticed that, the means and standard deviations show a simple pattern with increases in the feeling of loneliness from T1 through to T3, and begins to decline afterwards though to T5 coupled with increases in variation and then a decline after T3.
 
 It can be noticed already from the means that a linear growth function might not accurately characterize the trajectory in the data.
 
-# 2. Describe covariance and correlation matrices 
+# 2. Describe covariance and correlation matrices
+
 ```{r}
 #bivariate descriptives
 cov(lonely[, 2:6], use='pairwise.complete.obs') #covariance matrix
 ```
 
-The feasibility of estimating a growth model can also be already determined by examining the covariance matrix. If the covariances between two adjacent time points (T1 and T2; T2 and T3; T3 and T4; T4 and T5) are higher than non-adjacent time points, this could likely indicate non-negative slope variance. For example, in our covariance matrix the observed covariances between two adjacent time points are 0.15, 0.14, 0.11 and 0.08. These covariances are sometimes higher but also smaller than non-adjacent time points and thus, does not easily determine that there would be no negative slope variance.  
+The feasibility of estimating a growth model can also be already determined by examining the covariance matrix. If the covariances between two adjacent time points (T1 and T2; T2 and T3; T3 and T4; T4 and T5) are higher than non-adjacent time points, this could likely indicate non-negative slope variance. For example, in our covariance matrix the observed covariances between two adjacent time points are 0.15, 0.14, 0.11 and 0.08. These covariances are sometimes higher but also smaller than non-adjacent time points and thus, does not easily determine that there would be no negative slope variance.
 
 ```{r}
 cor(lonely[, 2:6], use='pairwise.complete.obs') #correlation matrix
 ```
-The correlations over time provide unique information for longitudinal analysis. Here, most of the correlations show modest associations, indicating that the level of stability of individual differences across time is modest to high. 
+
+The correlations over time provide unique information for longitudinal analysis. Here, most of the correlations show modest associations, indicating that the level of stability of individual differences across time is modest to high.
 
 # 3. Supplement main analysis with bivariate scatter plots and correlations
+
 ```{r}
 #bivariate scatter plots below the diagonal, histograms on the diagonal, and the Pearson correlation above the diagonal.
 pairs.panels(lonely[, 2:6], lm = TRUE) #lm = TRUE to fit a regression line
 ```
 
-Bivariate scatter plots and correlations along with histograms can be supplemented to the main analysis. 
+Bivariate scatter plots and correlations along with histograms can be supplemented to the main analysis.
 
 # 4. Examine longitudinal plots
+
 ```{r}
 plot_trajectories(data = lonely,
                   id_var = "personid", 
@@ -69,9 +94,10 @@ plot_trajectories(data = lonely,
                   title_n = TRUE)
 ```
 
-Make longitudinal plots to show participant's scores of loneliness indexed on the y-axis and time of observation on the x-axis. Here, you can make one longitudinal plot that visualizes the overall trajectory for all participants and one that visualizes the trajectory for a subset of the participants. 
+Make longitudinal plots to show participant's scores of loneliness indexed on the y-axis and time of observation on the x-axis. Here, you can make one longitudinal plot that visualizes the overall trajectory for all participants and one that visualizes the trajectory for a subset of the participants.
 
 # 5. Examine separate individual longitudinal plots
+
 ```{r}
 plot_trajectories(data = lonely,
                   id_var = "personid", 
@@ -83,10 +109,10 @@ plot_trajectories(data = lonely,
  facet_wrap(~personid)
 ```
 
-My personal choice has been to show separate individual longitudinal plots, but you can decide to show whichever one works for you. 
-
+My personal choice has been to show separate individual longitudinal plots, but you can decide to show whichever one works for you.
 
 ## LONG DATASET
+
 ```{r}
 ## Reshape from wide to long using tidyr
 lonelylong <- lonely %>%
@@ -96,38 +122,42 @@ lonelylong <- lonely %>%
 ```
 
 # 1. Examine univariate and bivariate statistics
+
 ```{r}
 #Examine descriptive statistics using the wide data set.
 describe(lonely[, 2:6]) #univariate descriptives
 ```
-First thing to notice from the descriptive statistics is the number and pattern of missing data. It can also be noticed that, the means and standard deviations show a simple pattern with increases in the feeling of loneliness from T1 through to T3, and begins to decline afterwards though to T5 coupled with increases in variation and then a decline after T3. 
+
+First thing to notice from the descriptive statistics is the number and pattern of missing data. It can also be noticed that, the means and standard deviations show a simple pattern with increases in the feeling of loneliness from T1 through to T3, and begins to decline afterwards though to T5 coupled with increases in variation and then a decline after T3.
 
 It can be noticed already from the means that a linear growth function might not accurately characterize the trajectory in the data.
 
-# 2. Describe covariance and correlation matrices 
+# 2. Describe covariance and correlation matrices
+
 ```{r}
 #bivariate descriptives
 cov(lonely[, 2:6], use='pairwise.complete.obs') #covariance matrix
 ```
 
-The feasibility of estimating a growth model can also be already determined by examining the covariance matrix. If the covariances between two adjacent time points (T1 and T2; T2 and T3; T3 and T4; T4 and T5) are higher than non-adjacent time points, this could likely indicate non-negative slope variance. For example, in our covariance matrix the observed covariances between two adjacent time points are 0.15, 0.14, 0.11 and 0.08. These covariances are sometimes higher but also smaller than non-adjacent time points and thus, does not easily determine that there would be no negative slope variance.  
+The feasibility of estimating a growth model can also be already determined by examining the covariance matrix. If the covariances between two adjacent time points (T1 and T2; T2 and T3; T3 and T4; T4 and T5) are higher than non-adjacent time points, this could likely indicate non-negative slope variance. For example, in our covariance matrix the observed covariances between two adjacent time points are 0.15, 0.14, 0.11 and 0.08. These covariances are sometimes higher but also smaller than non-adjacent time points and thus, does not easily determine that there would be no negative slope variance.
 
 ```{r}
 cor(lonely[, 2:6], use='pairwise.complete.obs') #correlation matrix
 ```
 
-The correlations over time provide unique information for longitudinal analysis. Here, most of the correlations show modest associations, indicating that the level of stability of individual differences across time is modest to high. 
+The correlations over time provide unique information for longitudinal analysis. Here, most of the correlations show modest associations, indicating that the level of stability of individual differences across time is modest to high.
 
 # 3. Supplement main analysis with bivariate scatter plots and correlations
+
 ```{r}
 #bivariate scatter plots below the diagonal, histograms on the diagonal, and the Pearson correlation above the diagonal.
 pairs.panels(lonely[, 2:6], lm = TRUE) #lm = TRUE to fits regression line
 ```
 
-Bivariate scatter plots and correlations along with histograms can be supplemented to the main analysis. 
-
+Bivariate scatter plots and correlations along with histograms can be supplemented to the main analysis.
 
 # 4. Examine longitudinal plots
+
 ```{r}
 #Longitudinal plots with the long data set
 ggplot(data = lonelylong[which(lonelylong$personid < 26),], #Select the first 25 participants to show
@@ -138,9 +168,10 @@ ggplot(data = lonelylong[which(lonelylong$personid < 26),], #Select the first 25
        ylab("Loneliness")
 ```
 
-Make longitudinal plots to show participant's scores of loneliness indexed on the y-axis and time of observation on the x-axis. Here, you can make one longitudinal plot that visualizes the overall trajectory for all participants and one that visualizes the trajectory for a subset of the participants. 
+Make longitudinal plots to show participant's scores of loneliness indexed on the y-axis and time of observation on the x-axis. Here, you can make one longitudinal plot that visualizes the overall trajectory for all participants and one that visualizes the trajectory for a subset of the participants.
 
 # 5. Include separate individual trajectories
+
 ```{r}
 #Longitudinal plots with the long data set
 ggplot(data = lonelylong[which(lonelylong$personid < 6),], #Select only five participants 
@@ -151,7 +182,6 @@ ggplot(data = lonelylong[which(lonelylong$personid < 6),], #Select only five par
        ylab("Loneliness")+
 facet_wrap(~personid)
 ```
-My personal choice has been to show separate individual longitudinal plots, but you can decide to show whichever one works for you. 
 
+My personal choice has been to show separate individual longitudinal plots, but you can decide to show whichever one works for you.
 :::
-

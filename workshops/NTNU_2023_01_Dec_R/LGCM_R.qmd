@@ -125,7 +125,7 @@ plot_trajectories(data = lonelytrajectory,
  facet_wrap(~personid)
 ```
 
-Explanatory test or how to intepret and use results from preactical preliminaries can be found [here](https://frederickanyan.github.io/quantposts/practical%20prelims/practical.html)
+Explanatory text or how to interpret and use results from the things to do before fitting growth models to longitudinal data can be found [here](https://frederickanyan.github.io/quantposts/practical%20prelims/practical.html)
 :::
 
 ## No growth/Linear and Quadratic growth models

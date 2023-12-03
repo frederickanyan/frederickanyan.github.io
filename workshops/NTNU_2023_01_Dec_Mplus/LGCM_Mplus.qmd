@@ -8,13 +8,19 @@ image: "lgcm_tic_tvc.PNG"
 
 Different analysis techniques allow researchers to examine change in outcome variable(s) across time, including regression methods, mean comparisons and repeated measures ANOVA - although with some limitations. A common practice in developmental research is to assess growth trajectory to understand developmental change - how and when it happens, interindividual differences in how and when it happens, as well as why it happens. Structural Equation Modelling (SEM) is a family of related analysis techniques -- correlations, regression analyses and factor analyses, using both observed and unobserved (latent) variables to offer a flexible framework for analyzing developmental change in a highly convenient and statistically rigorous framework for applied research in the social, behavioral, and educational sciences.
 
-This workshop will cover basic and advanced longitudinal SEM models using Mplus in a very easy and efficient implementation. To make the workshop more 'theory- and practice-based' than 'equations-based', the models that will be estimated will be guided by the overarching objectives of longitudinal research (see Baltes & Nesselroade, 1979; McArdle, 2012).
+This workshop will cover basic and advanced longitudinal SEM models using R in a very easy and efficient implementation. To make the workshop more 'theory- and practice-based' than 'equations-based', the models that will be estimated in this workshop will be guided by the overarching objectives of longitudinal research (see Baltes & Nesselroade, 1979; McArdle, 2012).
 
 References
+
 <ul>
- <li>Baltes, P. B., & Nesselroade, J. R. (1979). History and rationale of longitudinal research. In J. R. Nasselroade & P. B.      Baltes (Eds.), Longitudinal research in the study of behaviour and development (pp. 1-39). New York: Academic Press.</li>
- <li>McArdle, J. J. (2012). Foundational issues in the contemporary modeling of longitudinal trajectories. In B. Laursen, T. D.    Little, & N. A. Card (Eds.), Handbook of developmental research methods (pp. 385-410). New York, NY: The Guilford Press.</li>
+
+<li>Baltes, P. B., & Nesselroade, J. R. (1979). History and rationale of longitudinal research. In J. R. Nasselroade & P. B. Baltes (Eds.), Longitudinal research in the study of behaviour and development (pp. 1-39). New York: Academic Press.</li>
+
+<li>McArdle, J. J. (2012). Foundational issues in the contemporary modeling of longitudinal trajectories. In B. Laursen, T. D. Little, & N. A. Card (Eds.), Handbook of developmental research methods (pp. 385-410). New York, NY: The Guilford Press.</li>
+
 </ul>
+
+[Download Presentation Slides](Longitudinal_SEM_R_and_Mplus_01_12_2023.pdf)
 
 ::: {.callout-tip appearance="simple"}
 Mplus syntax provided here are for those using Mplus, although the syntax can be modified for use in R via Mplus Automation.

@@ -219,6 +219,7 @@ Baltes, P. B., &amp; Nesselroade, J. R. (1979). History and rationale of longitu
 McArdle, J. J. (2012). Foundational issues in the contemporary modeling of longitudinal trajectories. In B. Laursen, T. D. Little, &amp; N. A. Card (Eds.), Handbook of developmental research methods (pp.&nbsp;385-410). New York, NY: The Guilford Press.
 </li>
 </ul>
+<p><a href="Longitudinal_SEM_R_and_Mplus_01_12_2023.pdf">Download Presentation Slides</a></p>
 <div class="callout callout-style-simple callout-tip">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -235,10 +236,10 @@ McArdle, J. J. (2012). Foundational issues in the contemporary modeling of longi
 Model 1: The No growth or Intercept only model.
 </li>
 <li>
-Model 2: The Linear growth curve model.
+Model 2: The Linear growth model.
 </li>
 <li>
-Model 3: The Quadratic growth curve model.
+Model 3: The Quadratic growth model.
 </li>
 <strong>Tab group 2</strong>
 <li>
@@ -252,43 +253,43 @@ Model 4_3: Bilinear/Spline/Piecewise/Multiphase model - M3.
 </li>
 <strong>Tab group 3</strong>
 <li>
-Model 5: The linear growth curve model with time-varying covariates.
+Model 6: The linear growth model with time invariant covariates.
 </li>
 <li>
-Model 6: The linear growth curve model with time invariant covariates.
+Model 5: The linear growth model with time-varying covariates.
 </li>
 <li>
-Model 7: The linear growth curve model with time-varying and time invariant covariates.
+Model 7: The linear growth model with time-varying and time invariant covariates.
 </li>
 <li>
-Model 8: The linear growth curve model with growth factors predicting a distal outcome.
+Model 8: The linear growth model with growth factors predicting a distal outcome.
 </li>
 <strong>Tab group 4</strong>
 <li>
-Model 9_1: Multiple-group linear growth curve model - Full Invariance (M1).
+Model 9_1: Multiple-group linear growth model - Full Invariance (M1).
 </li>
 <li>
-Model 9_2: Multiple-group linear growth curve model - Growth factor means freed(M2).
+Model 9_2: Multiple-group linear growth model - Growth factor means freed(M2).
 </li>
 <li>
-Model 9_3: Multiple-group linear growth curve model - Growth factor means and covariances freed(M3).
+Model 9_3: Multiple-group linear growth model - Growth factor means and covariances freed(M3).
 </li>
 <li>
-Model 9_4: Multiple-group linear growth curve model - Growth factor means, covariances and residual variances freed(M4).
+Model 9_4: Multiple-group linear growth model - Growth factor means, covariances and residual variances freed(M4).
 </li>
 <strong>Tab group 5</strong>
 <li>
-Model 10_1: Multivariate or Parallel growth curve model.
+Model 10_1: Multivariate or Parallel growth model.
 </li>
 <li>
-Model 10_2: Multivariate or Parallel growth curve model with autocorrelations.
+Model 10_2: Multivariate or Parallel growth model with autocorrelations.
 </li>
 <li>
-Model 10_3: Multivariate or Parallel growth curve model with cross domain correlations.
+Model 10_3: Multivariate or Parallel growth model with cross domain correlations.
 </li>
 <strong>Tab group 6</strong>
 <li>
-Model 11: Sequentially contingent growth curve model.
+Model 11: Sequentially contingent growth model.
 </li>
 <p><em>You can jump to the growth models by clicking on the options to your right</em></p>
 <section id="practical-preliminaries" class="level2"><h2 class="anchored" data-anchor-id="practical-preliminaries">Practical preliminaries</h2>
@@ -396,12 +397,15 @@ lone5 0.3027420 0.3557064 0.4240808 0.4342628 1.0000000</code></pre>
 <p><img src="LGCM_R_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>Explanatory text or how to interpret and use results from the things to do before fitting growth models to longitudinal data can be found <a href="https://frederickanyan.github.io/quantposts/practical%20prelims/practical.html">here</a></p>
+<p>Explanatory text or how to interpret and use results from things to do before fitting growth models to longitudinal data can be found <a href="https://frederickanyan.github.io/quantposts/practical%20prelims/practical.html">here</a></p>
 </div>
 </div>
 </div>
 </section><section id="no-growthlinear-and-quadratic-growth-models" class="level2"><h2 class="anchored" data-anchor-id="no-growthlinear-and-quadratic-growth-models">No growth/Linear and Quadratic growth models</h2>
-<p>Basic growth models are described here, including the <em>No growth model or the Intercept only model</em> - which is a logical starting point for growth modelling. We want to reject the no growth modelling as it predicts no overall rate of change across time. The next model is the <em>Linear growth curve model</em> which predicts a linear rate of change across time. The <em>Quadratic growth curve model</em> is a non-linear growth curve model that predicts an overall accelerartion or deceleration in the rate of change when controlling for the linear change across time. Although the <em>Quadratic growth curve model</em> can be a useful alternative when the <em>Linear growth curve model</em> fits poorly or there is some degree of nonlinearity in the observed data, it can present much interpretation difficulty. The <em>Latent basis growth curve model</em> allows the data to define the growth function - discussed in the workshop.</p>
+<p>Basic growth models are described here, including the <em>No growth model or the Intercept only model</em> - which is a logical starting point for growth modelling. We want to reject the no growth modelling as it predicts no overall rate of change across time.</p>
+<p>The next model is the <em>Linear growth model</em> which predicts a linear rate of change across time. The <em>Quadratic growth model</em> is a non-linear growth model that predicts an overall acceleration or deceleration in the rate of change when controlling for the linear change across time.</p>
+<p>Although the <em>Quadratic growth model</em> can be a useful alternative when the <em>Linear growth model</em> fits poorly or there is some degree of non-linearity in the observed data, it can present much interpretation difficulty. The <em>Bilinear/Spline/Piecewise/Multiphase model</em> is a great alternative for fitting non-linear trajectories.</p>
+<p>The <em>Latent basis growth model</em> allows the data to define the growth function - discussed in the workshop.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist">
 <li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Model 1</a></li>
@@ -411,7 +415,7 @@ lone5 0.3027420 0.3557064 0.4240808 0.4342628 1.0000000</code></pre>
 <div class="tab-content">
 <div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
 <div class="cell">
-<details><summary>Code</summary><div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 001_No growth curve model</span></span>
+<details><summary>Code</summary><div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 001_No growth model</span></span>
 <span><span class="va">nogrowth</span> <span class="op">&lt;-</span> <span class="st">' i =~ 1*lone1 + 1*lone2 + 1*lone3 + 1*lone4 + 1*lone5'</span></span>
 <span><span class="va">fit_nogrowth</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lavaan/man/growth.html">growth</a></span><span class="op">(</span><span class="va">nogrowth</span>, data <span class="op">=</span> <span class="va">data</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">fit_nogrowth</span>, fit.measures <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -500,7 +504,7 @@ Variances:
 </div>
 <div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
 <div class="cell">
-<details><summary>Code</summary><div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 002_Linear growth curve model</span></span>
+<details><summary>Code</summary><div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 002_Linear growth model</span></span>
 <span><span class="va">linear</span> <span class="op">&lt;-</span> <span class="st">' i =~ 1*lone1 + 1*lone2 + 1*lone3 + 1*lone4 + 1*lone5</span></span>
 <span><span class="st">           s =~ 0*lone1 + 1*lone2 + 3*lone3 + 4*lone4 + 6*lone5'</span></span>
 <span><span class="va">fit_linear</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lavaan/man/growth.html">growth</a></span><span class="op">(</span><span class="va">linear</span>, data <span class="op">=</span> <span class="va">data</span><span class="op">)</span></span>
@@ -724,18 +728,18 @@ Variances:
 </div>
 </div>
 </section><section id="nested-model-comparisons" class="level2"><h2 class="anchored" data-anchor-id="nested-model-comparisons">Nested model comparisons</h2>
-<p>Models 1, 2 and 3 can be compared since Models 1 and 2 are nested in (i.e., reduced or constrained forms of) Model 3 (i.e., the full or free model). Model 1 is also a reduced form of Model 2. In this way, the best model to data correspondence can be determined through a Chi squared (<span class="math inline">\(\chi^2\)</span>) difference test or a likelihood ratio test (LRT). If the LRT or the <span class="math inline">\(\chi^2\)</span> difference is significant (<span class="math inline">\(p &lt; .05\)</span>), it means that the full model fits the data signifcant better than the reduced or constrained model. Therefore, reject the reduced or constrained model in favor of the full model.</p>
+<p>Models 1, 2 and 3 can be compared since Models 1 and 2 are nested in (i.e., reduced or constrained forms of) Model 3 (i.e., the full or free model). Model 1 is also a reduced form of Model 2. In this way, the best model to data correspondence can be determined through a Chi squared (<span class="math inline">\(\chi^2\)</span>) difference test or a likelihood ratio test (LRT). If the LRT or the <span class="math inline">\(\chi^2\)</span> difference is significant (<span class="math inline">\(p &lt; .05\)</span>), it means that the full model fits the data significantly better than the reduced or constrained model. Therefore, reject the reduced or constrained model in favor of the full model.</p>
 <div class="callout callout-style-simple callout-warning">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>A word of caution here is that, you should only compare models whose fit indices are acceptable. Therefore, in a real scenario, we would not compare Models 1 and 2 since they both do not reach acceptable model fit.</p>
+<p>You should only compare models whose fit indices are acceptable. Therefore, in a real scenario, we would not compare Models 1 and 2 since theY do not reach acceptable model fit.</p>
 </div>
 </div>
 </div>
-<p>In the examples here, Model 3 is the best model representation of the data (at least, the best fitting model of the three although the RMSEA and TLI are not good enough). The non-linear growth function in Model 3 reproduces the trajectory observed when examining the mean values in the univariate descriptives. <a href="https://frederickanyan.github.io/quantposts/practical%20prelims/practical.html">see here</a></p>
+<p>In the examples here, Model 3 is the best model representation of the data (at least, the best fitting model, although the RMSEA and TLI are not good enough). The non-linear growth function in Model 3 reproduces the trajectory observed when examining the mean values in the univariate descriptives. <a href="https://frederickanyan.github.io/quantposts/practical%20prelims/practical.html">see here</a></p>
 <div class="cell">
 <details><summary>Code</summary><div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#The `anova` function in `lavaan` computes the LRT for nested models.</span></span>
 <span><span class="va">compare_no_linear</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/anova.html">anova</a></span><span class="op">(</span><span class="va">fit_nogrowth</span>, <span class="va">fit_linear</span><span class="op">)</span></span>
@@ -795,7 +799,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <div class="tab-content">
 <div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
 <div class="cell">
-<details><summary>Code</summary><div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 004_Bilinear/Spline growth curve model</span></span>
+<details><summary>Code</summary><div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 004_Bilinear/Spline growth model</span></span>
 <span><span class="va">bilinear</span> <span class="op">&lt;-</span> <span class="st">' i =~ 1*lone1 + 1*lone2 + 1*lone3 + 1*lone4 + 1*lone5</span></span>
 <span><span class="st">           s1 =~ 0*lone1 + 1*lone2 + 3*lone3 + 3*lone4 + 3*lone5</span></span>
 <span><span class="st">           s2 =~ 0*lone1 + 0*lone2 + 0*lone3 + 1*lone4 + 3*lone5'</span></span>
@@ -915,7 +919,7 @@ Variances:
 </div>
 <div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
 <div class="cell">
-<details><summary>Code</summary><div class="sourceCode" id="cb32"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 004_2_Bilinear/Spline growth curve model - 2</span></span>
+<details><summary>Code</summary><div class="sourceCode" id="cb32"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 004_2_Bilinear/Spline growth model - 2</span></span>
 <span><span class="va">bilinear_2</span> <span class="op">&lt;-</span> <span class="st">' i =~ 1*lone1 + 1*lone2 + 1*lone3 + 1*lone4 + 1*lone5</span></span>
 <span><span class="st">           s1 =~ -3*lone1 + -2*lone2 + 0*lone3 + 0*lone4 + 0*lone5</span></span>
 <span><span class="st">           s2 =~ 0*lone1 + 0*lone2 + 0*lone3 + 1*lone4 + 3*lone5'</span></span>
@@ -1035,7 +1039,7 @@ Variances:
 </div>
 <div id="tabset-3-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-3-tab">
 <div class="cell">
-<details><summary>Code</summary><div class="sourceCode" id="cb36"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 004_3_Bilinear/Spline growth curve model - 3</span></span>
+<details><summary>Code</summary><div class="sourceCode" id="cb36"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 004_3_Bilinear/Spline growth model - 3</span></span>
 <span><span class="va">bilinear_3</span> <span class="op">&lt;-</span> <span class="st">' i =~ 1*lone1 + 1*lone2 + 1*lone3 + 1*lone4 + 1*lone5</span></span>
 <span><span class="st">           s1 =~ -3*lone1 + -3*lone2 + -3*lone3 + -2*lone4 + 0*lone5</span></span>
 <span><span class="st">           s2 =~ -3*lone1 + -2*lone2 + 0*lone3 + 0*lone4 + 0*lone5'</span></span>
@@ -1156,7 +1160,9 @@ Variances:
 </div>
 </div>
 </section><section id="growth-models-with-time--varying-and-invariant-predictors-and-distal-outcomes" class="level2"><h2 class="anchored" data-anchor-id="growth-models-with-time--varying-and-invariant-predictors-and-distal-outcomes">Growth models with time- varying and invariant predictors and distal outcomes</h2>
-<p>Dynamic predictors that change across time can be incorporated into the growth model to simultaneously estimate the overall rate of change and the change from the time-varying predictors. These dynamic, time-varying predictors account for within-person changes by altering the trajectory of growth in an individual. Between-person differences in the within-person rate of change can be explained by the inclusion of time invariant predictors such as gender or experimental conditions. Growth factors can be hypothesized to predict distal outcomes that are measured after the growth process such as the rate of change in metacognitve therapy predicting recovery status in a 24-month follow up.</p>
+<p>Dynamic predictors that change across time can be incorporated into the growth model to simultaneously estimate the overall rate of change and the change from the time-varying predictors. These dynamic, time-varying predictors account for within-person changes by altering the trajectory of growth in an individual.</p>
+<p>Between-person differences in the within-person rate of change can be explained by the inclusion of time invariant predictors such as gender or experimental conditions.</p>
+<p>Growth factors can also be hypothesized to predict distal outcomes that are measured after the growth process such as the rate of change in metacognitve therapy predicting recovery status in a 24-month follow up.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist">
 <li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true">Model 5</a></li>
@@ -1167,7 +1173,7 @@ Variances:
 <div class="tab-content">
 <div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
 <div class="cell">
-<details><summary>Code</summary><div class="sourceCode" id="cb40"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 005_Linear growth curve model with time-varying covariates </span></span>
+<details><summary>Code</summary><div class="sourceCode" id="cb40"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 005_Linear growth model with time-varying covariates </span></span>
 <span><span class="va">timevaryingcov</span> <span class="op">&lt;-</span> <span class="st">' i =~ 1*lone1 + 1*lone2 + 1*lone3 + 1*lone4 + 1*lone5</span></span>
 <span><span class="st">           s =~ 0*lone1 + 1*lone2 + 3*lone3 + 4*lone4 + 6*lone5</span></span>
 <span><span class="st"># Time-varying covariates</span></span>
@@ -1327,7 +1333,7 @@ Variances:
 </div>
 <div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
 <div class="cell">
-<details><summary>Code</summary><div class="sourceCode" id="cb42"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 006_Linear growth curve model with time invariant covariates </span></span>
+<details><summary>Code</summary><div class="sourceCode" id="cb42"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 006_Linear growth model with time invariant covariates </span></span>
 <span><span class="va">timeinvar</span> <span class="op">&lt;-</span> <span class="st">' i =~ 1*lone1 + 1*lone2 + 1*lone3 + 1*lone4 + 1*lone5</span></span>
 <span><span class="st">           s =~ 0*lone1 + 1*lone2 + 3*lone3 + 4*lone4 + 6*lone5</span></span>
 <span><span class="st"></span></span>
@@ -1441,7 +1447,7 @@ Variances:
 </div>
 <div id="tabset-4-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-3-tab">
 <div class="cell">
-<details><summary>Code</summary><div class="sourceCode" id="cb44"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 007_Linear growth curve model with time invariant and time-varying covariates </span></span>
+<details><summary>Code</summary><div class="sourceCode" id="cb44"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 007_Linear growth model with time invariant and time-varying covariates </span></span>
 <span><span class="va">timeinvartimevar</span> <span class="op">&lt;-</span> <span class="st">' i =~ 1*lone1 + 1*lone2 + 1*lone3 + 1*lone4 + 1*lone5</span></span>
 <span><span class="st">                       s =~ 0*lone1 + 1*lone2 + 3*lone3 + 4*lone4 + 6*lone5</span></span>
 <span><span class="st"># Time-varying covariates held equal</span></span>
@@ -1687,7 +1693,7 @@ Variances:
 </div>
 <div id="tabset-4-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-4-tab">
 <div class="cell">
-<details><summary>Code</summary><div class="sourceCode" id="cb46"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 008_Linear growth curve model with growth factors predicting distal outcomes </span></span>
+<details><summary>Code</summary><div class="sourceCode" id="cb46"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 008_Linear growth model with growth factors predicting distal outcomes </span></span>
 <span><span class="va">distal</span> <span class="op">&lt;-</span> <span class="st">' i =~ 1*lone1 + 1*lone2 + 1*lone3 + 1*lone4 + 1*lone5</span></span>
 <span><span class="st">                       s =~ 0*lone1 + 1*lone2 + 3*lone3 + 4*lone4 + 6*lone5</span></span>
 <span><span class="st"></span></span>
@@ -1805,7 +1811,10 @@ Variances:
 </div>
 </div>
 </section><section id="multiple-group-growth-models" class="level2"><h2 class="anchored" data-anchor-id="multiple-group-growth-models">Multiple group growth models</h2>
-<p>A <em>Multiple-group growth model</em> approach offers greater flexibility in explaining between-person differences in the within-person rate of change than the <em>Growth model with time invariant covariate</em>. For example, the Wald test of differences in growth parameters can be tested within the multiple-group approach to explain whether, on average, the experimental group experience greater overall decline than the control group - thus providing insights into how and why individuals differ in their rate of change and by how much difference. The multiple-group approach can inform about differences in all the growth functions’ parameters - including the growth factors means, co/variances and residual variances.</p>
+<p>The <em>T 006_Linear growth model with time invariant covariate</em> does not tell us anything about variances and covariances among growth factors, residual variability, and the structure of the within-person changes. A <em>Multiple-group growth model</em> approach offers greater flexibility in explaining between-person differences in the within-person rate of change than the <em>Growth model with time invariant covariate</em>. For example, the Wald test of differences in growth parameters can be tested within the multiple-group approach to explain whether, on average, the experimental group experience greater overall decline than the control group - thus providing insights into how and why individuals differ in their rate of change and by how much difference.</p>
+<p>The multiple-group approach can inform about differences in all the growth function parameters - including the growth factors’ means, co/variances and residual variances. Thus, providing information about the differences in the overall rate of change, the extent of variability in the initial status and rate of change as well differences in the extent of fluctuations around individuals own trajectories across the groups.</p>
+<p>Take for example, the feeling of loneliness among boys and girls. In addition to investigating <em>significant differences</em> in the predicted outcome at baseline or initial status (i.e., intercept) and rate of overall change (i.e., slope), we can also investigate differences in the amounts of variability at the between and within levels of the growth model and may find that boys show greater variability in the intercept and slope indicating that boys’ trajectories are more different from one another than girls’ trajectories. The structure of within-person changes may also vary such that boys may show slower decline than girls in the feeling of loneliness. We can thus conclude, boys and girls differ in their baseline, and the average growth trajectories of loneliness, the extent of between-person differences in those trajectories and the extent of variability around their individual trajectories.</p>
+<p>The multigroup approach can tell us why and how groups of people <em>significantly differ and by how much difference</em> in their trajectories or development over time.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist">
 <li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true">Model 9_1</a></li>
@@ -2355,12 +2364,12 @@ Variances:
 <span><span class="st">#Growth factor covariances freely estimated</span></span>
 <span><span class="st">i ~~ c(covm, covf)*s</span></span>
 <span><span class="st"></span></span>
-<span><span class="st">#Residual variances of observed items freely estimated</span></span>
-<span><span class="st">lone1 ~~ c(rsm1, rsf1)*lone1</span></span>
-<span><span class="st">lone2 ~~ c(rsm2, rsf2)*lone2</span></span>
-<span><span class="st">lone3 ~~ c(rsm3, rsf3)*lone3</span></span>
-<span><span class="st">lone4 ~~ c(rsm4, rsf4)*lone4</span></span>
-<span><span class="st">lone5 ~~ c(rsm5, rsf5)*lone5</span></span>
+<span><span class="st">#Residual variances of observed items freely estimated across groups but held equal within groups</span></span>
+<span><span class="st">lone1 ~~ c(rsm, rsf)*lone1</span></span>
+<span><span class="st">lone2 ~~ c(rsm, rsf)*lone2</span></span>
+<span><span class="st">lone3 ~~ c(rsm, rsf)*lone3</span></span>
+<span><span class="st">lone4 ~~ c(rsm, rsf)*lone4</span></span>
+<span><span class="st">lone5 ~~ c(rsm, rsf)*lone5</span></span>
 <span><span class="st">'</span></span>
 <span><span class="va">fit_multigroupM4</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lavaan/man/growth.html">growth</a></span><span class="op">(</span><span class="va">multigroupM4</span>, data <span class="op">=</span> <span class="va">data</span>, group <span class="op">=</span> <span class="st">"female"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output cell-output-stderr">
@@ -2368,11 +2377,12 @@ Variances:
 </div>
 <details><summary>Code</summary><div class="sourceCode" id="cb62"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">fit_multigroupM4</span>, fit.measures <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output cell-output-stdout">
-<pre><code>lavaan 0.6.15 ended normally after 66 iterations
+<pre><code>lavaan 0.6.15 ended normally after 49 iterations
 
   Estimator                                         ML
   Optimization method                           NLMINB
   Number of model parameters                        20
+  Number of equality constraints                     8
 
   Number of observations per group:               Used       Total
     0                                              178         222
@@ -2380,12 +2390,12 @@ Variances:
 
 Model Test User Model:
                                                       
-  Test statistic                               102.181
-  Degrees of freedom                                20
+  Test statistic                               178.403
+  Degrees of freedom                                28
   P-value (Chi-square)                           0.000
   Test statistic for each group:
-    0                                           66.901
-    1                                           35.280
+    0                                           87.439
+    1                                           90.964
 
 Model Test Baseline Model:
 
@@ -2395,29 +2405,29 @@ Model Test Baseline Model:
 
 User Model versus Baseline Model:
 
-  Comparative Fit Index (CFI)                    0.815
-  Tucker-Lewis Index (TLI)                       0.815
+  Comparative Fit Index (CFI)                    0.661
+  Tucker-Lewis Index (TLI)                       0.758
 
 Loglikelihood and Information Criteria:
 
-  Loglikelihood user model (H0)               -724.074
+  Loglikelihood user model (H0)               -762.185
   Loglikelihood unrestricted model (H1)       -672.984
                                                       
-  Akaike (AIC)                                1488.149
-  Bayesian (BIC)                              1563.515
-  Sample-size adjusted Bayesian (SABIC)       1500.079
+  Akaike (AIC)                                1548.371
+  Bayesian (BIC)                              1593.591
+  Sample-size adjusted Bayesian (SABIC)       1555.529
 
 Root Mean Square Error of Approximation:
 
-  RMSEA                                          0.160
-  90 Percent confidence interval - lower         0.130
-  90 Percent confidence interval - upper         0.192
+  RMSEA                                          0.183
+  90 Percent confidence interval - lower         0.158
+  90 Percent confidence interval - upper         0.209
   P-value H_0: RMSEA &lt;= 0.050                    0.000
   P-value H_0: RMSEA &gt;= 0.080                    1.000
 
 Standardized Root Mean Square Residual:
 
-  SRMR                                           0.105
+  SRMR                                           0.172
 
 Parameter Estimates:
 
@@ -2446,12 +2456,12 @@ Latent Variables:
 Covariances:
                    Estimate  Std.Err  z-value  P(&gt;|z|)
   i ~~                                                
-    s       (covm)   -0.016    0.004   -4.393    0.000
+    s       (covm)   -0.014    0.004   -3.668    0.000
 
 Intercepts:
                    Estimate  Std.Err  z-value  P(&gt;|z|)
-    i       (intm)    1.528    0.034   44.501    0.000
-    s       (slpm)   -0.028    0.006   -4.727    0.000
+    i       (intm)    1.550    0.036   43.187    0.000
+    s       (slpm)   -0.031    0.006   -4.949    0.000
    .lone1             0.000                           
    .lone2             0.000                           
    .lone3             0.000                           
@@ -2460,13 +2470,13 @@ Intercepts:
 
 Variances:
                    Estimate  Std.Err  z-value  P(&gt;|z|)
-    i       (vinm)    0.160    0.023    6.803    0.000
-    s       (vslm)    0.003    0.001    3.483    0.000
-   .lone1   (rsm1)    0.074    0.016    4.563    0.000
-   .lone2   (rsm2)    0.143    0.019    7.686    0.000
-   .lone3   (rsm3)    0.165    0.019    8.496    0.000
-   .lone4   (rsm4)    0.124    0.015    8.199    0.000
-   .lone5   (rsm5)    0.067    0.015    4.608    0.000
+    i       (vinm)    0.163    0.025    6.632    0.000
+    s       (vslm)    0.001    0.001    1.842    0.065
+   .lone1    (rsm)    0.121    0.007   16.340    0.000
+   .lone2    (rsm)    0.121    0.007   16.340    0.000
+   .lone3    (rsm)    0.121    0.007   16.340    0.000
+   .lone4    (rsm)    0.121    0.007   16.340    0.000
+   .lone5    (rsm)    0.121    0.007   16.340    0.000
 
 
 Group 2 [1]:
@@ -2489,12 +2499,12 @@ Latent Variables:
 Covariances:
                    Estimate  Std.Err  z-value  P(&gt;|z|)
   i ~~                                                
-    s       (covf)   -0.012    0.003   -4.260    0.000
+    s       (covf)   -0.006    0.003   -2.146    0.032
 
 Intercepts:
                    Estimate  Std.Err  z-value  P(&gt;|z|)
-    i       (intf)    1.389    0.030   45.598    0.000
-    s       (slpf)   -0.022    0.006   -3.679    0.000
+    i       (intf)    1.401    0.031   44.901    0.000
+    s       (slpf)   -0.020    0.006   -3.321    0.001
    .lone1             0.000                           
    .lone2             0.000                           
    .lone3             0.000                           
@@ -2503,21 +2513,22 @@ Intercepts:
 
 Variances:
                    Estimate  Std.Err  z-value  P(&gt;|z|)
-    i       (vinf)    0.101    0.016    6.178    0.000
-    s       (vslf)    0.003    0.001    4.637    0.000
-   .lone1   (rsf1)    0.049    0.012    4.133    0.000
-   .lone2   (rsf2)    0.071    0.011    6.315    0.000
-   .lone3   (rsf3)    0.176    0.022    7.952    0.000
-   .lone4   (rsf4)    0.088    0.012    7.338    0.000
-   .lone5   (rsf5)    0.027    0.011    2.346    0.019</code></pre>
+    i       (vinf)    0.087    0.017    5.217    0.000
+    s       (vslf)    0.001    0.001    1.565    0.118
+   .lone1    (rsf)    0.093    0.006   14.595    0.000
+   .lone2    (rsf)    0.093    0.006   14.595    0.000
+   .lone3    (rsf)    0.093    0.006   14.595    0.000
+   .lone4    (rsf)    0.093    0.006   14.595    0.000
+   .lone5    (rsf)    0.093    0.006   14.595    0.000</code></pre>
 </div>
 </div>
 </div>
 </div>
 </div>
 </section><section id="nested-model-comparisons-in-the-multigroup-lgcm" class="level2"><h2 class="anchored" data-anchor-id="nested-model-comparisons-in-the-multigroup-lgcm">Nested model comparisons in the Multigroup LGCM</h2>
-<p>Models 9_1, 9_2, 9_3 and 9_4 can be compared since the first three are all nested in Model 9_4(i.e., they are reduced or constrained forms of the full model in Model 9_4), and the first two are nested in Model 9_3 with Model 9_1 also nested in Model 9_2. The same approach for selecting the best-fitting model as in the comparisons of Models 1, 2, and 3 is employed here too. If the LRT or the <span class="math inline">\(\chi^2\)</span> difference is significant (<span class="math inline">\(p &lt; .05\)</span>), it means that the full model fits the data significant better than the reduced or constrained model.</p>
-<p>Additionally, and more importantly in the Multigroup framework, the constraints in each of the models have implications for how the results are interpreted. Following are the sequence of testing in the Multigroup LGCM.</p>
+<p>Models 9_1, 9_2, 9_3 and 9_4 can be compared since the first three are all nested in Model 9_4 (i.e., they are reduced or constrained forms of the full model in Model 9_4), and the first two are nested in Model 9_3 with Model 9_1 also nested in Model 9_2. The same approach for selecting the best-fitting model as in the comparisons of Models 1, 2, and 3 is employed here too.</p>
+<p>If the LRT or the <span class="math inline">\(\chi^2\)</span> difference is significant (<span class="math inline">\(p &lt; .05\)</span>), it means that the full model fits the data significant better than the reduced or constrained model.</p>
+<p>The constraints in each of the models have implications for how the results are interpreted in the multigroup approach,. Following are the sequence of testing in the multigroup approach.</p>
 <ul>
 <li>
 M1: Constrain all parameters (growth factor means, growth factor variances and covariances, and residual variances) to be identical across groups
@@ -2532,9 +2543,12 @@ M3: Freely estimate growth factor means, growth factor variances and covariances
 M4: Freely estimate growth factor means, growth factor variances and covariances, and residual variances across the groups
 </li>
 </ul>
-<p>In the first model (Model 9_1 or M1), it is assumed that both groups have the same growth function and shape, along with the same magnitude of variation in the growth factors and within-person deviations from the growth function. That is to say, both groups have equal initial (starting) level and rate of change in loneliness as well as equal inter-individual differences in the initial level and rate of change as well as equal within-person variability around individual trajectories (or in the time-specific deviations from the rate of change).</p>
-<p>In the second model (Model 9_2 or M2), the growth factors means are freely estimated while keeping all the other constraints or assumptions. Thus, the second model suggests that the groups have unequal initial level and rate of change. In the third mode (Model 9_3 or M3), inter-individual or between-person differences in the initial level, the rate of change, and the correlation between the initial level and rate of change are now also freely estimated - indicating that both groups have different initial level, rate of change and the correlation between them. Finally, Model 9_4 or M4, indicates that in addition to both groups having different initial level, rate of change and the correlation between them, within-person variability around individual trajectories are also different between both groups.</p>
-Specifically, the comparisons tests the following
+<p>In the first model (Model 9_1 or M1), it is assumed that both groups have the same growth function and shape, along with the same magnitude of variation in the growth factors and within-person deviations from the growth function.</p>
+<p>That is to say, both groups have equal initial (starting) level and rate of change in loneliness as well as equal inter-individual differences in the initial level and rate of change as well as equal within-person variability around individual trajectories (or in the time-specific deviations from the rate of change).</p>
+<p>In the second model (Model 9_2 or M2), the growth factors means are freely estimated while keeping all the other constraints or assumptions. Thus, the second model suggests that the groups have unequal initial level and rate of change.</p>
+<p>In the third mode (Model 9_3 or M3), inter-individual or between-person differences in the initial level, the rate of change, and the correlation between the initial level and rate of change are now also freely estimated - indicating that both groups have different initial level, rate of change and the correlation between them.</p>
+<p>Finally, Model 9_4 or M4, indicates that in addition to both groups having different initial level, rate of change and the correlation between them, within-person variability around individual trajectories are also different between both groups.</p>
+Here the comparisons tests the following
 <ul>
 <li>
 M1 vs.&nbsp;M2: Tests whether the both groups differ in their initial level and average trajectory or rate of change
@@ -2546,7 +2560,7 @@ M2 vs.&nbsp;M3: Tests the extent of inter-individual or between-person differenc
 M3 vs.&nbsp;M4: Tests the extent of within-person variability around individual trajectories
 </li>
 </ul>
-<p>If all models fit equally well (i.e., no significant results from the LRT) then choose the model with the smallest number of parameters, M1 – most parsimonious model as it is the most constrained/reduced form</p>
+<p>If all models fit equally well (i.e., no significant results from the LRT or <span class="math inline">\(\chi^2\)</span> difference is not significant (<span class="math inline">\(p &gt; .05\)</span>)) then choose the model with the smallest number of parameters, M1 – most parsimonious model as it is the most constrained/reduced model.</p>
 <div class="cell">
 <details><summary>Code</summary><div class="sourceCode" id="cb64"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#The `anova` function in `lavaan` computes the LRT for nested models.</span></span>
 <span><span class="va">compare_groups</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/anova.html">anova</a></span><span class="op">(</span><span class="va">fit_multigroupM1</span>, <span class="va">fit_multigroupM2</span>, <span class="va">fit_multigroupM3</span>, <span class="va">fit_multigroupM4</span><span class="op">)</span></span>
@@ -2556,20 +2570,21 @@ M3 vs.&nbsp;M4: Tests the extent of within-person variability around individual 
 Chi-Squared Difference Test
 
                  Df    AIC    BIC  Chisq Chisq diff   RMSEA Df diff Pr(&gt;Chisq)
-fit_multigroupM4 20 1488.2 1563.5 102.18                                      
-fit_multigroupM3 29 1554.4 1595.9 186.45     84.266 0.22862       9  2.286e-14
-fit_multigroupM2 32 1558.5 1588.7 196.54     10.096 0.12158       3   0.017771
-fit_multigroupM1 34 1565.5 1588.1 207.48     10.934 0.16709       2   0.004223
-                    
-fit_multigroupM4    
-fit_multigroupM3 ***
-fit_multigroupM2 *  
-fit_multigroupM1 ** 
+fit_multigroupM4 28 1548.4 1593.6 178.40                                      
+fit_multigroupM3 29 1554.4 1595.9 186.45     8.0442 0.20983       1   0.004565
+fit_multigroupM2 32 1558.5 1588.7 196.54    10.0956 0.12158       3   0.017771
+fit_multigroupM1 34 1565.5 1588.1 207.48    10.9344 0.16709       2   0.004223
+                   
+fit_multigroupM4   
+fit_multigroupM3 **
+fit_multigroupM2 * 
+fit_multigroupM1 **
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
 </div>
-<p>The LRT or the <span class="math inline">\(\chi^2\)</span> difference test returned significant results for all three tests, suggesting that the full model (Model 9_4 or M4) is best fitting model in this case. Substantively, this means that both groups (males and females) differ in their average initial level and growth trajectories of loneliness, the extent of between-person differences in those trajectories and the extent of variability around their individual trajectories.</p>
+<p>The LRT or the <span class="math inline">\(\chi^2\)</span> difference test returned significant results for all three tests, suggesting that the full model (Model 9_4 or M4) is best fitting model in this case.</p>
+<p>Substantively, this means that both groups (males and females) differ in their average initial level and growth trajectories of loneliness, the extent of between-person differences in those trajectories and the extent of variability around their individual trajectories.</p>
 <p>Using Model 9_4 or M4, we can test whether the differences are significant as follows</p>
 </section><section id="test-of-parameter-constraints" class="level2"><h2 class="anchored" data-anchor-id="test-of-parameter-constraints">Test of parameter constraints</h2>
 <p>First we test whether the intercept growth factors in both groups are significantly different</p>
@@ -2578,13 +2593,13 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <span><span class="fu"><a href="https://rdrr.io/pkg/lavaan/man/lavTestWald.html">lavTestWald</a></span><span class="op">(</span><span class="va">fit_multigroupM4</span>, constraints <span class="op">=</span> <span class="va">constint</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output cell-output-stdout">
 <pre><code>$stat
-[1] 9.144994
+[1] 9.911781
 
 $df
 [1] 1
 
 $p.value
-[1] 0.002493995
+[1] 0.001642241
 
 $se
 [1] "standard"</code></pre>
@@ -2592,26 +2607,98 @@ $se
 </div>
 <p>Then we also test whether the slope growth factors in both groups are significantly different</p>
 <div class="cell">
-<details><summary>Code</summary><div class="sourceCode" id="cb68"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#Then we test whether </span></span>
-<span><span class="va">constslp</span> <span class="op">=</span> <span class="st">'slpm - slpf ==0'</span></span>
+<details><summary>Code</summary><div class="sourceCode" id="cb68"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">constslp</span> <span class="op">=</span> <span class="st">'slpm - slpf ==0'</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/lavaan/man/lavTestWald.html">lavTestWald</a></span><span class="op">(</span><span class="va">fit_multigroupM4</span>, constraints <span class="op">=</span> <span class="va">constslp</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output cell-output-stdout">
 <pre><code>$stat
-[1] 0.5710977
+[1] 1.494709
 
 $df
 [1] 1
 
 $p.value
-[1] 0.449823
+[1] 0.2214873
 
 $se
 [1] "standard"</code></pre>
 </div>
 </div>
-<p>All the other growth parameters can be tested for signifcant difference in both groups.</p>
+<p>Test significant difference between groups in the variability around intercept</p>
+<div class="cell">
+<details><summary>Code</summary><div class="sourceCode" id="cb70"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">constint_var</span> <span class="op">=</span> <span class="st">'vinm - vinf == 0'</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/lavaan/man/lavTestWald.html">lavTestWald</a></span><span class="op">(</span><span class="va">fit_multigroupM4</span>, constraints <span class="op">=</span> <span class="va">constint_var</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output cell-output-stdout">
+<pre><code>$stat
+[1] 6.502546
+
+$df
+[1] 1
+
+$p.value
+[1] 0.01077202
+
+$se
+[1] "standard"</code></pre>
+</div>
+</div>
+<p>Test significant difference between groups in the variability around slope</p>
+<div class="cell">
+<details><summary>Code</summary><div class="sourceCode" id="cb72"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">constslp_var</span> <span class="op">=</span> <span class="st">'vslm - vslf == 0'</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/lavaan/man/lavTestWald.html">lavTestWald</a></span><span class="op">(</span><span class="va">fit_multigroupM4</span>, constraints <span class="op">=</span> <span class="va">constslp_var</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output cell-output-stdout">
+<pre><code>$stat
+[1] 0.14985
+
+$df
+[1] 1
+
+$p.value
+[1] 0.6986788
+
+$se
+[1] "standard"</code></pre>
+</div>
+</div>
+<p>Test significant difference between groups in the variability around the relationship between intercept and slope</p>
+<div class="cell">
+<details><summary>Code</summary><div class="sourceCode" id="cb74"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">constslp_cov_var</span> <span class="op">=</span> <span class="st">'covm - covf == 0'</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/lavaan/man/lavTestWald.html">lavTestWald</a></span><span class="op">(</span><span class="va">fit_multigroupM4</span>, constraints <span class="op">=</span> <span class="va">constslp_cov_var</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output cell-output-stdout">
+<pre><code>$stat
+[1] 2.797878
+
+$df
+[1] 1
+
+$p.value
+[1] 0.09438918
+
+$se
+[1] "standard"</code></pre>
+</div>
+</div>
+<p>Test significant difference between groups in the residual variability</p>
+<div class="cell">
+<details><summary>Code</summary><div class="sourceCode" id="cb76"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">constslp_res_var</span> <span class="op">=</span> <span class="st">'rsm - rsf == 0'</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/lavaan/man/lavTestWald.html">lavTestWald</a></span><span class="op">(</span><span class="va">fit_multigroupM4</span>, constraints <span class="op">=</span> <span class="va">constslp_res_var</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output cell-output-stdout">
+<pre><code>$stat
+[1] 8.154299
+
+$df
+[1] 1
+
+$p.value
+[1] 0.004295919
+
+$se
+[1] "standard"</code></pre>
+</div>
+</div>
 </section><section id="modelling-co-development-and-multivariate-growth-models" class="level2"><h2 class="anchored" data-anchor-id="modelling-co-development-and-multivariate-growth-models">Modelling co-development and Multivariate growth models</h2>
-<p>Modelling the co-development among different attributes such as the comorbidity of anxiety and depression is becoming more common. <em>Multivariate growth models</em> also called <em>Parallel growth models</em> can accommodate different growth functions among two or more attributes. Care must be taken and theoretical considerations must be prioritized when choosing between <em>Multivariate growth curve models</em> and the <em>Growth curve models with time-varying covariates</em>. The two are related but answer different research questions.</p>
+<p>Modelling the co-development among different attributes such as the comorbidity of anxiety and depression is becoming more common. <em>Multivariate growth models</em> also called <em>Parallel growth models</em> can accommodate different growth functions among two or more attributes.</p>
+<p>Care must be taken and theoretical considerations must be prioritized when choosing between <em>Multivariate growth curve models</em> and the <em>Growth curve models with time-varying covariates</em>.</p>
+<p>The two are related but answer different research questions.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist">
 <li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-6-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-1" role="tab" aria-controls="tabset-6-1" aria-selected="true">Model 10_1</a></li>
@@ -2621,7 +2708,7 @@ $se
 <div class="tab-content">
 <div id="tabset-6-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-6-1-tab">
 <div class="cell">
-<details><summary>Code</summary><div class="sourceCode" id="cb70"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 010_1_Parallel growth curve models - anxiety and depression symptoms</span></span>
+<details><summary>Code</summary><div class="sourceCode" id="cb78"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 010_1_Parallel growth curve models - anxiety and depression symptoms</span></span>
 <span><span class="va">parallel</span> <span class="op">&lt;-</span> <span class="st">' ia =~ 1*anx1 + 1*anx2 + 1*anx3 + 1*anx4 + 1*anx5</span></span>
 <span><span class="st">                sa =~ 0*anx1 + 1*anx2 + 3*anx3 + 4*anx4 + 6*anx5</span></span>
 <span><span class="st">                id =~ 1*dep1 + 1*dep2 + 1*dep3 + 1*dep4 + 1*dep5</span></span>
@@ -2638,7 +2725,7 @@ $se
                 is not positive definite;
                 use lavInspect(fit, "cov.lv") to investigate.</code></pre>
 </div>
-<details><summary>Code</summary><div class="sourceCode" id="cb72"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">fit_parallel</span>, fit.measures <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details><summary>Code</summary><div class="sourceCode" id="cb80"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">fit_parallel</span>, fit.measures <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output cell-output-stdout">
 <pre><code>lavaan 0.6.15 ended normally after 88 iterations
 
@@ -2772,7 +2859,7 @@ Variances:
 </div>
 <div id="tabset-6-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-6-2-tab">
 <div class="cell">
-<details><summary>Code</summary><div class="sourceCode" id="cb74"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 010_2_Parallel growth curve models - anxiety and depression symptoms with autocorrelations</span></span>
+<details><summary>Code</summary><div class="sourceCode" id="cb82"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 010_2_Parallel growth curve models - anxiety and depression symptoms with autocorrelations</span></span>
 <span><span class="va">parallelautocor</span> <span class="op">&lt;-</span> <span class="st">' ia =~ 1*anx1 + 1*anx2 + 1*anx3 + 1*anx4 + 1*anx5</span></span>
 <span><span class="st">                sa =~ 0*anx1 + 1*anx2 + 3*anx3 + 4*anx4 + 6*anx5</span></span>
 <span><span class="st">                id =~ 1*dep1 + 1*dep2 + 1*dep3 + 1*dep4 + 1*dep5</span></span>
@@ -2800,7 +2887,7 @@ Variances:
                 is not positive definite;
                 use lavInspect(fit, "cov.lv") to investigate.</code></pre>
 </div>
-<details><summary>Code</summary><div class="sourceCode" id="cb76"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">fit_parallelautocor</span>, fit.measures <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details><summary>Code</summary><div class="sourceCode" id="cb84"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">fit_parallelautocor</span>, fit.measures <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output cell-output-stdout">
 <pre><code>lavaan 0.6.15 ended normally after 97 iterations
 
@@ -2950,7 +3037,7 @@ Variances:
 </div>
 <div id="tabset-6-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-6-3-tab">
 <div class="cell">
-<details><summary>Code</summary><div class="sourceCode" id="cb78"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 010_3_Parallel growth curve models - anxiety and depression symptoms with cross-domain correlations </span></span>
+<details><summary>Code</summary><div class="sourceCode" id="cb86"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 010_3_Parallel growth curve models - anxiety and depression symptoms with cross-domain correlations </span></span>
 <span><span class="va">parallelcross</span> <span class="op">&lt;-</span> <span class="st">' ia =~ 1*anx1 + 1*anx2 + 1*anx3 + 1*anx4 + 1*anx5</span></span>
 <span><span class="st">                sa =~ 0*anx1 + 1*anx2 + 3*anx3 + 4*anx4 + 6*anx5</span></span>
 <span><span class="st">                id =~ 1*dep1 + 1*dep2 + 1*dep3 + 1*dep4 + 1*dep5</span></span>
@@ -3120,7 +3207,7 @@ Variances:
 <div class="tab-content">
 <div id="tabset-7-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-7-1-tab">
 <div class="cell">
-<details><summary>Code</summary><div class="sourceCode" id="cb80"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 011_ Sequentially contingent growth curve model anxiety t1-t5 predicting depression t6-t10</span></span>
+<details><summary>Code</summary><div class="sourceCode" id="cb88"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 011_ Sequentially contingent growth curve model anxiety t1-t5 predicting depression t6-t10</span></span>
 <span><span class="va">sequential</span> <span class="op">&lt;-</span> <span class="st">' ia =~ 1*anx1 + 1*anx2 + 1*anx3 + 1*anx4 + 1*anx5</span></span>
 <span><span class="st">                sa =~ 0*anx1 + 1*anx2 + 3*anx3 + 4*anx4 + 6*anx5</span></span>
 <span><span class="st">                id =~ 1*dep6 + 1*dep7 + 1*dep8 + 1*dep9 + 1*dep10</span></span>
@@ -3151,7 +3238,7 @@ Attaching package: 'dplyr'</code></pre>
 
     intersect, setdiff, setequal, union</code></pre>
 </div>
-<details><summary>Code</summary><div class="sourceCode" id="cb84"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="va">data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<details><summary>Code</summary><div class="sourceCode" id="cb92"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="va">data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html">rename</a></span><span class="op">(</span><span class="st">"dep6"</span> <span class="op">=</span> <span class="st">"dep1"</span>,</span>
 <span>         <span class="st">"dep7"</span> <span class="op">=</span> <span class="st">"dep2"</span>,</span>
 <span>         <span class="st">"dep8"</span> <span class="op">=</span> <span class="st">"dep3"</span>,</span>
@@ -3163,7 +3250,7 @@ Attaching package: 'dplyr'</code></pre>
 <pre><code>Warning in lav_object_post_check(object): lavaan WARNING: some estimated lv
 variances are negative</code></pre>
 </div>
-<details><summary>Code</summary><div class="sourceCode" id="cb86"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">fit_sequential</span>, fit.measures <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details><summary>Code</summary><div class="sourceCode" id="cb94"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">fit_sequential</span>, fit.measures <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output cell-output-stdout">
 <pre><code>lavaan 0.6.15 ended normally after 91 iterations
 

@@ -20,6 +20,8 @@ References
 
 </ul>
 
+[Download Presentation Slides](Longitudinal_SEM_R_and_Mplus_01_12_2023.pdf)
+
 ::: {.callout-tip appearance="simple"}
 Throughout this workshop, we will use only one function from the lavaan package. So, feel at ease even if it is your first time working in the R environment.
 :::
@@ -28,8 +30,8 @@ Following are models shown in the tab groups
 
 **Tab group 1**
 <li>Model 1: The No growth or Intercept only model.</li>
-<li>Model 2: The Linear growth curve model.</li>
-<li>Model 3: The Quadratic growth curve model.</li>
+<li>Model 2: The Linear growth model.</li>
+<li>Model 3: The Quadratic growth model.</li>
 
 **Tab group 2**
 <li>Model 4_1: Bilinear/Spline/Piecewise/Multiphase model - M1.</li>
@@ -37,24 +39,24 @@ Following are models shown in the tab groups
 <li>Model 4_3: Bilinear/Spline/Piecewise/Multiphase model - M3.</li>
 
 **Tab group 3**
-<li>Model 5: The linear growth curve model with time-varying covariates.</li>
-<li>Model 6: The linear growth curve model with time invariant covariates.</li>
-<li>Model 7: The linear growth curve model with time-varying and time invariant covariates.</li>
-<li>Model 8: The linear growth curve model with growth factors predicting a distal outcome.</li>
+<li>Model 6: The linear growth model with time invariant covariates.</li>
+<li>Model 5: The linear growth model with time-varying covariates.</li>
+<li>Model 7: The linear growth model with time-varying and time invariant covariates.</li>
+<li>Model 8: The linear growth model with growth factors predicting a distal outcome.</li>
 
 **Tab group 4**
-<li>Model 9_1: Multiple-group linear growth curve model - Full Invariance (M1).</li>
-<li>Model 9_2: Multiple-group linear growth curve model - Growth factor means freed(M2).</li>
-<li>Model 9_3: Multiple-group linear growth curve model - Growth factor means and covariances freed(M3).</li>
-<li>Model 9_4: Multiple-group linear growth curve model - Growth factor means, covariances and residual variances freed(M4).</li>
+<li>Model 9_1: Multiple-group linear growth model - Full Invariance (M1).</li>
+<li>Model 9_2: Multiple-group linear growth model - Growth factor means freed(M2).</li>
+<li>Model 9_3: Multiple-group linear growth model - Growth factor means and covariances freed(M3).</li>
+<li>Model 9_4: Multiple-group linear growth model - Growth factor means, covariances and residual variances freed(M4).</li>
 
 **Tab group 5**
-<li>Model 10_1: Multivariate or Parallel growth curve model.</li>
-<li>Model 10_2: Multivariate or Parallel growth curve model with autocorrelations.</li>
-<li>Model 10_3: Multivariate or Parallel growth curve model with cross domain correlations.</li>
+<li>Model 10_1: Multivariate or Parallel growth model.</li>
+<li>Model 10_2: Multivariate or Parallel growth model with autocorrelations.</li>
+<li>Model 10_3: Multivariate or Parallel growth model with cross domain correlations.</li>
 
 **Tab group 6**
-<li>Model 11: Sequentially contingent growth curve model.</li>
+<li>Model 11: Sequentially contingent growth model.</li>
 
 
 *You can jump to the growth models by clicking on the options to your right*
@@ -125,18 +127,24 @@ plot_trajectories(data = lonelytrajectory,
  facet_wrap(~personid)
 ```
 
-Explanatory text or how to interpret and use results from the things to do before fitting growth models to longitudinal data can be found [here](https://frederickanyan.github.io/quantposts/practical%20prelims/practical.html)
+Explanatory text or how to interpret and use results from things to do before fitting growth models to longitudinal data can be found [here](https://frederickanyan.github.io/quantposts/practical%20prelims/practical.html)
 :::
 
 ## No growth/Linear and Quadratic growth models
 
-Basic growth models are described here, including the *No growth model or the Intercept only model* - which is a logical starting point for growth modelling. We want to reject the no growth modelling as it predicts no overall rate of change across time. The next model is the *Linear growth curve model* which predicts a linear rate of change across time. The *Quadratic growth curve model* is a non-linear growth curve model that predicts an overall accelerartion or deceleration in the rate of change when controlling for the linear change across time. Although the *Quadratic growth curve model* can be a useful alternative when the *Linear growth curve model* fits poorly or there is some degree of nonlinearity in the observed data, it can present much interpretation difficulty. The *Latent basis growth curve model* allows the data to define the growth function - discussed in the workshop.
+Basic growth models are described here, including the *No growth model or the Intercept only model* - which is a logical starting point for growth modelling. We want to reject the no growth modelling as it predicts no overall rate of change across time. 
+
+The next model is the *Linear growth model* which predicts a linear rate of change across time. The *Quadratic growth model* is a non-linear growth model that predicts an overall acceleration or deceleration in the rate of change when controlling for the linear change across time. 
+
+Although the *Quadratic growth model* can be a useful alternative when the *Linear growth model* fits poorly or there is some degree of non-linearity in the observed data, it can present much interpretation difficulty. The *Bilinear/Spline/Piecewise/Multiphase model* is a great alternative for fitting non-linear trajectories. 
+
+The *Latent basis growth model* allows the data to define the growth function - discussed in the workshop.
 
 ::: panel-tabset
 ## Model 1
 
 ```{r}
-# 001_No growth curve model
+# 001_No growth model
 nogrowth <- ' i =~ 1*lone1 + 1*lone2 + 1*lone3 + 1*lone4 + 1*lone5'
 fit_nogrowth <- growth(nogrowth, data = data)
 summary(fit_nogrowth, fit.measures = TRUE)
@@ -145,7 +153,7 @@ summary(fit_nogrowth, fit.measures = TRUE)
 ## Model 2
 
 ```{r}
-# 002_Linear growth curve model
+# 002_Linear growth model
 linear <- ' i =~ 1*lone1 + 1*lone2 + 1*lone3 + 1*lone4 + 1*lone5
            s =~ 0*lone1 + 1*lone2 + 3*lone3 + 4*lone4 + 6*lone5'
 fit_linear <- growth(linear, data = data)
@@ -166,13 +174,13 @@ summary(fit_quadratic, fit.measures = TRUE)
 
 
 ## Nested model comparisons
-Models 1, 2 and 3 can be compared since Models 1 and 2 are nested in (i.e., reduced or constrained forms of) Model 3 (i.e., the full or free model). Model 1 is also a reduced form of Model 2. In this way, the best model to data correspondence can be determined through a Chi squared ($\chi^2$) difference test or a likelihood ratio test (LRT). If the LRT or the $\chi^2$ difference is significant ($p < .05$), it means that the full model fits the data signifcant better than the reduced or constrained model. Therefore, reject the reduced or constrained model in favor of the full model.
+Models 1, 2 and 3 can be compared since Models 1 and 2 are nested in (i.e., reduced or constrained forms of) Model 3 (i.e., the full or free model). Model 1 is also a reduced form of Model 2. In this way, the best model to data correspondence can be determined through a Chi squared ($\chi^2$) difference test or a likelihood ratio test (LRT). If the LRT or the $\chi^2$ difference is significant ($p < .05$), it means that the full model fits the data significantly better than the reduced or constrained model. Therefore, reject the reduced or constrained model in favor of the full model. 
 
 ::: {.callout-warning appearance="simple"}
-A word of caution here is that, you should only compare models whose fit indices are acceptable. Therefore, in a real scenario, we would not compare Models 1 and 2 since they both do not reach acceptable model fit. 
+You should only compare models whose fit indices are acceptable. Therefore, in a real scenario, we would not compare Models 1 and 2 since theY do not reach acceptable model fit. 
 :::
 
-In the examples here, Model 3 is the best model representation of the data (at least, the best fitting model of the three although the RMSEA and TLI are not good enough). The non-linear growth function in Model 3 reproduces the trajectory observed when examining the mean values in the univariate descriptives. [see here](https://frederickanyan.github.io/quantposts/practical%20prelims/practical.html) 
+In the examples here, Model 3 is the best model representation of the data (at least, the best fitting model, although the RMSEA and TLI are not good enough). The non-linear growth function in Model 3 reproduces the trajectory observed when examining the mean values in the univariate descriptives. [see here](https://frederickanyan.github.io/quantposts/practical%20prelims/practical.html) 
 
 ```{r}
 #The `anova` function in `lavaan` computes the LRT for nested models.
@@ -180,7 +188,7 @@ compare_no_linear <- anova(fit_nogrowth, fit_linear)
 compare_no_linear
 ```
 
-The results ($\chi^2$~(3)~ = 111.19, $p < .001$) show significant difference in model fit between Model 1 (no growth mode, or reduced model) and Model 2 (linear growth, full model). Thus, Model 2, in which the linear growth factor is freely estimated (relative to Model 1) has improved data to model correspondence (or fits better) than Model 1. Therefore, Model 1 or the no growth model is rejected in favor of Model 2, the linear growth model.  
+The results ($\chi^2$~(3)~ = 111.19, $p < .001$) show significant difference in model fit between Model 1 (no growth mode, or reduced model) and Model 2 (linear growth, full model). Thus, Model 2, in which the linear growth factor is freely estimated (relative to Model 1) has improved data to model correspondence (or fits better) than Model 1. Therefore, Model 1 or the no growth model is rejected in favor of Model 2, the linear growth model. 
 
 All models can also be compared to determine the best fitting of the three models as follows
 
@@ -206,7 +214,7 @@ The *Quadratic growth curve model* is specified by adding a second-order power o
 ## Model 4_1
 
 ```{r}
-# 004_Bilinear/Spline growth curve model
+# 004_Bilinear/Spline growth model
 bilinear <- ' i =~ 1*lone1 + 1*lone2 + 1*lone3 + 1*lone4 + 1*lone5
            s1 =~ 0*lone1 + 1*lone2 + 3*lone3 + 3*lone4 + 3*lone5
            s2 =~ 0*lone1 + 0*lone2 + 0*lone3 + 1*lone4 + 3*lone5'
@@ -217,7 +225,7 @@ summary(fit_bilinear, fit.measures = TRUE)
 ## Model 4_2
 
 ```{r}
-# 004_2_Bilinear/Spline growth curve model - 2
+# 004_2_Bilinear/Spline growth model - 2
 bilinear_2 <- ' i =~ 1*lone1 + 1*lone2 + 1*lone3 + 1*lone4 + 1*lone5
            s1 =~ -3*lone1 + -2*lone2 + 0*lone3 + 0*lone4 + 0*lone5
            s2 =~ 0*lone1 + 0*lone2 + 0*lone3 + 1*lone4 + 3*lone5'
@@ -228,7 +236,7 @@ summary(fit_bilinear_2, fit.measures = TRUE)
 ## Model 4_3
 
 ```{r}
-# 004_3_Bilinear/Spline growth curve model - 3
+# 004_3_Bilinear/Spline growth model - 3
 bilinear_3 <- ' i =~ 1*lone1 + 1*lone2 + 1*lone3 + 1*lone4 + 1*lone5
            s1 =~ -3*lone1 + -3*lone2 + -3*lone3 + -2*lone4 + 0*lone5
            s2 =~ -3*lone1 + -2*lone2 + 0*lone3 + 0*lone4 + 0*lone5'
@@ -239,13 +247,17 @@ summary(fit_bilinear_3, fit.measures = TRUE)
 
 ## Growth models with time- varying and invariant predictors and distal outcomes
 
-Dynamic predictors that change across time can be incorporated into the growth model to simultaneously estimate the overall rate of change and the change from the time-varying predictors. These dynamic, time-varying predictors account for within-person changes by altering the trajectory of growth in an individual. Between-person differences in the within-person rate of change can be explained by the inclusion of time invariant predictors such as gender or experimental conditions. Growth factors can be hypothesized to predict distal outcomes that are measured after the growth process such as the rate of change in metacognitve therapy predicting recovery status in a 24-month follow up.
+Dynamic predictors that change across time can be incorporated into the growth model to simultaneously estimate the overall rate of change and the change from the time-varying predictors. These dynamic, time-varying predictors account for within-person changes by altering the trajectory of growth in an individual. 
+
+Between-person differences in the within-person rate of change can be explained by the inclusion of time invariant predictors such as gender or experimental conditions. 
+
+Growth factors can also be hypothesized to predict distal outcomes that are measured after the growth process such as the rate of change in metacognitve therapy predicting recovery status in a 24-month follow up.
 
 ::: panel-tabset
 ## Model 5
 
 ```{r}
-# 005_Linear growth curve model with time-varying covariates 
+# 005_Linear growth model with time-varying covariates 
 timevaryingcov <- ' i =~ 1*lone1 + 1*lone2 + 1*lone3 + 1*lone4 + 1*lone5
            s =~ 0*lone1 + 1*lone2 + 3*lone3 + 4*lone4 + 6*lone5
 # Time-varying covariates
@@ -275,7 +287,7 @@ summary(fit_timevaryingcov, fit.measures = TRUE)
 ## Model 6
 
 ```{r}
-# 006_Linear growth curve model with time invariant covariates 
+# 006_Linear growth model with time invariant covariates 
 timeinvar <- ' i =~ 1*lone1 + 1*lone2 + 1*lone3 + 1*lone4 + 1*lone5
            s =~ 0*lone1 + 1*lone2 + 3*lone3 + 4*lone4 + 6*lone5
 
@@ -290,7 +302,7 @@ summary(fit_timeinvar, fit.measures = TRUE)
 ## Model 7
 
 ```{r}
-# 007_Linear growth curve model with time invariant and time-varying covariates 
+# 007_Linear growth model with time invariant and time-varying covariates 
 timeinvartimevar <- ' i =~ 1*lone1 + 1*lone2 + 1*lone3 + 1*lone4 + 1*lone5
                        s =~ 0*lone1 + 1*lone2 + 3*lone3 + 4*lone4 + 6*lone5
 # Time-varying covariates held equal
@@ -344,7 +356,7 @@ summary(fit_timeinvar_timevar, fit.measures = TRUE)
 ## Model 8
 
 ```{r}
-# 008_Linear growth curve model with growth factors predicting distal outcomes 
+# 008_Linear growth model with growth factors predicting distal outcomes 
 distal <- ' i =~ 1*lone1 + 1*lone2 + 1*lone3 + 1*lone4 + 1*lone5
                        s =~ 0*lone1 + 1*lone2 + 3*lone3 + 4*lone4 + 6*lone5
 
@@ -360,7 +372,14 @@ summary(fit_distal, fit.measures = TRUE)
 
 ## Multiple group growth models
 
-A *Multiple-group growth model* approach offers greater flexibility in explaining between-person differences in the within-person rate of change than the *Growth model with time invariant covariate*. For example, the Wald test of differences in growth parameters can be tested within the multiple-group approach to explain whether, on average, the experimental group experience greater overall decline than the control group - thus providing insights into how and why individuals differ in their rate of change and by how much difference. The multiple-group approach can inform about differences in all the growth functions' parameters - including the growth factors means, co/variances and residual variances.
+The *T 006_Linear growth model with time invariant covariate*  does not tell us anything about variances and covariances among growth factors, residual variability, and the structure of the within-person changes. A *Multiple-group growth model* approach offers greater flexibility in explaining between-person differences in the within-person rate of change than the *Growth model with time invariant covariate*. For example, the Wald test of differences in growth parameters can be tested within the multiple-group approach to explain whether, on average, the experimental group experience greater overall decline than the control group - thus providing insights into how and why individuals differ in their rate of change and by how much difference. 
+
+The multiple-group approach can inform about differences in all the growth function parameters - including the growth factors' means, co/variances and residual variances. Thus, providing information about the differences in the overall rate of change, the extent of variability in the initial status and rate of change as well differences in the extent of fluctuations around individuals own trajectories across the groups. 
+
+Take for example, the feeling of loneliness among boys and girls. In addition to investigating *significant differences* in the predicted outcome at baseline or initial status (i.e., intercept) and rate of overall change (i.e., slope), we can also investigate differences in the amounts of variability at the between and within levels of the growth model and may find that boys show greater variability in the intercept and slope indicating that boys’ trajectories are more different from one another than girls’ trajectories. The structure of within-person changes may also vary such that boys may show slower decline than girls in the feeling of loneliness. We can thus conclude, boys and girls differ in their baseline, and the average growth trajectories of loneliness, the extent of between-person differences in those trajectories and the extent of variability around their individual trajectories.
+
+The multigroup approach can tell us why and how groups of people *significantly differ and by how much difference* in their trajectories or development over time.
+
 
 ::: panel-tabset
 ## Model 9_1
@@ -464,12 +483,12 @@ s ~~ c(vslm, vslf)*s
 #Growth factor covariances freely estimated
 i ~~ c(covm, covf)*s
 
-#Residual variances of observed items freely estimated
-lone1 ~~ c(rsm1, rsf1)*lone1
-lone2 ~~ c(rsm2, rsf2)*lone2
-lone3 ~~ c(rsm3, rsf3)*lone3
-lone4 ~~ c(rsm4, rsf4)*lone4
-lone5 ~~ c(rsm5, rsf5)*lone5
+#Residual variances of observed items freely estimated across groups but held equal within groups
+lone1 ~~ c(rsm, rsf)*lone1
+lone2 ~~ c(rsm, rsf)*lone2
+lone3 ~~ c(rsm, rsf)*lone3
+lone4 ~~ c(rsm, rsf)*lone4
+lone5 ~~ c(rsm, rsf)*lone5
 '
 fit_multigroupM4 <- growth(multigroupM4, data = data, group = "female")
 summary(fit_multigroupM4, fit.measures = TRUE)
@@ -478,9 +497,11 @@ summary(fit_multigroupM4, fit.measures = TRUE)
 
 ## Nested model comparisons in the Multigroup LGCM
 
-Models 9_1, 9_2, 9_3 and 9_4 can be compared since the first three are all nested in Model 9_4(i.e., they are reduced or constrained forms of the full model in Model 9_4), and the first two are nested in Model 9_3 with Model 9_1 also nested in Model 9_2. The same approach for selecting the best-fitting model as in the comparisons of Models 1, 2, and 3 is employed here too. If the LRT or the $\chi^2$ difference is significant ($p < .05$), it means that the full model fits the data significant better than the reduced or constrained model. 
+Models 9_1, 9_2, 9_3 and 9_4 can be compared since the first three are all nested in Model 9_4 (i.e., they are reduced or constrained forms of the full model in Model 9_4), and the first two are nested in Model 9_3 with Model 9_1 also nested in Model 9_2. The same approach for selecting the best-fitting model as in the comparisons of Models 1, 2, and 3 is employed here too. 
 
-Additionally, and more importantly in the Multigroup framework, the constraints in each of the models have implications for how the results are interpreted. Following are the sequence of testing in the Multigroup LGCM.
+If the LRT or the $\chi^2$ difference is significant ($p < .05$), it means that the full model fits the data significant better than the reduced or constrained model. 
+
+The constraints in each of the models have implications for how the results are interpreted in the multigroup approach,. Following are the sequence of testing in the multigroup approach.
 
 <ul>
 <li>M1: Constrain all parameters (growth factor means, growth factor variances and covariances, and residual variances) to be identical across groups</li>
@@ -489,18 +510,24 @@ Additionally, and more importantly in the Multigroup framework, the constraints 
 <li>M4: Freely estimate growth factor means, growth factor variances and covariances, and residual variances across the groups</li>
 </ul>
 
-In the first model (Model 9_1 or M1), it is assumed that both groups have the same growth function and shape, along with the same magnitude of variation in the growth factors and within-person deviations from the growth function. That is to say, both groups have equal initial (starting) level and rate of change in loneliness as well as equal inter-individual differences in the initial level and rate of change as well as equal within-person variability around individual trajectories (or in the time-specific deviations from the rate of change). 
+In the first model (Model 9_1 or M1), it is assumed that both groups have the same growth function and shape, along with the same magnitude of variation in the growth factors and within-person deviations from the growth function. 
 
-In the second model (Model 9_2 or M2), the growth factors means are freely estimated while keeping all the other constraints or assumptions. Thus, the second model suggests that the groups have unequal initial level and rate of change. In the third mode (Model 9_3 or M3), inter-individual or between-person differences in the initial level, the rate of change, and the correlation between the initial level and rate of change are now also freely estimated - indicating that both groups have different initial level, rate of change and the correlation between them. Finally, Model 9_4 or M4, indicates that in addition to both groups having different initial level, rate of change and the correlation between them, within-person variability around individual trajectories are also different between both groups. 
+That is to say, both groups have equal initial (starting) level and rate of change in loneliness as well as equal inter-individual differences in the initial level and rate of change as well as equal within-person variability around individual trajectories (or in the time-specific deviations from the rate of change). 
 
-Specifically, the comparisons tests the following 
+In the second model (Model 9_2 or M2), the growth factors means are freely estimated while keeping all the other constraints or assumptions. Thus, the second model suggests that the groups have unequal initial level and rate of change. 
+
+In the third mode (Model 9_3 or M3), inter-individual or between-person differences in the initial level, the rate of change, and the correlation between the initial level and rate of change are now also freely estimated - indicating that both groups have different initial level, rate of change and the correlation between them. 
+
+Finally, Model 9_4 or M4, indicates that in addition to both groups having different initial level, rate of change and the correlation between them, within-person variability around individual trajectories are also different between both groups. 
+
+Here the comparisons tests the following 
 <ul>
 <li>M1 vs. M2: Tests whether the both groups differ in their initial level and average trajectory or rate of change </li>
 <li>M2 vs. M3: Tests the extent of inter-individual or between-person differences in the initial level and rate of change in both groups </li>
 <li>M3 vs. M4: Tests the extent of within-person variability around individual trajectories</li>
 </ul>
 
-If all models fit equally well (i.e., no significant results from the LRT) then choose the model with the smallest number of parameters, M1 – most parsimonious model as it is the most constrained/reduced form
+If all models fit equally well (i.e., no significant results from the LRT or $\chi^2$ difference is not significant ($p > .05$)) then choose the model with the smallest number of parameters, M1 – most parsimonious model as it is the most constrained/reduced model.
 
 
 ```{r}
@@ -510,7 +537,9 @@ compare_groups
 
 ```
 
-The LRT or the $\chi^2$ difference test returned significant results for all three tests, suggesting that the full model (Model 9_4 or M4) is best fitting model in this case. Substantively, this means that both groups (males and females) differ in their average initial level and growth trajectories of loneliness, the extent of between-person differences in those trajectories and the extent of variability around their individual trajectories. 
+The LRT or the $\chi^2$ difference test returned significant results for all three tests, suggesting that the full model (Model 9_4 or M4) is best fitting model in this case. 
+
+Substantively, this means that both groups (males and females) differ in their average initial level and growth trajectories of loneliness, the extent of between-person differences in those trajectories and the extent of variability around their individual trajectories. 
 
 Using Model 9_4 or M4, we can test whether the differences are significant as follows
 
@@ -526,16 +555,46 @@ lavTestWald(fit_multigroupM4, constraints = constint)
 Then we also test whether the slope growth factors in both groups are significantly different 
 
 ```{r}
-#Then we test whether 
 constslp = 'slpm - slpf ==0'
 lavTestWald(fit_multigroupM4, constraints = constslp)
 ```
 
-All the other growth parameters can be tested for signifcant difference in both groups.
+Test significant difference between groups in the variability around intercept
+
+```{r}
+constint_var = 'vinm - vinf == 0'
+lavTestWald(fit_multigroupM4, constraints = constint_var)
+```
+
+Test significant difference between groups in the variability around slope
+
+```{r}
+constslp_var = 'vslm - vslf == 0'
+lavTestWald(fit_multigroupM4, constraints = constslp_var)
+```
+
+Test significant difference between groups in the variability around the relationship between intercept and slope
+
+```{r}
+constslp_cov_var = 'covm - covf == 0'
+lavTestWald(fit_multigroupM4, constraints = constslp_cov_var)
+```
+
+Test significant difference between groups in the residual variability 
+
+```{r}
+constslp_res_var = 'rsm - rsf == 0'
+lavTestWald(fit_multigroupM4, constraints = constslp_res_var)
+```
+
 
 ## Modelling co-development and Multivariate growth models
 
-Modelling the co-development among different attributes such as the comorbidity of anxiety and depression is becoming more common. *Multivariate growth models* also called *Parallel growth models* can accommodate different growth functions among two or more attributes. Care must be taken and theoretical considerations must be prioritized when choosing between *Multivariate growth curve models* and the *Growth curve models with time-varying covariates*. The two are related but answer different research questions.
+Modelling the co-development among different attributes such as the comorbidity of anxiety and depression is becoming more common. *Multivariate growth models* also called *Parallel growth models* can accommodate different growth functions among two or more attributes. 
+
+Care must be taken and theoretical considerations must be prioritized when choosing between *Multivariate growth curve models* and the *Growth curve models with time-varying covariates*. 
+
+The two are related but answer different research questions.
 
 ::: panel-tabset
 ## Model 10_1

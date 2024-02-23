@@ -420,7 +420,7 @@ lone5 0.3027420 0.3557064 0.4240808 0.4342628 1.0000000</code></pre>
 <span><span class="va">fit_nogrowth</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lavaan/man/growth.html">growth</a></span><span class="op">(</span><span class="va">nogrowth</span>, data <span class="op">=</span> <span class="va">data</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">fit_nogrowth</span>, fit.measures <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output cell-output-stdout">
-<pre><code>lavaan 0.6.15 ended normally after 37 iterations
+<pre><code>lavaan 0.6.17 ended normally after 37 iterations
 
   Estimator                                         ML
   Optimization method                           NLMINB
@@ -484,11 +484,6 @@ Latent Variables:
 
 Intercepts:
                    Estimate  Std.Err  z-value  P(&gt;|z|)
-   .lone1             0.000                           
-   .lone2             0.000                           
-   .lone3             0.000                           
-   .lone4             0.000                           
-   .lone5             0.000                           
     i                 1.398    0.018   79.816    0.000
 
 Variances:
@@ -510,7 +505,7 @@ Variances:
 <span><span class="va">fit_linear</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lavaan/man/growth.html">growth</a></span><span class="op">(</span><span class="va">linear</span>, data <span class="op">=</span> <span class="va">data</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">fit_linear</span>, fit.measures <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output cell-output-stdout">
-<pre><code>lavaan 0.6.15 ended normally after 49 iterations
+<pre><code>lavaan 0.6.17 ended normally after 49 iterations
 
   Estimator                                         ML
   Optimization method                           NLMINB
@@ -585,11 +580,6 @@ Covariances:
 
 Intercepts:
                    Estimate  Std.Err  z-value  P(&gt;|z|)
-   .lone1             0.000                           
-   .lone2             0.000                           
-   .lone3             0.000                           
-   .lone4             0.000                           
-   .lone5             0.000                           
     i                 1.466    0.024   62.031    0.000
     s                -0.025    0.004   -5.784    0.000
 
@@ -619,7 +609,7 @@ Variances:
 </div>
 <details><summary>Code</summary><div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">fit_quadratic</span>, fit.measures <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output cell-output-stdout">
-<pre><code>lavaan 0.6.15 ended normally after 76 iterations
+<pre><code>lavaan 0.6.17 ended normally after 76 iterations
 
   Estimator                                         ML
   Optimization method                           NLMINB
@@ -703,11 +693,6 @@ Covariances:
 
 Intercepts:
                    Estimate  Std.Err  z-value  P(&gt;|z|)
-   .lone1             0.000                           
-   .lone2             0.000                           
-   .lone3             0.000                           
-   .lone4             0.000                           
-   .lone5             0.000                           
     i                 1.446    0.024   60.828    0.000
     s                 0.017    0.014    1.284    0.199
     q                -0.007    0.002   -3.384    0.001
@@ -811,7 +796,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
 <details><summary>Code</summary><div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">fit_bilinear</span>, fit.measures <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output cell-output-stdout">
-<pre><code>lavaan 0.6.15 ended normally after 67 iterations
+<pre><code>lavaan 0.6.17 ended normally after 67 iterations
 
   Estimator                                         ML
   Optimization method                           NLMINB
@@ -895,11 +880,6 @@ Covariances:
 
 Intercepts:
                    Estimate  Std.Err  z-value  P(&gt;|z|)
-   .lone1             0.000                           
-   .lone2             0.000                           
-   .lone3             0.000                           
-   .lone4             0.000                           
-   .lone5             0.000                           
     i                 1.444    0.024   61.016    0.000
     s1                0.007    0.008    0.807    0.420
     s2               -0.059    0.008   -7.002    0.000
@@ -931,7 +911,7 @@ Variances:
 </div>
 <details><summary>Code</summary><div class="sourceCode" id="cb34"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">fit_bilinear_2</span>, fit.measures <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output cell-output-stdout">
-<pre><code>lavaan 0.6.15 ended normally after 62 iterations
+<pre><code>lavaan 0.6.17 ended normally after 62 iterations
 
   Estimator                                         ML
   Optimization method                           NLMINB
@@ -1015,11 +995,6 @@ Covariances:
 
 Intercepts:
                    Estimate  Std.Err  z-value  P(&gt;|z|)
-   .lone1             0.000                           
-   .lone2             0.000                           
-   .lone3             0.000                           
-   .lone4             0.000                           
-   .lone5             0.000                           
     i                 1.465    0.025   57.734    0.000
     s1                0.007    0.008    0.807    0.420
     s2               -0.059    0.008   -7.002    0.000
@@ -1051,7 +1026,7 @@ Variances:
 </div>
 <details><summary>Code</summary><div class="sourceCode" id="cb38"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">fit_bilinear_3</span>, fit.measures <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output cell-output-stdout">
-<pre><code>lavaan 0.6.15 ended normally after 68 iterations
+<pre><code>lavaan 0.6.17 ended normally after 68 iterations
 
   Estimator                                         ML
   Optimization method                           NLMINB
@@ -1135,11 +1110,6 @@ Covariances:
 
 Intercepts:
                    Estimate  Std.Err  z-value  P(&gt;|z|)
-   .lone1             0.000                           
-   .lone2             0.000                           
-   .lone3             0.000                           
-   .lone4             0.000                           
-   .lone5             0.000                           
     i                 1.288    0.019   68.489    0.000
     s1               -0.059    0.008   -7.002    0.000
     s2                0.007    0.008    0.807    0.420
@@ -1199,7 +1169,7 @@ Variances:
 <span><span class="va">fit_timevaryingcov</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lavaan/man/growth.html">growth</a></span><span class="op">(</span><span class="va">timevaryingcov</span>, data <span class="op">=</span> <span class="va">data</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">fit_timevaryingcov</span>, fit.measures <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output cell-output-stdout">
-<pre><code>lavaan 0.6.15 ended normally after 113 iterations
+<pre><code>lavaan 0.6.17 ended normally after 113 iterations
 
   Estimator                                         ML
   Optimization method                           NLMINB
@@ -1306,11 +1276,6 @@ Intercepts:
     host3             1.535    0.034   45.422    0.000
     host4             1.311    0.025   52.956    0.000
     host5             1.294    0.021   62.524    0.000
-   .lone1             0.000                           
-   .lone2             0.000                           
-   .lone3             0.000                           
-   .lone4             0.000                           
-   .lone5             0.000                           
     i                 0.414    0.026   15.690    0.000
     s                -0.010    0.007   -1.399    0.162
 
@@ -1343,7 +1308,7 @@ Variances:
 <span><span class="va">fit_timeinvar</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lavaan/man/growth.html">growth</a></span><span class="op">(</span><span class="va">timeinvar</span>, data <span class="op">=</span> <span class="va">data</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">fit_timeinvar</span>, fit.measures <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output cell-output-stdout">
-<pre><code>lavaan 0.6.15 ended normally after 55 iterations
+<pre><code>lavaan 0.6.17 ended normally after 55 iterations
 
   Estimator                                         ML
   Optimization method                           NLMINB
@@ -1425,11 +1390,6 @@ Covariances:
 
 Intercepts:
                    Estimate  Std.Err  z-value  P(&gt;|z|)
-   .lone1             0.000                           
-   .lone2             0.000                           
-   .lone3             0.000                           
-   .lone4             0.000                           
-   .lone5             0.000                           
    .i                 1.526    0.031   48.551    0.000
    .s                -0.029    0.006   -4.999    0.000
 
@@ -1496,7 +1456,7 @@ Variances:
 <span><span class="va">fit_timeinvar_timevar</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lavaan/man/growth.html">growth</a></span><span class="op">(</span><span class="va">timeinvartimevar</span>, data <span class="op">=</span> <span class="va">data</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">fit_timeinvar_timevar</span>, fit.measures <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output cell-output-stdout">
-<pre><code>lavaan 0.6.15 ended normally after 117 iterations
+<pre><code>lavaan 0.6.17 ended normally after 117 iterations
 
   Estimator                                         ML
   Optimization method                           NLMINB
@@ -1663,11 +1623,6 @@ Intercepts:
     female            0.444    0.028   15.978    0.000
     pdu1              2.079    0.041   50.747    0.000
     ace1              1.949    0.028   69.642    0.000
-   .lone1             0.000                           
-   .lone2             0.000                           
-   .lone3             0.000                           
-   .lone4             0.000                           
-   .lone5             0.000                           
    .i                 0.292    0.049    5.926    0.000
    .s                -0.005    0.010   -0.489    0.625
 
@@ -1705,7 +1660,7 @@ Variances:
 <span><span class="va">fit_distal</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lavaan/man/growth.html">growth</a></span><span class="op">(</span><span class="va">distal</span>, data <span class="op">=</span> <span class="va">data</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">fit_distal</span>, fit.measures <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output cell-output-stdout">
-<pre><code>lavaan 0.6.15 ended normally after 62 iterations
+<pre><code>lavaan 0.6.17 ended normally after 62 iterations
 
   Estimator                                         ML
   Optimization method                           NLMINB
@@ -1787,11 +1742,6 @@ Covariances:
 Intercepts:
                    Estimate  Std.Err  z-value  P(&gt;|z|)
    .subs5            -0.006    0.539   -0.011    0.991
-   .lone1             0.000                           
-   .lone2             0.000                           
-   .lone3             0.000                           
-   .lone4             0.000                           
-   .lone5             0.000                           
     i                 1.466    0.025   58.598    0.000
     s                -0.023    0.004   -5.114    0.000
 
@@ -1852,7 +1802,7 @@ Variances:
 </div>
 <details><summary>Code</summary><div class="sourceCode" id="cb50"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">fit_multigroupM1</span>, fit.measures <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output cell-output-stdout">
-<pre><code>lavaan 0.6.15 ended normally after 30 iterations
+<pre><code>lavaan 0.6.17 ended normally after 30 iterations
 
   Estimator                                         ML
   Optimization method                           NLMINB
@@ -1937,11 +1887,6 @@ Intercepts:
                    Estimate  Std.Err  z-value  P(&gt;|z|)
     i        (int)    1.484    0.025   60.198    0.000
     s        (slp)   -0.026    0.004   -5.932    0.000
-   .lone1             0.000                           
-   .lone2             0.000                           
-   .lone3             0.000                           
-   .lone4             0.000                           
-   .lone5             0.000                           
 
 Variances:
                    Estimate  Std.Err  z-value  P(&gt;|z|)
@@ -1980,11 +1925,6 @@ Intercepts:
                    Estimate  Std.Err  z-value  P(&gt;|z|)
     i        (int)    1.484    0.025   60.198    0.000
     s        (slp)   -0.026    0.004   -5.932    0.000
-   .lone1             0.000                           
-   .lone2             0.000                           
-   .lone3             0.000                           
-   .lone4             0.000                           
-   .lone5             0.000                           
 
 Variances:
                    Estimate  Std.Err  z-value  P(&gt;|z|)
@@ -2027,7 +1967,7 @@ Variances:
 </div>
 <details><summary>Code</summary><div class="sourceCode" id="cb54"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">fit_multigroupM2</span>, fit.measures <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output cell-output-stdout">
-<pre><code>lavaan 0.6.15 ended normally after 34 iterations
+<pre><code>lavaan 0.6.17 ended normally after 34 iterations
 
   Estimator                                         ML
   Optimization method                           NLMINB
@@ -2112,11 +2052,6 @@ Intercepts:
                    Estimate  Std.Err  z-value  P(&gt;|z|)
     i       (intm)    1.550    0.033   47.589    0.000
     s       (slpm)   -0.031    0.006   -5.236    0.000
-   .lone1             0.000                           
-   .lone2             0.000                           
-   .lone3             0.000                           
-   .lone4             0.000                           
-   .lone5             0.000                           
 
 Variances:
                    Estimate  Std.Err  z-value  P(&gt;|z|)
@@ -2155,11 +2090,6 @@ Intercepts:
                    Estimate  Std.Err  z-value  P(&gt;|z|)
     i       (intf)    1.401    0.036   38.400    0.000
     s       (slpf)   -0.020    0.007   -3.062    0.002
-   .lone1             0.000                           
-   .lone2             0.000                           
-   .lone3             0.000                           
-   .lone4             0.000                           
-   .lone5             0.000                           
 
 Variances:
                    Estimate  Std.Err  z-value  P(&gt;|z|)
@@ -2202,7 +2132,7 @@ Variances:
 </div>
 <details><summary>Code</summary><div class="sourceCode" id="cb58"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">fit_multigroupM3</span>, fit.measures <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output cell-output-stdout">
-<pre><code>lavaan 0.6.15 ended normally after 82 iterations
+<pre><code>lavaan 0.6.17 ended normally after 82 iterations
 
   Estimator                                         ML
   Optimization method                           NLMINB
@@ -2287,11 +2217,6 @@ Intercepts:
                    Estimate  Std.Err  z-value  P(&gt;|z|)
     i       (intm)    1.550    0.036   43.187    0.000
     s       (slpm)   -0.031    0.006   -4.949    0.000
-   .lone1             0.000                           
-   .lone2             0.000                           
-   .lone3             0.000                           
-   .lone4             0.000                           
-   .lone5             0.000                           
 
 Variances:
                    Estimate  Std.Err  z-value  P(&gt;|z|)
@@ -2330,11 +2255,6 @@ Intercepts:
                    Estimate  Std.Err  z-value  P(&gt;|z|)
     i       (intf)    1.401    0.031   44.901    0.000
     s       (slpf)   -0.020    0.006   -3.321    0.001
-   .lone1             0.000                           
-   .lone2             0.000                           
-   .lone3             0.000                           
-   .lone4             0.000                           
-   .lone5             0.000                           
 
 Variances:
                    Estimate  Std.Err  z-value  P(&gt;|z|)
@@ -2377,7 +2297,7 @@ Variances:
 </div>
 <details><summary>Code</summary><div class="sourceCode" id="cb62"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">fit_multigroupM4</span>, fit.measures <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output cell-output-stdout">
-<pre><code>lavaan 0.6.15 ended normally after 49 iterations
+<pre><code>lavaan 0.6.17 ended normally after 49 iterations
 
   Estimator                                         ML
   Optimization method                           NLMINB
@@ -2462,11 +2382,6 @@ Intercepts:
                    Estimate  Std.Err  z-value  P(&gt;|z|)
     i       (intm)    1.550    0.036   43.187    0.000
     s       (slpm)   -0.031    0.006   -4.949    0.000
-   .lone1             0.000                           
-   .lone2             0.000                           
-   .lone3             0.000                           
-   .lone4             0.000                           
-   .lone5             0.000                           
 
 Variances:
                    Estimate  Std.Err  z-value  P(&gt;|z|)
@@ -2505,11 +2420,6 @@ Intercepts:
                    Estimate  Std.Err  z-value  P(&gt;|z|)
     i       (intf)    1.401    0.031   44.901    0.000
     s       (slpf)   -0.020    0.006   -3.321    0.001
-   .lone1             0.000                           
-   .lone2             0.000                           
-   .lone3             0.000                           
-   .lone4             0.000                           
-   .lone5             0.000                           
 
 Variances:
                    Estimate  Std.Err  z-value  P(&gt;|z|)
@@ -2727,7 +2637,7 @@ $se
 </div>
 <details><summary>Code</summary><div class="sourceCode" id="cb80"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">fit_parallel</span>, fit.measures <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output cell-output-stdout">
-<pre><code>lavaan 0.6.15 ended normally after 88 iterations
+<pre><code>lavaan 0.6.17 ended normally after 88 iterations
 
   Estimator                                         ML
   Optimization method                           NLMINB
@@ -2823,16 +2733,6 @@ Covariances:
 
 Intercepts:
                    Estimate  Std.Err  z-value  P(&gt;|z|)
-   .anx1              0.000                           
-   .anx2              0.000                           
-   .anx3              0.000                           
-   .anx4              0.000                           
-   .anx5              0.000                           
-   .dep1              0.000                           
-   .dep2              0.000                           
-   .dep3              0.000                           
-   .dep4              0.000                           
-   .dep5              0.000                           
     ia                1.397    0.022   64.889    0.000
     sa               -0.032    0.004   -7.842    0.000
     id                1.545    0.027   56.861    0.000
@@ -2889,7 +2789,7 @@ Variances:
 </div>
 <details><summary>Code</summary><div class="sourceCode" id="cb84"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">fit_parallelautocor</span>, fit.measures <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output cell-output-stdout">
-<pre><code>lavaan 0.6.15 ended normally after 97 iterations
+<pre><code>lavaan 0.6.17 ended normally after 97 iterations
 
   Estimator                                         ML
   Optimization method                           NLMINB
@@ -3001,16 +2901,6 @@ Covariances:
 
 Intercepts:
                    Estimate  Std.Err  z-value  P(&gt;|z|)
-   .anx1              0.000                           
-   .anx2              0.000                           
-   .anx3              0.000                           
-   .anx4              0.000                           
-   .anx5              0.000                           
-   .dep1              0.000                           
-   .dep2              0.000                           
-   .dep3              0.000                           
-   .dep4              0.000                           
-   .dep5              0.000                           
     ia                1.394    0.021   65.511    0.000
     sa               -0.032    0.004   -8.005    0.000
     id                1.543    0.027   57.239    0.000
@@ -3058,7 +2948,7 @@ Variances:
 <span><span class="va">fit_parallelcross</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lavaan/man/growth.html">growth</a></span><span class="op">(</span><span class="va">parallelcross</span>, data <span class="op">=</span> <span class="va">data</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">fit_parallelcross</span>, fit.measures <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output cell-output-stdout">
-<pre><code>lavaan 0.6.15 ended normally after 103 iterations
+<pre><code>lavaan 0.6.17 ended normally after 103 iterations
 
   Estimator                                         ML
   Optimization method                           NLMINB
@@ -3164,16 +3054,6 @@ Covariances:
 
 Intercepts:
                    Estimate  Std.Err  z-value  P(&gt;|z|)
-   .anx1              0.000                           
-   .anx2              0.000                           
-   .anx3              0.000                           
-   .anx4              0.000                           
-   .anx5              0.000                           
-   .dep1              0.000                           
-   .dep2              0.000                           
-   .dep3              0.000                           
-   .dep4              0.000                           
-   .dep5              0.000                           
     ia                1.394    0.021   66.266    0.000
     sa               -0.031    0.004   -7.868    0.000
     id                1.548    0.026   59.272    0.000
@@ -3252,7 +3132,7 @@ variances are negative</code></pre>
 </div>
 <details><summary>Code</summary><div class="sourceCode" id="cb94"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">fit_sequential</span>, fit.measures <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output cell-output-stdout">
-<pre><code>lavaan 0.6.15 ended normally after 91 iterations
+<pre><code>lavaan 0.6.17 ended normally after 91 iterations
 
   Estimator                                         ML
   Optimization method                           NLMINB
@@ -3352,16 +3232,6 @@ Covariances:
 
 Intercepts:
                    Estimate  Std.Err  z-value  P(&gt;|z|)
-   .anx1              0.000                           
-   .anx2              0.000                           
-   .anx3              0.000                           
-   .anx4              0.000                           
-   .anx5              0.000                           
-   .dep6              0.000                           
-   .dep7              0.000                           
-   .dep8              0.000                           
-   .dep9              0.000                           
-   .dep10             0.000                           
     ia                1.396    0.023   60.533    0.000
     sa               -0.032    0.005   -7.065    0.000
    .id               -0.371    0.096   -3.869    0.000

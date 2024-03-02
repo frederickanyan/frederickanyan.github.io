@@ -1,0 +1,14 @@
+---
+title: "Introduction to JASP for Data Analysis"
+author: "Frederick Anyan"
+date: "2024-03-01"
+categories: [JASP]
+image: "jasp.png"
+---
+
+This workshop will cover an introduction to the JASP statistical tool. This is a practical workshop that will introduce you to JASP and its uses for statistical analysis through hands-on experience. Datasets will be provided.  
+
+JASP is free, open-source and widely available, user-friendly computer software program for analysing quantitative data. 
+This is a beginner’s two-hour workshop, aiming to provide participants who have interest in learning or using JASP with the skills for navigating the JASP workspace, data management and transformation in JASP, setting and creating variables, and the quantitative skills for managing and analysing datasets in JASP. 
+
+[Download Presentation](JASP intro.pdf)

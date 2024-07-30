@@ -228,7 +228,7 @@ There is no association between family income and happiness.
 </div>
 <p>Let’s see how a cross tabulation of the data looks</p>
 <div class="cell">
-<details><summary>Code</summary><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">gmodels</span><span class="op">)</span> <span class="co">#Load the packgae to access the CrossTable() function</span></span>
+<details><summary>Code</summary><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/r-gregmisc/gmodels">gmodels</a></span><span class="op">)</span> <span class="co">#Load the packgae to access the CrossTable() function</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/gmodels/man/CrossTable.html">CrossTable</a></span><span class="op">(</span><span class="va">data</span><span class="op">$</span><span class="va">Income</span>, <span class="va">data</span><span class="op">$</span><span class="va">Happy</span><span class="op">)</span> <span class="co">#Get a cross tabulation of variables with cell counts/contingency table</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output cell-output-stdout">
 <pre><code>

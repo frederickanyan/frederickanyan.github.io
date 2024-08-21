@@ -4,6 +4,8 @@ author: "Frederick Anyan"
 date: 2023-06-24
 categories: [Sets, Venn diagram]
 image: "ups.png"
+date-modified: last-modified
+#description: 
 ---
 
 Variables or columns are known as sets in upset visualization. Upset plots can be used to visualize the size and the pairwise combinations or intersections of sets and their aggregates. This facilitates easy-to-understand communication of the size and proportion of set memberships.
@@ -19,7 +21,7 @@ In this tutorial post, we will see how to use the upset() function in the 'UpSet
 Load data
 
 ```{r}
-data <- read.csv("/Volumes/anyan-1/frederickanyan.github.io/quantpost_data/dataupset.csv")#
+data <- read.csv("/Volumes/anyan/frederickanyan.github.io/quantpost_data/dataupset.csv")#
 
 
 #head(data) #first few rows

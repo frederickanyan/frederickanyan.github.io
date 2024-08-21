@@ -3,6 +3,8 @@ title: "Analyses of Two Occasion Data"
 author: "Frederick Anyan"
 date: "2023-09-15"
 categories: [Change, Difference Score, Autoregressive]
+date-modified: last-modified
+#description: 
 ---
 
 This tutorial compares different models of change when presented with data collected at two time points - which could be pre-test and post test data or some other form of observational data. 
@@ -58,7 +60,7 @@ library(ggplot2) #For visualization
 Read data 
 
 ```{r}
-data <- read.csv("/Volumes/anyan-1/frederickanyan.github.io/quantpost_data/data.csv")
+data <- read.csv("/Volumes/anyan/frederickanyan.github.io/quantpost_data/data.csv")
 data <- data[, c("personid", "lone3", "lone5")] #Create new data set with only your main outcome variables
 names(data) <- c("id", "loneT1", "loneT2") #Rename variables to represent T1 and T2
 ```

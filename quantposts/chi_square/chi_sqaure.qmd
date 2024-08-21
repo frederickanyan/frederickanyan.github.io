@@ -4,6 +4,8 @@ author: "Frederick Anyan"
 date: 2023-06-15
 categories: [Categorical variables]
 image: "chi.png"
+date-modified: last-modified
+#description: 
 ---
 We can analyse the association between two categorical variables in different ways (e.g., using stacked bar graphs or pie charts). The most common way is to use contingency tables with rows and columns displaying categories of each variable. The count or frequency of each pair of categories are given in a cell. 
 
@@ -27,7 +29,7 @@ To test the null hypothesis, we can use the CrossTable() function in the 'gmodel
 Let's see how the CrossTable() function works
 
 ```{r}
-data <- read.csv("/Volumes/anyan-1/frederickanyan.github.io/quantpost_data/happinesGSS12_long.csv")# Read the data for the analysis 
+data <- read.csv("/Volumes/anyan/frederickanyan.github.io/quantpost_data/happinesGSS12_long.csv")# Read the data for the analysis 
 ```
 
 Let's see how a cross tabulation of the data looks

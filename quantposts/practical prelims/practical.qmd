@@ -3,6 +3,8 @@ title: "Things to do before fitting a growth model"
 author: "Frederick Anyan"
 date: "2023-09-13"
 #categories: []
+date-modified: last-modified
+#description: 
 ---
 
 Some practical preliminary steps are useful for performing longitudinal data analyses. Some preliminary steps might even already show whether the data will support your hypothesized growth function or to fit a different growth function. Here, I go through some of the practical things to do before performing longitudinal data analyses (using wide or long dataset).
@@ -42,7 +44,7 @@ library(ggplot2) #For plotting longitudinal trajectories in long data set
 
 ```{r}
 ## Read data 
-data <- read.csv("/Volumes/anyan-1/frederickanyan.github.io/quantpost_data/data.csv")
+data <- read.csv("/Volumes/anyan/frederickanyan.github.io/quantpost_data/data.csv")
 #Create new data set with only your main outcome variables
 lonely <- data[, c("personid", "lone1", "lone2", "lone3", "lone4", "lone5")]
 ```

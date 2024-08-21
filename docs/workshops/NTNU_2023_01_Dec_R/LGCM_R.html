@@ -308,7 +308,7 @@ Model 11: Sequentially contingent growth model.
 </div>
 <p>Read data</p>
 <div class="cell">
-<details><summary>Code</summary><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"/Volumes/anyan-1/frederickanyan.github.io/quantpost_data/data.csv"</span><span class="op">)</span></span>
+<details><summary>Code</summary><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"/Volumes/anyan/frederickanyan.github.io/quantpost_data/data.csv"</span><span class="op">)</span></span>
 <span><span class="co">#Create new data set with only your main outcome variables</span></span>
 <span><span class="va">lonely</span> <span class="op">&lt;-</span> <span class="va">data</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"lone1"</span>, <span class="st">"lone2"</span>, <span class="st">"lone3"</span>, <span class="st">"lone4"</span>, <span class="st">"lone5"</span><span class="op">)</span><span class="op">]</span></span>
 <span><span class="co">#To plot longitudinal trajectories, create a new data set of only your outcome variables with id included</span></span>

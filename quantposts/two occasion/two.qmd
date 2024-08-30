@@ -15,15 +15,15 @@ The *Raw Change Model* also called the *Difference Score Model* is probably the 
 
 This approach is, however, heavily criticized and has a rather bad reputation even until today, and started with [Cronbach & Furby, 1970]([https://psycnet.apa.org/doi/10.1037/h0029382)
 
-<ul>
-  <li> *“Raw change” or “raw gain” scores formed by subtracting pretest scores from posttest scores lead to fallacious conclusions, primarily because such scores are systematically related to any random error of measurement. Although the unsuitability of such scores has long been discussed, they are still employed, even by some otherwise sophisticated investigators. [Cronbach & Furby, 1970, p. 68]([https://psycnet.apa.org/doi/10.1037/h0029382)* </li>
-</ul>
+::: {.callout-tip appearance="simple"} 
+ *“Raw change” or “raw gain” scores formed by subtracting pretest scores from posttest scores lead to fallacious conclusions, primarily because such scores are systematically related to any random error of measurement. Although the unsuitability of such scores has long been discussed, they are still employed, even by some otherwise sophisticated investigators. [Cronbach & Furby, 1970, p. 68]([https://psycnet.apa.org/doi/10.1037/h0029382)* 
+:::
 
 The Difference Score Model is badly reputed mainly for the following:
-<ul>
-  <li> High correlation between T1 scores and the computed D scores. With very high T1 scores, the D tends to be highly negatively correlated. </li>
-  <li> Measurement error contained in T1 and T2 scores become attenuated in the computed D scores, greatly limiting the reliability of the computed D scores.</li>
-</ul>
+
+-   High correlation between T1 scores and the computed D scores. With very high T1 scores, the D tends to be highly negatively correlated.
+-   Measurement error contained in T1 and T2 scores become attenuated in the computed D scores, greatly limiting the reliability of the computed D scores.
+
 
 Some authors have suggested ways to mitigate the problems of the *Difference Score Model* including, to account for the confounding effects of T1 when using the computed D scores in subsequent analysis. See [Rogosa & Willett, 1983](https://www.jstor.org/stable/1434950); [Gottman & Rushe, 1993](https://psycnet.apa.org/doi/10.1037/0022-006X.61.6.907)
 
@@ -31,10 +31,10 @@ Some authors have suggested ways to mitigate the problems of the *Difference Sco
 # 2. Autoregressive Model of Change
 
 The *Autoregressive Model of Change*  focuses on the end state by using T2 as the DV and T1 as the predictor. This model responds to questions about individual differences in change by regressing T2 on T1, and does not answer questions about  intraindividual change same as for many panel models. The regression coefficient resulting from regressing a variable at later time point on itself at an earlier time point is called the autoregressive effect. In this case, the regression of T2 on T1 is the autoregressive effect, which describes the stability of individual differences from T1 to T2. 
-<ul>
-  <li> A larger coefficient means that individual differences have not changed much from T1 to T2 - higher stability.</li>
-  <li> A smaller autoregressive coefficient means that there has been a larger change in individual differences from T1 to T2 - lower stability. </li>
-</ul>
+
+-   A larger coefficient means that individual differences have not changed much from T1 to T2 - higher stability.
+-   A smaller autoregressive coefficient means that there has been a larger change in individual differences from T1 to T2 - lower stability. 
+
 
 The *Autoregressive Model of Change* has had some appeal since the 70s and obviously since the criticisms of the *Difference Score Model* by [Cronbach & Furby, 1970, p. 68]([https://psycnet.apa.org/doi/10.1037/h0029382). The appealing feature of the The *Autoregressive Model of Change* stems from the fact that when T2 is regressed on T1 (autoregressive effect), the remaining variance or the residual variance in T2 can be predicted by other variables in which case, this becomes the prediction of the stable portion of variable T, say our variable is T measured at T1 and T2. This is what cross-lagged effects are most useful for, as for example, T2 can be regressed on both T1 and X1, which means X1 will predict T2 when controlling for prior levels of T at T1. So, X1 effectively predicts the stable portion or the residual variance of T (at T2) - which is why this mode is sometimes called *residual change model*.
 
@@ -60,7 +60,7 @@ library(ggplot2) #For visualization
 Read data 
 
 ```{r}
-data <- read.csv("/Volumes/anyan/frederickanyan.github.io/quantpost_data/data.csv")
+data <- read.csv("/Volumes/anyan-1/frederickanyan.github.io/quantpost_data/data.csv")
 data <- data[, c("personid", "lone3", "lone5")] #Create new data set with only your main outcome variables
 names(data) <- c("id", "loneT1", "loneT2") #Rename variables to represent T1 and T2
 ```

@@ -165,11 +165,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
    
   <ul>
-<li><a href="#crosstable-function" id="toc-crosstable-function" class="nav-link active" data-scroll-target="#crosstable-function">CrossTable() function</a></li>
+<li><a href="#crosstable-function" id="toc-crosstable-function" class="nav-link active" data-scroll-target="#crosstable-function"><code>CrossTable()</code> function</a></li>
   <li><a href="#conditional-and-marginal-proportions" id="toc-conditional-and-marginal-proportions" class="nav-link" data-scroll-target="#conditional-and-marginal-proportions">Conditional and marginal proportions</a></li>
-  <li><a href="#chisq.test-function" id="toc-chisq.test-function" class="nav-link" data-scroll-target="#chisq.test-function">chisq.test() function</a></li>
+  <li><a href="#chisq.test-function" id="toc-chisq.test-function" class="nav-link" data-scroll-target="#chisq.test-function"><code>chisq.test()</code> function</a></li>
   <li><a href="#using-standardized-residuals-to-reveal-patterns-of-associations" id="toc-using-standardized-residuals-to-reveal-patterns-of-associations" class="nav-link" data-scroll-target="#using-standardized-residuals-to-reveal-patterns-of-associations">Using standardized residuals to reveal patterns of associations</a></li>
-  <li><a href="#ggpiestats-and-ggbarstats-function" id="toc-ggpiestats-and-ggbarstats-function" class="nav-link" data-scroll-target="#ggpiestats-and-ggbarstats-function">ggpiestats() and ggbarstats() function</a></li>
+  <li><a href="#ggpiestats-and-ggbarstats-functions" id="toc-ggpiestats-and-ggbarstats-functions" class="nav-link" data-scroll-target="#ggpiestats-and-ggbarstats-functions"><code>ggpiestats()</code> and <code>ggbarstats()</code> functions</a></li>
   </ul></nav>
     </div>
 <!-- main -->
@@ -201,7 +201,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">August 21, 2024</p>
+      <p class="date-modified">August 30, 2024</p>
     </div>
   </div>
     
@@ -209,27 +209,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
 
 </header><p>We can analyse the association between two categorical variables in different ways (e.g., using stacked bar graphs or pie charts). The most common way is to use contingency tables with rows and columns displaying categories of each variable. The count or frequency of each pair of categories are given in a cell.</p>
-<p>We will see how to analyse the association between two categorical variables using different functions in different packages in RStudio. The CrossTbale() function seems to be very popular as is the chisq.test() function. Another function is the ggbarstats() in the ‘ggstatsplot’ package. This package produces beautiful plots and charts that are publication-ready with good quality. By plotting your pie chart or stacked bar graph, the ggpiestats() and the ggbarstats() function also compute the Chi-squared test statistic, with very useful information in addition, including a Bayesian effect size.</p>
-In this example, we will answer the research question: is family income associated with happiness? Following are questions asked in the General Social Survey (GSS).
+<p>We will see how to analyse the association between two categorical variables using different functions in different packages in RStudio. The <code>CrossTbale()</code> function seems to be very popular as is the <code><a href="https://rdrr.io/r/stats/chisq.test.html">chisq.test()</a></code> function. Another function is the <code><a href="https://indrajeetpatil.github.io/ggstatsplot/reference/ggbarstats.html">ggbarstats()</a></code> in the <strong>ggstatsplot</strong> package. This package produces beautiful plots and charts that are publication-ready with good quality. By plotting your pie chart or stacked bar graph, the <code><a href="https://indrajeetpatil.github.io/ggstatsplot/reference/ggpiestats.html">ggpiestats()</a></code> and the <code><a href="https://indrajeetpatil.github.io/ggstatsplot/reference/ggbarstats.html">ggbarstats()</a></code> function also compute the Chi-squared test statistic, with very useful information in addition, including a Bayesian effect size.</p>
+<p>In this example, we will answer the research question: is family income associated with happiness? Following are questions asked in the General Social Survey (GSS).</p>
 <ul>
-<li>
-“Compared to American families in general, would you say that your family income is below average, average, or above average?”.
-</li>
-<li>
-“Taken all together, would you say that you are very happy, pretty happy, or not too happy?”.
-</li>
+<li><p>“Compared to American families in general, would you say that your family income is below average, average, or above average?”</p></li>
+<li><p>“Taken all together, would you say that you are very happy, pretty happy, or not too happy?”</p></li>
 </ul>
-We start with the null hypothesis that:
+<p>We start with the null hypothesis that:</p>
 <ul>
-<li>
-There is no association between family income and happiness.
-</li>
+<li>There is no association between family income and happiness.</li>
 </ul>
-<p>To test the null hypothesis, we can use the CrossTable() function in the ‘gmodels’ package. Note that the CrossTable() can take both raw data and contingency table.</p>
-<section id="crosstable-function" class="level2"><h2 class="anchored" data-anchor-id="crosstable-function">CrossTable() function</h2>
-<p>Let’s see how the CrossTable() function works</p>
+<p>To test the null hypothesis, we can use the <code><a href="https://rdrr.io/pkg/gmodels/man/CrossTable.html">CrossTable()</a></code> function in the <strong>gmodels</strong> package. Note that the <code><a href="https://rdrr.io/pkg/gmodels/man/CrossTable.html">CrossTable()</a></code> can take both raw data and contingency table.</p>
+<section id="crosstable-function" class="level2"><h2 class="anchored" data-anchor-id="crosstable-function">
+<code>CrossTable()</code> function</h2>
+<p>Let’s see how the <code><a href="https://rdrr.io/pkg/gmodels/man/CrossTable.html">CrossTable()</a></code> function works</p>
 <div class="cell">
-<details><summary>Code</summary><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"/Volumes/anyan/frederickanyan.github.io/quantpost_data/happinesGSS12_long.csv"</span><span class="op">)</span><span class="co"># Read the data for the analysis </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details><summary>Code</summary><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"/Volumes/anyan-1/frederickanyan.github.io/quantpost_data/happinesGSS12_long.csv"</span><span class="op">)</span><span class="co"># Read the data for the analysis </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>Let’s see how a cross tabulation of the data looks</p>
@@ -384,8 +379,9 @@ Chi^2 =  54.04308     d.f. =  4     p =  5.154502e-11
 </div>
 <p>Following is the Chi-squared statistic and corresponding p-value for the test of independence under the null hypothesis that, income and happiness are independent (no association). Since the p-value is very small (&lt; .05), we can reject the null hypothesis. Thus, there is an association between family income and happiness.</p>
 <p>In other words, the observed association between family income and happiness in the sample data reflects a true association in the population, and it is very unlikely to have occurred by chance if the null hypothesis was true. <a href="//quantposts/null hypothesis testing/index.qmd">Find out the problem with this conclusion here</a></p>
-</section><section id="chisq.test-function" class="level2"><h2 class="anchored" data-anchor-id="chisq.test-function">chisq.test() function</h2>
-<p>We can also use a different function to perform the Chi-squared test. Here, we use the chisq.test() function in the ‘stats’ package, which also contains many other functions.</p>
+</section><section id="chisq.test-function" class="level2"><h2 class="anchored" data-anchor-id="chisq.test-function">
+<code>chisq.test()</code> function</h2>
+<p>We can also use a different function to perform the Chi-squared test. Here, we use the <code><a href="https://rdrr.io/r/stats/chisq.test.html">chisq.test()</a></code> function in the <strong>stats</strong> package, which also contains many other functions.</p>
 <div class="cell">
 <details><summary>Code</summary><div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">chi.test</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/chisq.test.html">chisq.test</a></span><span class="op">(</span><span class="va">data</span><span class="op">$</span><span class="va">Income</span>, <span class="va">data</span><span class="op">$</span><span class="va">Happy</span><span class="op">)</span><span class="co">#Create and object called chi.test and assign the result of the chisq.test function() into this object</span></span>
 <span><span class="va">chi.test</span> <span class="co">#Call the object to see its contents</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -420,21 +416,16 @@ data$Income        not     pretty       very
 </div>
 </div>
 <p>For example, if we take the first cell - (i.e., people who reported above average family income, and not happy). We can say that, the observed count is 2.49 standard deviations below (because of the negative sign, -2.49) the expected count for this particular cell. The substantive interpretation is that, for people with above average family income, many fewer were not happy than what the model predicted or, in other words, what the assumption of independence between income and happiness would predict.</p>
-We can interpret positive standardized residuals first, followed by negative standardized residuals.
+<p>We can interpret positive standardized residuals first, followed by negative standardized residuals.</p>
 <ul>
-<li>
-For standardized residuals 5.83 and 3.96, the observed count is much higher than the expected count (more than 3 standard deviations higher). For people who reported below average family income, many more were not happy. For people who reported above average family income, many more were very happy.
-</li>
-<li>
-For standardized residuals -3.41, -2.02 and -5.13, the observed count is much lower than the expected count. For people who reported average family income, much fewer were not happy. For people who reported below average family income, much fewer were very happy.
-</li>
-<li>
-Overall, the association between income and happiness seems to be driven by average to above average family income, and much more so, by above average family income.
-</li>
+<li><p>For standardized residuals 5.83 and 3.96, the observed count is much higher than the expected count (more than 3 standard deviations higher). For people who reported below average family income, many more were not happy. For people who reported above average family income, many more were very happy.</p></li>
+<li><p>For standardized residuals -3.41, -2.02 and -5.13, the observed count is much lower than the expected count. For people who reported average family income, much fewer were not happy. For people who reported below average family income, much fewer were very happy.</p></li>
+<li><p>Overall, the association between income and happiness seems to be driven by average to above average family income, and much more so, by above average family income.</p></li>
 </ul>
 <p>The Chi-squared test does not tell us where in the cell counts or frequencies the difference from independence lies, that is why the standardized residuals are useful for interpretation and understanding the patterns of association between the variables.</p>
-</section><section id="ggpiestats-and-ggbarstats-function" class="level2"><h2 class="anchored" data-anchor-id="ggpiestats-and-ggbarstats-function">ggpiestats() and ggbarstats() function</h2>
-<p>We can also use the ‘ggstatsplot’ package for this exercise. This package “creates graphics with details from statistical tests included in the plots themselves. It provides an easier syntax to generate information-rich plots for statistical analysis of continuous (violin plots, scatterplots, histograms, dot plots, dot-and-whisker plots) or categorical (pie and bar charts) data”. <a href="https://cran.r-project.org/web/packages/ggstatsplot/index.html">See here</a></p>
+</section><section id="ggpiestats-and-ggbarstats-functions" class="level2"><h2 class="anchored" data-anchor-id="ggpiestats-and-ggbarstats-functions">
+<code>ggpiestats()</code> and <code>ggbarstats()</code> functions</h2>
+<p>We can also use the <strong>ggstatsplot</strong> package for this exercise. This package “creates graphics with details from statistical tests included in the plots themselves. It provides an easier syntax to generate information-rich plots for statistical analysis of continuous (violin plots, scatterplots, histograms, dot plots, dot-and-whisker plots) or categorical (pie and bar charts) data”. <a href="https://cran.r-project.org/web/packages/ggstatsplot/index.html">See here</a></p>
 <div class="cell">
 <details><summary>Code</summary><div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://indrajeetpatil.github.io/ggstatsplot/">ggstatsplot</a></span><span class="op">)</span> <span class="co">#Load the package to access the functions</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output cell-output-stderr">
@@ -453,7 +444,7 @@ Overall, the association between income and happiness seems to be driven by aver
 <p><img src="chi_sqaure_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>We can also perform and visualize the Chi-squared test of independence using the ggbarstats() function when we call the function to plot a stacked bar graph.</p>
+<p>We can also perform and visualize the Chi-squared test of independence using the <code><a href="https://indrajeetpatil.github.io/ggstatsplot/reference/ggbarstats.html">ggbarstats()</a></code> function when we call the function to plot a stacked bar graph.</p>
 <div class="cell">
 <details><summary>Code</summary><div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://indrajeetpatil.github.io/ggstatsplot/reference/ggbarstats.html">ggbarstats</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">data</span>, <span class="co">#The first argument is the data</span></span>
 <span>           x <span class="op">=</span> <span class="va">Income</span>,   <span class="co">#The variable to use as the rows in the contingency table</span></span>

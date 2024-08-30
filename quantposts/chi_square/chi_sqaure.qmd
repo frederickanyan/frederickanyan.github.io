@@ -9,27 +9,26 @@ date-modified: last-modified
 ---
 We can analyse the association between two categorical variables in different ways (e.g., using stacked bar graphs or pie charts). The most common way is to use contingency tables with rows and columns displaying categories of each variable. The count or frequency of each pair of categories are given in a cell. 
 
-We will see how to analyse the association between two categorical variables using different functions in different packages in RStudio. The CrossTbale() function seems to be very popular as is the chisq.test() function. Another function is the ggbarstats() in the 'ggstatsplot' package. This package produces beautiful plots and charts that are publication-ready with good quality. By plotting your pie chart or stacked bar graph, the ggpiestats() and the ggbarstats() function also compute the Chi-squared test statistic, with very useful information in addition, including a Bayesian effect size. 
+We will see how to analyse the association between two categorical variables using different functions in different packages in RStudio. The `CrossTbale()` function seems to be very popular as is the `chisq.test()` function. Another function is the `ggbarstats()` in the **ggstatsplot** package. This package produces beautiful plots and charts that are publication-ready with good quality. By plotting your pie chart or stacked bar graph, the `ggpiestats()` and the `ggbarstats()` function also compute the Chi-squared test statistic, with very useful information in addition, including a Bayesian effect size. 
 
 In this example, we will answer the research question: is family income associated with happiness? 
 Following are questions asked in the General Social Survey (GSS).
-<ul>
- <li>"Compared to American families in general, would you say that your family income is below average, average, or above average?".</li> 
- <li>"Taken all together, would you say that you are very happy, pretty happy, or not too happy?".</li>
-</ul>
+
+-   "Compared to American families in general, would you say that your family income is below average, average, or above average?"
+
+-   "Taken all together, would you say that you are very happy, pretty happy, or not too happy?"
 
 We start with the null hypothesis that:
-<ul>
-  <li>There is no association between family income and happiness.</li>
-</ul>
 
-To test the null hypothesis, we can use the CrossTable() function in the 'gmodels' package. Note that the CrossTable() can take both raw data and contingency table. 
+-   There is no association between family income and happiness.
 
-## CrossTable() function
-Let's see how the CrossTable() function works
+To test the null hypothesis, we can use the `CrossTable()` function in the **gmodels** package. Note that the `CrossTable()` can take both raw data and contingency table. 
+
+## `CrossTable()` function
+Let's see how the `CrossTable()` function works
 
 ```{r}
-data <- read.csv("/Volumes/anyan/frederickanyan.github.io/quantpost_data/happinesGSS12_long.csv")# Read the data for the analysis 
+data <- read.csv("/Volumes/anyan-1/frederickanyan.github.io/quantpost_data/happinesGSS12_long.csv")# Read the data for the analysis 
 ```
 
 Let's see how a cross tabulation of the data looks
@@ -63,8 +62,8 @@ Following is the Chi-squared statistic and corresponding p-value for the test of
 
 In other words, the observed association between family income and happiness in the sample data reflects a true association in the population, and it is very unlikely to have occurred by chance if the null hypothesis was true. [Find out the problem with this conclusion here](//quantposts/null hypothesis testing/index.qmd) 
 
-## chisq.test() function
-We can also use a different function to perform the Chi-squared test. Here, we use the chisq.test() function in the 'stats' package, which also contains many other functions.
+## `chisq.test()` function
+We can also use a different function to perform the Chi-squared test. Here, we use the `chisq.test()` function in the **stats** package, which also contains many other functions.
 
 ```{r}
 chi.test <- chisq.test(data$Income, data$Happy)#Create and object called chi.test and assign the result of the chisq.test function() into this object
@@ -86,18 +85,17 @@ For example, if we take the first cell - (i.e., people who reported above averag
 
 
 We can interpret positive standardized residuals first, followed by negative standardized residuals.
-<ul>
-  <li>For standardized residuals 5.83 and 3.96, the observed count is much higher than the expected count (more than 3 standard deviations higher). For people who reported below average family income, many more were not happy. For people who reported above average family income, many more were very happy.</li>
 
-  <li>For standardized residuals -3.41, -2.02 and -5.13, the observed count is much lower than the expected count. For people who reported average family income, much fewer were not happy. For people who reported below average family income, much fewer were very happy.</li>
+-   For standardized residuals 5.83 and 3.96, the observed count is much higher than the expected count (more than 3 standard deviations higher). For people who reported below average family income, many more were not happy. For people who reported above average family income, many more were very happy.
 
-  <li>Overall, the association between income and happiness seems to be driven by average to above average family income, and much more so, by above average family income.</li>
-  </ul>
+-   For standardized residuals -3.41, -2.02 and -5.13, the observed count is much lower than the expected count. For people who reported average family income, much fewer were not happy. For people who reported below average family income, much fewer were very happy.
+
+-   Overall, the association between income and happiness seems to be driven by average to above average family income, and much more so, by above average family income.
   
 The Chi-squared test does not tell us where in the cell counts or frequencies the difference from independence lies, that is why the standardized residuals are useful for interpretation and understanding the patterns of association between the variables. 
 
-## ggpiestats() and ggbarstats() function
-We can also use the 'ggstatsplot' package for this exercise. This package "creates graphics with details from statistical tests included in the plots themselves. It provides an easier syntax to generate information-rich plots for statistical analysis of continuous (violin plots, scatterplots, histograms, dot plots, dot-and-whisker plots) or categorical (pie and bar charts) data". [See here](https://cran.r-project.org/web/packages/ggstatsplot/index.html)
+## `ggpiestats()` and `ggbarstats()` functions
+We can also use the **ggstatsplot** package for this exercise. This package "creates graphics with details from statistical tests included in the plots themselves. It provides an easier syntax to generate information-rich plots for statistical analysis of continuous (violin plots, scatterplots, histograms, dot plots, dot-and-whisker plots) or categorical (pie and bar charts) data". [See here](https://cran.r-project.org/web/packages/ggstatsplot/index.html)
 
 ```{r}
 library(ggstatsplot) #Load the package to access the functions
@@ -111,7 +109,7 @@ ggpiestats(data = data,
           label = "both")
 ```
 
-We can also perform and visualize the Chi-squared test of independence using the ggbarstats() function when we call the function to plot a stacked bar graph. 
+We can also perform and visualize the Chi-squared test of independence using the `ggbarstats()` function when we call the function to plot a stacked bar graph. 
 
 
 ```{r}

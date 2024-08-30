@@ -303,12 +303,15 @@ Model 11: Sequentially contingent growth model.
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></span>
 <span><span class="op">}</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'psych' was built under R version 4.3.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
 <pre><code>Warning: package 'lavaan' was built under R version 4.3.3</code></pre>
 </div>
 </div>
 <p>Read data</p>
 <div class="cell">
-<details><summary>Code</summary><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"/Volumes/anyan/frederickanyan.github.io/quantpost_data/data.csv"</span><span class="op">)</span></span>
+<details><summary>Code</summary><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"/Volumes/anyan-1/frederickanyan.github.io/quantpost_data/data.csv"</span><span class="op">)</span></span>
 <span><span class="co">#Create new data set with only your main outcome variables</span></span>
 <span><span class="va">lonely</span> <span class="op">&lt;-</span> <span class="va">data</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"lone1"</span>, <span class="st">"lone2"</span>, <span class="st">"lone3"</span>, <span class="st">"lone4"</span>, <span class="st">"lone5"</span><span class="op">)</span><span class="op">]</span></span>
 <span><span class="co">#To plot longitudinal trajectories, create a new data set of only your outcome variables with id included</span></span>
@@ -323,7 +326,7 @@ Model 11: Sequentially contingent growth model.
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <div class="cell">
-<details><summary>Code</summary><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#Examine descriptive statistics.</span></span>
+<details><summary>Code</summary><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#Examine descriptive statistics.</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/psych/man/describe.html">describe</a></span><span class="op">(</span><span class="va">lonely</span><span class="op">)</span> <span class="co">#univariate descriptives </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output cell-output-stdout">
 <pre><code>      vars   n mean   sd median trimmed  mad min  max range skew kurtosis   se
@@ -333,7 +336,7 @@ lone3    3 390 1.53 0.52   1.36    1.44 0.37   1 3.78  2.78 1.52     2.27 0.03
 lone4    4 413 1.35 0.47   1.22    1.25 0.25   1 4.92  3.92 3.05    12.75 0.02
 lone5    5 409 1.32 0.39   1.20    1.24 0.25   1 3.43  2.43 2.45     7.22 0.02</code></pre>
 </div>
-<details><summary>Code</summary><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#bivariate descriptives</span></span>
+<details><summary>Code</summary><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#bivariate descriptives</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/cor.html">cov</a></span><span class="op">(</span><span class="va">lonely</span>, use<span class="op">=</span><span class="st">'pairwise.complete.obs'</span><span class="op">)</span> <span class="co">#covariance matrix</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output cell-output-stdout">
 <pre><code>           lone1      lone2      lone3      lone4      lone5
@@ -343,7 +346,7 @@ lone3 0.09978644 0.13796998 0.27223396 0.10690494 0.08475463
 lone4 0.08198277 0.10077467 0.10690494 0.21720685 0.07542655
 lone5 0.05209327 0.06904941 0.08475463 0.07542655 0.15471723</code></pre>
 </div>
-<details><summary>Code</summary><div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/cor.html">cor</a></span><span class="op">(</span><span class="va">lonely</span>, use<span class="op">=</span><span class="st">'pairwise.complete.obs'</span><span class="op">)</span> <span class="co">#correlation matrix</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details><summary>Code</summary><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/cor.html">cor</a></span><span class="op">(</span><span class="va">lonely</span>, use<span class="op">=</span><span class="st">'pairwise.complete.obs'</span><span class="op">)</span> <span class="co">#correlation matrix</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output cell-output-stdout">
 <pre><code>          lone1     lone2     lone3     lone4     lone5
 lone1 1.0000000 0.6153198 0.4666493 0.3902312 0.3027420
@@ -352,7 +355,7 @@ lone3 0.4666493 0.5184437 1.0000000 0.4944602 0.4240808
 lone4 0.3902312 0.4142563 0.4944602 1.0000000 0.4342628
 lone5 0.3027420 0.3557064 0.4240808 0.4342628 1.0000000</code></pre>
 </div>
-<details><summary>Code</summary><div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#bivariate scatter plots below the diagonal, histograms on the diagonal, and the Pearson correlation above the diagonal.</span></span>
+<details><summary>Code</summary><div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#bivariate scatter plots below the diagonal, histograms on the diagonal, and the Pearson correlation above the diagonal.</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/psych/man/pairs.panels.html">pairs.panels</a></span><span class="op">(</span><span class="va">lonely</span>, lm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="co">#lm = TRUE to fit a regression line if needed</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output-display">
 <p><img src="LGCM_R_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
@@ -362,7 +365,7 @@ lone5 0.3027420 0.3557064 0.4240808 0.4342628 1.0000000</code></pre>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <div class="cell">
-<details><summary>Code</summary><div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://milanwiedemann.github.io/lcsm/reference/plot_trajectories.html">plot_trajectories</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">lonelytrajectory</span>,</span>
+<details><summary>Code</summary><div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://milanwiedemann.github.io/lcsm/reference/plot_trajectories.html">plot_trajectories</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">lonelytrajectory</span>,</span>
 <span>                  id_var <span class="op">=</span> <span class="st">"personid"</span>, </span>
 <span>                  var_list <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"lone1"</span>, <span class="st">"lone2"</span>, <span class="st">"lone3"</span>, <span class="st">"lone4"</span>, <span class="st">"lone5"</span><span class="op">)</span>,</span>
 <span>                  xlab <span class="op">=</span> <span class="st">"Year"</span>, ylab <span class="op">=</span> <span class="st">"Loneliness"</span>,</span>
@@ -383,7 +386,7 @@ lone5 0.3027420 0.3557064 0.4240808 0.4342628 1.0000000</code></pre>
 </div>
 <p>You can plot separate individual trajectories</p>
 <div class="cell">
-<details><summary>Code</summary><div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://milanwiedemann.github.io/lcsm/reference/plot_trajectories.html">plot_trajectories</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">lonelytrajectory</span>,</span>
+<details><summary>Code</summary><div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://milanwiedemann.github.io/lcsm/reference/plot_trajectories.html">plot_trajectories</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">lonelytrajectory</span>,</span>
 <span>                  id_var <span class="op">=</span> <span class="st">"personid"</span>, </span>
 <span>                  var_list <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"lone1"</span>, <span class="st">"lone2"</span>, <span class="st">"lone3"</span>, <span class="st">"lone4"</span>, <span class="st">"lone5"</span><span class="op">)</span>,</span>
 <span>                  xlab <span class="op">=</span> <span class="st">"Year"</span>, ylab <span class="op">=</span> <span class="st">"Loneliness"</span>,</span>
@@ -421,7 +424,7 @@ lone5 0.3027420 0.3557064 0.4240808 0.4342628 1.0000000</code></pre>
 <div class="tab-content">
 <div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
 <div class="cell">
-<details><summary>Code</summary><div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 001_No growth model</span></span>
+<details><summary>Code</summary><div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 001_No growth model</span></span>
 <span><span class="va">nogrowth</span> <span class="op">&lt;-</span> <span class="st">' i =~ 1*lone1 + 1*lone2 + 1*lone3 + 1*lone4 + 1*lone5'</span></span>
 <span><span class="va">fit_nogrowth</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lavaan/man/growth.html">growth</a></span><span class="op">(</span><span class="va">nogrowth</span>, data <span class="op">=</span> <span class="va">data</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">fit_nogrowth</span>, fit.measures <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -505,7 +508,7 @@ Variances:
 </div>
 <div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
 <div class="cell">
-<details><summary>Code</summary><div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 002_Linear growth model</span></span>
+<details><summary>Code</summary><div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 002_Linear growth model</span></span>
 <span><span class="va">linear</span> <span class="op">&lt;-</span> <span class="st">' i =~ 1*lone1 + 1*lone2 + 1*lone3 + 1*lone4 + 1*lone5</span></span>
 <span><span class="st">           s =~ 0*lone1 + 1*lone2 + 3*lone3 + 4*lone4 + 6*lone5'</span></span>
 <span><span class="va">fit_linear</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lavaan/man/growth.html">growth</a></span><span class="op">(</span><span class="va">linear</span>, data <span class="op">=</span> <span class="va">data</span><span class="op">)</span></span>
@@ -603,7 +606,7 @@ Variances:
 </div>
 <div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
 <div class="cell">
-<details><summary>Code</summary><div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 003_Quadratic growth curve model</span></span>
+<details><summary>Code</summary><div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 003_Quadratic growth curve model</span></span>
 <span><span class="va">quadratic</span> <span class="op">&lt;-</span> <span class="st">' i =~ 1*lone1 + 1*lone2 + 1*lone3 + 1*lone4 + 1*lone5</span></span>
 <span><span class="st">           s =~ 0*lone1 + 1*lone2 + 3*lone3 + 4*lone4 + 6*lone5</span></span>
 <span><span class="st">           q =~ 0*lone1 + 1*lone2 + 9*lone3 + 16*lone4 + 36*lone5'</span></span>
@@ -613,7 +616,7 @@ Variances:
    covariance matrix of latent variables is not positive definite ; use 
    lavInspect(fit, "cov.lv") to investigate.</code></pre>
 </div>
-<details><summary>Code</summary><div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">fit_quadratic</span>, fit.measures <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details><summary>Code</summary><div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">fit_quadratic</span>, fit.measures <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output cell-output-stdout">
 <pre><code>lavaan 0.6-18 ended normally after 76 iterations
 
@@ -732,7 +735,7 @@ Variances:
 </div>
 <p>In the examples here, Model 3 is the best model representation of the data (at least, the best fitting model, although the RMSEA and TLI are not good enough). The non-linear growth function in Model 3 reproduces the trajectory observed when examining the mean values in the univariate descriptives. <a href="https://frederickanyan.github.io/quantposts/practical%20prelims/practical.html">see here</a></p>
 <div class="cell">
-<details><summary>Code</summary><div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#The `anova` function in `lavaan` computes the LRT for nested models.</span></span>
+<details><summary>Code</summary><div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#The `anova` function in `lavaan` computes the LRT for nested models.</span></span>
 <span><span class="va">compare_no_linear</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/anova.html">anova</a></span><span class="op">(</span><span class="va">fit_nogrowth</span>, <span class="va">fit_linear</span><span class="op">)</span></span>
 <span><span class="va">compare_no_linear</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output cell-output-stdout">
@@ -749,7 +752,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <p>The results (<span class="math inline">\(\chi^2\)</span><sub>(3)</sub> = 111.19, <span class="math inline">\(p &lt; .001\)</span>) show significant difference in model fit between Model 1 (no growth mode, or reduced model) and Model 2 (linear growth, full model). Thus, Model 2, in which the linear growth factor is freely estimated (relative to Model 1) has improved data to model correspondence (or fits better) than Model 1. Therefore, Model 1 or the no growth model is rejected in favor of Model 2, the linear growth model.</p>
 <p>All models can also be compared to determine the best fitting of the three models as follows</p>
 <div class="cell">
-<details><summary>Code</summary><div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#The `anova` function in `lavaan` computes the LRT for nested models.</span></span>
+<details><summary>Code</summary><div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#The `anova` function in `lavaan` computes the LRT for nested models.</span></span>
 <span><span class="va">compare_no_linear_qua</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/anova.html">anova</a></span><span class="op">(</span><span class="va">fit_nogrowth</span>, <span class="va">fit_linear</span>, <span class="va">fit_quadratic</span><span class="op">)</span></span>
 <span><span class="va">compare_no_linear_qua</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output cell-output-stdout">
@@ -790,7 +793,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <div class="tab-content">
 <div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
 <div class="cell">
-<details><summary>Code</summary><div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 004_Bilinear/Spline growth model</span></span>
+<details><summary>Code</summary><div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 004_Bilinear/Spline growth model</span></span>
 <span><span class="va">bilinear</span> <span class="op">&lt;-</span> <span class="st">' i =~ 1*lone1 + 1*lone2 + 1*lone3 + 1*lone4 + 1*lone5</span></span>
 <span><span class="st">           s1 =~ 0*lone1 + 1*lone2 + 3*lone3 + 3*lone4 + 3*lone5</span></span>
 <span><span class="st">           s2 =~ 0*lone1 + 0*lone2 + 0*lone3 + 1*lone4 + 3*lone5'</span></span>
@@ -800,7 +803,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
    covariance matrix of latent variables is not positive definite ; use 
    lavInspect(fit, "cov.lv") to investigate.</code></pre>
 </div>
-<details><summary>Code</summary><div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">fit_bilinear</span>, fit.measures <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details><summary>Code</summary><div class="sourceCode" id="cb32"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">fit_bilinear</span>, fit.measures <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output cell-output-stdout">
 <pre><code>lavaan 0.6-18 ended normally after 67 iterations
 
@@ -905,7 +908,7 @@ Variances:
 </div>
 <div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
 <div class="cell">
-<details><summary>Code</summary><div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 004_2_Bilinear/Spline growth model - 2</span></span>
+<details><summary>Code</summary><div class="sourceCode" id="cb34"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 004_2_Bilinear/Spline growth model - 2</span></span>
 <span><span class="va">bilinear_2</span> <span class="op">&lt;-</span> <span class="st">' i =~ 1*lone1 + 1*lone2 + 1*lone3 + 1*lone4 + 1*lone5</span></span>
 <span><span class="st">           s1 =~ -3*lone1 + -2*lone2 + 0*lone3 + 0*lone4 + 0*lone5</span></span>
 <span><span class="st">           s2 =~ 0*lone1 + 0*lone2 + 0*lone3 + 1*lone4 + 3*lone5'</span></span>
@@ -915,7 +918,7 @@ Variances:
    covariance matrix of latent variables is not positive definite ; use 
    lavInspect(fit, "cov.lv") to investigate.</code></pre>
 </div>
-<details><summary>Code</summary><div class="sourceCode" id="cb35"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">fit_bilinear_2</span>, fit.measures <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details><summary>Code</summary><div class="sourceCode" id="cb36"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">fit_bilinear_2</span>, fit.measures <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output cell-output-stdout">
 <pre><code>lavaan 0.6-18 ended normally after 62 iterations
 
@@ -1020,7 +1023,7 @@ Variances:
 </div>
 <div id="tabset-3-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-3-tab">
 <div class="cell">
-<details><summary>Code</summary><div class="sourceCode" id="cb37"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 004_3_Bilinear/Spline growth model - 3</span></span>
+<details><summary>Code</summary><div class="sourceCode" id="cb38"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 004_3_Bilinear/Spline growth model - 3</span></span>
 <span><span class="va">bilinear_3</span> <span class="op">&lt;-</span> <span class="st">' i =~ 1*lone1 + 1*lone2 + 1*lone3 + 1*lone4 + 1*lone5</span></span>
 <span><span class="st">           s1 =~ -3*lone1 + -3*lone2 + -3*lone3 + -2*lone4 + 0*lone5</span></span>
 <span><span class="st">           s2 =~ -3*lone1 + -2*lone2 + 0*lone3 + 0*lone4 + 0*lone5'</span></span>
@@ -1030,7 +1033,7 @@ Variances:
    covariance matrix of latent variables is not positive definite ; use 
    lavInspect(fit, "cov.lv") to investigate.</code></pre>
 </div>
-<details><summary>Code</summary><div class="sourceCode" id="cb39"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">fit_bilinear_3</span>, fit.measures <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details><summary>Code</summary><div class="sourceCode" id="cb40"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">fit_bilinear_3</span>, fit.measures <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output cell-output-stdout">
 <pre><code>lavaan 0.6-18 ended normally after 68 iterations
 
@@ -1149,7 +1152,7 @@ Variances:
 <div class="tab-content">
 <div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
 <div class="cell">
-<details><summary>Code</summary><div class="sourceCode" id="cb41"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 005_Linear growth model with time-varying covariates </span></span>
+<details><summary>Code</summary><div class="sourceCode" id="cb42"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 005_Linear growth model with time-varying covariates </span></span>
 <span><span class="va">timevaryingcov</span> <span class="op">&lt;-</span> <span class="st">' i =~ 1*lone1 + 1*lone2 + 1*lone3 + 1*lone4 + 1*lone5</span></span>
 <span><span class="st">           s =~ 0*lone1 + 1*lone2 + 3*lone3 + 4*lone4 + 6*lone5</span></span>
 <span><span class="st"># Time-varying covariates</span></span>
@@ -1304,7 +1307,7 @@ Variances:
 </div>
 <div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
 <div class="cell">
-<details><summary>Code</summary><div class="sourceCode" id="cb43"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 006_Linear growth model with time invariant covariates </span></span>
+<details><summary>Code</summary><div class="sourceCode" id="cb44"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 006_Linear growth model with time invariant covariates </span></span>
 <span><span class="va">timeinvar</span> <span class="op">&lt;-</span> <span class="st">' i =~ 1*lone1 + 1*lone2 + 1*lone3 + 1*lone4 + 1*lone5</span></span>
 <span><span class="st">           s =~ 0*lone1 + 1*lone2 + 3*lone3 + 4*lone4 + 6*lone5</span></span>
 <span><span class="st"></span></span>
@@ -1413,7 +1416,7 @@ Variances:
 </div>
 <div id="tabset-4-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-3-tab">
 <div class="cell">
-<details><summary>Code</summary><div class="sourceCode" id="cb45"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 007_Linear growth model with time invariant and time-varying covariates </span></span>
+<details><summary>Code</summary><div class="sourceCode" id="cb46"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 007_Linear growth model with time invariant and time-varying covariates </span></span>
 <span><span class="va">timeinvartimevar</span> <span class="op">&lt;-</span> <span class="st">' i =~ 1*lone1 + 1*lone2 + 1*lone3 + 1*lone4 + 1*lone5</span></span>
 <span><span class="st">                       s =~ 0*lone1 + 1*lone2 + 3*lone3 + 4*lone4 + 6*lone5</span></span>
 <span><span class="st"># Time-varying covariates held equal</span></span>
@@ -1654,7 +1657,7 @@ Variances:
 </div>
 <div id="tabset-4-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-4-tab">
 <div class="cell">
-<details><summary>Code</summary><div class="sourceCode" id="cb47"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 008_Linear growth model with growth factors predicting distal outcomes </span></span>
+<details><summary>Code</summary><div class="sourceCode" id="cb48"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 008_Linear growth model with growth factors predicting distal outcomes </span></span>
 <span><span class="va">distal</span> <span class="op">&lt;-</span> <span class="st">' i =~ 1*lone1 + 1*lone2 + 1*lone3 + 1*lone4 + 1*lone5</span></span>
 <span><span class="st">                       s =~ 0*lone1 + 1*lone2 + 3*lone3 + 4*lone4 + 6*lone5</span></span>
 <span><span class="st"></span></span>
@@ -1781,7 +1784,7 @@ Variances:
 <div class="tab-content">
 <div id="tabset-5-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-5-1-tab">
 <div class="cell">
-<details><summary>Code</summary><div class="sourceCode" id="cb49"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 009_1_Multigroup LGCM M1 Invariance model - M1</span></span>
+<details><summary>Code</summary><div class="sourceCode" id="cb50"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 009_1_Multigroup LGCM M1 Invariance model - M1</span></span>
 <span><span class="va">multigroupM1</span> <span class="op">&lt;-</span> <span class="st">' i =~ 1*lone1 + 1*lone2 + 1*lone3 + 1*lone4 + 1*lone5</span></span>
 <span><span class="st">           s =~ 0*lone1 + 1*lone2 + 3*lone3 + 4*lone4 + 6*lone5</span></span>
 <span><span class="st">#Growth factor means constrained equal</span></span>
@@ -1807,7 +1810,7 @@ Variances:
 <pre><code>Warning: lavaan-&gt;lav_data_full():  
    group variable 'female' contains missing values</code></pre>
 </div>
-<details><summary>Code</summary><div class="sourceCode" id="cb51"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">fit_multigroupM1</span>, fit.measures <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details><summary>Code</summary><div class="sourceCode" id="cb52"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">fit_multigroupM1</span>, fit.measures <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output cell-output-stdout">
 <pre><code>lavaan 0.6-18 ended normally after 30 iterations
 
@@ -1947,7 +1950,7 @@ Variances:
 </div>
 <div id="tabset-5-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-2-tab">
 <div class="cell">
-<details><summary>Code</summary><div class="sourceCode" id="cb53"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 009_2_Multigroup LGCM M2 Free factor means - M2</span></span>
+<details><summary>Code</summary><div class="sourceCode" id="cb54"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 009_2_Multigroup LGCM M2 Free factor means - M2</span></span>
 <span><span class="va">multigroupM2</span> <span class="op">&lt;-</span> <span class="st">' i =~ 1*lone1 + 1*lone2 + 1*lone3 + 1*lone4 + 1*lone5</span></span>
 <span><span class="st">           s =~ 0*lone1 + 1*lone2 + 3*lone3 + 4*lone4 + 6*lone5</span></span>
 <span><span class="st">#Growth factor means freely estimated</span></span>
@@ -1973,7 +1976,7 @@ Variances:
 <pre><code>Warning: lavaan-&gt;lav_data_full():  
    group variable 'female' contains missing values</code></pre>
 </div>
-<details><summary>Code</summary><div class="sourceCode" id="cb55"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">fit_multigroupM2</span>, fit.measures <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details><summary>Code</summary><div class="sourceCode" id="cb56"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">fit_multigroupM2</span>, fit.measures <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output cell-output-stdout">
 <pre><code>lavaan 0.6-18 ended normally after 34 iterations
 
@@ -2113,7 +2116,7 @@ Variances:
 </div>
 <div id="tabset-5-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-3-tab">
 <div class="cell">
-<details><summary>Code</summary><div class="sourceCode" id="cb57"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 009_3_Multigroup LGCM M3 Free factor means and co/variances - M3</span></span>
+<details><summary>Code</summary><div class="sourceCode" id="cb58"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 009_3_Multigroup LGCM M3 Free factor means and co/variances - M3</span></span>
 <span><span class="va">multigroupM3</span> <span class="op">&lt;-</span> <span class="st">' i =~ 1*lone1 + 1*lone2 + 1*lone3 + 1*lone4 + 1*lone5</span></span>
 <span><span class="st">           s =~ 0*lone1 + 1*lone2 + 3*lone3 + 4*lone4 + 6*lone5</span></span>
 <span><span class="st">#Growth factor means freely estimated</span></span>
@@ -2139,7 +2142,7 @@ Variances:
 <pre><code>Warning: lavaan-&gt;lav_data_full():  
    group variable 'female' contains missing values</code></pre>
 </div>
-<details><summary>Code</summary><div class="sourceCode" id="cb59"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">fit_multigroupM3</span>, fit.measures <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details><summary>Code</summary><div class="sourceCode" id="cb60"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">fit_multigroupM3</span>, fit.measures <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output cell-output-stdout">
 <pre><code>lavaan 0.6-18 ended normally after 82 iterations
 
@@ -2279,7 +2282,7 @@ Variances:
 </div>
 <div id="tabset-5-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-4-tab">
 <div class="cell">
-<details><summary>Code</summary><div class="sourceCode" id="cb61"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 009_4_Multigroup LGCM M4 Free factor means and co/variances - M4</span></span>
+<details><summary>Code</summary><div class="sourceCode" id="cb62"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 009_4_Multigroup LGCM M4 Free factor means and co/variances - M4</span></span>
 <span><span class="va">multigroupM4</span> <span class="op">&lt;-</span> <span class="st">' i =~ 1*lone1 + 1*lone2 + 1*lone3 + 1*lone4 + 1*lone5</span></span>
 <span><span class="st">           s =~ 0*lone1 + 1*lone2 + 3*lone3 + 4*lone4 + 6*lone5</span></span>
 <span><span class="st">#Growth factor means freely estimated</span></span>
@@ -2305,7 +2308,7 @@ Variances:
 <pre><code>Warning: lavaan-&gt;lav_data_full():  
    group variable 'female' contains missing values</code></pre>
 </div>
-<details><summary>Code</summary><div class="sourceCode" id="cb63"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">fit_multigroupM4</span>, fit.measures <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details><summary>Code</summary><div class="sourceCode" id="cb64"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">fit_multigroupM4</span>, fit.measures <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output cell-output-stdout">
 <pre><code>lavaan 0.6-18 ended normally after 49 iterations
 
@@ -2482,7 +2485,7 @@ M3 vs.&nbsp;M4: Tests the extent of within-person variability around individual 
 </ul>
 <p>If all models fit equally well (i.e., no significant results from the LRT or <span class="math inline">\(\chi^2\)</span> difference is not significant (<span class="math inline">\(p &gt; .05\)</span>)) then choose the model with the smallest number of parameters, M1 – most parsimonious model as it is the most constrained/reduced model.</p>
 <div class="cell">
-<details><summary>Code</summary><div class="sourceCode" id="cb65"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#The `anova` function in `lavaan` computes the LRT for nested models.</span></span>
+<details><summary>Code</summary><div class="sourceCode" id="cb66"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#The `anova` function in `lavaan` computes the LRT for nested models.</span></span>
 <span><span class="va">compare_groups</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/anova.html">anova</a></span><span class="op">(</span><span class="va">fit_multigroupM1</span>, <span class="va">fit_multigroupM2</span>, <span class="va">fit_multigroupM3</span>, <span class="va">fit_multigroupM4</span><span class="op">)</span></span>
 <span><span class="va">compare_groups</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output cell-output-stdout">
@@ -2509,7 +2512,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </section><section id="test-of-parameter-constraints" class="level2"><h2 class="anchored" data-anchor-id="test-of-parameter-constraints">Test of parameter constraints</h2>
 <p>First we test whether the intercept growth factors in both groups are significantly different</p>
 <div class="cell">
-<details><summary>Code</summary><div class="sourceCode" id="cb67"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">constint</span> <span class="op">=</span> <span class="st">'intm - intf == 0'</span></span>
+<details><summary>Code</summary><div class="sourceCode" id="cb68"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">constint</span> <span class="op">=</span> <span class="st">'intm - intf == 0'</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/lavaan/man/lavTestWald.html">lavTestWald</a></span><span class="op">(</span><span class="va">fit_multigroupM4</span>, constraints <span class="op">=</span> <span class="va">constint</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output cell-output-stdout">
 <pre><code>$stat
@@ -2527,7 +2530,7 @@ $se
 </div>
 <p>Then we also test whether the slope growth factors in both groups are significantly different</p>
 <div class="cell">
-<details><summary>Code</summary><div class="sourceCode" id="cb69"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">constslp</span> <span class="op">=</span> <span class="st">'slpm - slpf ==0'</span></span>
+<details><summary>Code</summary><div class="sourceCode" id="cb70"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">constslp</span> <span class="op">=</span> <span class="st">'slpm - slpf ==0'</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/lavaan/man/lavTestWald.html">lavTestWald</a></span><span class="op">(</span><span class="va">fit_multigroupM4</span>, constraints <span class="op">=</span> <span class="va">constslp</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output cell-output-stdout">
 <pre><code>$stat
@@ -2545,7 +2548,7 @@ $se
 </div>
 <p>Test significant difference between groups in the variability around intercept</p>
 <div class="cell">
-<details><summary>Code</summary><div class="sourceCode" id="cb71"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">constint_var</span> <span class="op">=</span> <span class="st">'vinm - vinf == 0'</span></span>
+<details><summary>Code</summary><div class="sourceCode" id="cb72"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">constint_var</span> <span class="op">=</span> <span class="st">'vinm - vinf == 0'</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/lavaan/man/lavTestWald.html">lavTestWald</a></span><span class="op">(</span><span class="va">fit_multigroupM4</span>, constraints <span class="op">=</span> <span class="va">constint_var</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output cell-output-stdout">
 <pre><code>$stat
@@ -2563,7 +2566,7 @@ $se
 </div>
 <p>Test significant difference between groups in the variability around slope</p>
 <div class="cell">
-<details><summary>Code</summary><div class="sourceCode" id="cb73"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">constslp_var</span> <span class="op">=</span> <span class="st">'vslm - vslf == 0'</span></span>
+<details><summary>Code</summary><div class="sourceCode" id="cb74"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">constslp_var</span> <span class="op">=</span> <span class="st">'vslm - vslf == 0'</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/lavaan/man/lavTestWald.html">lavTestWald</a></span><span class="op">(</span><span class="va">fit_multigroupM4</span>, constraints <span class="op">=</span> <span class="va">constslp_var</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output cell-output-stdout">
 <pre><code>$stat
@@ -2581,7 +2584,7 @@ $se
 </div>
 <p>Test significant difference between groups in the variability around the relationship between intercept and slope</p>
 <div class="cell">
-<details><summary>Code</summary><div class="sourceCode" id="cb75"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">constslp_cov_var</span> <span class="op">=</span> <span class="st">'covm - covf == 0'</span></span>
+<details><summary>Code</summary><div class="sourceCode" id="cb76"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">constslp_cov_var</span> <span class="op">=</span> <span class="st">'covm - covf == 0'</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/lavaan/man/lavTestWald.html">lavTestWald</a></span><span class="op">(</span><span class="va">fit_multigroupM4</span>, constraints <span class="op">=</span> <span class="va">constslp_cov_var</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output cell-output-stdout">
 <pre><code>$stat
@@ -2599,7 +2602,7 @@ $se
 </div>
 <p>Test significant difference between groups in the residual variability</p>
 <div class="cell">
-<details><summary>Code</summary><div class="sourceCode" id="cb77"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">constslp_res_var</span> <span class="op">=</span> <span class="st">'rsm - rsf == 0'</span></span>
+<details><summary>Code</summary><div class="sourceCode" id="cb78"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">constslp_res_var</span> <span class="op">=</span> <span class="st">'rsm - rsf == 0'</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/lavaan/man/lavTestWald.html">lavTestWald</a></span><span class="op">(</span><span class="va">fit_multigroupM4</span>, constraints <span class="op">=</span> <span class="va">constslp_res_var</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output cell-output-stdout">
 <pre><code>$stat
@@ -2628,7 +2631,7 @@ $se
 <div class="tab-content">
 <div id="tabset-6-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-6-1-tab">
 <div class="cell">
-<details><summary>Code</summary><div class="sourceCode" id="cb79"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 010_1_Parallel growth curve models - anxiety and depression symptoms</span></span>
+<details><summary>Code</summary><div class="sourceCode" id="cb80"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 010_1_Parallel growth curve models - anxiety and depression symptoms</span></span>
 <span><span class="va">parallel</span> <span class="op">&lt;-</span> <span class="st">' ia =~ 1*anx1 + 1*anx2 + 1*anx3 + 1*anx4 + 1*anx5</span></span>
 <span><span class="st">                sa =~ 0*anx1 + 1*anx2 + 3*anx3 + 4*anx4 + 6*anx5</span></span>
 <span><span class="st">                id =~ 1*dep1 + 1*dep2 + 1*dep3 + 1*dep4 + 1*dep5</span></span>
@@ -2645,7 +2648,7 @@ $se
    covariance matrix of latent variables is not positive definite ; use 
    lavInspect(fit, "cov.lv") to investigate.</code></pre>
 </div>
-<details><summary>Code</summary><div class="sourceCode" id="cb81"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">fit_parallel</span>, fit.measures <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details><summary>Code</summary><div class="sourceCode" id="cb82"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">fit_parallel</span>, fit.measures <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output cell-output-stdout">
 <pre><code>lavaan 0.6-18 ended normally after 88 iterations
 
@@ -2769,7 +2772,7 @@ Variances:
 </div>
 <div id="tabset-6-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-6-2-tab">
 <div class="cell">
-<details><summary>Code</summary><div class="sourceCode" id="cb83"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 010_2_Parallel growth curve models - anxiety and depression symptoms with autocorrelations</span></span>
+<details><summary>Code</summary><div class="sourceCode" id="cb84"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 010_2_Parallel growth curve models - anxiety and depression symptoms with autocorrelations</span></span>
 <span><span class="va">parallelautocor</span> <span class="op">&lt;-</span> <span class="st">' ia =~ 1*anx1 + 1*anx2 + 1*anx3 + 1*anx4 + 1*anx5</span></span>
 <span><span class="st">                sa =~ 0*anx1 + 1*anx2 + 3*anx3 + 4*anx4 + 6*anx5</span></span>
 <span><span class="st">                id =~ 1*dep1 + 1*dep2 + 1*dep3 + 1*dep4 + 1*dep5</span></span>
@@ -2797,7 +2800,7 @@ Variances:
    covariance matrix of latent variables is not positive definite ; use 
    lavInspect(fit, "cov.lv") to investigate.</code></pre>
 </div>
-<details><summary>Code</summary><div class="sourceCode" id="cb85"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">fit_parallelautocor</span>, fit.measures <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details><summary>Code</summary><div class="sourceCode" id="cb86"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">fit_parallelautocor</span>, fit.measures <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output cell-output-stdout">
 <pre><code>lavaan 0.6-18 ended normally after 97 iterations
 
@@ -2937,7 +2940,7 @@ Variances:
 </div>
 <div id="tabset-6-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-6-3-tab">
 <div class="cell">
-<details><summary>Code</summary><div class="sourceCode" id="cb87"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 010_3_Parallel growth curve models - anxiety and depression symptoms with cross-domain correlations </span></span>
+<details><summary>Code</summary><div class="sourceCode" id="cb88"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 010_3_Parallel growth curve models - anxiety and depression symptoms with cross-domain correlations </span></span>
 <span><span class="va">parallelcross</span> <span class="op">&lt;-</span> <span class="st">' ia =~ 1*anx1 + 1*anx2 + 1*anx3 + 1*anx4 + 1*anx5</span></span>
 <span><span class="st">                sa =~ 0*anx1 + 1*anx2 + 3*anx3 + 4*anx4 + 6*anx5</span></span>
 <span><span class="st">                id =~ 1*dep1 + 1*dep2 + 1*dep3 + 1*dep4 + 1*dep5</span></span>
@@ -3097,7 +3100,7 @@ Variances:
 <div class="tab-content">
 <div id="tabset-7-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-7-1-tab">
 <div class="cell">
-<details><summary>Code</summary><div class="sourceCode" id="cb89"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 011_ Sequentially contingent growth curve model anxiety t1-t5 predicting depression t6-t10</span></span>
+<details><summary>Code</summary><div class="sourceCode" id="cb90"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 011_ Sequentially contingent growth curve model anxiety t1-t5 predicting depression t6-t10</span></span>
 <span><span class="va">sequential</span> <span class="op">&lt;-</span> <span class="st">' ia =~ 1*anx1 + 1*anx2 + 1*anx3 + 1*anx4 + 1*anx5</span></span>
 <span><span class="st">                sa =~ 0*anx1 + 1*anx2 + 3*anx3 + 4*anx4 + 6*anx5</span></span>
 <span><span class="st">                id =~ 1*dep6 + 1*dep7 + 1*dep8 + 1*dep9 + 1*dep10</span></span>
@@ -3128,7 +3131,7 @@ Attaching package: 'dplyr'</code></pre>
 
     intersect, setdiff, setequal, union</code></pre>
 </div>
-<details><summary>Code</summary><div class="sourceCode" id="cb93"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="va">data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<details><summary>Code</summary><div class="sourceCode" id="cb94"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="va">data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html">rename</a></span><span class="op">(</span><span class="st">"dep6"</span> <span class="op">=</span> <span class="st">"dep1"</span>,</span>
 <span>         <span class="st">"dep7"</span> <span class="op">=</span> <span class="st">"dep2"</span>,</span>
 <span>         <span class="st">"dep8"</span> <span class="op">=</span> <span class="st">"dep3"</span>,</span>
@@ -3140,7 +3143,7 @@ Attaching package: 'dplyr'</code></pre>
 <pre><code>Warning: lavaan-&gt;lav_object_post_check():  
    some estimated lv variances are negative</code></pre>
 </div>
-<details><summary>Code</summary><div class="sourceCode" id="cb95"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">fit_sequential</span>, fit.measures <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details><summary>Code</summary><div class="sourceCode" id="cb96"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">fit_sequential</span>, fit.measures <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output cell-output-stdout">
 <pre><code>lavaan 0.6-18 ended normally after 91 iterations
 

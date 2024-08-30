@@ -12,16 +12,16 @@ Variables or columns are known as sets in upset visualization. Upset plots can b
 
 ## Example
 
-<ul>Let's say you want the size or proportion of your sample who meet cut-off for some disorders as well as co-morbidity across disorders. Upset plots can visualize the proportion of the sample who meet criteria for panic, separation anxiety disorder and selective mutism, or other kinds of combinations of sorts. For example, the proportion of people who meet panic disorder, but not separation anxiety disorder and PTSD, or the proportion who meet criteria for PTSD, but not depression and social anxiety disorders, and several other combinations.</ul>
+-   Let's say you want the size or proportion of your sample who meet cut-off for some disorders as well as co-morbidity across disorders. Upset plots can visualize the proportion of the sample who meet criteria for panic, separation anxiety disorder and selective mutism, or other kinds of combinations of sorts. For example, the proportion of people who meet panic disorder, but not separation anxiety disorder and PTSD, or the proportion who meet criteria for PTSD, but not depression and social anxiety disorders, and several other combinations.
 
 Data with multiple variables or their combinations is often displayed in a Venn diagram. In some cases the Euler diagram is used. Both have limitations with increasing number of variables or sets. Upset plots can be used to visualize the size of different variables or sets, frequencies of their overlaps or intersections and their aggregates - for communicating set memberships.
 
-In this tutorial post, we will see how to use the upset() function in the 'UpSetR' package to visualize intersecting sets.
+In this tutorial post, we will see how to use the `upset()` function in the **UpSetR** package to visualize intersecting sets.
 
 Load data
 
 ```{r}
-data <- read.csv("/Volumes/anyan/frederickanyan.github.io/quantpost_data/dataupset.csv")#
+data <- read.csv("/Volumes/anyan-1/frederickanyan.github.io/quantpost_data/dataupset.csv")#
 
 
 #head(data) #first few rows
@@ -29,25 +29,14 @@ data <- read.csv("/Volumes/anyan/frederickanyan.github.io/quantpost_data/dataups
 
 Following are symptoms in the data
 
-<ul>
-
-<li>Separation anxiety disorder - *separation*.</li>
-
-<li>Selective mutism - *mutism*.</li>
-
-<li>Specific phobia - *phobia*.</li>
-
-<li>Social anxiety disorder - *social*.</li>
-
-<li>Panic disorder - *panic*.</li>
-
-<li>Generalized anxiety disorder - *anxiety*.</li>
-
-<li>Depression - *depression*.</li>
-
-<li>Post-traumatic stress disorder - *ptsd*.</li>
-
-</ul>
+-   Separation anxiety disorder - *separation*.
+-   Selective mutism - *mutism*.
+-   Specific phobia - *phobia*.
+-   Social anxiety disorder - *social*.
+-   Panic disorder - *panic*.
+-   Generalized anxiety disorder - *anxiety*.
+-   Depression - *depression*.
+-   Post-traumatic stress disorder - *ptsd*.
 
 Let's change the variable names to the symptom names
 
@@ -63,7 +52,7 @@ For this tutorial, median split was used to categorize participants into two gro
 library(UpSetR) #Load the UpSetR package to access the upset () function
 ```
 
-Now visualize the data using the upset() function.
+Now visualize the data using the `upset()` function.
 
 ```{r}
 upset(data,                      #Name of data file 

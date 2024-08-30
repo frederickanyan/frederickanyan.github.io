@@ -199,7 +199,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">August 21, 2024</p>
+      <p class="date-modified">August 30, 2024</p>
     </div>
   </div>
     
@@ -209,13 +209,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header><p>Variables or columns are known as sets in upset visualization. Upset plots can be used to visualize the size and the pairwise combinations or intersections of sets and their aggregates. This facilitates easy-to-understand communication of the size and proportion of set memberships.</p>
 <section id="example" class="level2"><h2 class="anchored" data-anchor-id="example">Example</h2>
 <ul>
-Let’s say you want the size or proportion of your sample who meet cut-off for some disorders as well as co-morbidity across disorders. Upset plots can visualize the proportion of the sample who meet criteria for panic, separation anxiety disorder and selective mutism, or other kinds of combinations of sorts. For example, the proportion of people who meet panic disorder, but not separation anxiety disorder and PTSD, or the proportion who meet criteria for PTSD, but not depression and social anxiety disorders, and several other combinations.
+<li>Let’s say you want the size or proportion of your sample who meet cut-off for some disorders as well as co-morbidity across disorders. Upset plots can visualize the proportion of the sample who meet criteria for panic, separation anxiety disorder and selective mutism, or other kinds of combinations of sorts. For example, the proportion of people who meet panic disorder, but not separation anxiety disorder and PTSD, or the proportion who meet criteria for PTSD, but not depression and social anxiety disorders, and several other combinations.</li>
 </ul>
 <p>Data with multiple variables or their combinations is often displayed in a Venn diagram. In some cases the Euler diagram is used. Both have limitations with increasing number of variables or sets. Upset plots can be used to visualize the size of different variables or sets, frequencies of their overlaps or intersections and their aggregates - for communicating set memberships.</p>
-<p>In this tutorial post, we will see how to use the upset() function in the ‘UpSetR’ package to visualize intersecting sets.</p>
+<p>In this tutorial post, we will see how to use the <code><a href="https://rdrr.io/pkg/UpSetR/man/upset.html">upset()</a></code> function in the <strong>UpSetR</strong> package to visualize intersecting sets.</p>
 <p>Load data</p>
 <div class="cell">
-<details><summary>Code</summary><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"/Volumes/anyan/frederickanyan.github.io/quantpost_data/dataupset.csv"</span><span class="op">)</span><span class="co">#</span></span>
+<details><summary>Code</summary><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"/Volumes/anyan-1/frederickanyan.github.io/quantpost_data/dataupset.csv"</span><span class="op">)</span><span class="co">#</span></span>
 <span></span>
 <span></span>
 <span><span class="co">#head(data) #first few rows</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -223,30 +223,14 @@ Let’s say you want the size or proportion of your sample who meet cut-off for 
 </div>
 <p>Following are symptoms in the data</p>
 <ul>
-<li>
-Separation anxiety disorder - <em>separation</em>.
-</li>
-<li>
-Selective mutism - <em>mutism</em>.
-</li>
-<li>
-Specific phobia - <em>phobia</em>.
-</li>
-<li>
-Social anxiety disorder - <em>social</em>.
-</li>
-<li>
-Panic disorder - <em>panic</em>.
-</li>
-<li>
-Generalized anxiety disorder - <em>anxiety</em>.
-</li>
-<li>
-Depression - <em>depression</em>.
-</li>
-<li>
-Post-traumatic stress disorder - <em>ptsd</em>.
-</li>
+<li>Separation anxiety disorder - <em>separation</em>.</li>
+<li>Selective mutism - <em>mutism</em>.</li>
+<li>Specific phobia - <em>phobia</em>.</li>
+<li>Social anxiety disorder - <em>social</em>.</li>
+<li>Panic disorder - <em>panic</em>.</li>
+<li>Generalized anxiety disorder - <em>anxiety</em>.</li>
+<li>Depression - <em>depression</em>.</li>
+<li>Post-traumatic stress disorder - <em>ptsd</em>.</li>
 </ul>
 <p>Let’s change the variable names to the symptom names</p>
 <div class="cell">
@@ -259,7 +243,7 @@ Post-traumatic stress disorder - <em>ptsd</em>.
 <details><summary>Code</summary><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://github.com/hms-dbmi/UpSetR">UpSetR</a></span><span class="op">)</span> <span class="co">#Load the UpSetR package to access the upset () function</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<p>Now visualize the data using the upset() function.</p>
+<p>Now visualize the data using the <code><a href="https://rdrr.io/pkg/UpSetR/man/upset.html">upset()</a></code> function.</p>
 <div class="cell">
 <details><summary>Code</summary><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/UpSetR/man/upset.html">upset</a></span><span class="op">(</span><span class="va">data</span>,                      <span class="co">#Name of data file </span></span>
 <span>      nsets <span class="op">=</span> <span class="fl">8</span>,                <span class="co">#To see all 8 sets in the upset plot</span></span>

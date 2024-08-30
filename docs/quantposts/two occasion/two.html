@@ -201,7 +201,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">August 21, 2024</p>
+      <p class="date-modified">August 30, 2024</p>
     </div>
   </div>
     
@@ -212,30 +212,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="difference-score-model-of-change" class="level1"><h1>1. Difference Score Model of Change</h1>
 <p>The <em>Raw Change Model</em> also called the <em>Difference Score Model</em> is probably the most obvious and common. A researcher computes change between two time points by subtracting T1 scores from T2 scores (T2 - T1). Resulting from this subtraction whether greater or lesser is the change that has occurred between two time points. The <em>Difference Score Model</em> examine between-person differences in the change that has occurred within individuals from T1 to T2. Common in this model of change is to use the computed (resulting) change or difference (D), that is, T2 - T1 = D, as an outcome in subsequent analysis - which is why it is often called the <em>Difference Score Model</em></p>
 <p>This approach is, however, heavily criticized and has a rather bad reputation even until today, and started with <a href="[https://psycnet.apa.org/doi/10.1037/h0029382">Cronbach &amp; Furby, 1970</a></p>
+<div class="callout callout-style-simple callout-tip">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><em>“Raw change” or “raw gain” scores formed by subtracting pretest scores from posttest scores lead to fallacious conclusions, primarily because such scores are systematically related to any random error of measurement. Although the unsuitability of such scores has long been discussed, they are still employed, even by some otherwise sophisticated investigators. <a href="[https://psycnet.apa.org/doi/10.1037/h0029382">Cronbach &amp; Furby, 1970, p.&nbsp;68</a></em></p>
+</div>
+</div>
+</div>
+<p>The Difference Score Model is badly reputed mainly for the following:</p>
 <ul>
-<li>
-<em>“Raw change” or “raw gain” scores formed by subtracting pretest scores from posttest scores lead to fallacious conclusions, primarily because such scores are systematically related to any random error of measurement. Although the unsuitability of such scores has long been discussed, they are still employed, even by some otherwise sophisticated investigators. <a href="[https://psycnet.apa.org/doi/10.1037/h0029382">Cronbach &amp; Furby, 1970, p.&nbsp;68</a></em>
-</li>
-</ul>
-The Difference Score Model is badly reputed mainly for the following:
-<ul>
-<li>
-High correlation between T1 scores and the computed D scores. With very high T1 scores, the D tends to be highly negatively correlated.
-</li>
-<li>
-Measurement error contained in T1 and T2 scores become attenuated in the computed D scores, greatly limiting the reliability of the computed D scores.
-</li>
+<li>High correlation between T1 scores and the computed D scores. With very high T1 scores, the D tends to be highly negatively correlated.</li>
+<li>Measurement error contained in T1 and T2 scores become attenuated in the computed D scores, greatly limiting the reliability of the computed D scores.</li>
 </ul>
 <p>Some authors have suggested ways to mitigate the problems of the <em>Difference Score Model</em> including, to account for the confounding effects of T1 when using the computed D scores in subsequent analysis. See <a href="https://www.jstor.org/stable/1434950">Rogosa &amp; Willett, 1983</a>; <a href="https://psycnet.apa.org/doi/10.1037/0022-006X.61.6.907">Gottman &amp; Rushe, 1993</a></p>
 </section><section id="autoregressive-model-of-change" class="level1"><h1>2. Autoregressive Model of Change</h1>
-The <em>Autoregressive Model of Change</em> focuses on the end state by using T2 as the DV and T1 as the predictor. This model responds to questions about individual differences in change by regressing T2 on T1, and does not answer questions about intraindividual change same as for many panel models. The regression coefficient resulting from regressing a variable at later time point on itself at an earlier time point is called the autoregressive effect. In this case, the regression of T2 on T1 is the autoregressive effect, which describes the stability of individual differences from T1 to T2.
+<p>The <em>Autoregressive Model of Change</em> focuses on the end state by using T2 as the DV and T1 as the predictor. This model responds to questions about individual differences in change by regressing T2 on T1, and does not answer questions about intraindividual change same as for many panel models. The regression coefficient resulting from regressing a variable at later time point on itself at an earlier time point is called the autoregressive effect. In this case, the regression of T2 on T1 is the autoregressive effect, which describes the stability of individual differences from T1 to T2.</p>
 <ul>
-<li>
-A larger coefficient means that individual differences have not changed much from T1 to T2 - higher stability.
-</li>
-<li>
-A smaller autoregressive coefficient means that there has been a larger change in individual differences from T1 to T2 - lower stability.
-</li>
+<li>A larger coefficient means that individual differences have not changed much from T1 to T2 - higher stability.</li>
+<li>A smaller autoregressive coefficient means that there has been a larger change in individual differences from T1 to T2 - lower stability.</li>
 </ul>
 <p>The <em>Autoregressive Model of Change</em> has had some appeal since the 70s and obviously since the criticisms of the <em>Difference Score Model</em> by <a href="[https://psycnet.apa.org/doi/10.1037/h0029382">Cronbach &amp; Furby, 1970, p.&nbsp;68</a>. The appealing feature of the The <em>Autoregressive Model of Change</em> stems from the fact that when T2 is regressed on T1 (autoregressive effect), the remaining variance or the residual variance in T2 can be predicted by other variables in which case, this becomes the prediction of the stable portion of variable T, say our variable is T measured at T1 and T2. This is what cross-lagged effects are most useful for, as for example, T2 can be regressed on both T1 and X1, which means X1 will predict T2 when controlling for prior levels of T at T1. So, X1 effectively predicts the stable portion or the residual variance of T (at T2) - which is why this mode is sometimes called <em>residual change model</em>.</p>
 <p>In the Autoregressive Cross-lagged Panel Models, controlling for prior levels of a variable while predicting the residual variance by another variable allows a researcher to rule out the possibility that a cross-lagged effect is confounded by the fact that the predictor (X) and outcome (T) are both correlated at T1. That is, the reason X1 predicts T2 is because X and T are correlated at T1 - this cannot hold when controlling for the prior levels of T. Most <em>Autoregressive Model of Change</em> and the <em>Autoregressive Cross-lagged Panel Models</em> have appeared in both observed or latent variable modeling.</p>
@@ -252,7 +249,7 @@ A smaller autoregressive coefficient means that there has been a larger change i
 </div>
 <p>Read data</p>
 <div class="cell">
-<details><summary>Code</summary><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"/Volumes/anyan/frederickanyan.github.io/quantpost_data/data.csv"</span><span class="op">)</span></span>
+<details><summary>Code</summary><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"/Volumes/anyan-1/frederickanyan.github.io/quantpost_data/data.csv"</span><span class="op">)</span></span>
 <span><span class="va">data</span> <span class="op">&lt;-</span> <span class="va">data</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"personid"</span>, <span class="st">"lone3"</span>, <span class="st">"lone5"</span><span class="op">)</span><span class="op">]</span> <span class="co">#Create new data set with only your main outcome variables</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"id"</span>, <span class="st">"loneT1"</span>, <span class="st">"loneT2"</span><span class="op">)</span> <span class="co">#Rename variables to represent T1 and T2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>

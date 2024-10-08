@@ -115,8 +115,8 @@ My personal choice has been to show separate individual longitudinal plots, but 
 ## Reshape from wide to long using tidyr
 lonelylong <- lonely %>%
               pivot_longer(cols = 2:6,
-                           names_to = "year",
-                           values_to = "lone")
+                           names_to = "loneyearly",
+                           values_to = "value")
 ```
 
 # 1. Examine univariate and bivariate statistics
@@ -159,7 +159,7 @@ Bivariate scatter plots and correlations along with histograms can be supplement
 ```{r}
 #Longitudinal plots with the long data set
 ggplot(data = lonelylong[which(lonelylong$personid < 26),], #Select the first 25 participants to show
-       aes(x = year, y = lone, group = personid)) +
+       aes(x = loneyearly, y = value, group = personid)) +
        geom_line() +
        #geom_smooth(method = lm, se = FALSE, size = 1) +
        xlab("Time of observation") +
@@ -173,7 +173,7 @@ Make longitudinal plots to show participant's scores of loneliness indexed on th
 ```{r}
 #Longitudinal plots with the long data set
 ggplot(data = lonelylong[which(lonelylong$personid < 6),], #Select only five participants 
-       aes(x = year, y = lone, group = personid)) +
+       aes(x = loneyearly, y = value, group = personid)) +
        geom_line() +     
        #geom_smooth(method = lm, se = FALSE, size = 1) +
        xlab("Time of observation") +

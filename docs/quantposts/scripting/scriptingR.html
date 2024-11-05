@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.353">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta name="author" content="Frederick Anyan">
+<meta name="dcterms.date" content="2024-08-22">
+<meta name="description" content="How do I organize and track my workflow when working in R? Read on to find out more!">
+<title>Frederick Anyan, Ph.D.&nbsp;- Scripting in R</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../images/profile.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark"><script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script><link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg navbar-dark "><div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Frederick Anyan, Ph.D.</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+<li class="nav-item">
+    <a class="nav-link" href="../../index.html" rel="" target="">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../teaching.html" rel="" target="">
+ <span class="menu-text">Teaching</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../publications.html" rel="" target="">
+ <span class="menu-text">Publications</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../projects.html" rel="" target="">
+ <span class="menu-text">Projects</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../workshops.html" rel="" target="">
+ <span class="menu-text">Workshops</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../quantposts.html" rel="" target="">
+ <span class="menu-text">Quant Posts</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../cv.html" rel="" target="">
+ <span class="menu-text">CV</span></a>
+  </li>  
+</ul>
+<ul class="navbar-nav navbar-nav-scroll ms-auto">
+<li class="nav-item">
+    <a class="nav-link" href="../../about.html" rel="" target="">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/frederickanyan" rel="" target=""><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/@anyan4usall" rel="" target=""><i class="bi bi-twitter" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+<div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
+   
+  <ul>
+<li><a href="#pane-layout-in-rstudio" id="toc-pane-layout-in-rstudio" class="nav-link active" data-scroll-target="#pane-layout-in-rstudio">Pane layout in RStudio</a></li>
+  <li><a href="#using-r-scripts" id="toc-using-r-scripts" class="nav-link" data-scroll-target="#using-r-scripts">Using R scripts</a></li>
+  <li><a href="#components-of-a-typical-script" id="toc-components-of-a-typical-script" class="nav-link" data-scroll-target="#components-of-a-typical-script">Components of a typical script</a></li>
+  <li><a href="#why-scripts-are-so-important" id="toc-why-scripts-are-so-important" class="nav-link" data-scroll-target="#why-scripts-are-so-important">Why scripts are so important</a></li>
+  <li><a href="#writing-r-scripts-in-the-editor" id="toc-writing-r-scripts-in-the-editor" class="nav-link" data-scroll-target="#writing-r-scripts-in-the-editor">Writing R scripts in the Editor</a></li>
+  <li><a href="#best-practices-when-scripting" id="toc-best-practices-when-scripting" class="nav-link" data-scroll-target="#best-practices-when-scripting">Best practices when scripting</a></li>
+  <li><a href="#opening-a-new-r-script" id="toc-opening-a-new-r-script" class="nav-link" data-scroll-target="#opening-a-new-r-script">Opening a new R script</a></li>
+  <li><a href="#sending-code-from-editor-to-the-console" id="toc-sending-code-from-editor-to-the-console" class="nav-link" data-scroll-target="#sending-code-from-editor-to-the-console">Sending code from editor to the Console</a></li>
+  <li><a href="#your-first-r-script" id="toc-your-first-r-script" class="nav-link" data-scroll-target="#your-first-r-script">Your first R script</a></li>
+  <li>
+<a href="#function-argument-and-parameters" id="toc-function-argument-and-parameters" class="nav-link" data-scroll-target="#function-argument-and-parameters">Function, Argument, and Parameters</a>
+  <ul class="collapse">
+<li><a href="#getting-help" id="toc-getting-help" class="nav-link" data-scroll-target="#getting-help">Getting help</a></li>
+  </ul>
+</li>
+  </ul></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<h1 class="title">Scripting in R</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">RStudio</div>
+    <div class="quarto-category">scripts</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    How do I organize and track my workflow when working in R? Read on to find out more!
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Frederick Anyan </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">August 22, 2024</p>
+    </div>
+  </div>
+  
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">August 30, 2024</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+</header><p>RStudio combines an editor (sometimes called source), console, file manager, and visualization tools in one place, making it easier to manage your workflow. This is a short walk-through of how to use R scripts to organize your workflow. Let’s start with the primary pane layouts in RStudio.</p>
+<section id="pane-layout-in-rstudio" class="level2"><h2 class="anchored" data-anchor-id="pane-layout-in-rstudio">Pane layout in RStudio</h2>
+<p>There are four primary panes in the RStudio IDE (Integrated Development Environment) user interface. These are</p>
+<ol type="1">
+<li>
+<strong>Source or editor pane</strong>: This is where you write your code. The code will run when you send to the console.</li>
+<li>
+<strong>Console pane</strong>: This is where your code executes when you send from the editor pane. You can also execute quick codes that you do not want to save here.</li>
+<li>
+<strong>Environment pane</strong>: This is where objects in your working space are displayed. This pane also contains History, Connections, Build, and Tutorial tabs.</li>
+<li>
+<strong>Output pane</strong>: This is where you can see your files directory, view plots, packages, access R help, and other tabs</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="img/panelayout.png" class="img-fluid figure-img" style="width:100.0%" data-align="center"></p>
+<figcaption class="figure-caption">RStudio pane layout</figcaption></figure>
+</div>
+<div class="callout callout-style-simple callout-tip">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>You can minimize or maximize each pane within each quadrant by clicking the minimize/maximize buttons on the top right of each pane.</p>
+</div>
+</div>
+</div>
+</section><section id="using-r-scripts" class="level2"><h2 class="anchored" data-anchor-id="using-r-scripts">Using R scripts</h2>
+<p>In R, a script is a file that contains a series of R commands written in the R language that can be executed in sequence. When you work interactively with R, you often enter commands directly into the console. While this is useful for quick tasks, it is not practical for more complex tasks or when you want to keep a record of your workflow. Scripting to the rescue! An image of an R script is shown below.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="img/script.png" class="img-fluid figure-img" style="width:100.0%" data-align="center"></p>
+<figcaption class="figure-caption">An R Script</figcaption></figure>
+</div>
+<p>Scripts are essential for reproducibility, as they allow you to document and track the entire workflow (e.g., data analysis process from start to finish). We will look more into the concept of scripting in R, explaining their importance in your workflow management. But first, it is important that you have familiarized yourself with managing projects in R, if you already do not know how to <a href="https://qmrg-ntnu.github.io/qmrg/best/Structuring_R_projects/Structuring_projects.html">manage projects in R</a>. You can also benefit from some <a href="https://qmrg-ntnu.github.io/qmrg/best/short_guidelines/guidelines.html">guidelines and convention when working in R</a></p>
+</section><section id="components-of-a-typical-script" class="level2"><h2 class="anchored" data-anchor-id="components-of-a-typical-script">Components of a typical script</h2>
+<p>Comments in R are written with a <code>#</code>. For example, <code>#Load the UpSetR package to access the upset() function</code>. While you can keep all your codes in a single script, you may also want to have several scripts for different levels or stages of your workflow. See <strong>Importing and analyzing data</strong> subsection in <a href="https://qmrg-ntnu.github.io/qmrg/best/Structuring_R_projects/Structuring_projects.html">managing projects in R</a></p>
+<ul>
+<li>
+<strong>Loading Libraries:</strong> Most scripts begin by loading the necessary R packages using the <code><a href="https://rdrr.io/r/base/library.html">library()</a></code> function. Let’s load these two packages.</li>
+</ul>
+<div class="cell">
+<details><summary>Code</summary><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://github.com/hms-dbmi/UpSetR">UpSetR</a></span><span class="op">)</span> <span class="co">#Load the UpSetR package to access the `upset()` function</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span> <span class="co">#Load ggplot2 for data visualization</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<ul>
+<li>
+<strong>Data Loading:</strong> Next, we will load our data, often from a file like a CSV.</li>
+</ul>
+<div class="cell">
+<details><summary>Code</summary><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#Load data</span></span>
+<span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"/Volumes/anyan-1/qmrg_group/best/scripting/dataupset.csv"</span><span class="op">)</span> </span>
+<span></span>
+<span><span class="co">#Assign names to variables in the dataset</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"separation"</span>, <span class="st">"mutism"</span>, <span class="st">"phobia"</span>, <span class="st">"social"</span>, <span class="st">"panic"</span>, <span class="st">"anxiety"</span>, <span class="st">"depression"</span>, <span class="st">"ptsd"</span><span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<ul>
+<li>
+<strong>Data Cleaning and Manipulation:</strong> This section of the script would include all the steps we take to clean and prepare our data for analysis.</li>
+</ul>
+<div class="cell">
+<details><summary>Code</summary><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#Removing rows with missing values</span></span>
+<span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/na.fail.html">na.omit</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span>  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<ul>
+<li>
+<strong>Analysis:</strong> Here, we perform the actual analysis. So, let’s regress depression on anxiety.</li>
+</ul>
+<div class="cell">
+<details><summary>Code</summary><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#Regress depression on anxiety</span></span>
+<span><span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">depression</span> <span class="op">~</span> <span class="va">anxiety</span>, data<span class="op">=</span><span class="va">data</span><span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<ul>
+<li>
+<strong>Visualization:</strong> Finally, scripts often include code to visualize the results.</li>
+</ul>
+<div class="cell">
+<details><summary>Code</summary><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">data</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">anxiety</span>, y <span class="op">=</span> <span class="va">depression</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span><span class="op">(</span>formula <span class="op">=</span> <span class="va">y</span> <span class="op">~</span> <span class="va">x</span>, method <span class="op">=</span> <span class="st">"lm"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output-display">
+<p><img src="scriptingR_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>The blue line represents the fitted regression line and the grey bands represent the 95% confidence interval limits.</p>
+<p>R has enormous capabilities for visualizations! For example, we can produce an upset plot to visualize the size and the pairwise combinations or intersections of sets and their aggregates. This facilitates easy-to-understand communication of the size or proportion of set memberships.</p>
+<div class="cell">
+<details><summary>Code</summary><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/UpSetR/man/upset.html">upset</a></span><span class="op">(</span><span class="va">data</span>,                    </span>
+<span>      nsets <span class="op">=</span> <span class="fl">8</span>,                </span>
+<span>      matrix.color <span class="op">=</span> <span class="st">"red"</span>, </span>
+<span>      sets.bar.color <span class="op">=</span> <span class="st">"blue"</span>, </span>
+<span>      order.by <span class="op">=</span> <span class="st">"freq"</span>,          </span>
+<span>      set_size.show <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output-display">
+<p><img src="scriptingR_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>The blue bar chart shows the total size of the sets (i.e., set size). The red filled-in circles corresponds to intersections or overlaps showing which set is part of an intersection or which symptoms overlaps with which other symptoms(s). For example, panic and mutism form an intersection or overlap, and so does panic and phobia. Additionally, panic, mutism, phobia and separation also form an intersection. And so on…The black bar chart shows the frequencies for each intersection (or intersection size).</p>
+</section><section id="why-scripts-are-so-important" class="level2"><h2 class="anchored" data-anchor-id="why-scripts-are-so-important">Why scripts are so important</h2>
+<ul>
+<li><p><strong>Reproducibility:</strong> Scripts ensure that your workflow is organized in a manner that can be reproduced by others or by you at a later time. Everything from loading packages through loading data to final analysis and visualizations is documented in one place. In an R script.</p></li>
+<li><p><strong>Automation:</strong> I believe in the “easier-is-better” heuristic approach to learning. Well, not always, but don’t worry yet. If you, like myself find yourself repeating the same steps often (like data cleaning or generating specific plots), and also believe, even if only a little that “easier-is-better”, then follow me - haha!😄. A script allows you to automate these tasks and saves you a lot of time. Makes things easier!</p></li>
+<li><p><strong>Collaboration:</strong> Some things cannot be shared, and I won’t share my caramel candies. Never! But my R scripts can definitely be shared. This makes it easier to collaborate on projects with colleagues. So that my colleagues can see exactly what steps I took and suggest improvements or changes. Well, not all of your suggestions or changes will be accepted by colleagues. Still, don’t worry. Move on!</p></li>
+</ul></section><section id="writing-r-scripts-in-the-editor" class="level2"><h2 class="anchored" data-anchor-id="writing-r-scripts-in-the-editor">Writing R scripts in the Editor</h2>
+<p>The primary tool for writing scripts is the R editor, but we can also use other text editors. R script is the most commonly used for scripting, offering features like syntax highlighting, code completion, and direct execution of code. Some of these features are very helpful. For example, syntax highlighting helps differentiate between functions, variables, and comments, making code easier to read and debug. R script can also organize code with comments, meaningful variable names, and consistent formatting. As you have probably already seen, my codes have been annotated with comments that is very useful for handling complex tasks in R. While writing scripts, RStudio will suggests codes as you type, reducing the chances of errors and speeding up coding.</p>
+<p>Sublime Text, Visual Studio Code, or even a basic text editors (e.g., Notepad++, TextEdit) can be used, though they might lack some R-specific features. The editor is where we compose and edit R scripts as such using a good editor can significantly enhance productivity.</p>
+</section><section id="best-practices-when-scripting" class="level2"><h2 class="anchored" data-anchor-id="best-practices-when-scripting">Best practices when scripting</h2>
+<ul>
+<li>
+<strong>Use Comments:</strong> Comments start with <code>#</code> and are ignored by R when the script runs. Use them to explain your code. Have a look over my codes again and also see the example below</li>
+</ul>
+<div class="cell">
+<details><summary>Code</summary><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># This function calculates the mean of a vector</span></span>
+<span><span class="va">mean_value</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">4</span>, <span class="fl">5</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<ul>
+<li>
+<strong>Meaningful Variable Names:</strong> Choose names that clearly describe the data or function of the variable.</li>
+</ul>
+<div class="cell">
+<details><summary>Code</summary><div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#Here, it is easier to know or remember that the object mean_value contains the mean of 1, 2, 3, 4, 5</span></span>
+<span><span class="va">mean_value</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">4</span>, <span class="fl">5</span><span class="op">)</span><span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<ul>
+<li>
+<strong>Consistent Formatting:</strong> Stick to a consistent style (e.g., spacing, indentation) to make your code readable. You can read more about the <a href="https://style.tidyverse.org/index.html">tidyverse style guide</a>.</li>
+</ul></section><section id="opening-a-new-r-script" class="level2"><h2 class="anchored" data-anchor-id="opening-a-new-r-script">Opening a new R script</h2>
+<p>Now, let me guide you through the process of creating a new R script within RStudio. Opening a new script is the first step in starting your R programming tasks. This is a very basic, yet crucial, task.</p>
+<p><strong>Steps:</strong></p>
+<ol type="1">
+<li>
+<strong>In RStudio:</strong>
+<ul>
+<li>Go to <code>File</code> &gt; <code>New File</code> &gt; <code>R Script</code>.</li>
+<li>This opens a blank script where you can start writing your R code.</li>
+<li>You can immediately start writing R code in the newly opened script.</li>
+</ul>
+</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="img/newfile.png" class="img-fluid figure-img" data-align="center" width="500"></p>
+<figcaption class="figure-caption">Opening a new R script</figcaption></figure>
+</div>
+<ol start="2" type="1">
+<li>
+<strong>Saving the Script:</strong>
+<ul>
+<li>It is good practice to save your script right away.</li>
+<li>Use <code>Ctrl+S</code> (Windows) or <code>Cmd+S</code> (Mac) to save the script regularly as you write it. Always choose a descriptive file name.</li>
+<li>You can also use the point-and-click function by going to <code>File</code> &gt; <code>Save</code>.</li>
+<li>It is also good practice to save your script in a directory related to your project. RStudio projects are helpful for keeping everything organized. <a href="https://qmrg-ntnu.github.io/qmrg/best/Structuring_R_projects/Structuring_projects.html">Look here for managing R projects</a>
+</li>
+</ul>
+</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="img/save.png" class="img-fluid figure-img" data-align="center" width="500"></p>
+<figcaption class="figure-caption">Saving R Script for first time</figcaption></figure>
+</div>
+<p>Up to this point, you are on your way to writing your first R script! But first, let’s look at how to send the code in the script from the editor to the console.</p>
+</section><section id="sending-code-from-editor-to-the-console" class="level2"><h2 class="anchored" data-anchor-id="sending-code-from-editor-to-the-console">Sending code from editor to the Console</h2>
+<p>This section will show how to send R script code from the editor pane to the R console pane for execution. This is essential for testing and running your code incrementally.</p>
+<p><strong>Steps:</strong></p>
+<ol type="1">
+<li>
+<strong>Highlight Code:</strong>
+<ul>
+<li>Highlight a section of code in your script.</li>
+<li>You can also move your cursor to the code you want to run</li>
+</ul>
+</li>
+<li>
+<strong>Send to Console:</strong>
+<ul>
+<li>Use <code>Ctrl+Enter</code> (Windows) or <code>Cmd+Enter</code> (Mac) to send the selected code to the console.</li>
+</ul>
+</li>
+<li>
+<strong>Run Entire Script:</strong>
+<ul>
+<li>Use <code>Ctrl+Shift+S</code> (Windows) or <code>Cmd+Shift+S</code> (Mac) to run the entire script.</li>
+<li>You can also use the point-and-click by going to the top-right corner of the source pane and clicking on <code>Run</code>
+</li>
+</ul>
+</li>
+</ol></section><section id="your-first-r-script" class="level2"><h2 class="anchored" data-anchor-id="your-first-r-script">Your first R script</h2>
+<p>Now is the time for you to go through writing your first simple R script. The focus here is on basic operations that demonstrate the functionality of R. Writing your first script is an exciting step so we will try to perform some basic calculations and generate a plot.</p>
+<p><strong>Steps:</strong></p>
+<ol type="1">
+<li>
+<p><strong>Start with a Comment:</strong></p>
+<ul>
+<li>Always begin with a comment to describe what the script does. Comments are written with a <code>#</code>.</li>
+</ul>
+</li>
+</ol>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># This is my first R script. I am going to do some basic calculations and plotting.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="2" type="1">
+<li>
+<p><strong>Basic Calculation:</strong></p>
+<ul>
+<li>Let’s perform a simple calculation.</li>
+</ul>
+</li>
+</ol>
+<div class="cell">
+<details><summary>Code</summary><div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Calculate 2 plus 2</span></span>
+<span><span class="va">result</span> <span class="op">&lt;-</span> <span class="fl">2</span> <span class="op">+</span> <span class="fl">2</span></span>
+<span></span>
+<span><span class="co">#Show results</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">result</span><span class="op">)</span>  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output cell-output-stdout">
+<pre><code>[1] 4</code></pre>
+</div>
+</div>
+<ol start="3" type="1">
+<li>
+<p><strong>Assign Values to Variables:</strong></p>
+<ul>
+<li>You can assign the result of any operation to a variable.</li>
+</ul>
+</li>
+</ol>
+<div class="cell">
+<details><summary>Code</summary><div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#Assign 5 to x, and 3 to y</span></span>
+<span> <span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">5</span></span>
+<span> <span class="va">y</span> <span class="op">&lt;-</span> <span class="fl">3</span></span>
+<span> </span>
+<span><span class="co">#Find the sum of x + y and show the results</span></span>
+<span> <span class="va">sum_xy</span> <span class="op">&lt;-</span> <span class="va">x</span> <span class="op">+</span> <span class="va">y</span></span>
+<span> <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">sum_xy</span><span class="op">)</span>  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output cell-output-stdout">
+<pre><code>[1] 8</code></pre>
+</div>
+</div>
+<ol start="4" type="1">
+<li>
+<p><strong>Simple Plotting:</strong></p>
+<ul>
+<li>R has powerful plotting capabilities built-in. Here’s a basic example:</li>
+</ul>
+</li>
+</ol>
+<div class="cell">
+<details><summary>Code</summary><div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#This code plots the numbers 1 through 10 on a simple scatter plot, labeling the axes.</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span>, main<span class="op">=</span><span class="st">"Simple Plot"</span>, </span>
+<span>     xlab<span class="op">=</span><span class="st">"X Axis"</span>, </span>
+<span>     ylab<span class="op">=</span><span class="st">"Y Axis"</span><span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output-display">
+<p><img src="scriptingR_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<ol start="5" type="1">
+<li>
+<p><strong>Save and Run the Script:</strong></p>
+<ul>
+<li>Save your script and run it to see the results. In RStudio, you can select the code and press <code>Ctrl+Enter</code> to send it to the console.</li>
+</ul>
+</li>
+</ol></section><section id="function-argument-and-parameters" class="level1"><h1>Function, Argument, and Parameters</h1>
+<p>This section introduces the fundamental concept of functions in R, which are predefined reusable blocks of code that perform specific tasks. Any proficient R user can write their own functions. Functions take inputs called arguments or parameters. Understanding how functions, arguments, and parameters work together is crucial for efficient coding and advancing your scripting. Functions are at the heart of R programming. Functions are organized in blocks, are reusable and so they make your code modular and easier to manage. They allow us to perform specific tasks repeatedly without rewriting code. For example, <code><a href="https://rdrr.io/r/base/print.html">print()</a></code> displays output, and <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code> creates graphs.</p>
+<ul>
+<li><strong>Example:</strong></li>
+</ul>
+<div class="cell">
+<details><summary>Code</summary><div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#Here is a function to square x</span></span>
+<span>  <span class="va">square_this</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span></span>
+<span>      <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">x</span><span class="op">^</span><span class="fl">2</span><span class="op">)</span></span>
+<span>  <span class="op">}</span></span>
+<span></span>
+<span><span class="co">#Now we can use our function to square 3 or any other number</span></span>
+<span>  <span class="va">result</span> <span class="op">&lt;-</span> <span class="fu">square_this</span><span class="op">(</span><span class="fl">3</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">result</span><span class="op">)</span>  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output cell-output-stdout">
+<pre><code>[1] 9</code></pre>
+</div>
+</div>
+<ul>
+<li>Here, <code>square_this</code> takes an input <code>x</code>, squares it, and returns the result.</li>
+</ul>
+<p><strong>Arguments and Parameters:</strong></p>
+<ul>
+<li>
+<strong>Arguments:</strong> These are the actual values you pass to a function to modify its behavior. In the example above, <code>3</code> is the argument.</li>
+<li>
+<strong>Parameters:</strong> These are the variables defined in the function’s signature that receive the argument values, and used to describe the inputs in function definitions. In <code>square_this</code>, <code>x</code> is a parameter.</li>
+</ul>
+<p><strong>Built-in RStudio functions:</strong></p>
+<ul>
+<li>R comes with many built-in functions like <code><a href="https://rdrr.io/r/base/mean.html">mean()</a></code>, <code><a href="https://rdrr.io/r/base/sum.html">sum()</a></code>, and <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code>. For example:</li>
+</ul>
+<div class="cell">
+<details><summary>Code</summary><div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#Calculating the sum of 1 to 5</span></span>
+<span><span class="va">sum_result</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">4</span>, <span class="fl">5</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">sum_result</span><span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output cell-output-stdout">
+<pre><code>[1] 15</code></pre>
+</div>
+</div>
+<section id="getting-help" class="level2"><h2 class="anchored" data-anchor-id="getting-help">Getting help</h2>
+<p>This section provides guidance on where you can find more help if you encounter issues or want to learn more.</p>
+<p><strong>Resources:</strong></p>
+<ul>
+<li>
+<strong>IPS resources:</strong> Here in IPS we have the R Club and the R Workshop seminar series. Join on Teams for more information. The Quantitative Seminar Series in Psychology delivers a broad range of in-person and online quantitative methods and statistical modelling workshops. <a href="https://frederickanyan.github.io/workshops/NTNU_2023_01_Dec_R/LGCM_R.html">The last session is available here</a>.</li>
+<li>
+<strong>R Help Files:</strong> Use <code>?function_name</code> or <code>help(function_name)</code> to access built-in help for any function.</li>
+<li>
+<strong>Online Communities:</strong> Stack Overflow, RStudio Community, and R-help mailing lists are great places to ask questions.</li>
+<li>
+<strong>R Documentation:</strong> Comprehensive manuals are available at the <a href="https://www.r-project.org">R project website</a>.</li>
+<li>
+<strong>Tutorials and Books:</strong> This is a <a href="https://r4ds.hadley.nz">great book</a> for most of the things you will need to do in R.</li>
+</ul>
+
+
+</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+      }
+    }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer"><div class="nav-footer">
+    <div class="nav-footer-left">Made with <a href="https://quarto.org">Posit Quarto</a></div>   
+    <div class="nav-footer-center"><a href="mailto:%20frederick.anyan@ntnu.no">Contact Frederick Anyan</a></div>
+    <div class="nav-footer-right"><a href="https://github.com/frederickanyan">Github Repo</a></div>
+  </div>
+</footer>
+
+
+</body></html>

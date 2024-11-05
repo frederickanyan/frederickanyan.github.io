@@ -1,0 +1,420 @@
+---
+title: "Importing and working with data in R"
+author: "Frederick Anyan"
+date: "2024-10-11"
+date-modified: last-modified
+categories: [RStudio]
+#image: "import.PNG"
+---
+
+
+Are you looking to elevate your data importation and manipulation  skills in R? This hands-on workshop will guide you through the essentials of importing and manipulating data in R. These are skills considered critical for anyone working with real-world datasets. This workshop is an in-depth exploration of techniques to efficiently manage various data formats, from CSV and Excel to SPSS and Google Sheets, while learning to manipulate and transform data with both base R and the tidyverse ecosystem.
+
+# **Workshop objectives:**
+- Importing data from diverse sources using RStudio, base R functions, and popular libraries (`readr`, `haven`, `googlesheets4`, etc.).
+- Key techniques for cleaning, transforming, and manipulating datasets using `dplyr` and other tools.
+- Best practices for handling missing data, reshaping datasets, and performing complex transformations using chaining and piping.
+- How to save and export data in multiple formats, ensuring compatibility with other tools and software.
+
+By the end of this workshop, you will gain practical skills to confidently import, handle and manipulate data in R. 
+No prior experience with R is required, but familiarity with basic programming concepts is helpful. 
+
+- [Download workshop outline](import_outline.pdf)
+
+- [Download `dplyr` cheatsheet ](data_transformation_dplyr.pdf)
+
+- [Download `tidyverse` cheatsheet ](tidyverse_cheatsheet.pdf)
+
+  
+## 1. **Introduction**
+
+We are going to explore various methods for importing and working with data in R. 
+Each `Code` below contains more comments, and so you can click on them to read more.
+
+## Load packages
+```{r, message = FALSE, warning = FALSE} 
+#library(tidyverse)
+library(readr) 
+library(dplyr) 
+library(tidyr) 
+
+library(haven) 
+#library(readxl) 
+#library(openxlsx) 
+library(data.table) 
+```
+
+______________________________________________
+## 2. **Data Importation Techniques**
+
+There are different data formats that can be read into `R`. 
+The two most common data formats are `.csv` (e.g., `r_ready_data.csv`) and `.sav` (e.g., `spss_data.sav`).
+
+- `.csv` (e.g., `r_ready_data.csv`): seems like the most common
+- `.sav` (e.g., `spss_data.sav`): could be common too
+
+___
+### A. **Importing CSV Files**
+
+1. **Point-and-click Method**:
+   
+   - In RStudio, go to *File > Import Dataset* and select your CSV file. 
+   - Next, browse to your working directory (or the folder containing your dataset) to import it.
+   
+   
+2. **Base R Method**: `read.csv()`
+
+  - Standard function, but can be very slow for large datasets.
+
+```{r}
+# When working outside a dedicated directory tell R where you file is located and file format.
+# datacsv <- read.csv("path/to/yourfile.csv") 
+
+# When working in a dedicated directory
+# We are going to import the practicedata.csv into a dataframe object called 'data_csv'
+data_csv <- read.csv("practicedata.csv", sep = ";") 
+```
+
+3.**`readr` Package**: `read_csv()` and `read_delim()`
+
+   - Part of the `tidyverse`, fast, and provides additional features like column specification.
+   - `read_csv()`   : reads comma delimited files, 
+   - `read_csv2()`  : reads semicolon separated files (common in countries where , is used as the decimal place), 
+   - `read_tsv()`   : reads tab delimited files, 
+   - `read_delim()` : reads files with any delimiter.
+
+```{r}
+# We are going to import the practicedata.csv into a dataframe object called 'data_readr_csv'
+data_readr_csv <- read_csv2("practicedata.csv", show_col_types = FALSE)
+
+# A more general function that reads any delimiters
+# We are going to import the practicedata.csv into a dataframe object called 'data_readr_csv_delim'
+data_readr_csv_delim <- read_delim("practicedata.csv", show_col_types = FALSE)
+```
+
+
+4. **`data.table` Package**: `fread()`
+   
+   - Much faster for large datasets.
+   - All controls such as `sep`, `colClasses` and `nrows` are automatically detected.
+
+```{r}
+# We are going to import the practicedata.csv into a dataframe object called 'data_fread_csv'
+data_fread_csv <- fread("practicedata.csv")
+```
+
+___
+
+#### B. **Importing SPSS Files**
+
+1. **`haven` Package**: `read_spss()` and `read_sav()`
+
+   - Reads SPSS files (.sav).
+   
+```{r}
+# We are going to import the practicedata.sav into a dataframe object called 'data_sav'
+data_sav <- read_sav("practicedata.sav")
+
+# We are going to import the practicedata.sav into a dataframe object called 'data_spss'
+data_spss <- read_spss("practicedata.sav")
+```
+
+___
+#### C. **Importing Excel and Google Sheet Files**
+
+1. **`readxl` Package**: `read_excel()`
+   
+   - Reads Excel files (.xlsx).
+   
+```{r}
+# dataexcel <- read_excel("path/to/yourfile.xlsx", sheet = "Sheet1")
+```
+
+2. **`openxlsx` Package**: `read.xlsx()`
+
+   - Similar to `readxl`, but offers more control over Excel options.
+  
+```{r}
+# dataxlsx <- read.xlsx("path/to/yourfile.xlsx", sheet = 1)
+```
+
+3. **`googlesheets4` Packagae**: `gs4_get()` and `read_sheet()`
+
+  - Reads Googlesheet Files. [Read more here](https://googlesheets4.tidyverse.org/index.html)
+
+```{r}
+# sheet <- gs4_get("https://docs.google.com/spreadsheets/d/sheet_id/")
+# data <- read_sheet(sheet)
+```
+
+
+______________________________________________
+## 3. **Data Manipulation**
+
+#### A. **Base R vs. Tidyverse**
+
+- Base R functions are often more verbose. 
+- For many advance manipulations, the tidyverse functions, (e.g.,`dplyr`) provide a cleaner, more readable codes.
+- You can type the pipe with `Ctrl` + `Shift` + `M` if you have a PC or `Cmd` + `Shift` + `M` if you have a Mac.
+  
+
+#### B. **Exploring Data**
+
+1. **Viewing Data**:
+
+```{r}
+# View the first few (six) rows of the dataframe
+head(data_readr_csv)
+
+# View the last few (six) rows of the dataframe
+tail(data_readr_csv)
+
+# View variable characteristics in 'data_readr_csv' dataframe
+summary(data_readr_csv)
+```
+
+
+2. **Viewing Data `dplyr` package**: `glimpse()`
+
+```{r}
+# We can get a glimpse of our data
+glimpse(data_readr_csv)
+
+# You can also select columns to glimpse
+data_readr_csv %>% 
+  glimpse() %>% 
+  select(1:3)
+```
+
+
+3. **Handling Missing Data**:
+
+```{r}
+# Get an overview of missing data for the entire dataset or by selected variables
+is.na(data_readr_csv)
+is.na(data_readr_csv$Sivilstand)
+
+# Remove rows with missing data
+data_readr_csv_clean <- na.omit(data_readr_csv)  
+
+# Replace missing data with 0. Be careful what you decide to use as missing data replacements. This is just for demonstration
+# We want to pass the 'data_readr_csv' dataframe to another dataframe object called 'data_readr_csv_new' before replacing missing data with 0s in order to preserve our original data 'data_readr_csv'
+data_readr_csv_new <- data_readr_csv
+is.na(data_readr_csv_new)
+
+data_readr_csv_new[is.na(data_readr_csv_new)] <- 0 
+is.na(data_readr_csv_new)
+```  
+  
+
+4. **Encoding categorical variables** `factor()`
+
+- In R, factors are used to represent categorical variables, which are variables with a fixed and predefined set of possible values. 
+- Factors are also useful when you need to display character vectors in a specific, non-alphabetical order.
+
+```{r}
+# First let's see a table of Kjønn
+table(data_readr_csv$Kjønn) 
+
+# We want to label 0 as Men and 1 as Women
+data_readr_csv$Kjønn <- factor(data_readr_csv$Kjønn, labels=c("Men", "Women"))
+table(data_readr_csv$Kjønn) 
+```
+
+
+5. **Column (or variable) selection**: `col_select()`
+
+```{r}
+# Pass column names or variables to select
+data_sel_col <- read_csv2("practicedata.csv", 
+                         col_select = c(trist, rsa1, rsa2, rsa3, rsa4), 
+                         show_col_types = FALSE)
+
+# We can also select columns by specifying the column numbers
+data_sel_col02 <- read_csv2("practicedata.csv", 
+                                   col_select = c(5, 7:10), 
+                                   show_col_types = FALSE)
+```
+
+
+6. **Column (or variable) selection**: `select()`
+
+```{r}
+# We can select columns by their names in the dataframe
+data_sel_col03 <- data_readr_csv %>%
+                  select(trist, rsa1, rsa2, rsa3, rsa4)
+
+# We can select several columns which have the same names and arranged consecutively
+data_sel_col04 <- data_readr_csv[,c(paste("rsa", c(1:10), sep = ""))]
+```
+
+
+7. **Renaming Columns**:
+
+```{r}
+# We can rename the columns of 'data_sel_col03' from trist, rsa1, rsa2, rsa3, rsa4 to 
+colnames(data_sel_col03) <- c("sad", "rsaone", "rsatwo", "rsathree", "rsafour")
+```
+
+
+8. **Renaming columns (or variables)**: `rename`()`
+
+```{r}
+data_sel_col03 %>% 
+  rename(# "newname" = "oldname",
+    "sadnew" = "sad", 
+    "rsa1" = "rsaone", 
+    "rsa2" = "rsatwo", 
+    "rsa3" = "rsathree", 
+    "rsa4" = "rsafour")
+```
+
+
+9. **Filtering cases or observations**: `subset()`
+
+```{r}
+# We can select cases for only married participants
+data_married <- subset(data_readr_csv, Sivilstand > 0)
+
+# We can also select cases for married participants who reported 2 on trist
+data_marriedtrist <- subset(data_readr_csv, Sivilstand > 0 & trist == 2)
+
+# For data encoded as factor
+data_women = subset(data_readr_csv, Kjønn == "Women") 
+data_men = subset(data_readr_csv, Kjønn == "Men")
+```
+
+
+10. **Filtering cases or observations**: `filter()`
+
+```{r}
+data_marriedtrist02 <- data_readr_csv %>% 
+                      # Filter married participants who reported 2 on trist
+                      filter(Sivilstand > 0, trist == 2)
+
+
+data_women02 <- data_readr_csv %>%
+                # Filter women only
+                filter(Kjønn == "Women")
+```
+
+
+11. **Combining  `filter()` and `select()`**
+
+```{r}
+data_married_rsa <- data_readr_csv %>% 
+                   filter(Sivilstand == 1) %>% 
+                   select(rsa1, rsa2, rsa3, rsa4)
+```
+
+
+
+#### C. **Data Transformation**
+
+1. **Adding, Creating or Transforming Columns (variables)**: `mutate()`
+
+```{r}
+
+data_rsa_sum <- data_readr_csv %>%
+                mutate(rsasum = rsa1 + rsa2 + rsa3 + rsa4)
+
+
+# We can apply multiple functions all at the same time
+data_rsa_sum02 <- data_rsa_sum %>%
+                  mutate(sumrsa = rsa1 + rsa2 + rsa3 + rsa4,
+                  meanrsa = sumrsa/4)
+
+# Another fun way
+data_rsa_sum03 <- data_rsa_sum %>%
+                  rowwise() %>%
+                  mutate(rsasumnew = sum(rsa1, rsa2, rsa3, rsa4))
+```
+
+
+2. **Grouping and Summarizing Data**: `group_by()` and `summarise()`
+
+```{r}
+# We want to know the mean of trist for men and women
+data_readr_csv %>%
+  group_by(Kjønn) %>%
+    summarise(meantrist = mean(trist, na.rm = TRUE))
+```
+
+
+```{r}
+data_readr_csv %>%
+ group_by(Kjønn, Sivilstand) %>%
+  summarise(meantrist = mean(trist, na.rm = TRUE))
+
+```
+
+
+3. **Sorting Data**: `arrange()`
+
+```{r}
+sorted_data <- data_readr_csv %>% 
+               arrange(desc(id))
+```
+
+
+4. **Joining Datasets**:
+
+```{r}
+data1 <- read_csv2("practicedata.csv", show_col_types = FALSE)
+data2 <- read_csv2("dataformerge.csv", show_col_types = FALSE)
+
+mergeddata <- merge(data1, data2, by = "id")
+```
+
+___
+
+
+#### D. **Reshaping Data**
+
+1. **Pivoting Data**: `pivot_longer()` and `pivot_wider()`
+
+```{r}
+long_data <- data2 %>% 
+             pivot_longer(cols = 2:3,
+                          names_to = "variable",
+                          values_to = "value")
+
+
+long_data02 <- pivot_longer(data2, 
+                            cols = c(wz1, wz2), 
+                            names_to = "variable", 
+                            values_to = "value")
+
+  
+  
+wide_data <- pivot_wider(long_data, 
+                         names_from = variable,
+                         values_from = value)
+```
+
+  ---
+
+______________________________________________
+## 4. **Data Out or Saving**
+
+#### **A. Writing data out**
+
+1. **`readr` Method**: `write.csv()` and `write_csv2()`
+
+```{r}
+write.csv(wide_data, "widedata.csv")
+
+write_csv2(wide_data, "widedatacsv2.csv")
+```
+
+
+2. **`haven` Method**: `write.sav()`
+
+```{r}
+write_sav(wide_data, "widedata.sav")
+```
+
+
+
+
+

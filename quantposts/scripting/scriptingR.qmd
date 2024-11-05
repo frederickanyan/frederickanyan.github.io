@@ -1,0 +1,265 @@
+---
+title: "Scripting in R"
+image: "img/script.png"
+categories: [RStudio, scripts]
+description: "How do I organize and track my workflow when working in R? Read on to find out more!"
+author: "Frederick Anyan"
+date: "8/22/2024"
+date-modified: last-modified
+---
+
+RStudio combines an editor (sometimes called source), console, file manager, and visualization tools in one place, making it easier to manage your workflow. This is a short walk-through of how to use R scripts to organize your workflow. Let's start with the primary pane layouts in RStudio.
+
+## Pane layout in RStudio
+
+There are four primary panes in the RStudio IDE (Integrated Development Environment) user interface. These are
+
+1.  **Source or editor pane**: This is where you write your code. The code will run when you send to the console.
+2.  **Console pane**: This is where your code executes when you send from the editor pane. You can also execute quick codes that you do not want to save here.
+3.  **Environment pane**: This is where objects in your working space are displayed. This pane also contains History, Connections, Build, and Tutorial tabs.
+4.  **Output pane**: This is where you can see your files directory, view plots, packages, access R help, and other tabs
+
+![RStudio pane layout](img/panelayout.png){width="100%" align="center"} 
+
+
+::: {.callout-tip appearance="simple"} 
+You can minimize or maximize each pane within each quadrant by clicking the minimize/maximize buttons on the top right of each pane. 
+:::
+
+## Using R scripts
+
+In R, a script is a file that contains a series of R commands written in the R language that can be executed in sequence. When you work interactively with R, you often enter commands directly into the console. While this is useful for quick tasks, it is not practical for more complex tasks or when you want to keep a record of your workflow. Scripting to the rescue! An image of an R script is shown below.
+
+![An R Script](img/script.png){width=100% align="center"}
+
+Scripts are essential for reproducibility, as they allow you to document and track the entire workflow (e.g., data analysis process from start to finish). We will look more into the concept of scripting in R, explaining their importance in your workflow management. But first, it is important that you have familiarized yourself with managing projects in R, if you already do not know how to [manage projects in R](https://qmrg-ntnu.github.io/qmrg/best/Structuring_R_projects/Structuring_projects.html). You can also benefit from some [guidelines and convention when working in R](https://qmrg-ntnu.github.io/qmrg/best/short_guidelines/guidelines.html)
+
+
+## Components of a typical script
+
+Comments in R are written with a `#`. For example, `#Load the UpSetR package to access the upset() function`. While you can keep all your codes in a single script, you may also want to have several scripts for different levels or stages of your workflow. See **Importing and analyzing data** subsection in [managing projects in R](https://qmrg-ntnu.github.io/qmrg/best/Structuring_R_projects/Structuring_projects.html)
+
+-   **Loading Libraries:** Most scripts begin by loading the necessary R packages using the `library()` function. Let's load these two packages.
+
+```{r}
+library(UpSetR) #Load the UpSetR package to access the `upset()` function
+library(ggplot2) #Load ggplot2 for data visualization
+```
+
+-   **Data Loading:** Next, we will load our data, often from a file like a CSV.
+
+```{r}
+#Load data
+data <- read.csv("/Volumes/anyan-1/qmrg_group/best/scripting/dataupset.csv") 
+
+#Assign names to variables in the dataset
+names(data) <- c("separation", "mutism", "phobia", "social", "panic", "anxiety", "depression", "ptsd") 
+```
+
+-   **Data Cleaning and Manipulation:** This section of the script would include all the steps we take to clean and prepare our data for analysis.
+
+```{r}
+#Removing rows with missing values
+data <- na.omit(data)  
+```
+
+-   **Analysis:** Here, we perform the actual analysis. So, let's regress depression on anxiety.
+
+```{r}
+#Regress depression on anxiety
+model <- lm(depression ~ anxiety, data=data) 
+```
+
+-   **Visualization:** Finally, scripts often include code to visualize the results.
+
+```{r}
+ggplot(data, aes(x = anxiety, y = depression)) +
+  geom_point() +
+  geom_smooth(formula = y ~ x, method = "lm")
+```
+
+The blue line represents the fitted regression line and the grey bands represent the 95% confidence interval limits.
+
+R has enormous capabilities for visualizations! For example, we can produce an upset plot to visualize the size and the pairwise combinations or intersections of sets and their aggregates. This facilitates easy-to-understand communication of the size or proportion of set memberships.
+
+```{r}
+upset(data,                    
+      nsets = 8,                
+      matrix.color = "red", 
+      sets.bar.color = "blue", 
+      order.by = "freq",          
+      set_size.show = TRUE) 
+```
+
+The blue bar chart shows the total size of the sets (i.e., set size). The red filled-in circles corresponds to intersections or overlaps showing which set is part of an intersection or which symptoms overlaps with which other symptoms(s). For example, panic and mutism form an intersection or overlap, and so does panic and phobia. Additionally, panic, mutism, phobia and separation also form an intersection. And so on...The black bar chart shows the frequencies for each intersection (or intersection size).
+
+## Why scripts are so important
+
+-   **Reproducibility:** Scripts ensure that your workflow is organized in a manner that can be reproduced by others or by you at a later time. Everything from loading packages through loading data to final analysis and visualizations is documented in one place. In an R script.
+
+-   **Automation:** I believe in the "easier-is-better" heuristic approach to learning. Well, not always, but don't worry yet. If you, like myself find yourself repeating the same steps often (like data cleaning or generating specific plots), and also believe, even if only a little that "easier-is-better", then follow me - haha!😄. A script allows you to automate these tasks and saves you a lot of time. Makes things easier!
+
+-   **Collaboration:** Some things cannot be shared, and I won't share my caramel candies. Never! But my R scripts can definitely be shared. This makes it easier to collaborate on projects with colleagues. So that my colleagues can see exactly what steps I took and suggest improvements or changes. Well, not all of your suggestions or changes will be accepted by colleagues. Still, don't worry. Move on!
+
+## Writing R scripts in the Editor
+
+The primary tool for writing scripts is the R editor, but we can also use other text editors. R script is the most commonly used for scripting, offering features like syntax highlighting, code completion, and direct execution of code. Some of these features are very helpful. For example, syntax highlighting helps differentiate between functions, variables, and comments, making code easier to read and debug. R script can also organize code with comments, meaningful variable names, and consistent formatting. As you have probably already seen, my codes have been annotated with comments that is very useful for handling complex tasks in R. While writing scripts, RStudio will suggests codes as you type, reducing the chances of errors and speeding up coding.
+
+Sublime Text, Visual Studio Code, or even a basic text editors (e.g., Notepad++, TextEdit) can be used, though they might lack some R-specific features. The editor is where we compose and edit R scripts as such using a good editor can significantly enhance productivity.
+
+## Best practices when scripting
+
+-   **Use Comments:** Comments start with `#` and are ignored by R when the script runs. Use them to explain your code. Have a look over my codes again and also see the example below
+
+```{r}
+# This function calculates the mean of a vector
+mean_value <- mean(c(1, 2, 3, 4, 5))
+```
+
+-   **Meaningful Variable Names:** Choose names that clearly describe the data or function of the variable.
+
+```{r}
+#Here, it is easier to know or remember that the object mean_value contains the mean of 1, 2, 3, 4, 5
+mean_value <- mean(c(1, 2, 3, 4, 5)) 
+```
+
+-   **Consistent Formatting:** Stick to a consistent style (e.g., spacing, indentation) to make your code readable. You can read more about the [tidyverse style guide](https://style.tidyverse.org/index.html). 
+
+## Opening a new R script
+
+Now, let me guide you through the process of creating a new R script within RStudio. Opening a new script is the first step in starting your R programming tasks. This is a very basic, yet crucial, task.
+
+**Steps:**
+
+1.  **In RStudio:**
+    -   Go to `File` \> `New File` \> `R Script`.
+    -   This opens a blank script where you can start writing your R code.
+    -   You can immediately start writing R code in the newly opened script.
+
+![Opening a new R script](img/newfile.png){width="500" align="center"}
+
+2.  **Saving the Script:**
+    -   It is good practice to save your script right away. 
+    -   Use `Ctrl+S` (Windows) or `Cmd+S` (Mac) to save the script regularly as you write it. Always choose a descriptive file name.
+    -   You can also use the point-and-click function by going to `File` \> `Save`.
+    -   It is also good practice to save your script in a directory related to your project. RStudio projects are helpful for keeping everything organized. [Look here for managing R projects](https://qmrg-ntnu.github.io/qmrg/best/Structuring_R_projects/Structuring_projects.html)
+
+![Saving R Script for first time](img/save.png){width="500" align="center"}
+
+Up to this point, you are on your way to writing your first R script! But first, let's look at how to send the code in the script from the editor to the console.
+
+## Sending code from editor to the Console
+
+This section will show how to send R script code from the editor pane to the R console pane for execution. This is essential for testing and running your code incrementally.
+
+**Steps:**
+
+1.  **Highlight Code:**
+    -   Highlight a section of code in your script.
+    -   You can also move your cursor to the code you want to run
+2.  **Send to Console:**
+    -   Use `Ctrl+Enter` (Windows) or `Cmd+Enter` (Mac) to send the selected code to the console.
+3.  **Run Entire Script:**
+    -   Use `Ctrl+Shift+S` (Windows) or `Cmd+Shift+S` (Mac) to run the entire script.
+    -   You can also use the point-and-click by going to the top-right corner of the source pane and clicking on `Run`
+
+## Your first R script
+
+Now is the time for you to go through writing your first simple R script. The focus here is on basic operations that demonstrate the functionality of R. Writing your first script is an exciting step so we will try to perform some basic calculations and generate a plot.
+
+**Steps:**
+
+1.  **Start with a Comment:**
+
+    -   Always begin with a comment to describe what the script does. Comments are written with a `#`.
+
+```r
+# This is my first R script. I am going to do some basic calculations and plotting.
+```
+
+2.  **Basic Calculation:**
+
+    -   Let's perform a simple calculation.
+
+```{r}
+# Calculate 2 plus 2
+result <- 2 + 2
+
+#Show results
+print(result)  
+```
+
+3.  **Assign Values to Variables:**
+
+    -   You can assign the result of any operation to a variable.
+
+```{r}
+#Assign 5 to x, and 3 to y
+ x <- 5
+ y <- 3
+ 
+#Find the sum of x + y and show the results
+ sum_xy <- x + y
+ print(sum_xy)  
+```
+
+4.  **Simple Plotting:**
+
+    -   R has powerful plotting capabilities built-in. Here's a basic example:
+
+```{r}
+#This code plots the numbers 1 through 10 on a simple scatter plot, labeling the axes.
+plot(1:10, main="Simple Plot", 
+     xlab="X Axis", 
+     ylab="Y Axis") 
+```
+
+5.  **Save and Run the Script:**
+
+    -   Save your script and run it to see the results. In RStudio, you can select the code and press `Ctrl+Enter` to send it to the console.
+
+# Function, Argument, and Parameters
+
+This section introduces the fundamental concept of functions in R, which are predefined reusable blocks of code that perform specific tasks. Any proficient R user can write their own functions. Functions take inputs called arguments or parameters. Understanding how functions, arguments, and parameters work together is crucial for efficient coding and advancing your scripting. Functions are at the heart of R programming. Functions are organized in blocks, are reusable and so they make your code modular and easier to manage. They allow us to perform specific tasks repeatedly without rewriting code. For example, `print()` displays output, and `plot()` creates graphs.
+
+-   **Example:**
+
+```{r}
+#Here is a function to square x
+  square_this <- function(x) {
+      return(x^2)
+  }
+
+#Now we can use our function to square 3 or any other number
+  result <- square_this(3)
+  print(result)  
+```
+
+-   Here, `square_this` takes an input `x`, squares it, and returns the result.
+
+**Arguments and Parameters:**
+
+-   **Arguments:** These are the actual values you pass to a function to modify its behavior. In the example above, `3` is the argument.
+-   **Parameters:** These are the variables defined in the function's signature that receive the argument values, and used to describe the inputs in function definitions. In `square_this`, `x` is a parameter.
+
+**Built-in RStudio functions:**
+
+-   R comes with many built-in functions like `mean()`, `sum()`, and `plot()`. For example:
+
+```{r}
+#Calculating the sum of 1 to 5
+sum_result <- sum(c(1, 2, 3, 4, 5))
+print(sum_result) 
+```
+
+## Getting help
+
+This section provides guidance on where you can find more help if you encounter issues or want to learn more.
+
+**Resources:**
+
+-   **IPS resources:** Here in IPS we have the R Club and the R Workshop seminar series. Join on Teams for more information. The Quantitative Seminar Series in Psychology delivers a broad range of in-person and online quantitative methods and statistical modelling workshops. [The last session is available here](https://frederickanyan.github.io/workshops/NTNU_2023_01_Dec_R/LGCM_R.html).
+-   **R Help Files:** Use `?function_name` or `help(function_name)` to access built-in help for any function.
+-   **Online Communities:** Stack Overflow, RStudio Community, and R-help mailing lists are great places to ask questions.
+-   **R Documentation:** Comprehensive manuals are available at the [R project website](https://www.r-project.org).
+-   **Tutorials and Books:** This is a [great book](https://r4ds.hadley.nz) for most of the things you will need to do in R.

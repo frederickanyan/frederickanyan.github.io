@@ -48,6 +48,7 @@
   {
     "listing": "/quantposts.html",
     "items": [
+      "/quantposts/scripting/scriptingR.html",
       "/quantposts/two occasion/two.html",
       "/quantposts/practical prelims/practical.html",
       "/quantposts/upset/upset.html",
@@ -60,7 +61,8 @@
       "/workshops/NTNU_2021_19_20_May/NTNU2021May.html",
       "/workshops/NTNU_2023_01_Dec_R/LGCM_R.html",
       "/workshops/NTNU_2023_01_Dec_Mplus/LGCM_Mplus.html",
-      "/workshops/NTNU_2024_01_March_JASP/jasp_intro.html"
+      "/workshops/NTNU_2024_01_March_JASP/jasp_intro.html",
+      "/workshops/NTNU_2024_11_oct_Import_R/Importing_and_working_dataR.html"
     ]
   },
   {
